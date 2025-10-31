@@ -39334,7 +39334,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_any_zero_fp
   br i1 %brmerge, label %91, label %.critedge113
 
 91:                                               ; preds = %.thread299, %89, %90, %84
-  %.0107 = phi i8 [ 0, %84 ], [ 0, %.thread299 ], [ 1, %89 ], [ 0, %90 ]
+  %.0107 = phi i1 [ false, %84 ], [ false, %.thread299 ], [ true, %89 ], [ false, %90 ]
   %.0104 = phi i32 [ 0, %84 ], [ 3, %.thread299 ], [ %.mux, %89 ], [ %.mux119, %90 ]
   %92 = icmp eq ptr %4, %.0294
   %93 = icmp eq ptr %5, %.0291
@@ -39347,13 +39347,13 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_any_zero_fp
   %97 = icmp eq i32 %.0104, 2
   %spec.store.select = select i1 %97, i32 1, i32 %.0104
   %.4 = select i1 %96, i32 2, i32 %spec.store.select
-  %98 = xor i8 %.0107, 1
+  %98 = xor i1 %.0107, true
   br label %99
 
 99:                                               ; preds = %94, %91
   %.1295 = phi ptr [ %.0291, %94 ], [ %.0294, %91 ]
   %.2293 = phi ptr [ %.0294, %94 ], [ %.0291, %91 ]
-  %.3110 = phi i8 [ %98, %94 ], [ %.0107, %91 ]
+  %.3110 = phi i1 [ %98, %94 ], [ %.0107, %91 ]
   %.3 = phi i32 [ %.4, %94 ], [ %.0104, %91 ]
   %.0 = phi i32 [ %95, %94 ], [ %0, %91 ]
   %100 = icmp eq ptr %4, %.2293
@@ -39402,7 +39402,8 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_any_zero_fp
 _ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit: ; preds = %102, %103, %104, %105, %106, %107, %108
   %.sroa.05.0.i = phi i64 [ 4, %103 ], [ 3, %104 ], [ 2, %105 ], [ 1, %106 ], [ 6, %107 ], [ 5, %108 ], [ 0, %102 ]
   %.sroa.8.0.i = phi i32 [ 0, %103 ], [ 0, %104 ], [ 0, %105 ], [ 0, %106 ], [ %.3, %107 ], [ %.3, %108 ], [ 0, %102 ]
-  %.sroa.15.0.shrunk.i = phi i8 [ 0, %103 ], [ 0, %104 ], [ 0, %105 ], [ 0, %106 ], [ %.3110, %107 ], [ %.3110, %108 ], [ 0, %102 ]
+  %.sroa.15.0.shrunk.i = phi i1 [ false, %103 ], [ false, %104 ], [ false, %105 ], [ false, %106 ], [ %.3110, %107 ], [ %.3110, %108 ], [ false, %102 ]
+  %.sroa.15.0.i = zext i1 %.sroa.15.0.shrunk.i to i8
   %.sroa.8.0.insert.ext.i = zext nneg i32 %.sroa.8.0.i to i64
   %.sroa.8.0.insert.shift.i = shl nuw nsw i64 %.sroa.8.0.insert.ext.i, 32
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.8.0.insert.shift.i, %.sroa.05.0.i
@@ -40676,7 +40677,7 @@ switch.lookup477:                                 ; preds = %428
 .critedge113:                                     ; preds = %430, %428, %switch.lookup477, %switch.lookup, %442, %444, %434, %477, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321, %.thread313, %90, %89, %478, %483, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit
   %.sroa.093.3 = phi i64 [ %.sroa.05.0.insert.insert.i, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit ], [ %.sroa.022.0.insert.insert.i, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit ], [ 0, %483 ], [ 0, %478 ], [ 0, %89 ], [ 0, %90 ], [ %.sroa.093.4.ph, %.thread313 ], [ %413, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit ], [ %.sroa.038.1.ph.i.ph, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321 ], [ %.sroa.079.2.i, %477 ], [ 0, %434 ], [ 0, %444 ], [ 0, %442 ], [ %switch.load, %switch.lookup ], [ %switch.load479, %switch.lookup477 ], [ 0, %428 ], [ 0, %430 ]
   %.sroa.13.3 = phi i64 [ %.sroa.8.0.insert.shift.i, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit ], [ %.sroa.13.0.extract.shift, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit ], [ 0, %483 ], [ 0, %478 ], [ 0, %89 ], [ 0, %90 ], [ 0, %.thread313 ], [ 0, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit ], [ 0, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321 ], [ 0, %477 ], [ 0, %434 ], [ 0, %444 ], [ 0, %442 ], [ 0, %switch.lookup ], [ 0, %switch.lookup477 ], [ 0, %428 ], [ 0, %430 ]
-  %.sroa.22.3 = phi i8 [ %.sroa.15.0.shrunk.i, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit ], [ 0, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit ], [ 0, %483 ], [ 0, %478 ], [ 0, %89 ], [ 0, %90 ], [ 0, %.thread313 ], [ 0, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit ], [ 0, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321 ], [ 0, %477 ], [ 0, %434 ], [ 0, %444 ], [ 0, %442 ], [ 0, %switch.lookup ], [ 0, %switch.lookup477 ], [ 0, %428 ], [ 0, %430 ]
+  %.sroa.22.3 = phi i8 [ %.sroa.15.0.i, %_ZN4llvm16getSelectPatternENS_7CmpInst9PredicateENS_24SelectPatternNaNBehaviorEb.exit ], [ 0, %_ZL19matchFastFloatClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_RS3_S4_.exit ], [ 0, %483 ], [ 0, %478 ], [ 0, %89 ], [ 0, %90 ], [ 0, %.thread313 ], [ 0, %_ZL19matchMinMaxOfMinMaxN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_j.exit ], [ 0, %_ZL10matchClampN4llvm7CmpInst9PredicateEPNS_5ValueES3_S3_S3_.exit.thread321 ], [ 0, %477 ], [ 0, %434 ], [ 0, %444 ], [ 0, %442 ], [ 0, %switch.lookup ], [ 0, %switch.lookup477 ], [ 0, %428 ], [ 0, %430 ]
   %544 = and i64 %.sroa.093.3, 4294967295
   %545 = or disjoint i64 %.sroa.13.3, %544
   br label %546

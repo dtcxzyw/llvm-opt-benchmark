@@ -10895,10 +10895,11 @@ define internal fastcc range(i32 0, 2054) i32 @_valid_job_access_resv(ptr nounde
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %140 = load i32, ptr %139, align 8
   %.fr = freeze i32 %140
-  %141 = trunc i32 %.fr to i1
-  %brmerge154.demorgan = and i1 %2, %141
-  %brmerge154 = xor i1 %brmerge154.demorgan, true
-  br i1 %141, label %147, label %146
+  %141 = and i32 %.fr, 1
+  %.not102 = icmp eq i32 %141, 0
+  %.not105153 = xor i1 %2, true
+  %brmerge154 = or i1 %.not102, %.not105153
+  br i1 %.not102, label %146, label %147
 
 142:                                              ; preds = %._crit_edge135, %131
   %143 = phi i32 [ %.pre136, %._crit_edge135 ], [ %129, %131 ]

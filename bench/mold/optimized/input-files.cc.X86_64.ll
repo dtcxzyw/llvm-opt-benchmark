@@ -19535,10 +19535,10 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN
   %.140139 = phi i1 [ %.039, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold11ComdatGroupEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.thread127 ], [ %.140, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold11ComdatGroupEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit ], [ %.140, %173 ], [ %.140, %175 ]
   %.3138 = phi ptr [ %.243, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold11ComdatGroupEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.thread127 ], [ %.3, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold11ComdatGroupEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit ], [ %.3, %173 ], [ %.3, %175 ]
   %.2116137 = phi i64 [ %170, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold11ComdatGroupEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.thread127 ], [ %.2116, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold11ComdatGroupEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit ], [ %.2116, %173 ], [ %.2116, %175 ]
-  switch i32 %.0142, label %unreachable [
+  switch i32 %.0142, label %.loopexit [
     i32 0, label %177
     i32 2, label %15
-    i32 6, label %.loopexit
+    i32 6, label %.loopexit147
   ]
 
 177:                                              ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
@@ -19546,13 +19546,13 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN
   store ptr %.2141, ptr %178, align 8, !tbaa !429
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %8, ptr %179, align 8, !tbaa !893
-  br label %.loopexit
+  br label %.loopexit147
 
-.loopexit:                                        ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %177
+.loopexit147:                                     ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %177
   %.not49 = icmp eq i64 %.237140, 0
   br i1 %.not49, label %205, label %180
 
-180:                                              ; preds = %.loopexit
+180:                                              ; preds = %.loopexit147
   %181 = icmp ugt i64 %.237140, 7
   br i1 %181, label %182, label %193
 
@@ -19614,19 +19614,16 @@ _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_strin
   store atomic i64 %.037.i, ptr %9 release, align 8
   br label %205
 
-205:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold11ComdatGroupEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit, %.loopexit
+205:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold11ComdatGroupEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit, %.loopexit147
   %.not50 = icmp eq ptr %.3138, null
-  br i1 %.not50, label %207, label %206
+  br i1 %.not50, label %.loopexit, label %206
 
 206:                                              ; preds = %205
   tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %.3138) #15
-  br label %207
+  br label %.loopexit
 
-207:                                              ; preds = %206, %205
+.loopexit:                                        ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %205, %206
   ret i1 %.140139
-
-unreachable:                                      ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
-  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind
@@ -24028,10 +24025,10 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN
   %.140139 = phi i1 [ %.039, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold6SymbolINSB_6X86_64EEEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.thread127 ], [ %.140, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold6SymbolINSB_6X86_64EEEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit ], [ %.140, %173 ], [ %.140, %175 ]
   %.3138 = phi ptr [ %.243, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold6SymbolINSB_6X86_64EEEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.thread127 ], [ %.3, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold6SymbolINSB_6X86_64EEEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit ], [ %.3, %173 ], [ %.3, %175 ]
   %.2116137 = phi i64 [ %170, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold6SymbolINSB_6X86_64EEEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.thread127 ], [ %.2116, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold6SymbolINSB_6X86_64EEEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit ], [ %.2116, %173 ], [ %.2116, %175 ]
-  switch i32 %.0142, label %unreachable [
+  switch i32 %.0142, label %.loopexit [
     i32 0, label %177
     i32 2, label %15
-    i32 6, label %.loopexit
+    i32 6, label %.loopexit147
   ]
 
 177:                                              ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
@@ -24039,13 +24036,13 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN
   store ptr %.2141, ptr %178, align 8, !tbaa !483
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %8, ptr %179, align 8, !tbaa !1050
-  br label %.loopexit
+  br label %.loopexit147
 
-.loopexit:                                        ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %177
+.loopexit147:                                     ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %177
   %.not49 = icmp eq i64 %.237140, 0
   br i1 %.not49, label %205, label %180
 
-180:                                              ; preds = %.loopexit
+180:                                              ; preds = %.loopexit147
   %181 = icmp ugt i64 %.237140, 7
   br i1 %181, label %182, label %193
 
@@ -24107,19 +24104,16 @@ _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_strin
   store atomic i64 %.037.i, ptr %9 release, align 8
   br label %205
 
-205:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold6SymbolINSB_6X86_64EEEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit, %.loopexit
+205:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold6SymbolINSB_6X86_64EEEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit, %.loopexit147
   %.not50 = icmp eq ptr %.3138, null
-  br i1 %.not50, label %207, label %206
+  br i1 %.not50, label %.loopexit, label %206
 
 206:                                              ; preds = %205
   tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %.3138) #15
-  br label %207
+  br label %.loopexit
 
-207:                                              ; preds = %206, %205
+.loopexit:                                        ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %205, %206
   ret i1 %.140139
-
-unreachable:                                      ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
-  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind

@@ -17806,19 +17806,19 @@ _ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit.th
 19:                                               ; preds = %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit.thread
   %20 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDES6_S6_S6_S6_EEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 683, i32 noundef 1111, i32 noundef 1852, i32 noundef 1421, i32 noundef 782)
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %_ZN4llvmneENS_9StringRefES0_.exit.thread40, label %21
+  br i1 %.not, label %_ZN4llvmneENS_9StringRefES0_.exit.thread40, label %.thread
 
-21:                                               ; preds = %19
-  %22 = load ptr, ptr %20, align 8, !tbaa !606
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %24 = load i32, ptr %23, align 8, !tbaa !607
-  switch i32 %24, label %_ZN4llvmneENS_9StringRefES0_.exit.thread40.fold.split [
-    i32 1111, label %_ZN4llvmneENS_9StringRefES0_.exit.thread40
-    i32 1421, label %_ZN4llvmneENS_9StringRefES0_.exit.thread40
-    i32 782, label %25
-  ]
+.thread:                                          ; preds = %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !606
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %23 = load i32, ptr %22, align 8, !tbaa !607
+  %switch.selectcmp.case1 = icmp ne i32 %23, 1111
+  %switch.selectcmp.case2 = icmp ne i32 %23, 1421
+  %switch.selectcmp.not = and i1 %switch.selectcmp.case1, %switch.selectcmp.case2
+  %24 = icmp eq i32 %23, 782
+  br i1 %24, label %25, label %_ZN4llvmneENS_9StringRefES0_.exit.thread40
 
-25:                                               ; preds = %21
+25:                                               ; preds = %.thread
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !94
   %28 = load ptr, ptr %27, align 8, !tbaa !137
@@ -17846,11 +17846,8 @@ _ZN4llvmneENS_9StringRefES0_.exit24:              ; preds = %_ZN4llvm9StringRefC
 _ZN4llvmneENS_9StringRefES0_.exit24.thread:       ; preds = %_ZN4llvmneENS_9StringRefES0_.exit, %25, %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvmneENS_9StringRefES0_.exit24
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread40
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread40.fold.split: ; preds = %21
-  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread40
-
-_ZN4llvmneENS_9StringRefES0_.exit.thread40:       ; preds = %21, %21, %_ZN4llvmneENS_9StringRefES0_.exit.thread40.fold.split, %19, %_ZN4llvmneENS_9StringRefES0_.exit24.thread, %_ZN4llvmneENS_9StringRefES0_.exit24, %_ZN4llvmneENS_9StringRefES0_.exit, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit.thread, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit
-  %.017 = phi i1 [ true, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit.thread ], [ false, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit ], [ false, %19 ], [ true, %_ZN4llvmneENS_9StringRefES0_.exit ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit24.thread ], [ true, %_ZN4llvmneENS_9StringRefES0_.exit24 ], [ false, %21 ], [ false, %21 ], [ true, %_ZN4llvmneENS_9StringRefES0_.exit.thread40.fold.split ]
+_ZN4llvmneENS_9StringRefES0_.exit.thread40:       ; preds = %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN4llvmneENS_9StringRefES0_.exit24, %_ZN4llvmneENS_9StringRefES0_.exit24.thread, %19, %.thread, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit.thread, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit
+  %.017 = phi i1 [ true, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit.thread ], [ false, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDEEEEbDpT_.exit ], [ %switch.selectcmp.not, %.thread ], [ false, %19 ], [ %switch.selectcmp.not, %_ZN4llvmneENS_9StringRefES0_.exit ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit24.thread ], [ %switch.selectcmp.not, %_ZN4llvmneENS_9StringRefES0_.exit24 ]
   %30 = call noundef zeroext i1 @_ZNK4llvm3opt7ArgList7hasFlagENS0_12OptSpecifierES2_b(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 2267, i32 2512, i1 noundef zeroext %.017) #28
   br i1 %30, label %31, label %72
 

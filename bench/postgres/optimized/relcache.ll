@@ -6136,7 +6136,7 @@ define dso_local void @RelationCacheInitializePhase3() local_unnamed_addr #0 {
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %12 = load i32, ptr @Mode, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %134, label %14
+  br i1 %13, label %139, label %14
 
 14:                                               ; preds = %11
   %15 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !6, !noundef !7
@@ -6173,11 +6173,11 @@ define dso_local void @RelationCacheInitializePhase3() local_unnamed_addr #0 {
   %23 = load ptr, ptr @RelationIdCache, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %23) #13
   %24 = call ptr @hash_seq_search(ptr noundef nonnull %1) #13
-  %.not48 = icmp eq ptr %24, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq ptr %24, null
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %22, %130
-  %25 = phi ptr [ %131, %130 ], [ %24, %22 ]
+.lr.ph:                                           ; preds = %22, %135
+  %25 = phi ptr [ %136, %135 ], [ %24, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -6273,17 +6273,17 @@ RelationIncrementReferenceCount.exit:             ; preds = %.lr.ph, %34
   call fastcc void @RelationBuildRuleLock(ptr noundef nonnull %27)
   %83 = load ptr, ptr %79, align 8
   %84 = icmp eq ptr %83, null
-  %.pre54 = load ptr, ptr %37, align 8
+  %.pre55 = load ptr, ptr %37, align 8
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %.pre54, i64 120
+  %86 = getelementptr inbounds nuw i8, ptr %.pre55, i64 120
   store i8 0, ptr %86, align 4
   %.pre = load ptr, ptr %37, align 8
   br label %87
 
 87:                                               ; preds = %82, %85, %78, %73
-  %88 = phi ptr [ %74, %78 ], [ %74, %73 ], [ %.pre, %85 ], [ %.pre54, %82 ]
+  %88 = phi ptr [ %74, %78 ], [ %74, %73 ], [ %.pre, %85 ], [ %.pre55, %82 ]
   %.1 = phi i1 [ %41, %78 ], [ %41, %73 ], [ true, %85 ], [ true, %82 ]
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 121
   %90 = load i8, ptr %89, align 1, !range !6, !noundef !7
@@ -6300,17 +6300,17 @@ RelationIncrementReferenceCount.exit:             ; preds = %.lr.ph, %34
   call void @RelationBuildTriggers(ptr noundef nonnull %27) #13
   %97 = load ptr, ptr %93, align 8
   %98 = icmp eq ptr %97, null
-  %.pre56 = load ptr, ptr %37, align 8
+  %.pre57 = load ptr, ptr %37, align 8
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %.pre56, i64 121
+  %100 = getelementptr inbounds nuw i8, ptr %.pre57, i64 121
   store i8 0, ptr %100, align 1
-  %.pre55 = load ptr, ptr %37, align 8
+  %.pre56 = load ptr, ptr %37, align 8
   br label %101
 
 101:                                              ; preds = %96, %99, %92, %87
-  %102 = phi ptr [ %88, %92 ], [ %88, %87 ], [ %.pre55, %99 ], [ %.pre56, %96 ]
+  %102 = phi ptr [ %88, %92 ], [ %88, %87 ], [ %.pre56, %99 ], [ %.pre57, %96 ]
   %.2 = phi i1 [ %.1, %92 ], [ %.1, %87 ], [ true, %99 ], [ true, %96 ]
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 123
   %104 = load i8, ptr %103, align 1, !range !6, !noundef !7
@@ -6332,63 +6332,73 @@ RelationIncrementReferenceCount.exit:             ; preds = %.lr.ph, %34
   %112 = getelementptr inbounds nuw i8, ptr %27, i64 320
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
-  br i1 %114, label %115, label %120
+  br i1 %114, label %115, label %126
 
 115:                                              ; preds = %111
   %116 = load ptr, ptr %37, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 115
   %118 = load i8, ptr %117, align 1
-  switch i8 %118, label %120 [
-    i8 114, label %119
-    i8 116, label %119
-    i8 109, label %119
-    i8 83, label %119
+  switch i8 %118, label %126 [
+    i8 114, label %.critedge
+    i8 116, label %.critedge
+    i8 109, label %.critedge
+    i8 83, label %.critedge
   ]
 
-119:                                              ; preds = %115, %115, %115, %115
+.critedge:                                        ; preds = %115, %115, %115, %115
   call void @RelationInitTableAccessMethod(ptr noundef nonnull %27)
-  br label %120
+  %119 = load i32, ptr %29, align 8
+  %120 = add i32 %119, -1
+  store i32 %120, ptr %29, align 8
+  %121 = load i32, ptr @Mode, align 4
+  %122 = icmp eq i32 %121, 0
+  br i1 %122, label %RelationDecrementReferenceCount.exit, label %123
 
-120:                                              ; preds = %115, %119, %111
-  %.4 = phi i1 [ true, %119 ], [ %.3, %111 ], [ %.3, %115 ]
-  %121 = load i32, ptr %29, align 8
-  %122 = add i32 %121, -1
-  store i32 %122, ptr %29, align 8
-  %123 = load i32, ptr @Mode, align 4
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %RelationDecrementReferenceCount.exit, label %125
-
-125:                                              ; preds = %120
-  %126 = load ptr, ptr @CurrentResourceOwner, align 8
-  %127 = ptrtoint ptr %27 to i64
-  call void @ResourceOwnerForget(ptr noundef %126, i64 noundef %127, ptr noundef nonnull @relref_resowner_desc) #13
+123:                                              ; preds = %.critedge
+  %124 = load ptr, ptr @CurrentResourceOwner, align 8
+  %125 = ptrtoint ptr %27 to i64
+  call void @ResourceOwnerForget(ptr noundef %124, i64 noundef %125, ptr noundef nonnull @relref_resowner_desc) #13
   br label %RelationDecrementReferenceCount.exit
 
-RelationDecrementReferenceCount.exit:             ; preds = %120, %125
-  br i1 %.4, label %128, label %130
+126:                                              ; preds = %115, %111
+  %127 = load i32, ptr %29, align 8
+  %128 = add i32 %127, -1
+  store i32 %128, ptr %29, align 8
+  %129 = load i32, ptr @Mode, align 4
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %RelationDecrementReferenceCount.exit45, label %131
 
-128:                                              ; preds = %RelationDecrementReferenceCount.exit
+131:                                              ; preds = %126
+  %132 = load ptr, ptr @CurrentResourceOwner, align 8
+  %133 = ptrtoint ptr %27 to i64
+  call void @ResourceOwnerForget(ptr noundef %132, i64 noundef %133, ptr noundef nonnull @relref_resowner_desc) #13
+  br label %RelationDecrementReferenceCount.exit45
+
+RelationDecrementReferenceCount.exit45:           ; preds = %126, %131
+  br i1 %.3, label %RelationDecrementReferenceCount.exit, label %135
+
+RelationDecrementReferenceCount.exit:             ; preds = %123, %.critedge, %RelationDecrementReferenceCount.exit45
   call void @hash_seq_term(ptr noundef nonnull %1) #13
-  %129 = load ptr, ptr @RelationIdCache, align 8
-  call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %129) #13
-  br label %130
+  %134 = load ptr, ptr @RelationIdCache, align 8
+  call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %134) #13
+  br label %135
 
-130:                                              ; preds = %128, %RelationDecrementReferenceCount.exit
-  %131 = call ptr @hash_seq_search(ptr noundef nonnull %1) #13
-  %.not = icmp eq ptr %131, null
+135:                                              ; preds = %RelationDecrementReferenceCount.exit, %RelationDecrementReferenceCount.exit45
+  %136 = call ptr @hash_seq_search(ptr noundef nonnull %1) #13
+  %.not = icmp eq ptr %136, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %130, %22
-  %132 = trunc nuw i8 %.0 to i1
-  br i1 %132, label %133, label %134
+._crit_edge:                                      ; preds = %135, %22
+  %137 = trunc nuw i8 %.0 to i1
+  br i1 %137, label %138, label %139
 
-133:                                              ; preds = %._crit_edge
+138:                                              ; preds = %._crit_edge
   call void @InitCatalogCachePhase2() #13
   call fastcc void @write_relcache_init_file(i1 noundef zeroext true)
   call fastcc void @write_relcache_init_file(i1 noundef zeroext false)
-  br label %134
+  br label %139
 
-134:                                              ; preds = %._crit_edge, %133, %11
+139:                                              ; preds = %._crit_edge, %138, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

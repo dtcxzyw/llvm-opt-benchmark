@@ -120,8 +120,8 @@ define range(i32 -1094995529, 1) i32 @ff_vvc_cabac_init(ptr noundef readonly cap
   %.0.i.i = select i1 %.not.i.i, i32 %61, i32 %62
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 1345
   %64 = load i8, ptr %63, align 1, !tbaa !75
-  %65 = zext i8 %64 to i32
-  %66 = sub nsw i32 2, %65
+  %65 = zext i8 %64 to i64
+  %66 = sub nsw i64 2, %65
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %68 = load ptr, ptr %67, align 16, !tbaa !67
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 28
@@ -140,58 +140,57 @@ define range(i32 -1094995529, 1) i32 @ff_vvc_cabac_init(ptr noundef readonly cap
 78:                                               ; preds = %52
   %79 = load i8, ptr %63, align 1, !tbaa !75
   %80 = icmp eq i8 %79, 2
-  %81 = xor i32 %66, 3
-  %spec.select.i = select i1 %80, i32 %66, i32 %81
+  %81 = xor i64 %66, 3
+  %spec.select.i = select i1 %80, i64 %66, i64 %81
   br label %82
 
 82:                                               ; preds = %78, %52
-  %.0.i = phi i32 [ %66, %52 ], [ %spec.select.i, %78 ]
-  %83 = sext i32 %.0.i to i64
-  %84 = getelementptr inbounds [378 x i8], ptr @init_values, i64 %83
-  %85 = add nsw i32 %.0.i.i, -16
-  br label %86
+  %.0.i = phi i64 [ %66, %52 ], [ %spec.select.i, %78 ]
+  %83 = getelementptr inbounds [378 x i8], ptr @init_values, i64 %.0.i
+  %84 = add nsw i32 %.0.i.i, -16
+  br label %85
 
-86:                                               ; preds = %86, %82
-  %indvars.iv.i = phi i64 [ 0, %82 ], [ %indvars.iv.next.i, %86 ]
-  %87 = load ptr, ptr %67, align 16, !tbaa !67
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 400
-  %89 = getelementptr inbounds nuw %struct.VVCCabacState, ptr %88, i64 %indvars.iv.i
-  %90 = getelementptr inbounds nuw i8, ptr %84, i64 %indvars.iv.i
-  %91 = load i8, ptr %90, align 1, !tbaa !97
-  %92 = zext i8 %91 to i32
-  %93 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @init_values, i64 1134), i64 %indvars.iv.i
-  %94 = load i8, ptr %93, align 1, !tbaa !97
-  %95 = lshr i32 %92, 3
-  %96 = add nsw i32 %95, -4
-  %97 = and i32 %92, 7
-  %98 = mul nuw nsw i32 %97, 18
-  %99 = or disjoint i32 %98, 1
-  %100 = mul nsw i32 %96, %85
-  %101 = ashr i32 %100, 1
-  %102 = add nsw i32 %99, %101
-  %103 = tail call i32 @llvm.smax.i32(i32 %102, i32 1)
-  %104 = tail call i32 @llvm.umin.i32(i32 %103, i32 127)
-  %.tr.i = trunc nuw nsw i32 %104 to i16
-  %105 = shl nuw nsw i16 %.tr.i, 3
-  store i16 %105, ptr %89, align 2, !tbaa !58
-  %106 = shl nuw nsw i16 %.tr.i, 7
-  %107 = getelementptr inbounds nuw i8, ptr %89, i64 2
-  store i16 %106, ptr %107, align 2, !tbaa !58
-  %108 = lshr i8 %94, 2
-  %109 = add nuw nsw i8 %108, 2
-  %110 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  store i8 %109, ptr %110, align 2, !tbaa !97
-  %111 = and i8 %94, 3
-  %narrow.i = add nuw nsw i8 %111, 3
-  %narrow32.i = add nuw nsw i8 %narrow.i, %109
-  %112 = getelementptr inbounds nuw i8, ptr %89, i64 5
-  store i8 %narrow32.i, ptr %112, align 1, !tbaa !97
+85:                                               ; preds = %85, %82
+  %indvars.iv.i = phi i64 [ 0, %82 ], [ %indvars.iv.next.i, %85 ]
+  %86 = load ptr, ptr %67, align 16, !tbaa !67
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 400
+  %88 = getelementptr inbounds nuw %struct.VVCCabacState, ptr %87, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv.i
+  %90 = load i8, ptr %89, align 1, !tbaa !97
+  %91 = zext i8 %90 to i32
+  %92 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @init_values, i64 1134), i64 %indvars.iv.i
+  %93 = load i8, ptr %92, align 1, !tbaa !97
+  %94 = lshr i32 %91, 3
+  %95 = add nsw i32 %94, -4
+  %96 = and i32 %91, 7
+  %97 = mul nuw nsw i32 %96, 18
+  %98 = or disjoint i32 %97, 1
+  %99 = mul nsw i32 %95, %84
+  %100 = ashr i32 %99, 1
+  %101 = add nsw i32 %98, %100
+  %102 = tail call i32 @llvm.smax.i32(i32 %101, i32 1)
+  %103 = tail call i32 @llvm.umin.i32(i32 %102, i32 127)
+  %.tr.i = trunc nuw nsw i32 %103 to i16
+  %104 = shl nuw nsw i16 %.tr.i, 3
+  store i16 %104, ptr %88, align 2, !tbaa !58
+  %105 = shl nuw nsw i16 %.tr.i, 7
+  %106 = getelementptr inbounds nuw i8, ptr %88, i64 2
+  store i16 %105, ptr %106, align 2, !tbaa !58
+  %107 = lshr i8 %93, 2
+  %108 = add nuw nsw i8 %107, 2
+  %109 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  store i8 %108, ptr %109, align 2, !tbaa !97
+  %110 = and i8 %93, 3
+  %narrow.i = add nuw nsw i8 %110, 3
+  %narrow32.i = add nuw nsw i8 %narrow.i, %108
+  %111 = getelementptr inbounds nuw i8, ptr %88, i64 5
+  store i8 %narrow32.i, ptr %111, align 1, !tbaa !97
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 378
-  br i1 %exitcond.not.i, label %cabac_reinit.exit, label %86, !llvm.loop !98
+  br i1 %exitcond.not.i, label %cabac_reinit.exit, label %85, !llvm.loop !98
 
-cabac_reinit.exit:                                ; preds = %86, %46, %32, %24
-  %.0 = phi i32 [ 0, %24 ], [ -1094995529, %32 ], [ -1094995529, %46 ], [ 0, %86 ]
+cabac_reinit.exit:                                ; preds = %85, %46, %32, %24
+  %.0 = phi i32 [ 0, %24 ], [ -1094995529, %32 ], [ -1094995529, %46 ], [ 0, %85 ]
   ret i32 %.0
 }
 

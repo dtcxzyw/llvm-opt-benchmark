@@ -3564,7 +3564,7 @@ define void @_ZN3zmq20stream_engine_base_t15mechanism_readyEv(ptr noundef nonnul
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 394
   %22 = load i8, ptr %21, align 2, !tbaa !154, !range !123, !noundef !124
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %.thread51
+  br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -3577,12 +3577,12 @@ define void @_ZN3zmq20stream_engine_base_t15mechanism_readyEv(ptr noundef nonnul
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 232
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(1624) %28, ptr noundef nonnull %2)
-  switch i32 %32, label %._crit_edge47 [
+  switch i32 %32, label %._crit_edge53 [
     i32 -1, label %33
     i32 0, label %44
   ], !prof !155
 
-._crit_edge47:                                    ; preds = %24
+._crit_edge53:                                    ; preds = %24
   %.pre = tail call ptr @__errno_location() #29
   br label %37
 
@@ -3592,8 +3592,8 @@ define void @_ZN3zmq20stream_engine_base_t15mechanism_readyEv(ptr noundef nonnul
   %36 = icmp eq i32 %35, 11
   br i1 %36, label %.critedge, label %37
 
-37:                                               ; preds = %._crit_edge47, %33
-  %.pre-phi = phi ptr [ %.pre, %._crit_edge47 ], [ %34, %33 ]
+37:                                               ; preds = %._crit_edge53, %33
+  %.pre-phi = phi ptr [ %.pre, %._crit_edge53 ], [ %34, %33 ]
   %38 = load i32, ptr %.pre-phi, align 4, !tbaa !19
   %39 = call ptr @strerror(i32 noundef %38) #26
   %40 = load ptr, ptr @stderr, align 8, !tbaa !93
@@ -3611,14 +3611,14 @@ define void @_ZN3zmq20stream_engine_base_t15mechanism_readyEv(ptr noundef nonnul
   %.not33 = icmp eq i32 %47, 0
   br i1 %.not33, label %70, label %51
 
-.thread51:                                        ; preds = %20
+.thread:                                          ; preds = %20
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %49 = load i32, ptr %48, align 8, !tbaa !156
   %50 = and i32 %49, 1
-  %.not3352 = icmp eq i32 %50, 0
-  br i1 %.not3352, label %.thread53, label %51
+  %.not3347 = icmp eq i32 %50, 0
+  br i1 %.not3347, label %.thread49, label %51
 
-51:                                               ; preds = %.thread51, %44
+51:                                               ; preds = %.thread, %44
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1672
@@ -3629,11 +3629,11 @@ define void @_ZN3zmq20stream_engine_base_t15mechanism_readyEv(ptr noundef nonnul
   %58 = call noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(1624) %54, ptr noundef nonnull %3)
   switch i32 %58, label %._crit_edge [
     i32 -1, label %59
-    i32 0, label %.thread
+    i32 0, label %.critedge45
   ], !prof !155
 
 ._crit_edge:                                      ; preds = %51
-  %.pre48 = tail call ptr @__errno_location() #29
+  %.pre54 = tail call ptr @__errno_location() #29
   br label %63
 
 59:                                               ; preds = %51
@@ -3643,27 +3643,27 @@ define void @_ZN3zmq20stream_engine_base_t15mechanism_readyEv(ptr noundef nonnul
   br i1 %62, label %.critedge43, label %63
 
 63:                                               ; preds = %._crit_edge, %59
-  %.pre-phi49 = phi ptr [ %.pre48, %._crit_edge ], [ %60, %59 ]
-  %64 = load i32, ptr %.pre-phi49, align 4, !tbaa !19
+  %.pre-phi55 = phi ptr [ %.pre54, %._crit_edge ], [ %60, %59 ]
+  %64 = load i32, ptr %.pre-phi55, align 4, !tbaa !19
   %65 = call ptr @strerror(i32 noundef %64) #26
   %66 = load ptr, ptr @stderr, align 8, !tbaa !93
   %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str, ptr noundef %65, ptr noundef nonnull @.str.1, i32 noundef 548) #30
   %68 = load ptr, ptr @stderr, align 8, !tbaa !93
   %69 = call i32 @fflush(ptr noundef %68)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %65)
-  br label %.thread
+  br label %.critedge45
 
-.thread:                                          ; preds = %51, %63
+.critedge45:                                      ; preds = %63, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %70
 
-70:                                               ; preds = %44, %.thread
+70:                                               ; preds = %44, %.critedge45
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %72 = load ptr, ptr %71, align 8, !tbaa !136
   call void @_ZN3zmq14session_base_t5flushEv(ptr noundef nonnull align 8 dereferenceable(1624) %72)
-  br label %.thread53
+  br label %.thread49
 
-.thread53:                                        ; preds = %.thread51, %70
+.thread49:                                        ; preds = %.thread, %70
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   store i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE to i64), ptr %73, align 8, !tbaa !150
   %.repack35 = getelementptr inbounds nuw i8, ptr %0, i64 1424
@@ -3686,7 +3686,7 @@ define void @_ZN3zmq20stream_engine_base_t15mechanism_readyEv(ptr noundef nonnul
   %80 = invoke noundef zeroext i1 @_ZN3zmq20stream_engine_base_t15init_propertiesERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(1689) %0, ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %81 unwind label %100
 
-81:                                               ; preds = %.thread53
+81:                                               ; preds = %.thread49
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %83 = load ptr, ptr %82, align 8, !tbaa !135
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 1416
@@ -3717,7 +3717,7 @@ define void @_ZN3zmq20stream_engine_base_t15mechanism_readyEv(ptr noundef nonnul
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.16)
           to label %106 unwind label %104
 
-100:                                              ; preds = %.thread53
+100:                                              ; preds = %.thread49
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %137

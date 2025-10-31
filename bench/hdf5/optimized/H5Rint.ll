@@ -1603,8 +1603,8 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr noundef captures(no
   %.286 = phi i64 [ %57, %100 ], [ %94, %.thread111 ]
   %.280 = phi i64 [ %58, %100 ], [ %95, %.thread111 ]
   %102 = load i8, ptr %21, align 4, !tbaa !15
-  switch i8 %102, label %127 [
-    i8 2, label %131
+  switch i8 %102, label %131 [
+    i8 2, label %127
     i8 3, label %103
     i8 4, label %113
     i8 0, label %123
@@ -1625,14 +1625,14 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr noundef captures(no
   %107 = load i64, ptr %4, align 8, !tbaa !17
   %108 = add i64 %107, %.280
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %131
+  br label %127
 
 109:                                              ; preds = %103
   %110 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !17
   %111 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !17
   %112 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__decode, i32 noundef 1010, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.35) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %135
+  br i1 %.not.not, label %.thread134, label %135
 
 113:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1646,49 +1646,46 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr noundef captures(no
   %117 = load i64, ptr %5, align 8, !tbaa !17
   %118 = add i64 %117, %.280
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %131
+  br label %127
 
 119:                                              ; preds = %113
   %120 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !17
   %121 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !17
   %122 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__decode, i32 noundef 1017, i64 noundef %120, i64 noundef %121, ptr noundef nonnull @.str.36) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %135
+  br i1 %.not.not, label %.thread134, label %135
 
 123:                                              ; preds = %101, %101, %101, %101
   %124 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !17
   %125 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !17
   %126 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__decode, i32 noundef 1026, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.7) #15
-  br label %135
+  br i1 %.not.not, label %.thread134, label %135
 
-127:                                              ; preds = %101
-  %128 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !17
-  %129 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !17
-  %130 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__decode, i32 noundef 1030, i64 noundef %128, i64 noundef %129, ptr noundef nonnull @.str.8) #15
-  br label %135
-
-131:                                              ; preds = %101, %.thread117, %.thread121
+127:                                              ; preds = %101, %.thread117, %.thread121
   %.381 = phi i64 [ %.280, %101 ], [ %108, %.thread117 ], [ %118, %.thread121 ]
-  %132 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i64 -1, ptr %132, align 8, !tbaa !11
-  %133 = trunc i64 %.381 to i32
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %133, ptr %134, align 8, !tbaa !18
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i64 -1, ptr %128, align 8, !tbaa !11
+  %129 = trunc i64 %.381 to i32
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %129, ptr %130, align 8, !tbaa !18
   store i64 %.381, ptr %1, align 8, !tbaa !17
   br label %.thread134
 
-135:                                              ; preds = %127, %109, %119, %123
-  br i1 %.not.not, label %.thread134, label %136
+131:                                              ; preds = %101
+  %132 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !17
+  %133 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !17
+  %134 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__decode, i32 noundef 1030, i64 noundef %132, i64 noundef %133, ptr noundef nonnull @.str.8) #15
+  br i1 %.not.not, label %.thread134, label %135
 
-136:                                              ; preds = %135
-  %137 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %138 = load ptr, ptr %137, align 8, !tbaa !10
-  %139 = tail call ptr @H5MM_xfree(ptr noundef %138) #15
-  store ptr null, ptr %137, align 8, !tbaa !10
+135:                                              ; preds = %109, %119, %123, %131
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %137 = load ptr, ptr %136, align 8, !tbaa !10
+  %138 = tail call ptr @H5MM_xfree(ptr noundef %137) #15
+  store ptr null, ptr %136, align 8, !tbaa !10
   br label %.thread134
 
-.thread134:                                       ; preds = %15, %23, %96, %46, %136, %135, %131, %3
-  %.077 = phi i32 [ 0, %131 ], [ 0, %3 ], [ -1, %135 ], [ -1, %136 ], [ -1, %46 ], [ -1, %96 ], [ -1, %23 ], [ -1, %15 ]
+.thread134:                                       ; preds = %15, %23, %96, %46, %109, %119, %123, %135, %131, %127, %3
+  %.077 = phi i32 [ 0, %127 ], [ 0, %3 ], [ -1, %131 ], [ -1, %135 ], [ -1, %123 ], [ -1, %119 ], [ -1, %109 ], [ -1, %46 ], [ -1, %96 ], [ -1, %23 ], [ -1, %15 ]
   ret i32 %.077
 }
 

@@ -7258,7 +7258,7 @@ define hidden void @_ZN4http8response7Builder8and_then17ha8eb36b96dbbad3dE(ptr d
           to label %"_ZN90_$LT$http..header..value..HeaderValue$u20$as$u20$core..convert..TryFrom$LT$$RF$str$GT$$GT$8try_from17h6805b39b6f9aea8eE.exit.i" unwind label %189, !noalias !786
 
 .body.thread.i:                                   ; preds = %189, %.thread59.i.i, %76, %71, %.body.thread52.i, %22
-  %.pn.i = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp.i, %189 ], [ %lpad.thr_comm.i, %.body.thread52.i ], [ %.pn63.i.i, %.thread59.i.i ], [ %72, %71 ], [ %77, %76 ]
+  %.pn.i = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp.i, %189 ], [ %lpad.thr_comm.i, %.body.thread52.i ], [ %.pn63.i.i, %.thread59.i.i ], [ %77, %76 ], [ %72, %71 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$http..response..Parts$GT$17hf7b5d50c9d568e5cE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15) #27
           to label %192 unwind label %190, !noalias !793
 
@@ -7300,6 +7300,11 @@ define hidden void @_ZN4http8response7Builder8and_then17ha8eb36b96dbbad3dE(ptr d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !797)
   %28 = invoke noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17hf8d212768bf1b46aE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15)
           to label %29 unwind label %.loopexit.split-lp.i.i, !noalias !799
+
+.body.i.i:                                        ; preds = %172
+  %lpad.thr_comm.split-lp71.i.i = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread59.i.i
 
 29:                                               ; preds = %27
   br i1 %28, label %41, label %30
@@ -7632,7 +7637,7 @@ split.i.i:                                        ; preds = %112, %"_ZN71_$LT$ht
 
 172:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hffe02bad38e8c0d1E.exit.i.i.i"
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %129, i64 noundef %147, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c0b4d8e696f2119813f5afb453ac3e63.42) #26
-          to label %.noexc44.i.i unwind label %.body.thread.i.i, !noalias !801
+          to label %.noexc44.i.i unwind label %.body.i.i, !noalias !801
 
 .noexc44.i.i:                                     ; preds = %172
   unreachable
@@ -7652,11 +7657,6 @@ split.i.i:                                        ; preds = %112, %"_ZN71_$LT$ht
 178:                                              ; preds = %167, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hffe02bad38e8c0d1E.exit14.i.i.i"
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf225be49148e758aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
           to label %"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_append217haec3da05dc6bcc0dE.exit.thread57.i" unwind label %.body.thread52.i, !noalias !793
-
-.body.thread.i.i:                                 ; preds = %172
-  %lpad.thr_comm.split-lp73.i.i = landingpad { ptr, i32 }
-          cleanup
-  br label %.thread59.i.i
 
 179:                                              ; preds = %41
   %180 = landingpad { ptr, i32 }
@@ -7688,8 +7688,8 @@ split.i.i:                                        ; preds = %112, %"_ZN71_$LT$ht
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #28, !noalias !793
   unreachable
 
-.thread59.i.i:                                    ; preds = %181, %179, %.body.thread.i.i, %159, %140
-  %.pn63.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp73.i.i, %.body.thread.i.i ], [ %lpad.phi.i.i, %181 ], [ %180, %179 ], [ %160, %159 ], [ %141, %140 ]
+.thread59.i.i:                                    ; preds = %181, %179, %159, %140, %.body.i.i
+  %.pn63.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp71.i.i, %.body.i.i ], [ %lpad.phi.i.i, %181 ], [ %180, %179 ], [ %160, %159 ], [ %141, %140 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf225be49148e758aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #27
           to label %.body.thread.i unwind label %182, !noalias !793
 

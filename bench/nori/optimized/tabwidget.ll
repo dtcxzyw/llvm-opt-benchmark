@@ -1701,8 +1701,8 @@ _ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit: ; preds 
   %66 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %68 = load ptr, ptr %67, align 8
-  %.not = icmp eq ptr %68, null
-  br i1 %.not, label %97, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %.not = icmp ne ptr %68, null
+  br i1 %.not, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, label %97
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1748,7 +1748,6 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZNK7nanogui13Tab
   br label %97
 
 97:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %_ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit
-  %.0 = phi i8 [ 1, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ 0, %_ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %99 = load i32, ptr %98, align 8
   %.not48 = icmp ne i32 %99, -1
@@ -1914,7 +1913,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %143, %133, %_ZNKSt8
 
 174:                                              ; preds = %._crit_edge, %97
   %175 = phi i1 [ true, %97 ], [ %173, %._crit_edge ]
-  %.1 = phi i8 [ %.0, %97 ], [ 1, %._crit_edge ]
+  %.1 = phi i1 [ %.not, %97 ], [ true, %._crit_edge ]
   %176 = icmp eq i32 %2, 0
   %or.cond54 = select i1 %176, i1 %175, i1 false
   br i1 %or.cond54, label %177, label %.thread140
@@ -2027,9 +2026,9 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %230, %224
   br label %.thread140
 
 239:                                              ; preds = %199
-  br i1 %181, label %.thread142, label %.thread142.sink.split.loopexit170.critedge
+  br i1 %181, label %.thread142, label %.thread142.sink.split.loopexit169.critedge
 
-.thread142.sink.split.loopexit170.critedge:       ; preds = %239
+.thread142.sink.split.loopexit169.critedge:       ; preds = %239
   store i32 -1, ptr %98, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %.04.i70.sroa.gep72, align 4
@@ -2038,8 +2037,8 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %230, %224
 240:                                              ; preds = %177
   br i1 %3, label %.thread140, label %.thread142
 
-.thread142.sink.split:                            ; preds = %.thread142.sink.split.loopexit170.critedge, %.thread142.sink.split.loopexit.critedge
-  %.sink = phi ptr [ %10, %.thread142.sink.split.loopexit.critedge ], [ %11, %.thread142.sink.split.loopexit170.critedge ]
+.thread142.sink.split:                            ; preds = %.thread142.sink.split.loopexit169.critedge, %.thread142.sink.split.loopexit.critedge
+  %.sink = phi ptr [ %10, %.thread142.sink.split.loopexit.critedge ], [ %11, %.thread142.sink.split.loopexit169.critedge ]
   %241 = load ptr, ptr %0, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 40
   %243 = load ptr, ptr %242, align 8
@@ -2053,12 +2052,10 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %230, %224
   br label %.thread140
 
 .thread140:                                       ; preds = %_ZNKSt8functionIFviEEclEi.exit, %220, %200, %183, %240, %.thread142, %174
-  %.2 = phi i8 [ %.1, %174 ], [ 1, %.thread142 ], [ 1, %240 ], [ 1, %183 ], [ 1, %200 ], [ 1, %220 ], [ 1, %_ZNKSt8functionIFviEEclEi.exit ]
+  %.2 = phi i1 [ %.1, %174 ], [ true, %.thread142 ], [ true, %240 ], [ true, %183 ], [ true, %200 ], [ true, %220 ], [ true, %_ZNKSt8functionIFviEEclEi.exit ]
   %246 = call noundef zeroext i1 @_ZN7nanogui6Widget18mouse_button_eventERKNS_5ArrayIiLm2EEEibi(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4)
-  %247 = zext i1 %246 to i8
-  %248 = or i8 %.2, %247
-  %249 = icmp ne i8 %248, 0
-  ret i1 %249
+  %247 = or i1 %.2, %246
+  ret i1 %247
 }
 
 ; Function Attrs: mustprogress uwtable

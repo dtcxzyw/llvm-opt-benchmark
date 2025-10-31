@@ -115,9 +115,9 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
 
 ._crit_edge:                                      ; preds = %12
   %.pre = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7
-  %.pre118 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre119 = trunc nuw i8 %.pre to i1
-  %.pre120 = trunc nuw i8 %.pre118 to i1
+  %.pre119 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre122 = trunc nuw i8 %.pre to i1
+  %.pre123 = trunc nuw i8 %.pre119 to i1
   br label %19
 
 15:                                               ; preds = %12
@@ -128,9 +128,9 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   br label %230
 
 19:                                               ; preds = %._crit_edge, %2
-  %.pre-phi121 = phi i1 [ %.pre120, %._crit_edge ], [ %10, %2 ]
-  %.pre-phi = phi i1 [ %.pre119, %._crit_edge ], [ %8, %2 ]
-  %20 = xor i1 %.pre-phi121, true
+  %.pre-phi124 = phi i1 [ %.pre123, %._crit_edge ], [ %10, %2 ]
+  %.pre-phi = phi i1 [ %.pre122, %._crit_edge ], [ %8, %2 ]
+  %20 = xor i1 %.pre-phi124, true
   %21 = select i1 %.pre-phi, i1 true, i1 %20
   br i1 %21, label %22, label %.thread115, !prof !9
 
@@ -474,7 +474,12 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   %228 = load i32, ptr %227, align 8, !tbaa !85
   %229 = add i32 %228, -1
   store i32 %229, ptr %227, align 8, !tbaa !85
-  br i1 %.273, label %260, label %.thread115
+  br i1 %.273, label %._crit_edge120, label %.thread115
+
+._crit_edge120:                                   ; preds = %220
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %.pre121 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !60
+  br label %260
 
 230:                                              ; preds = %15, %30, %39, %49, %69, %76, %84, %99, %219, %123, %140, %168
   %.071.ph = phi i1 [ false, %168 ], [ false, %140 ], [ false, %123 ], [ %1, %219 ], [ true, %99 ], [ false, %84 ], [ false, %76 ], [ false, %69 ], [ false, %49 ], [ false, %39 ], [ false, %30 ], [ false, %15 ]
@@ -527,23 +532,21 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
 259:                                              ; preds = %247
   br i1 %.071.ph, label %260, label %.thread115
 
-260:                                              ; preds = %220, %251, %259
-  %.068113129 = phi i32 [ -1, %251 ], [ -1, %259 ], [ 0, %220 ]
-  %261 = phi ptr [ %255, %251 ], [ %248, %259 ], [ %223, %220 ]
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
-  %263 = load ptr, ptr %262, align 8, !tbaa !60
-  %264 = call i32 @H5AC_mark_entry_dirty(ptr noundef %263) #6
-  %265 = icmp slt i32 %264, 0
-  br i1 %265, label %266, label %.thread115
+260:                                              ; preds = %._crit_edge120, %251, %259
+  %261 = phi ptr [ %257, %251 ], [ null, %259 ], [ %.pre121, %._crit_edge120 ]
+  %.068113118 = phi i32 [ -1, %251 ], [ -1, %259 ], [ 0, %._crit_edge120 ]
+  %262 = call i32 @H5AC_mark_entry_dirty(ptr noundef %261) #6
+  %263 = icmp slt i32 %262, 0
+  br i1 %263, label %264, label %.thread115
 
-266:                                              ; preds = %260
-  %267 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !49
-  %268 = load i64, ptr @H5E_CANTMARKDIRTY_g, align 8, !tbaa !49
-  %269 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_mkroot, i32 noundef 302, i64 noundef %267, i64 noundef %268, ptr noundef nonnull @.str.13) #6
+264:                                              ; preds = %260
+  %265 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !49
+  %266 = load i64, ptr @H5E_CANTMARKDIRTY_g, align 8, !tbaa !49
+  %267 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_mkroot, i32 noundef 302, i64 noundef %265, i64 noundef %266, ptr noundef nonnull @.str.13) #6
   br label %.thread115
 
-.thread115:                                       ; preds = %220, %251, %22, %19, %260, %266, %259
-  %.078 = phi i32 [ -1, %266 ], [ %.068113129, %260 ], [ -1, %259 ], [ 0, %19 ], [ 0, %22 ], [ -1, %251 ], [ 0, %220 ]
+.thread115:                                       ; preds = %22, %220, %251, %19, %260, %264, %259
+  %.078 = phi i32 [ -1, %264 ], [ %.068113118, %260 ], [ -1, %259 ], [ 0, %19 ], [ -1, %251 ], [ 0, %220 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.078

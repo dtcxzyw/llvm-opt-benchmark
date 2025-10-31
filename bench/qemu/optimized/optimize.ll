@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.tcg_opt_gen_mov = private unnamed_addr constant [6 x i32] [i32 5, i32 63, i32 poison, i32 149, i32 149, i32 149], align 4
 @switch.table.do_constant_folding_cond = private unnamed_addr constant [14 x i32] [i32 0, i32 1, i32 poison, i32 poison, i32 0, i32 1, i32 1, i32 0, i32 0, i32 1, i32 -1, i32 -1, i32 0, i32 1], align 4
 @switch.table.do_constant_folding_cond2 = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 1, i32 0], align 4
-@switch.table.fold_setcond_zmask = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 1, i32 0, i32 poison, i32 poison, i32 0, i32 1], align 4
+@switch.table.fold_setcond_zmask = private unnamed_addr constant [8 x i64] [i64 0, i64 1, i64 1, i64 0, i64 poison, i64 poison, i64 0, i64 1], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_optimize(ptr noundef %0) local_unnamed_addr #0 {
@@ -8825,7 +8825,7 @@ define internal fastcc range(i32 -1, 2) i32 @fold_setcond_zmask(ptr noundef nonn
   %.053 = select i1 %24, i64 %25, i64 %16
   %.052 = select i1 %24, i64 %26, i64 %18
   %27 = icmp ult i64 %.053, %.052
-  br i1 %27, label %28, label %36
+  br i1 %27, label %28, label %35
 
 28:                                               ; preds = %10
   %switch.tableidx = add i32 %21, -8
@@ -8834,105 +8834,104 @@ define internal fastcc range(i32 -1, 2) i32 @fold_setcond_zmask(ptr noundef nonn
   %switch.shifted = lshr i8 -49, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond67 = select i1 %29, i1 %switch.lobit, i1 false
-  br i1 %or.cond67, label %switch.lookup, label %36
+  br i1 %or.cond67, label %switch.lookup, label %35
 
 switch.lookup:                                    ; preds = %28
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.fold_setcond_zmask, i64 %30
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.fold_setcond_zmask, i64 %30
+  %switch.load = load i64, ptr %switch.gep, align 8
   %31 = load i64, ptr %4, align 8
-  %32 = sub nsw i32 0, %switch.load
-  %33 = select i1 %2, i32 %32, i32 %switch.load
-  %34 = sext i32 %33 to i64
-  %35 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %0, i64 noundef %34)
-  tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %31, i64 noundef %35)
+  %32 = sub nsw i64 0, %switch.load
+  %33 = select i1 %2, i64 %32, i64 %switch.load
+  %34 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %0, i64 noundef %33)
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %31, i64 noundef %34)
   br label %.thread
 
-36:                                               ; preds = %28, %10
-  %37 = icmp ult i64 %.053, 2
-  br i1 %37, label %38, label %.thread
+35:                                               ; preds = %28, %10
+  %36 = icmp ult i64 %.053, 2
+  br i1 %36, label %37, label %.thread
 
-38:                                               ; preds = %36
+37:                                               ; preds = %35
   switch i32 %21, label %.thread [
-    i32 8, label %39
-    i32 9, label %40
-    i32 10, label %42
-    i32 12, label %42
-    i32 11, label %43
-    i32 13, label %43
+    i32 8, label %38
+    i32 9, label %39
+    i32 10, label %41
+    i32 12, label %41
+    i32 11, label %42
+    i32 13, label %42
   ]
 
-39:                                               ; preds = %38
-  br label %40
+38:                                               ; preds = %37
+  br label %39
 
-40:                                               ; preds = %39, %38
-  %.046 = phi i1 [ true, %39 ], [ false, %38 ]
-  %41 = icmp eq i64 %.052, 0
-  br i1 %41, label %45, label %.thread
+39:                                               ; preds = %38, %37
+  %.046 = phi i1 [ true, %38 ], [ false, %37 ]
+  %40 = icmp eq i64 %.052, 0
+  br i1 %40, label %44, label %.thread
 
-42:                                               ; preds = %38, %38
-  br label %43
+41:                                               ; preds = %37, %37
+  br label %42
 
-43:                                               ; preds = %38, %38, %42
-  %.1 = phi i1 [ true, %42 ], [ false, %38 ], [ false, %38 ]
-  %44 = icmp eq i64 %.052, 1
-  br i1 %44, label %45, label %.thread
+42:                                               ; preds = %37, %37, %41
+  %.1 = phi i1 [ true, %41 ], [ false, %37 ], [ false, %37 ]
+  %43 = icmp eq i64 %.052, 1
+  br i1 %43, label %44, label %.thread
 
-45:                                               ; preds = %40, %43
-  %.263 = phi i1 [ %.046, %40 ], [ %.1, %43 ]
+44:                                               ; preds = %39, %42
+  %.263 = phi i1 [ %.046, %39 ], [ %.1, %42 ]
   %or.cond = or i1 %2, %.263
-  br i1 %or.cond, label %48, label %46
+  br i1 %or.cond, label %47, label %45
 
-46:                                               ; preds = %45
-  %47 = load i64, ptr %4, align 8
-  tail call fastcc void @tcg_opt_gen_mov(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %47, i64 noundef %12)
+45:                                               ; preds = %44
+  %46 = load i64, ptr %4, align 8
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %46, i64 noundef %12)
   br label %.thread
 
-48:                                               ; preds = %45
-  switch i32 %23, label %50 [
-    i32 0, label %51
-    i32 1, label %49
+47:                                               ; preds = %44
+  switch i32 %23, label %49 [
+    i32 0, label %50
+    i32 1, label %48
   ]
 
-49:                                               ; preds = %48
-  br label %51
+48:                                               ; preds = %47
+  br label %50
 
-50:                                               ; preds = %48
+49:                                               ; preds = %47
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2321, ptr noundef nonnull @__func__.fold_setcond_zmask, ptr noundef null) #10
   unreachable
 
-51:                                               ; preds = %48, %49
-  %.045 = phi i32 [ 78, %49 ], [ 17, %48 ]
-  %.044 = phi i32 [ 89, %49 ], [ 28, %48 ]
-  %.0 = phi i32 [ 114, %49 ], [ 54, %48 ]
-  %52 = load i32, ptr %1, align 8
-  %53 = and i32 %52, -256
-  br i1 %.263, label %56, label %54
+50:                                               ; preds = %47, %48
+  %.045 = phi i32 [ 78, %48 ], [ 17, %47 ]
+  %.044 = phi i32 [ 89, %48 ], [ 28, %47 ]
+  %.0 = phi i32 [ 114, %48 ], [ 54, %47 ]
+  %51 = load i32, ptr %1, align 8
+  %52 = and i32 %51, -256
+  br i1 %.263, label %55, label %53
 
-54:                                               ; preds = %51
-  %55 = or disjoint i32 %53, %.0
-  store i32 %55, ptr %1, align 8
+53:                                               ; preds = %50
+  %54 = or disjoint i32 %52, %.0
+  store i32 %54, ptr %1, align 8
   br label %.thread
 
-56:                                               ; preds = %51
-  br i1 %2, label %57, label %60
+55:                                               ; preds = %50
+  br i1 %2, label %56, label %59
 
-57:                                               ; preds = %56
-  %58 = or disjoint i32 %53, %.045
-  store i32 %58, ptr %1, align 8
-  %59 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef -1)
-  store i64 %59, ptr %5, align 8
+56:                                               ; preds = %55
+  %57 = or disjoint i32 %52, %.045
+  store i32 %57, ptr %1, align 8
+  %58 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef -1)
+  store i64 %58, ptr %5, align 8
   br label %.thread
 
-60:                                               ; preds = %56
-  %61 = or disjoint i32 %53, %.044
-  store i32 %61, ptr %1, align 8
-  %62 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef 1)
-  store i64 %62, ptr %5, align 8
+59:                                               ; preds = %55
+  %60 = or disjoint i32 %52, %.044
+  store i32 %60, ptr %1, align 8
+  %61 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef 1)
+  store i64 %61, ptr %5, align 8
   br label %.thread
 
-.thread:                                          ; preds = %54, %60, %57, %46, %38, %36, %40, %43, %switch.lookup, %3
-  %.054 = phi i32 [ 0, %3 ], [ 1, %switch.lookup ], [ 0, %43 ], [ 0, %40 ], [ 0, %36 ], [ 0, %38 ], [ -1, %54 ], [ -1, %60 ], [ -1, %57 ], [ 1, %46 ]
+.thread:                                          ; preds = %53, %59, %56, %45, %37, %35, %39, %42, %switch.lookup, %3
+  %.054 = phi i32 [ 0, %3 ], [ 1, %switch.lookup ], [ 0, %42 ], [ 0, %39 ], [ 0, %35 ], [ 0, %37 ], [ -1, %53 ], [ -1, %59 ], [ -1, %56 ], [ 1, %45 ]
   ret i32 %.054
 }
 

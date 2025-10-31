@@ -6263,24 +6263,24 @@ define internal fastcc void @init_mv_penalty_and_fcode() unnamed_addr #7 {
   %1 = getelementptr inbounds nuw [16385 x i8], ptr @mv_penalty, i64 %indvars.iv28
   %2 = trunc i64 %indvars.iv28 to i32
   %3 = add i32 %2, -1
-  %4 = trunc i64 %indvars.iv28 to i32
-  %5 = add i32 %4, 13
-  %6 = trunc nuw nsw i64 %indvars.iv28 to i32
+  %4 = trunc i64 %indvars.iv28 to i8
+  %5 = add i8 %4, 13
+  %6 = trunc i64 %indvars.iv28 to i8
   br label %9
 
 7:                                                ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8193) @umv_fcode_tab, i8 1, i64 8193, i1 false)
   ret void
 
-8:                                                ; preds = %35
+8:                                                ; preds = %31
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next29, 8
   br i1 %exitcond31.not, label %7, label %.preheader, !llvm.loop !157
 
-9:                                                ; preds = %.preheader, %35
-  %indvars.iv = phi i64 [ -8192, %.preheader ], [ %indvars.iv.next, %35 ]
+9:                                                ; preds = %.preheader, %31
+  %indvars.iv = phi i64 [ -8192, %.preheader ], [ %indvars.iv.next, %31 ]
   %10 = icmp eq i64 %indvars.iv, 0
-  br i1 %10, label %35, label %11
+  br i1 %10, label %31, label %11
 
 11:                                               ; preds = %9
   %12 = trunc nsw i64 %indvars.iv to i32
@@ -6289,45 +6289,38 @@ define internal fastcc void @init_mv_penalty_and_fcode() unnamed_addr #7 {
   %14 = ashr i32 %13, %3
   %15 = add nsw i32 %14, 1
   %16 = icmp slt i32 %14, 32
-  br i1 %16, label %17, label %24
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %11
   %18 = zext nneg i32 %15 to i64
   %19 = getelementptr inbounds nuw [2 x i8], ptr @ff_mvtab, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !14
-  %22 = zext i8 %21 to i32
-  %23 = add nuw nsw i32 %6, %22
-  br label %33
+  %22 = add i8 %21, %6
+  br label %31
 
-24:                                               ; preds = %11
+23:                                               ; preds = %11
   %.not.i = icmp samesign ult i32 %15, 2097152
   %spec.select.i.v = select i1 %.not.i, i32 5, i32 21
   %spec.select.i = lshr i32 %15, %spec.select.i.v
-  %spec.select12.i = select i1 %.not.i, i32 0, i32 16
+  %spec.select12.i = select i1 %.not.i, i8 0, i8 16
   %.not11.i = icmp samesign ult i32 %spec.select.i, 256
-  %25 = lshr i32 %spec.select.i, 8
-  %26 = or disjoint i32 %spec.select12.i, 8
-  %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %25
-  %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %26
-  %27 = zext nneg i32 %.110.i to i64
-  %28 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !14
-  %30 = zext i8 %29 to i32
-  %31 = add i32 %5, %.1.i
-  %32 = add i32 %31, %30
-  br label %33
+  %24 = lshr i32 %spec.select.i, 8
+  %25 = or disjoint i8 %spec.select12.i, 8
+  %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %24
+  %.1.i = select i1 %.not11.i, i8 %spec.select12.i, i8 %25
+  %26 = zext nneg i32 %.110.i to i64
+  %27 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !14
+  %29 = add i8 %5, %.1.i
+  %30 = add i8 %29, %28
+  br label %31
 
-33:                                               ; preds = %24, %17
-  %.1 = phi i32 [ %23, %17 ], [ %32, %24 ]
-  %34 = trunc i32 %.1 to i8
-  br label %35
-
-35:                                               ; preds = %9, %33
-  %.021 = phi i8 [ %34, %33 ], [ 1, %9 ]
-  %36 = getelementptr i8, ptr %1, i64 %indvars.iv
-  %37 = getelementptr i8, ptr %36, i64 8192
-  store i8 %.021, ptr %37, align 1, !tbaa !14
+31:                                               ; preds = %17, %23, %9
+  %.021 = phi i8 [ 1, %9 ], [ %22, %17 ], [ %30, %23 ]
+  %32 = getelementptr i8, ptr %1, i64 %indvars.iv
+  %33 = getelementptr i8, ptr %32, i64 8192
+  store i8 %.021, ptr %33, align 1, !tbaa !14
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8193
   br i1 %exitcond.not, label %8, label %9, !llvm.loop !158

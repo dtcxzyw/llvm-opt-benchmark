@@ -9436,13 +9436,13 @@ Vec_IntFill.exit99:                               ; preds = %Vec_IntGrow.exit.i9
   %145 = xor i64 %indvars.iv25.i, -1
   %146 = getelementptr i8, ptr %138, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !39
-  %148 = sext i8 %147 to i32
+  %148 = sext i8 %147 to i64
   %149 = add i8 %147, -48
   %or.cond.i14.i = icmp ult i8 %149, 10
   br i1 %or.cond.i14.i, label %150, label %152
 
 150:                                              ; preds = %.lr.ph21.i
-  %151 = add nsw i32 %148, -48
+  %151 = add nsw i64 %148, -48
   br label %Abc_TtReadHexDigit.exit.i
 
 152:                                              ; preds = %.lr.ph21.i
@@ -9451,60 +9451,59 @@ Vec_IntFill.exit99:                               ; preds = %Vec_IntGrow.exit.i9
   br i1 %or.cond5.i.i, label %154, label %156
 
 154:                                              ; preds = %152
-  %155 = add nsw i32 %148, -55
+  %155 = add nsw i64 %148, -55
   br label %Abc_TtReadHexDigit.exit.i
 
 156:                                              ; preds = %152
   %157 = add i8 %147, -97
   %or.cond8.i.i = icmp ult i8 %157, 6
-  %158 = add nsw i32 %148, -87
-  %spec.select.i.i = select i1 %or.cond8.i.i, i32 %158, i32 -1
+  %158 = add nsw i64 %148, -87
+  %spec.select.i.i = select i1 %or.cond8.i.i, i64 %158, i64 -1
   br label %Abc_TtReadHexDigit.exit.i
 
 Abc_TtReadHexDigit.exit.i:                        ; preds = %156, %154, %150
-  %.0.i.i = phi i32 [ %151, %150 ], [ %155, %154 ], [ %spec.select.i.i, %156 ]
-  %159 = sext i32 %.0.i.i to i64
-  %160 = shl i64 %indvars.iv25.i, 2
-  %161 = and i64 %160, 60
-  %162 = shl i64 %159, %161
-  %163 = lshr i64 %indvars.iv25.i, 4
-  %164 = and i64 %163, 268435455
-  %165 = getelementptr inbounds nuw i64, ptr %128, i64 %164
-  %166 = load i64, ptr %165, align 8, !tbaa !107
-  %167 = or i64 %162, %166
-  store i64 %167, ptr %165, align 8, !tbaa !107
+  %.0.i.i = phi i64 [ %151, %150 ], [ %155, %154 ], [ %spec.select.i.i, %156 ]
+  %159 = shl i64 %indvars.iv25.i, 2
+  %160 = and i64 %159, 60
+  %161 = shl i64 %.0.i.i, %160
+  %162 = lshr i64 %indvars.iv25.i, 4
+  %163 = and i64 %162, 268435455
+  %164 = getelementptr inbounds nuw i64, ptr %128, i64 %163
+  %165 = load i64, ptr %164, align 8, !tbaa !107
+  %166 = or i64 %165, %161
+  store i64 %166, ptr %164, align 8, !tbaa !107
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next26.i, %136
   br i1 %exitcond.not.i105, label %Abc_TtReadHexNumber.exit, label %.lr.ph21.i, !llvm.loop !109
 
 Abc_TtReadHexNumber.exit:                         ; preds = %Abc_TtReadHexDigit.exit.i, %Vec_IntFill.exit99, %.preheader.i
   store i32 %8, ptr %3, align 4, !tbaa !36
-  br label %168
+  br label %167
 
-168:                                              ; preds = %Wlc_PrsIsChar.exit.thread, %Abc_TtReadHexNumber.exit
-  %.2 = phi ptr [ %105, %Abc_TtReadHexNumber.exit ], [ %173, %Wlc_PrsIsChar.exit.thread ]
+167:                                              ; preds = %Wlc_PrsIsChar.exit.thread, %Abc_TtReadHexNumber.exit
+  %.2 = phi ptr [ %105, %Abc_TtReadHexNumber.exit ], [ %172, %Wlc_PrsIsChar.exit.thread ]
   %.2.val = load i8, ptr %.2, align 1, !tbaa !39
-  %169 = and i8 %.2.val, -33
-  %170 = add i8 %169, -65
-  %or.cond1.i = icmp ult i8 %170, 26
-  %171 = add i8 %.2.val, -48
-  %or.cond13.i = icmp ult i8 %171, 10
+  %168 = and i8 %.2.val, -33
+  %169 = add i8 %168, -65
+  %or.cond1.i = icmp ult i8 %169, 26
+  %170 = add i8 %.2.val, -48
+  %or.cond13.i = icmp ult i8 %170, 10
   %or.cond2.i = or i1 %or.cond13.i, %or.cond1.i
-  br i1 %or.cond2.i, label %Wlc_PrsIsChar.exit.thread, label %172
+  br i1 %or.cond2.i, label %Wlc_PrsIsChar.exit.thread, label %171
 
-172:                                              ; preds = %168
+171:                                              ; preds = %167
   switch i8 %.2.val, label %.loopexit [
     i8 95, label %Wlc_PrsIsChar.exit.thread
     i8 36, label %Wlc_PrsIsChar.exit.thread
     i8 92, label %Wlc_PrsIsChar.exit.thread
   ]
 
-Wlc_PrsIsChar.exit.thread:                        ; preds = %172, %172, %172, %168
-  %173 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br label %168, !llvm.loop !110
+Wlc_PrsIsChar.exit.thread:                        ; preds = %171, %171, %171, %167
+  %172 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  br label %167, !llvm.loop !110
 
-.loopexit:                                        ; preds = %172, %101, %._crit_edge, %94, %Vec_IntGrow.exit.i
-  %.0 = phi ptr [ %.061, %Vec_IntGrow.exit.i ], [ null, %94 ], [ %100, %._crit_edge ], [ null, %101 ], [ %.2, %172 ]
+.loopexit:                                        ; preds = %171, %101, %._crit_edge, %94, %Vec_IntGrow.exit.i
+  %.0 = phi ptr [ %.061, %Vec_IntGrow.exit.i ], [ null, %94 ], [ %100, %._crit_edge ], [ null, %101 ], [ %.2, %171 ]
   ret ptr %.0
 }
 

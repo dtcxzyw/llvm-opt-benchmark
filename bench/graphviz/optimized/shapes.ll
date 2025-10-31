@@ -4955,8 +4955,8 @@ closestSide.exit:                                 ; preds = %closestSide.exit.lo
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %12, label %7
+  %.not = icmp ne ptr %1, null
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %6
   %.sroa.055.0.copyload = load double, ptr %1, align 8, !tbaa !4
@@ -4996,7 +4996,6 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
   br label %28
 
 28:                                               ; preds = %12, %7
-  %.0130 = phi i8 [ 1, %7 ], [ 0, %12 ]
   %.sroa.050.0 = phi double [ %9, %7 ], [ 0.000000e+00, %12 ]
   %.sroa.26.0 = phi double [ %11, %7 ], [ 0.000000e+00, %12 ]
   %.sroa.055.0 = phi double [ %.sroa.055.0.copyload, %7 ], [ %., %12 ]
@@ -5190,7 +5189,7 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
   br label %106
 
 106:                                              ; preds = %80, %70, %44, %35, %33, %104, %105, %42, %68, %60, %52, %78, %102, %94, %87, %31, %28
-  %.1 = phi i8 [ %.0130, %105 ], [ 1, %42 ], [ 1, %52 ], [ 1, %60 ], [ 1, %68 ], [ 1, %78 ], [ 1, %87 ], [ 1, %94 ], [ 1, %102 ], [ %.0130, %104 ], [ %.0130, %33 ], [ %.0130, %31 ], [ %.0130, %28 ], [ %.0130, %35 ], [ %.0130, %44 ], [ %.0130, %70 ], [ %.0130, %80 ]
+  %.1 = phi i1 [ %.not, %105 ], [ true, %42 ], [ true, %52 ], [ true, %60 ], [ true, %68 ], [ true, %78 ], [ true, %87 ], [ true, %94 ], [ true, %102 ], [ %.not, %104 ], [ %.not, %33 ], [ %.not, %31 ], [ %.not, %28 ], [ %.not, %35 ], [ %.not, %44 ], [ %.not, %70 ], [ %.not, %80 ]
   %.0129 = phi i8 [ 1, %105 ], [ 0, %42 ], [ 0, %52 ], [ 0, %60 ], [ 0, %68 ], [ 0, %78 ], [ 0, %87 ], [ 0, %94 ], [ 0, %102 ], [ 1, %104 ], [ 1, %33 ], [ 1, %31 ], [ 1, %28 ], [ 1, %35 ], [ 1, %44 ], [ 1, %70 ], [ 1, %80 ]
   %.0128 = phi i8 [ 0, %105 ], [ %43, %42 ], [ %53, %52 ], [ %61, %60 ], [ %69, %68 ], [ %79, %78 ], [ %88, %87 ], [ %95, %94 ], [ %103, %102 ], [ %4, %104 ], [ 0, %33 ], [ 0, %31 ], [ 0, %28 ], [ 0, %35 ], [ 0, %44 ], [ 0, %70 ], [ 0, %80 ]
   %.0127 = phi i1 [ false, %105 ], [ false, %42 ], [ false, %52 ], [ false, %60 ], [ false, %68 ], [ false, %78 ], [ false, %87 ], [ false, %94 ], [ false, %102 ], [ true, %104 ], [ false, %33 ], [ false, %31 ], [ false, %28 ], [ false, %35 ], [ false, %44 ], [ false, %70 ], [ false, %80 ]
@@ -5359,12 +5358,13 @@ invflip_angle.exit:                               ; preds = %invflip_side.exit, 
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 33
   store i8 %.0126, ptr %178, align 1, !tbaa !138
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 %.1, ptr %179, align 8, !tbaa !139
-  %180 = getelementptr inbounds nuw i8, ptr %2, i64 34
-  store i8 %.0129, ptr %180, align 2, !tbaa !140
-  %181 = getelementptr inbounds nuw i8, ptr %2, i64 35
-  %182 = zext i1 %.0127 to i8
-  store i8 %182, ptr %181, align 1, !tbaa !141
+  %180 = zext i1 %.1 to i8
+  store i8 %180, ptr %179, align 8, !tbaa !139
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 34
+  store i8 %.0129, ptr %181, align 2, !tbaa !140
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 35
+  %183 = zext i1 %.0127 to i8
+  store i8 %183, ptr %182, align 1, !tbaa !141
   ret i32 %.0124
 }
 

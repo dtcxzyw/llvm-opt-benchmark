@@ -999,10 +999,10 @@ bdf_interpret_style.exit:                         ; preds = %317
   %372 = trunc nsw i64 %369 to i32
   %.lhs.trunc = add nsw i32 %372, 5
   %373 = sdiv i32 %.lhs.trunc, 10
-  %374 = icmp slt i64 %369, -14
-  %375 = sub nsw i32 0, %373
-  %376 = select i1 %374, i32 %375, i32 %373
-  %377 = trunc nuw nsw i32 %376 to i16
+  %374 = trunc nsw i32 %373 to i16
+  %375 = icmp slt i64 %369, -14
+  %376 = sub nsw i16 0, %374
+  %377 = select i1 %375, i16 %376, i16 %374
   br label %385
 
 378:                                              ; preds = %361

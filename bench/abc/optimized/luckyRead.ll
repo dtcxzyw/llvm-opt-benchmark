@@ -164,11 +164,11 @@ Abc_TruthStoreAlloc.exit:                         ; preds = %49, %Abc_TruthGetPa
   %59 = zext nneg i32 %58 to i64
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i10, %96
-  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %96 ], [ 0, %.lr.ph.i10 ]
-  %60 = phi i8 [ %99, %96 ], [ %54, %.lr.ph.i10 ]
-  %61 = phi ptr [ %98, %96 ], [ %52, %.lr.ph.i10 ]
-  %.01216.us.i = phi i64 [ %indvars.iv.next24.i, %96 ], [ 0, %.lr.ph.i10 ]
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i10, %95
+  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %95 ], [ 0, %.lr.ph.i10 ]
+  %60 = phi i8 [ %98, %95 ], [ %54, %.lr.ph.i10 ]
+  %61 = phi ptr [ %97, %95 ], [ %52, %.lr.ph.i10 ]
+  %.01216.us.i = phi i64 [ %indvars.iv.next24.i, %95 ], [ 0, %.lr.ph.i10 ]
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %62 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv26.i
   %63 = load ptr, ptr %62, align 8, !tbaa !10
@@ -193,7 +193,7 @@ Abc_TruthStoreAlloc.exit:                         ; preds = %49, %Abc_TruthGetPa
   %70 = xor i64 %indvars.iv.i.us.i, -1
   %71 = getelementptr i8, ptr %69, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !12
-  %73 = sext i8 %72 to i32
+  %73 = sext i8 %72 to i64
   %74 = add i8 %72, -48
   %or.cond.i.i.us.i = icmp ult i8 %74, 10
   br i1 %or.cond.i.i.us.i, label %82, label %75
@@ -206,61 +206,60 @@ Abc_TruthStoreAlloc.exit:                         ; preds = %49, %Abc_TruthGetPa
 77:                                               ; preds = %75
   %78 = add i8 %72, -97
   %or.cond8.i.i.us.i = icmp ult i8 %78, 6
-  %79 = add nsw i32 %73, -87
-  %spec.select.i.i.us.i = select i1 %or.cond8.i.i.us.i, i32 %79, i32 -1
+  %79 = add nsw i64 %73, -87
+  %spec.select.i.i.us.i = select i1 %or.cond8.i.i.us.i, i64 %79, i64 -1
   br label %Abc_TruthReadHexDigit.exit.i.us.i
 
 80:                                               ; preds = %75
-  %81 = add nsw i32 %73, -55
+  %81 = add nsw i64 %73, -55
   br label %Abc_TruthReadHexDigit.exit.i.us.i
 
 82:                                               ; preds = %.lr.ph.i.us.i
-  %83 = add nsw i32 %73, -48
+  %83 = add nsw i64 %73, -48
   br label %Abc_TruthReadHexDigit.exit.i.us.i
 
 Abc_TruthReadHexDigit.exit.i.us.i:                ; preds = %82, %80, %77
-  %.0.i.i.us.i = phi i32 [ %83, %82 ], [ %81, %80 ], [ %spec.select.i.i.us.i, %77 ]
-  %84 = sext i32 %.0.i.i.us.i to i64
-  %85 = shl i64 %indvars.iv.i.us.i, 2
-  %86 = and i64 %85, 60
-  %87 = shl i64 %84, %86
-  %88 = lshr i64 %indvars.iv.i.us.i, 4
-  %89 = and i64 %88, 268435455
-  %90 = getelementptr inbounds nuw i64, ptr %63, i64 %89
-  %91 = load i64, ptr %90, align 8, !tbaa !21
-  %92 = or i64 %87, %91
-  store i64 %92, ptr %90, align 8, !tbaa !21
+  %.0.i.i.us.i = phi i64 [ %83, %82 ], [ %81, %80 ], [ %spec.select.i.i.us.i, %77 ]
+  %84 = shl i64 %indvars.iv.i.us.i, 2
+  %85 = and i64 %84, 60
+  %86 = shl i64 %.0.i.i.us.i, %85
+  %87 = lshr i64 %indvars.iv.i.us.i, 4
+  %88 = and i64 %87, 268435455
+  %89 = getelementptr inbounds nuw i64, ptr %63, i64 %88
+  %90 = load i64, ptr %89, align 8, !tbaa !21
+  %91 = or i64 %90, %86
+  store i64 %91, ptr %89, align 8, !tbaa !21
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %59
   br i1 %exitcond.not.i.us.i, label %Abc_TruthReadHex.exit.loopexit.us.preheader.i, label %.lr.ph.i.us.i, !llvm.loop !23
 
 Abc_TruthReadHex.exit.loopexit.us.preheader.i:    ; preds = %Abc_TruthReadHexDigit.exit.i.us.i
   %sext31.i = shl i64 %.01216.us.i, 32
-  %93 = ashr exact i64 %sext31.i, 32
+  %92 = ashr exact i64 %sext31.i, 32
   br label %Abc_TruthReadHex.exit.loopexit.us.i
 
 Abc_TruthReadHex.exit.loopexit.us.i:              ; preds = %Abc_TruthReadHex.exit.loopexit.us.i, %Abc_TruthReadHex.exit.loopexit.us.preheader.i
-  %indvars.iv23.i = phi i64 [ %93, %Abc_TruthReadHex.exit.loopexit.us.preheader.i ], [ %indvars.iv.next24.i, %Abc_TruthReadHex.exit.loopexit.us.i ]
+  %indvars.iv23.i = phi i64 [ %92, %Abc_TruthReadHex.exit.loopexit.us.preheader.i ], [ %indvars.iv.next24.i, %Abc_TruthReadHex.exit.loopexit.us.i ]
   %indvars.iv.next24.i = add nsw i64 %indvars.iv23.i, 1
-  %94 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv23.i
-  %95 = load i8, ptr %94, align 1, !tbaa !12
-  %.not14.us.i = icmp eq i8 %95, 10
-  br i1 %.not14.us.i, label %96, label %Abc_TruthReadHex.exit.loopexit.us.i, !llvm.loop !24
+  %93 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv23.i
+  %94 = load i8, ptr %93, align 1, !tbaa !12
+  %.not14.us.i = icmp eq i8 %94, 10
+  br i1 %.not14.us.i, label %95, label %Abc_TruthReadHex.exit.loopexit.us.i, !llvm.loop !24
 
-96:                                               ; preds = %Abc_TruthReadHex.exit.loopexit.us.i
+95:                                               ; preds = %Abc_TruthReadHex.exit.loopexit.us.i
   %sext32.i = shl i64 %indvars.iv.next24.i, 32
-  %97 = ashr exact i64 %sext32.i, 32
-  %98 = getelementptr inbounds i8, ptr %52, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !12
-  %.not.us.i = icmp eq i8 %99, 10
+  %96 = ashr exact i64 %sext32.i, 32
+  %97 = getelementptr inbounds i8, ptr %52, i64 %96
+  %98 = load i8, ptr %97, align 1, !tbaa !12
+  %.not.us.i = icmp eq i8 %98, 10
   br i1 %.not.us.i, label %._crit_edge.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !25
 
-._crit_edge.loopexit.i:                           ; preds = %96
-  %100 = trunc nuw i64 %indvars.iv.next27.i to i32
+._crit_edge.loopexit.i:                           ; preds = %95
+  %99 = trunc nuw i64 %indvars.iv.next27.i to i32
   br label %._crit_edge.i13
 
 ._crit_edge.i13:                                  ; preds = %._crit_edge.loopexit.i, %.preheader.i9
-  %.0.lcssa.i14 = phi i32 [ 0, %.preheader.i9 ], [ %100, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i14 = phi i32 [ 0, %.preheader.i9 ], [ %99, %._crit_edge.loopexit.i ]
   store i32 %.0.lcssa.i14, ptr %38, align 8, !tbaa !19
   br label %Abc_TruthStoreRead.exit
 

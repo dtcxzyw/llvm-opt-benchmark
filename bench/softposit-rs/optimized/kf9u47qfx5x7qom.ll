@@ -40,7 +40,7 @@ _ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit: ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i64, ptr %20, align 8, !alias.scope !4, !noundef !7
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %138, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
+  br i1 %22, label %137, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
 
 23:                                               ; preds = %1
   %24 = icmp eq i64 %3, -9223372036854775808
@@ -53,7 +53,7 @@ _ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit: ; preds = %1
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   %or.cond145 = select i1 %or.cond14.i97, i1 %27, i1 false
-  br i1 %or.cond145, label %138, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
+  br i1 %or.cond145, label %137, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
 
 _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %23
   %28 = phi i64 [ %21, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit ], [ %26, %23 ]
@@ -128,7 +128,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit.thread": ; preds = %64, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread"
   %.180 = phi i64 [ %74, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread" ], [ 512, %64 ]
   %.075 = phi i64 [ %89, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread" ], [ 0, %64 ]
-  %.069 = phi i8 [ %.2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread" ], [ 0, %64 ]
+  %.069 = phi i1 [ %.2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread" ], [ false, %64 ]
   %55 = sub i64 271, %.180
   %56 = lshr i64 %55, 2
   %57 = trunc i64 %56 to i8
@@ -166,7 +166,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   %74 = phi i64 [ %71, %._crit_edge ], [ %71, %78 ], [ %.079160, %.preheader ]
   %.sroa.0112.1.idx = phi i64 [ %.sroa.0112.0.add, %._crit_edge ], [ %.ptr.add, %78 ], [ %.sroa.0112.0.add, %.preheader ]
   %.277 = phi i64 [ %69, %._crit_edge ], [ %83, %78 ], [ %52, %.preheader ]
-  %.1 = phi i8 [ 0, %._crit_edge ], [ %spec.select, %78 ], [ 0, %.preheader ]
+  %.1 = phi i1 [ false, %._crit_edge ], [ %86, %78 ], [ false, %.preheader ]
   br label %87
 
 75:                                               ; preds = %._crit_edge
@@ -188,7 +188,6 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   %84 = xor i64 %notmask, -1
   %85 = and i64 %79, %84
   %86 = icmp ne i64 %85, 0
-  %spec.select = zext i1 %86 to i8
   br label %._crit_edge.thread
 
 87:                                               ; preds = %90, %._crit_edge.thread
@@ -197,7 +196,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %88, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread", label %90
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread": ; preds = %87, %90
-  %.2 = phi i8 [ 1, %90 ], [ %.1, %87 ]
+  %.2 = phi i1 [ true, %90 ], [ %.1, %87 ]
   %89 = and i64 %.277, 9223372036854775807
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit.thread"
 
@@ -231,21 +230,21 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %105, label %114, label %108
 
 106:                                              ; preds = %99, %92, %132, %128
-  %.068 = phi i32 [ %137, %132 ], [ %130, %128 ], [ 2147483647, %92 ], [ 1, %99 ]
+  %.068 = phi i32 [ %136, %132 ], [ %130, %128 ], [ 2147483647, %92 ], [ 1, %99 ]
   %107 = sub i32 0, %.068
   %.0.i108 = select i1 %.not, i32 %.068, i32 %107
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %138
+  br label %137
 
 108:                                              ; preds = %104
   %109 = icmp eq i32 %.065, 30
   %110 = trunc i32 %62 to i8
-  %111 = and i8 %110, 1
+  %111 = trunc i32 %62 to i1
   %112 = ashr i32 %62, 1
   %.073 = select i1 %109, i32 0, i32 %112
   %113 = zext i1 %109 to i8
   %.070.in = lshr i8 %110, %113
-  %.3 = select i1 %109, i8 %111, i8 %.069
+  %.3 = select i1 %109, i1 %111, i1 %.069
   br label %128
 
 114:                                              ; preds = %104
@@ -266,7 +265,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 
 128:                                              ; preds = %108, %114
   %.075.sink = phi i64 [ %.075, %108 ], [ %127, %114 ]
-  %.3.sink = phi i8 [ %.3, %108 ], [ %.069, %114 ]
+  %.3.sink = phi i1 [ %.3, %108 ], [ %.069, %114 ]
   %.174 = phi i32 [ %.073, %108 ], [ %124, %114 ]
   %.072 = phi i32 [ 0, %108 ], [ %118, %114 ]
   %.171.in = phi i8 [ %.070.in, %108 ], [ %122, %114 ]
@@ -276,15 +275,15 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %131, label %132, label %106
 
 132:                                              ; preds = %128
-  %.not89 = icmp eq i64 %.075.sink, 0
+  %.not89 = icmp ne i64 %.075.sink, 0
+  %spec.select92 = select i1 %.not89, i1 true, i1 %.3.sink
   %133 = and i32 %130, 1
-  %134 = zext nneg i8 %.3.sink to i32
-  %135 = select i1 %.not89, i32 %134, i32 1
-  %136 = or i32 %133, %135
-  %137 = add i32 %136, %130
+  %134 = zext i1 %spec.select92 to i32
+  %135 = or i32 %133, %134
+  %136 = add i32 %135, %130
   br label %106
 
-138:                                              ; preds = %23, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %106
+137:                                              ; preds = %23, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %106
   %.0 = phi i32 [ %.0.i108, %106 ], [ 0, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit ], [ -2147483648, %23 ]
   ret i32 %.0
 }

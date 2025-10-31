@@ -158,12 +158,12 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @dissect_iwarp_mpa_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = icmp eq ptr %3, null
-  br i1 %5, label %33, label %6
+  br i1 %5, label %.thread25, label %6
 
 6:                                                ; preds = %4
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %8 = icmp ugt i32 %7, 19
-  br i1 %8, label %9, label %13
+  br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %6
   %10 = tail call fastcc zeroext i1 @is_mpa_req(ptr noundef %0, ptr noundef %1)
@@ -173,56 +173,64 @@ define internal noundef zeroext i1 @dissect_iwarp_mpa_heur(ptr noundef %0, ptr n
   %12 = tail call fastcc zeroext i1 @is_mpa_rep(ptr noundef %0, ptr noundef %1)
   br label %13
 
-13:                                               ; preds = %11, %9, %6
-  %.0 = phi i1 [ false, %6 ], [ true, %9 ], [ %12, %11 ]
+13:                                               ; preds = %11, %9
+  %.0 = phi i1 [ true, %9 ], [ %12, %11 ]
   %14 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %15 = icmp ugt i32 %14, 7
-  br i1 %15, label %16, label %is_mpa_fpdu.exit.thread
+  br i1 %15, label %18, label %35
 
-16:                                               ; preds = %13
-  %17 = tail call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0)
-  %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %is_mpa_fpdu.exit.thread, label %get_mpa_state.exit.i
+.thread:                                          ; preds = %6
+  %16 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %17 = icmp ugt i32 %16, 7
+  br i1 %17, label %18, label %.thread25
 
-get_mpa_state.exit.i:                             ; preds = %16
-  %18 = load i32, ptr @proto_iwarp_mpa, align 4
-  %19 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %17, i32 noundef %18)
-  %.not13.i = icmp eq ptr %19, null
-  br i1 %.not13.i, label %is_mpa_fpdu.exit.thread, label %20
+18:                                               ; preds = %.thread, %13
+  %.024 = phi i1 [ false, %.thread ], [ %.0, %13 ]
+  %19 = tail call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0)
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %is_mpa_fpdu.exit, label %get_mpa_state.exit.i
 
-20:                                               ; preds = %get_mpa_state.exit.i
-  %21 = load i8, ptr %19, align 4, !range !6, !noundef !7
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %is_mpa_fpdu.exit.thread
+get_mpa_state.exit.i:                             ; preds = %18
+  %20 = load i32, ptr @proto_iwarp_mpa, align 4
+  %21 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %19, i32 noundef %20)
+  %.not13.i = icmp eq ptr %21, null
+  br i1 %.not13.i, label %is_mpa_fpdu.exit, label %22
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %25 = load i32, ptr %24, align 4
-  %.fr = freeze i32 %25
-  %26 = getelementptr inbounds nuw i8, ptr %19, i64 4
+22:                                               ; preds = %get_mpa_state.exit.i
+  %23 = load i8, ptr %21, align 4, !range !6, !noundef !7
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %25, label %is_mpa_fpdu.exit
+
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %.fr, %27
-  br i1 %28, label %is_mpa_fpdu.exit.thread, label %is_mpa_fpdu.exit
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp eq i32 %27, %29
+  br i1 %30, label %is_mpa_fpdu.exit, label %31
 
-is_mpa_fpdu.exit:                                 ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %30 = load i32, ptr %29, align 4
-  %.fr21 = freeze i32 %30
-  %31 = icmp ne i32 %.fr, %.fr21
-  %or.cond = or i1 %.0, %31
-  br i1 %or.cond, label %.thread, label %33
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp ne i32 %27, %33
+  br label %is_mpa_fpdu.exit
 
-is_mpa_fpdu.exit.thread:                          ; preds = %23, %20, %get_mpa_state.exit.i, %16, %13
-  br i1 %.0, label %.thread, label %33
+is_mpa_fpdu.exit:                                 ; preds = %18, %get_mpa_state.exit.i, %22, %25, %31
+  %.0.i = phi i1 [ false, %18 ], [ false, %get_mpa_state.exit.i ], [ false, %22 ], [ false, %25 ], [ %34, %31 ]
+  %spec.select17 = or i1 %.024, %.0.i
+  br i1 %spec.select17, label %36, label %.thread25
 
-.thread:                                          ; preds = %is_mpa_fpdu.exit, %is_mpa_fpdu.exit.thread
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  store i32 12, ptr %32, align 8
+35:                                               ; preds = %13
+  br i1 %.0, label %36, label %.thread25
+
+36:                                               ; preds = %is_mpa_fpdu.exit, %35
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  store i32 12, ptr %37, align 8
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 8, ptr noundef nonnull @iwrap_mpa_pdu_length, ptr noundef nonnull @dissect_iwarp_mpa_pdu, ptr noundef nonnull %3)
-  br label %33
+  br label %.thread25
 
-33:                                               ; preds = %is_mpa_fpdu.exit, %is_mpa_fpdu.exit.thread, %4, %.thread
-  %.015 = phi i1 [ true, %.thread ], [ false, %4 ], [ false, %is_mpa_fpdu.exit.thread ], [ false, %is_mpa_fpdu.exit ]
+.thread25:                                        ; preds = %.thread, %is_mpa_fpdu.exit, %35, %4, %36
+  %.015 = phi i1 [ true, %36 ], [ false, %4 ], [ false, %35 ], [ false, %is_mpa_fpdu.exit ], [ false, %.thread ]
   ret i1 %.015
 }
 

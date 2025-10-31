@@ -2314,7 +2314,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
   %520 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !13
   %521 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 455, i64 noundef %335, i64 noundef %520, ptr noundef nonnull @.str.19) #7
   %.not76 = icmp eq i64 %322, -1
-  br i1 %.not76, label %.thread115, label %.thread84
+  br i1 %.not76, label %.thread115, label %.thread84, !prof !27
 
 .thread84:                                        ; preds = %518, %424, %394, %361, %519
   %.05493 = phi i1 [ true, %519 ], [ %.2, %518 ], [ %403, %424 ], [ true, %394 ], [ true, %361 ]
@@ -2365,7 +2365,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 546:                                              ; preds = %.thread84
   %547 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
-  br i1 %.05493, label %.thread107, label %549, !prof !27
+  br i1 %.05493, label %.thread107, label %549, !prof !28
 
 .thread107:                                       ; preds = %91, %68, %39, %.thread115, %.thread111, %546
   %.36099110 = phi i32 [ %.05791, %546 ], [ -1, %.thread111 ], [ -1, %.thread115 ], [ -1, %39 ], [ -1, %68 ], [ -1, %91 ]
@@ -2539,7 +2539,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
 90:                                               ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull align 1 %1, i64 %2, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %68, i64 %2
-  store ptr %91, ptr %8, align 8, !tbaa !28
+  store ptr %91, ptr %8, align 8, !tbaa !29
   %92 = call i32 @H5S_select_serialize(ptr noundef nonnull %3, ptr noundef nonnull %8) #7
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %94, label %114
@@ -3733,7 +3733,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rget_region(i64 noundef %0, i3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 12, ptr %6, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr null, ptr %7, align 8, !tbaa !31
+  store ptr null, ptr %7, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4286,7 +4286,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rget_region(i64 noundef %0, i3
   br label %.thread53
 
 349:                                              ; preds = %324
-  %350 = load ptr, ptr %7, align 8, !tbaa !31
+  %350 = load ptr, ptr %7, align 8, !tbaa !32
   %351 = call i64 @H5I_register(i32 noundef 4, ptr noundef %350, i1 noundef zeroext true) #7
   %352 = icmp slt i64 %351, 0
   br i1 %352, label %353, label %.thread53
@@ -4327,7 +4327,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rget_region(i64 noundef %0, i3
   %374 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !13
   %375 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rget_region, i32 noundef 706, i64 noundef %239, i64 noundef %374, ptr noundef nonnull @.str.19) #7
   %.not45 = icmp eq i64 %226, -1
-  br i1 %.not45, label %.thread85, label %.thread53
+  br i1 %.not45, label %.thread85, label %.thread53, !prof !27
 
 .thread53:                                        ; preds = %349, %370, %346, %321, %298, %265, %373
   %.062 = phi i1 [ true, %373 ], [ false, %349 ], [ true, %370 ], [ true, %346 ], [ true, %321 ], [ true, %298 ], [ true, %265 ]
@@ -4378,7 +4378,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rget_region(i64 noundef %0, i3
 
 400:                                              ; preds = %.thread53
   %401 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
-  br i1 %.062, label %.thread76, label %403, !prof !27
+  br i1 %.062, label %.thread76, label %403, !prof !28
 
 .thread76:                                        ; preds = %86, %63, %34, %.thread85, %.thread81, %400
   %.1356880 = phi i64 [ %.03460, %400 ], [ -1, %.thread81 ], [ -1, %.thread85 ], [ -1, %34 ], [ -1, %63 ], [ -1, %86 ]
@@ -4873,9 +4873,10 @@ attributes #8 = { nounwind allocsize(0) }
 !24 = !{!"H5VL_file_cont_info_t", !4, i64 0, !14, i64 8, !14, i64 16, !14, i64 24}
 !25 = !{!26, !4, i64 0}
 !26 = !{!"H5VL_object_specific_args_t", !4, i64 0, !5, i64 8}
-!27 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 omnipotent char", !30, i64 0}
-!30 = !{!"any pointer", !5, i64 0}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 _ZTS5H5S_t", !30, i64 0}
+!27 = !{!"branch_weights", i32 0, i32 -2147483648}
+!28 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 omnipotent char", !31, i64 0}
+!31 = !{!"any pointer", !5, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS5H5S_t", !31, i64 0}

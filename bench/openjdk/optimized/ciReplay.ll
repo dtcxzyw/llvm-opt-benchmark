@@ -8155,12 +8155,12 @@ define linkonce_odr hidden void @_ZN13CompileReplay15unescape_stringEPc(ptr noun
   %2 = alloca i16, align 2
   br label %3
 
-3:                                                ; preds = %49, %1
-  %.027 = phi ptr [ %0, %1 ], [ %.128, %49 ]
-  %.0 = phi ptr [ %0, %1 ], [ %.1, %49 ]
+3:                                                ; preds = %45, %1
+  %.027 = phi ptr [ %0, %1 ], [ %.128, %45 ]
+  %.0 = phi ptr [ %0, %1 ], [ %.1, %45 ]
   %4 = load i8, ptr %.0, align 1
   switch i8 %4, label %5 [
-    i8 0, label %50
+    i8 0, label %46
     i8 92, label %8
   ]
 
@@ -8168,17 +8168,17 @@ define linkonce_odr hidden void @_ZN13CompileReplay15unescape_stringEPc(ptr noun
   %6 = load i8, ptr %.027, align 1
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %6, ptr %.0, align 1
-  br label %49
+  br label %45
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %10 = load i8, ptr %9, align 1
-  switch i8 %10, label %47 [
+  switch i8 %10, label %43 [
     i8 117, label %11
-    i8 116, label %39
-    i8 110, label %41
-    i8 114, label %43
-    i8 102, label %45
+    i8 116, label %35
+    i8 110, label %37
+    i8 114, label %39
+    i8 102, label %41
   ]
 
 11:                                               ; preds = %8
@@ -8186,14 +8186,14 @@ define linkonce_odr hidden void @_ZN13CompileReplay15unescape_stringEPc(ptr noun
   store i16 0, ptr %2, align 2
   br label %13
 
-13:                                               ; preds = %11, %34
-  %.237 = phi ptr [ %12, %11 ], [ %15, %34 ]
-  %.02636 = phi i32 [ 0, %11 ], [ %37, %34 ]
-  %14 = phi i16 [ 0, %11 ], [ %36, %34 ]
+13:                                               ; preds = %11, %31
+  %.237 = phi ptr [ %12, %11 ], [ %15, %31 ]
+  %.02636 = phi i32 [ 0, %11 ], [ %33, %31 ]
+  %14 = phi i16 [ 0, %11 ], [ %32, %31 ]
   %15 = getelementptr inbounds nuw i8, ptr %.237, i64 1
   %16 = load i8, ptr %.237, align 1
-  %17 = sext i8 %16 to i32
-  switch i8 %16, label %32 [
+  %17 = sext i8 %16 to i16
+  switch i8 %16, label %29 [
     i8 48, label %18
     i8 49, label %18
     i8 50, label %18
@@ -8204,94 +8204,90 @@ define linkonce_odr hidden void @_ZN13CompileReplay15unescape_stringEPc(ptr noun
     i8 55, label %18
     i8 56, label %18
     i8 57, label %18
-    i8 97, label %22
-    i8 98, label %22
-    i8 99, label %22
-    i8 100, label %22
-    i8 101, label %22
-    i8 102, label %22
-    i8 65, label %27
-    i8 66, label %27
-    i8 67, label %27
-    i8 68, label %27
-    i8 69, label %27
-    i8 70, label %27
+    i8 97, label %21
+    i8 98, label %21
+    i8 99, label %21
+    i8 100, label %21
+    i8 101, label %21
+    i8 102, label %21
+    i8 65, label %25
+    i8 66, label %25
+    i8 67, label %25
+    i8 68, label %25
+    i8 69, label %25
+    i8 70, label %25
   ]
 
 18:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
-  %19 = zext i16 %14 to i32
-  %20 = shl nuw nsw i32 %19, 4
-  %21 = add nuw nsw i32 %20, %17
-  br label %34
+  %19 = shl i16 %14, 4
+  %20 = add i16 %19, %17
+  br label %31
 
-22:                                               ; preds = %13, %13, %13, %13, %13, %13
-  %23 = zext i16 %14 to i32
-  %24 = shl nuw nsw i32 %23, 4
-  %25 = add nuw nsw i32 %17, 10
-  %26 = add nuw nsw i32 %25, %24
-  br label %34
+21:                                               ; preds = %13, %13, %13, %13, %13, %13
+  %22 = shl i16 %14, 4
+  %23 = add nsw i16 %17, 10
+  %24 = add i16 %23, %22
+  br label %31
 
-27:                                               ; preds = %13, %13, %13, %13, %13, %13
-  %28 = zext i16 %14 to i32
-  %29 = shl nuw nsw i32 %28, 4
-  %30 = add nuw nsw i32 %17, 10
-  %31 = add nuw nsw i32 %30, %29
-  br label %34
+25:                                               ; preds = %13, %13, %13, %13, %13, %13
+  %26 = shl i16 %14, 4
+  %27 = add nsw i16 %17, 10
+  %28 = add i16 %27, %26
+  br label %31
 
-32:                                               ; preds = %13
-  %33 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %33, align 1
+29:                                               ; preds = %13
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.10, i32 noundef 1321) #20
   unreachable
 
-34:                                               ; preds = %18, %22, %27
-  %.sink = phi i32 [ %21, %18 ], [ %26, %22 ], [ %31, %27 ]
-  %.sink50 = phi i16 [ -48, %18 ], [ -97, %22 ], [ -65, %27 ]
-  %35 = trunc i32 %.sink to i16
-  %36 = add i16 %.sink50, %35
-  store i16 %36, ptr %2, align 2
-  %37 = add nuw nsw i32 %.02636, 1
-  %exitcond.not = icmp eq i32 %37, 4
-  br i1 %exitcond.not, label %38, label %13, !llvm.loop !38
+31:                                               ; preds = %18, %21, %25
+  %.sink = phi i16 [ %20, %18 ], [ %24, %21 ], [ %28, %25 ]
+  %.sink50 = phi i16 [ -48, %18 ], [ -97, %21 ], [ -65, %25 ]
+  %32 = add i16 %.sink, %.sink50
+  store i16 %32, ptr %2, align 2
+  %33 = add nuw nsw i32 %.02636, 1
+  %exitcond.not = icmp eq i32 %33, 4
+  br i1 %exitcond.not, label %34, label %13, !llvm.loop !38
 
-38:                                               ; preds = %34
+34:                                               ; preds = %31
   call void @_ZN7UNICODE15convert_to_utf8EPKtiPc(ptr noundef nonnull %2, i32 noundef 1, ptr noundef %.027) #17
-  br label %49
+  br label %45
+
+35:                                               ; preds = %8
+  store i8 9, ptr %.027, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %.0, i64 2
+  br label %45
+
+37:                                               ; preds = %8
+  store i8 10, ptr %.027, align 1
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 2
+  br label %45
 
 39:                                               ; preds = %8
-  store i8 9, ptr %.027, align 1
+  store i8 13, ptr %.027, align 1
   %40 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  br label %49
+  br label %45
 
 41:                                               ; preds = %8
-  store i8 10, ptr %.027, align 1
+  store i8 12, ptr %.027, align 1
   %42 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  br label %49
+  br label %45
 
 43:                                               ; preds = %8
-  store i8 13, ptr %.027, align 1
-  %44 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  br label %49
-
-45:                                               ; preds = %8
-  store i8 12, ptr %.027, align 1
-  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  br label %49
-
-47:                                               ; preds = %8
-  %48 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %48, align 1
+  %44 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %44, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.10, i32 noundef 1333) #20
   unreachable
 
-49:                                               ; preds = %38, %39, %41, %43, %45, %5
-  %.1 = phi ptr [ %7, %5 ], [ %15, %38 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ]
+45:                                               ; preds = %34, %35, %37, %39, %41, %5
+  %.1 = phi ptr [ %7, %5 ], [ %15, %34 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ]
   %.128 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   br label %3, !llvm.loop !39
 
-50:                                               ; preds = %3
-  %51 = load i8, ptr %.027, align 1
-  store i8 %51, ptr %.0, align 1
+46:                                               ; preds = %3
+  %47 = load i8, ptr %.027, align 1
+  store i8 %47, ptr %.0, align 1
   ret void
 }
 

@@ -4028,10 +4028,10 @@ define internal fastcc void @"_ZN114_$LT$pingora_cache..cache_control..CacheCont
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %21, %25
-  %.sroa.8.1 = phi i8 [ 0, %25 ], [ 1, %21 ]
   %.sroa.5.1 = phi i64 [ %27, %25 ], [ %.sroa.5.032, %21 ]
   %.sroa.0.1 = phi ptr [ %28, %25 ], [ %.sroa.0.033, %21 ]
   %.sroa.5.0.i.ph.i = phi i64 [ %.sroa.02.011.i.i.i, %25 ], [ %.sroa.5.032, %21 ]
+  %.sroa.8.1 = xor i1 %20, true
   call void @llvm.experimental.noalias.scope.decl(metadata !486)
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 %.sroa.5.0.i.ph.i
   %30 = icmp samesign eq i64 %.sroa.5.0.i.ph.i, 0
@@ -4098,7 +4098,7 @@ define internal fastcc void @"_ZN114_$LT$pingora_cache..cache_control..CacheCont
 "_ZN102_$LT$pingora_cache..cache_control..ListValueIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he316613c72b6c358E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i", %.loopexit.i.i, %14
   %.sroa.0.116 = phi ptr [ %.sroa.0.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ %.sroa.0.1, %.loopexit.i.i ], [ %.sroa.0.033, %14 ]
   %.sroa.5.115 = phi i64 [ %.sroa.5.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ %.sroa.5.1, %.loopexit.i.i ], [ 0, %14 ]
-  %.sroa.8.114 = phi i8 [ %.sroa.8.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ %.sroa.8.1, %.loopexit.i.i ], [ 1, %14 ]
+  %.sroa.8.114 = phi i1 [ %.sroa.8.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ %.sroa.8.1, %.loopexit.i.i ], [ true, %14 ]
   %.sroa.03.0172227.i.i = phi i64 [ %.sroa.0.0.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ 0, %.loopexit.i.i ], [ 0, %14 ]
   %.sroa.06.02326.i.i = phi i64 [ %.sroa.0.0.i1237.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h0f42106b92fa50baE.exit.thread.i.i" ], [ 0, %.loopexit.i.i ], [ 0, %14 ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 %.sroa.03.0172227.i.i
@@ -4196,8 +4196,7 @@ define internal fastcc void @"_ZN114_$LT$pingora_cache..cache_control..CacheCont
 
 72:                                               ; preds = %"_ZN102_$LT$pingora_cache..cache_control..ListValueIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he316613c72b6c358E.exit", %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %73 = trunc nuw i8 %.sroa.8.114 to i1
-  br i1 %73, label %"_ZN102_$LT$pingora_cache..cache_control..ListValueIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he316613c72b6c358E.exit.thread", label %14
+  br i1 %.sroa.8.114, label %"_ZN102_$LT$pingora_cache..cache_control..ListValueIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he316613c72b6c358E.exit.thread", label %14
 }
 
 ; Function Attrs: nonlazybind uwtable

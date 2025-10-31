@@ -8112,8 +8112,8 @@ default.unreachable125:                           ; preds = %"_ZN50_$LT$T$u20$as
   invoke void @"_ZN4core3ptr55drop_in_place$LT$actix_web..service..ServiceRequest$GT$17ha25503416280416aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #35
           to label %165 unwind label %153
 
-.sink.split126:                                   ; preds = %162, %164, %.thread101, %160
-  %.pn22116.ph = phi { ptr, i32 } [ %.pn1991, %.thread101 ], [ %161, %160 ], [ %eh.lpad-body37108, %164 ], [ %eh.lpad-body37108, %162 ]
+.sink.split126:                                   ; preds = %164, %162, %.thread101, %160
+  %.pn22116.ph = phi { ptr, i32 } [ %.pn1991, %.thread101 ], [ %161, %160 ], [ %eh.lpad-body37108, %162 ], [ %eh.lpad-body37108, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %165
 

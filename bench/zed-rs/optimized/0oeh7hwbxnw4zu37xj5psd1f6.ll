@@ -839,7 +839,7 @@ define hidden void @_ZN3rsa10algorithms3rsa5blind17hbb9f3631005c13ecE(ptr dead_o
   br label %.thread130.thread
 
 .thread115.loopexit:                              ; preds = %.backedge
-  %lpad.thr_comm.split-lp252 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp251 = landingpad { ptr, i32 }
           cleanup
   br i1 %.sroa.0.0, label %.thread102.thread136, label %.thread130
 
@@ -848,7 +848,7 @@ define hidden void @_ZN3rsa10algorithms3rsa5blind17hbb9f3631005c13ecE(ptr dead_o
           cleanup
   br i1 %.sroa.0.0, label %.thread102.thread136, label %.thread130.thread
 
-84:                                               ; preds = %.loopexit259, %300, %301
+84:                                               ; preds = %.loopexit258, %300, %301
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread86
@@ -1239,7 +1239,7 @@ default.unreachable:                              ; preds = %188
 .thread:                                          ; preds = %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(40) %50, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %.loopexit259
+  br label %.loopexit258
 
 195:                                              ; preds = %.loopexit.i, %188
   %.sink.i45 = phi i1 [ true, %.loopexit.i ], [ false, %188 ]
@@ -1253,11 +1253,7 @@ default.unreachable:                              ; preds = %188
 198:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !314
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h1c6438b3c4be1499E.llvm.12878139696234281404"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %23, ptr noalias noundef nonnull align 8 dereferenceable(48) %44)
-          to label %.noexc52 unwind label %.thread102.thread136.thread
-
-.noexc52:                                         ; preds = %198
-  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !314
-  br label %233
+          to label %233 unwind label %.thread102.thread136.thread
 
 199:                                              ; preds = %195
   %200 = load ptr, ptr %44, align 8, !alias.scope !313, !noalias !294, !nonnull !9, !noundef !9
@@ -1288,7 +1284,8 @@ default.unreachable:                              ; preds = %188
 "_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i46": ; preds = %207, %204, %.noexc53
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !318
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !317
-  br label %233
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  br i1 %.sink.i45, label %.loopexit258, label %336
 
 209:                                              ; preds = %190
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !296
@@ -1348,11 +1345,12 @@ default.unreachable:                              ; preds = %188
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33, !noalias !294
   unreachable
 
-233:                                              ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i46", %.noexc52
+233:                                              ; preds = %198
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !314
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br i1 %.sink.i45, label %.loopexit259, label %336
+  br i1 %.sink.i45, label %.loopexit258, label %336
 
-.loopexit259:                                     ; preds = %233, %.thread
+.loopexit258:                                     ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i46", %233, %.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
@@ -1360,7 +1358,7 @@ default.unreachable:                              ; preds = %188
   invoke void @_ZN14num_bigint_dig7biguint7BigUint6modpow17h187bb4c1302f112fE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %234, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %52)
           to label %235 unwind label %84
 
-235:                                              ; preds = %.loopexit259
+235:                                              ; preds = %.loopexit258
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !326
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17ha812b91c16ec66c3E.llvm.12878139696234281404"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3)
@@ -1666,7 +1664,7 @@ default.unreachable:                              ; preds = %188
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
   unreachable
 
-336:                                              ; preds = %233
+336:                                              ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i46", %233
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %.backedge.backedge
 
@@ -1679,7 +1677,7 @@ default.unreachable:                              ; preds = %188
           to label %.thread130.thread unwind label %334
 
 .thread102.thread136:                             ; preds = %.thread115.loopexit, %.thread115.loopexit.split-lp, %.thread96, %151, %163, %186, %100, %.thread102
-  %.pn1882129 = phi { ptr, i32 } [ %160, %.thread102 ], [ %187, %186 ], [ %101, %100 ], [ %164, %163 ], [ %152, %151 ], [ %113, %.thread96 ], [ %lpad.loopexit.split-lp, %.thread115.loopexit.split-lp ], [ %lpad.thr_comm.split-lp252, %.thread115.loopexit ]
+  %.pn1882129 = phi { ptr, i32 } [ %160, %.thread102 ], [ %187, %186 ], [ %101, %100 ], [ %164, %163 ], [ %152, %151 ], [ %113, %.thread96 ], [ %lpad.loopexit.split-lp, %.thread115.loopexit.split-lp ], [ %lpad.thr_comm.split-lp251, %.thread115.loopexit ]
   %.sroa.010.283127 = phi i8 [ %.sroa.010.0, %.thread102 ], [ 1, %186 ], [ %.sroa.010.0, %100 ], [ %.sroa.010.0, %163 ], [ %.sroa.010.0, %151 ], [ %.sroa.010.0, %.thread96 ], [ %.sroa.010.0, %.thread115.loopexit.split-lp ], [ %.sroa.010.0, %.thread115.loopexit ]
   %337 = load i8, ptr %67, align 8, !range !266, !noundef !9
   %338 = icmp ne i8 %337, 3
@@ -1692,7 +1690,7 @@ default.unreachable:                              ; preds = %188
           to label %.thread130.thread unwind label %334
 
 .thread130:                                       ; preds = %.thread115.loopexit, %.thread130.thread
-  %.pn1882128143 = phi { ptr, i32 } [ %.pn1882128144, %.thread130.thread ], [ %lpad.thr_comm.split-lp252, %.thread115.loopexit ]
+  %.pn1882128143 = phi { ptr, i32 } [ %.pn1882128144, %.thread130.thread ], [ %lpad.thr_comm.split-lp251, %.thread115.loopexit ]
   resume { ptr, i32 } %.pn1882128143
 
 .thread130.thread:                                ; preds = %.thread102.thread136.thread, %.thread115.loopexit.split-lp, %.thread96, %151, %163, %.thread102, %.thread102.thread136, %340, %.thread86, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h6bd9365b9c8cd3d0E.exit.i.i39"

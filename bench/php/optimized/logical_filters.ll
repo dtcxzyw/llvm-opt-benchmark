@@ -116,7 +116,7 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
 32:                                               ; preds = %zval_get_long.exit
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
   %.not130 = icmp eq ptr %33, null
-  br i1 %.not130, label %34, label %160
+  br i1 %.not130, label %34, label %159
 
 34:                                               ; preds = %32
   %35 = and i64 %1, 134217728
@@ -127,11 +127,11 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
 
 37:                                               ; preds = %34
   store i32 1, ptr %36, align 8, !tbaa !4
-  br label %160
+  br label %159
 
 38:                                               ; preds = %34
   store i32 2, ptr %36, align 8, !tbaa !4
-  br label %160
+  br label %159
 
 39:                                               ; preds = %zval_get_long.exit
   %40 = and i64 %1, 1
@@ -163,7 +163,7 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
 47:                                               ; preds = %.critedge2
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
   %.not128 = icmp eq ptr %48, null
-  br i1 %.not128, label %49, label %160
+  br i1 %.not128, label %49, label %159
 
 49:                                               ; preds = %47
   %50 = and i64 %1, 134217728
@@ -174,11 +174,11 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
 
 52:                                               ; preds = %49
   store i32 1, ptr %51, align 8, !tbaa !4
-  br label %160
+  br label %159
 
 53:                                               ; preds = %49
   store i32 2, ptr %51, align 8, !tbaa !4
-  br label %160
+  br label %159
 
 .critedge:                                        ; preds = %43, %.critedge4
   %.2 = phi i64 [ %57, %.critedge4 ], [ %.093165, %43 ]
@@ -224,7 +224,7 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
 67:                                               ; preds = %64
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
   %.not126 = icmp eq ptr %68, null
-  br i1 %.not126, label %69, label %160
+  br i1 %.not126, label %69, label %159
 
 69:                                               ; preds = %67
   %70 = and i64 %1, 134217728
@@ -235,11 +235,11 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
 
 72:                                               ; preds = %69
   store i32 1, ptr %71, align 8, !tbaa !4
-  br label %160
+  br label %159
 
 73:                                               ; preds = %69
   store i32 2, ptr %71, align 8, !tbaa !4
-  br label %160
+  br label %159
 
 74:                                               ; preds = %64
   %75 = getelementptr inbounds nuw i8, ptr %.0166, i64 2
@@ -270,7 +270,7 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
 85:                                               ; preds = %81
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
   %.not120 = icmp eq ptr %86, null
-  br i1 %.not120, label %87, label %160
+  br i1 %.not120, label %87, label %159
 
 87:                                               ; preds = %85
   %88 = and i64 %1, 134217728
@@ -281,11 +281,11 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
 
 90:                                               ; preds = %87
   store i32 1, ptr %89, align 8, !tbaa !4
-  br label %160
+  br label %159
 
 91:                                               ; preds = %87
   store i32 2, ptr %89, align 8, !tbaa !4
-  br label %160
+  br label %159
 
 92:                                               ; preds = %79, %81
   %.3 = phi i64 [ %83, %81 ], [ %61, %79 ]
@@ -348,106 +348,105 @@ zval_get_long.exit:                               ; preds = %26, %24, %4, %17
 
 119:                                              ; preds = %114
   %narrow.i140 = add nsw i8 %116, -48
-  %120 = zext nneg i8 %narrow.i140 to i32
-  %121 = sub nsw i32 0, %120
-  %122 = select i1 %.1.i151, i32 %120, i32 %121
-  %123 = sext i32 %122 to i64
-  %124 = ptrtoint ptr %54 to i64
-  %125 = ptrtoint ptr %115 to i64
-  %126 = sub i64 %124, %125
-  %127 = icmp sgt i64 %126, 19
-  br i1 %127, label %.thread152, label %.preheader.i
+  %120 = zext nneg i8 %narrow.i140 to i64
+  %121 = sub nsw i64 0, %120
+  %122 = ptrtoint ptr %54 to i64
+  %123 = ptrtoint ptr %115 to i64
+  %124 = sub i64 %122, %123
+  %125 = icmp sgt i64 %124, 19
+  br i1 %125, label %.thread152, label %.preheader.i
 
 .preheader.i:                                     ; preds = %119
-  %128 = icmp ult ptr %115, %54
-  br i1 %128, label %.lr.ph.i, label %php_filter_parse_octal.exit
+  %126 = select i1 %.1.i151, i64 %120, i64 %121
+  %127 = icmp ult ptr %115, %54
+  br i1 %127, label %.lr.ph.i, label %php_filter_parse_octal.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   br i1 %.1.i151, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %135
-  %.03349.us.i = phi i64 [ %138, %135 ], [ %123, %.lr.ph.i ]
-  %.13648.us.i = phi ptr [ %136, %135 ], [ %115, %.lr.ph.i ]
-  %129 = load i8, ptr %.13648.us.i, align 1, !tbaa !4
-  %130 = add i8 %129, -48
-  %or.cond44.us.i = icmp ult i8 %130, 10
-  br i1 %or.cond44.us.i, label %131, label %.thread152
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %134
+  %.03349.us.i = phi i64 [ %137, %134 ], [ %120, %.lr.ph.i ]
+  %.13648.us.i = phi ptr [ %135, %134 ], [ %115, %.lr.ph.i ]
+  %128 = load i8, ptr %.13648.us.i, align 1, !tbaa !4
+  %129 = add i8 %128, -48
+  %or.cond44.us.i = icmp ult i8 %129, 10
+  br i1 %or.cond44.us.i, label %130, label %.thread152
 
-131:                                              ; preds = %.lr.ph.split.us.i
-  %132 = zext nneg i8 %130 to i64
-  %133 = xor i64 %132, 9223372036854775806
-  %134 = udiv i64 %133, 10
-  %.not.us.i = icmp sgt i64 %.03349.us.i, %134
-  br i1 %.not.us.i, label %.thread152, label %135
+130:                                              ; preds = %.lr.ph.split.us.i
+  %131 = zext nneg i8 %129 to i64
+  %132 = xor i64 %131, 9223372036854775806
+  %133 = udiv i64 %132, 10
+  %.not.us.i = icmp sgt i64 %.03349.us.i, %133
+  br i1 %.not.us.i, label %.thread152, label %134
 
-135:                                              ; preds = %131
-  %136 = getelementptr inbounds nuw i8, ptr %.13648.us.i, i64 1
-  %137 = mul nsw i64 %.03349.us.i, 10
-  %138 = add nsw i64 %137, %132
-  %139 = icmp ult ptr %136, %54
-  br i1 %139, label %.lr.ph.split.us.i, label %php_filter_parse_octal.exit
+134:                                              ; preds = %130
+  %135 = getelementptr inbounds nuw i8, ptr %.13648.us.i, i64 1
+  %136 = mul nsw i64 %.03349.us.i, 10
+  %137 = add nsw i64 %136, %131
+  %138 = icmp ult ptr %135, %54
+  br i1 %138, label %.lr.ph.split.us.i, label %php_filter_parse_octal.exit
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %144
-  %.03349.i = phi i64 [ %147, %144 ], [ %123, %.lr.ph.i ]
-  %.13648.i = phi ptr [ %145, %144 ], [ %115, %.lr.ph.i ]
-  %140 = load i8, ptr %.13648.i, align 1, !tbaa !4
-  %141 = add i8 %140, -48
-  %or.cond44.i = icmp ult i8 %141, 10
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %143
+  %.03349.i = phi i64 [ %146, %143 ], [ %121, %.lr.ph.i ]
+  %.13648.i = phi ptr [ %144, %143 ], [ %115, %.lr.ph.i ]
+  %139 = load i8, ptr %.13648.i, align 1, !tbaa !4
+  %140 = add i8 %139, -48
+  %or.cond44.i = icmp ult i8 %140, 10
   br i1 %or.cond44.i, label %.critedge.i, label %.thread152
 
 .critedge.i:                                      ; preds = %.lr.ph.split.i
-  %142 = zext nneg i8 %141 to i64
-  %.neg45.i = sub nuw i64 -9223372036854775808, %142
-  %143 = udiv i64 %.neg45.i, 10
-  %.neg.i = sub nsw i64 0, %143
+  %141 = zext nneg i8 %140 to i64
+  %.neg45.i = sub nuw i64 -9223372036854775808, %141
+  %142 = udiv i64 %.neg45.i, 10
+  %.neg.i = sub nsw i64 0, %142
   %.not41.i = icmp slt i64 %.03349.i, %.neg.i
-  br i1 %.not41.i, label %.thread152, label %144
+  br i1 %.not41.i, label %.thread152, label %143
 
-144:                                              ; preds = %.critedge.i
-  %145 = getelementptr inbounds nuw i8, ptr %.13648.i, i64 1
-  %146 = mul nsw i64 %.03349.i, 10
-  %147 = sub nsw i64 %146, %142
-  %148 = icmp ult ptr %145, %54
-  br i1 %148, label %.lr.ph.split.i, label %php_filter_parse_octal.exit
+143:                                              ; preds = %.critedge.i
+  %144 = getelementptr inbounds nuw i8, ptr %.13648.i, i64 1
+  %145 = mul nsw i64 %.03349.i, 10
+  %146 = sub nsw i64 %145, %141
+  %147 = icmp ult ptr %144, %54
+  br i1 %147, label %.lr.ph.split.i, label %php_filter_parse_octal.exit
 
-php_filter_parse_octal.exit:                      ; preds = %94, %144, %135, %.preheader.i, %._crit_edge, %108, %105
-  %149 = phi i64 [ %.pre, %._crit_edge ], [ 0, %108 ], [ 0, %105 ], [ %123, %.preheader.i ], [ %138, %135 ], [ %147, %144 ], [ %.017.i, %94 ]
-  %150 = icmp slt i64 %149, %.099144
+php_filter_parse_octal.exit:                      ; preds = %94, %143, %134, %.preheader.i, %._crit_edge, %108, %105
+  %148 = phi i64 [ %.pre, %._crit_edge ], [ 0, %108 ], [ 0, %105 ], [ %126, %.preheader.i ], [ %137, %134 ], [ %146, %143 ], [ %.017.i, %94 ]
+  %149 = icmp slt i64 %148, %.099144
   %not..not122146 = xor i1 %.not122146, true
-  %or.cond.not = select i1 %not..not122146, i1 %150, i1 false
-  %151 = icmp sgt i64 %149, %.0100
-  %or.cond137 = select i1 %.not123.not, i1 %151, i1 false
+  %or.cond.not = select i1 %not..not122146, i1 %149, i1 false
+  %150 = icmp sgt i64 %148, %.0100
+  %or.cond137 = select i1 %.not123.not, i1 %150, i1 false
   %or.cond = select i1 %or.cond.not, i1 true, i1 %or.cond137
-  br i1 %or.cond, label %.thread152, label %158
+  br i1 %or.cond, label %.thread152, label %157
 
-.thread152:                                       ; preds = %96, %99, %.critedge.i, %.lr.ph.split.i, %131, %.lr.ph.split.us.i, %119, %114, %105, %74, %php_filter_parse_octal.exit
-  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
-  %.not124 = icmp eq ptr %152, null
-  br i1 %.not124, label %153, label %160
+.thread152:                                       ; preds = %96, %99, %.critedge.i, %.lr.ph.split.i, %130, %.lr.ph.split.us.i, %119, %114, %105, %74, %php_filter_parse_octal.exit
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
+  %.not124 = icmp eq ptr %151, null
+  br i1 %.not124, label %152, label %159
 
-153:                                              ; preds = %.thread152
-  %154 = and i64 %1, 134217728
-  %.not125 = icmp eq i64 %154, 0
+152:                                              ; preds = %.thread152
+  %153 = and i64 %1, 134217728
+  %.not125 = icmp eq i64 %153, 0
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #15
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not125, label %157, label %156
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %.not125, label %156, label %155
 
-156:                                              ; preds = %153
-  store i32 1, ptr %155, align 8, !tbaa !4
-  br label %160
+155:                                              ; preds = %152
+  store i32 1, ptr %154, align 8, !tbaa !4
+  br label %159
 
-157:                                              ; preds = %153
-  store i32 2, ptr %155, align 8, !tbaa !4
-  br label %160
+156:                                              ; preds = %152
+  store i32 2, ptr %154, align 8, !tbaa !4
+  br label %159
 
-158:                                              ; preds = %php_filter_parse_octal.exit
+157:                                              ; preds = %php_filter_parse_octal.exit
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #15
-  store i64 %149, ptr %0, align 8, !tbaa !4
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 4, ptr %159, align 8, !tbaa !4
-  br label %160
+  store i64 %148, ptr %0, align 8, !tbaa !4
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 4, ptr %158, align 8, !tbaa !4
+  br label %159
 
-160:                                              ; preds = %157, %156, %.thread152, %91, %90, %85, %73, %72, %67, %53, %52, %47, %38, %37, %32, %158
+159:                                              ; preds = %156, %155, %.thread152, %91, %90, %85, %73, %72, %67, %53, %52, %47, %38, %37, %32, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

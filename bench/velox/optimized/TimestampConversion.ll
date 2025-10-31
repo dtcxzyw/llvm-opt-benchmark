@@ -1442,14 +1442,14 @@ lor.lhs.false.i:                                  ; preds = %if.end5.i
   br i1 %14, label %if.end11.i, label %if.end30
 
 if.end11.i:                                       ; preds = %lor.lhs.false.i
-  %conv13.i = zext nneg i8 %9 to i32
-  %15 = mul nuw nsw i32 %conv13.i, 10
-  %conv16.i = zext nneg i8 %12 to i32
-  %sub17.i = add nuw nsw i32 %15, %conv16.i
-  %add18.i = add nsw i32 %sub17.i, -528
+  %conv13.i = zext nneg i8 %9 to i64
+  %15 = mul nuw nsw i64 %conv13.i, 10
+  %conv16.i = zext nneg i8 %12 to i64
+  %sub17.i = add nuw nsw i64 %15, %conv16.i
+  %add18.i = add nuw nsw i64 %sub17.i, 4294966768
   %cmp20.i = icmp eq i8 %8, 45
-  %sub22.i = sub nsw i32 528, %sub17.i
-  %spec.select.i = select i1 %cmp20.i, i32 %sub22.i, i32 %add18.i
+  %sub22.i = sub nsw i64 528, %sub17.i
+  %spec.select.i = select i1 %cmp20.i, i64 %sub22.i, i64 %add18.i
   %cmp25.not.i = icmp ult i64 %add.i25, %len
   br i1 %cmp25.not.i, label %if.end27.i, label %if.then23
 
@@ -1478,22 +1478,23 @@ lor.lhs.false39.i:                                ; preds = %lor.lhs.false36.i
   br i1 %22, label %if.end44.i, label %if.then23
 
 if.end44.i:                                       ; preds = %lor.lhs.false39.i
-  %conv46.i = zext nneg i8 %17 to i32
-  %23 = mul nuw nsw i32 %conv46.i, 10
-  %conv51.i = zext nneg i8 %20 to i32
-  %sub52.i = add nuw nsw i32 %23, %conv51.i
-  %add53.i = add nsw i32 %sub52.i, -528
-  %sub57.i = sub nsw i32 528, %sub52.i
-  %spec.select43.i = select i1 %cmp20.i, i32 %sub57.i, i32 %add53.i
-  %24 = mul nsw i32 %spec.select43.i, 60
+  %conv46.i = zext nneg i8 %17 to i64
+  %23 = mul nuw nsw i64 %conv46.i, 10
+  %conv51.i = zext nneg i8 %20 to i64
+  %sub52.i = add nuw nsw i64 %23, %conv51.i
+  %add53.i = add nsw i64 %sub52.i, -528
+  %sub57.i = sub nsw i64 528, %sub52.i
+  %spec.select43.i = select i1 %cmp20.i, i64 %sub57.i, i64 %add53.i
+  %24 = mul nsw i64 %spec.select43.i, 60
   br label %if.then23
 
 if.then23:                                        ; preds = %if.end44.i, %lor.lhs.false39.i, %lor.lhs.false36.i, %if.end27.i, %if.end11.i
-  %minuteOffset.0 = phi i32 [ 0, %if.end27.i ], [ %24, %if.end44.i ], [ 0, %lor.lhs.false39.i ], [ 0, %lor.lhs.false36.i ], [ 0, %if.end11.i ]
+  %minuteOffset.0 = phi i64 [ 0, %if.end27.i ], [ %24, %if.end44.i ], [ 0, %lor.lhs.false39.i ], [ 0, %lor.lhs.false36.i ], [ 0, %if.end11.i ]
   %add34.sink.i = phi i64 [ %spec.select42.i, %if.end27.i ], [ %add34.i, %if.end44.i ], [ %spec.select42.i, %lor.lhs.false39.i ], [ %spec.select42.i, %lor.lhs.false36.i ], [ %add.i25, %if.end11.i ]
-  %mul = mul nsw i32 %spec.select.i, 3600
-  %add25 = add nsw i32 %minuteOffset.0, %mul
-  %conv27 = sext i32 %add25 to i64
+  %mul = mul nsw i64 %spec.select.i, 3600
+  %add25 = add nsw i64 %minuteOffset.0, %mul
+  %sext = shl i64 %add25, 32
+  %conv27 = ashr exact i64 %sext, 32
   %sub28 = sub nsw i64 %add.i, %conv27
   br label %if.end30
 

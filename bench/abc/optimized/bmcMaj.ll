@@ -5010,13 +5010,13 @@ define internal fastcc void @Abc_TtReadHex(ptr noundef nonnull captures(none) %0
   %40 = xor i64 %indvars.iv66, -1
   %41 = getelementptr i8, ptr %39, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !152
-  %43 = sext i8 %42 to i32
+  %43 = sext i8 %42 to i64
   %44 = add i8 %42, -48
   %or.cond.i43 = icmp ult i8 %44, 10
   br i1 %or.cond.i43, label %45, label %47
 
 45:                                               ; preds = %.lr.ph57
-  %46 = add nsw i32 %43, -48
+  %46 = add nsw i64 %43, -48
   br label %Abc_TtReadHexDigit.exit
 
 47:                                               ; preds = %.lr.ph57
@@ -5025,60 +5025,59 @@ define internal fastcc void @Abc_TtReadHex(ptr noundef nonnull captures(none) %0
   br i1 %or.cond5.i, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = add nsw i32 %43, -55
+  %50 = add nsw i64 %43, -55
   br label %Abc_TtReadHexDigit.exit
 
 51:                                               ; preds = %47
   %52 = add i8 %42, -97
   %or.cond8.i = icmp ult i8 %52, 6
-  %53 = add nsw i32 %43, -87
-  %spec.select.i = select i1 %or.cond8.i, i32 %53, i32 -1
+  %53 = add nsw i64 %43, -87
+  %spec.select.i = select i1 %or.cond8.i, i64 %53, i64 -1
   br label %Abc_TtReadHexDigit.exit
 
 Abc_TtReadHexDigit.exit:                          ; preds = %45, %49, %51
-  %.0.i = phi i32 [ %46, %45 ], [ %50, %49 ], [ %spec.select.i, %51 ]
-  %54 = sext i32 %.0.i to i64
-  %55 = shl i64 %indvars.iv66, 2
-  %56 = and i64 %55, 60
-  %57 = shl i64 %54, %56
-  %58 = lshr i64 %indvars.iv66, 4
-  %59 = and i64 %58, 268435455
-  %60 = getelementptr inbounds nuw i64, ptr %0, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !21
-  %62 = or i64 %57, %61
-  store i64 %62, ptr %60, align 8, !tbaa !21
+  %.0.i = phi i64 [ %46, %45 ], [ %50, %49 ], [ %spec.select.i, %51 ]
+  %54 = shl i64 %indvars.iv66, 2
+  %55 = and i64 %54, 60
+  %56 = shl i64 %.0.i, %55
+  %57 = lshr i64 %indvars.iv66, 4
+  %58 = and i64 %57, 268435455
+  %59 = getelementptr inbounds nuw i64, ptr %0, i64 %58
+  %60 = load i64, ptr %59, align 8, !tbaa !21
+  %61 = or i64 %60, %56
+  store i64 %61, ptr %59, align 8, !tbaa !21
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !154
 
 ._crit_edge58:                                    ; preds = %Abc_TtReadHexDigit.exit
-  %63 = icmp samesign ult i32 %.fr, 6
-  br i1 %63, label %64, label %77
+  %62 = icmp samesign ult i32 %.fr, 6
+  br i1 %62, label %63, label %76
 
-64:                                               ; preds = %._crit_edge58
-  %65 = load i64, ptr %0, align 8, !tbaa !21
-  %66 = icmp samesign ult i32 %.fr, 3
-  %67 = and i64 %65, 15
-  %68 = mul nuw nsw i64 %67, 17
-  %spec.select86 = select i1 %66, i64 %68, i64 %65
-  %69 = icmp samesign ult i32 %.fr, 4
-  %70 = and i64 %spec.select86, 255
-  %71 = mul nuw nsw i64 %70, 257
-  %72 = select i1 %69, i64 %71, i64 %65
+63:                                               ; preds = %._crit_edge58
+  %64 = load i64, ptr %0, align 8, !tbaa !21
+  %65 = icmp samesign ult i32 %.fr, 3
+  %66 = and i64 %64, 15
+  %67 = mul nuw nsw i64 %66, 17
+  %spec.select86 = select i1 %65, i64 %67, i64 %64
+  %68 = icmp samesign ult i32 %.fr, 4
+  %69 = and i64 %spec.select86, 255
+  %70 = mul nuw nsw i64 %69, 257
+  %71 = select i1 %68, i64 %70, i64 %64
   %.not72 = icmp eq i32 %.fr, 5
-  %73 = and i64 %72, 65535
-  %74 = mul nuw nsw i64 %73, 65537
-  %spec.select87 = select i1 %.not72, i64 %65, i64 %74
-  %75 = and i64 %spec.select87, 4294967295
-  %76 = mul nuw i64 %75, 4294967297
+  %72 = and i64 %71, 65535
+  %73 = mul nuw nsw i64 %72, 65537
+  %spec.select87 = select i1 %.not72, i64 %64, i64 %73
+  %74 = and i64 %spec.select87, 4294967295
+  %75 = mul nuw i64 %74, 4294967297
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.thread83, %64, %22, %25
-  %.sink = phi i64 [ %27, %25 ], [ %24, %22 ], [ 0, %.thread83 ], [ %76, %64 ]
+.sink.split:                                      ; preds = %.thread83, %63, %22, %25
+  %.sink = phi i64 [ %27, %25 ], [ %24, %22 ], [ 0, %.thread83 ], [ %75, %63 ]
   store i64 %.sink, ptr %0, align 8, !tbaa !21
-  br label %77
+  br label %76
 
-77:                                               ; preds = %.sink.split, %._crit_edge58
+76:                                               ; preds = %.sink.split, %._crit_edge58
   ret void
 }
 
