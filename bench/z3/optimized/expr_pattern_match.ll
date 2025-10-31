@@ -1202,7 +1202,7 @@ _ZN6vectorIN18expr_pattern_match5instrELb0EjE4backEv.exit: ; preds = %_ZNK6vecto
   %.sroa.44.0.be = phi i32 [ %.sroa.44.0.copyload202, %.thread210 ], [ %.sroa.44.0.copyload204, %.thread ], [ %.sroa.44.0.copyload200, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE4backEv.exit ]
   br label %15, !llvm.loop !101
 
-default.unreachable:                              ; preds = %_ZNK18expr_pattern_match10match_declEPK9func_declS2_.exit
+.thread:                                          ; preds = %_ZNK18expr_pattern_match10match_declEPK9func_declS2_.exit
   unreachable
 
 .thread:                                          ; preds = %.noexc, %20, %114, %108, %_ZNK4decl13get_decl_kindEv.exit28.thread.i, %_ZNK4decl13get_family_idEv.exit27.thread.i, %_ZNK4decl18get_num_parametersEv.exit29.i, %_ZNK4decl13get_family_idEv.exit.i, %103, %175, %90, %82, %._crit_edge243, %43, %34, %26, %64, %15, %281

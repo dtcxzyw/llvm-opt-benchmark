@@ -561,7 +561,7 @@ define internal fastcc void @_ZN10num_bigint6bigint6BigInt12from_biguint17hcc6db
   br i1 %15, label %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h91184237c55f1edfE.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h91184237c55f1edfE.exit.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.thread.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.i.i", %13, %.noexc
-  %16 = phi i64 [ %spec.select.i20.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.thread.i.i" ], [ %9, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.i.i" ], [ %9, %13 ], [ %9, %.noexc ]
+  %16 = phi i64 [ %spec.select.i19.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.thread.i.i" ], [ %9, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.i.i" ], [ %9, %13 ], [ %9, %.noexc ]
   %17 = load i64, ptr %2, align 8, !alias.scope !100, !noundef !5
   %18 = lshr i64 %17, 2
   %19 = icmp ult i64 %16, %18
@@ -591,8 +591,8 @@ define internal fastcc void @_ZN10num_bigint6bigint6BigInt12from_biguint17hcc6db
   br i1 %27, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h91184237c55f1edfE.exit.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.thread.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.thread.i.i": ; preds = %21, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.i.i"
-  %spec.select.i20.i.i = phi i64 [ %.0.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.i.i" ], [ 0, %21 ]
-  store i64 %spec.select.i20.i.i, ptr %7, align 8, !alias.scope !104
+  %spec.select.i19.i.i = phi i64 [ %.0.i.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17h4078a40538dfd0fdE.exit.i.i" ], [ 0, %21 ]
+  store i64 %spec.select.i19.i.i, ptr %7, align 8, !alias.scope !104
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h91184237c55f1edfE.exit.i.i"
 
 28:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h91184237c55f1edfE.exit.i.i"

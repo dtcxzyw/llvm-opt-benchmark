@@ -5797,8 +5797,8 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit, %3, %.thread29, %18, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit, %2
-  %24 = phi i1 [ false, %2 ], [ false, %.thread29 ], [ %23, %18 ], [ %9, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %3 ], [ false, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit ]
-  ret i1 %24
+  %25 = phi i1 [ false, %2 ], [ false, %.thread29 ], [ %23, %18 ], [ %9, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %3 ], [ false, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit ]
+  ret i1 %25
 }
 
 ; Function Attrs: mustprogress uwtable

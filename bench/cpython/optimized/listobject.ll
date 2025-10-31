@@ -6212,7 +6212,7 @@ define internal fastcc range(i64 -9223372036854775808, 1) i64 @merge_at(ptr noun
 
 26:                                               ; preds = %18
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %27, label %.preheader878
+  br i1 %.not.i, label %27, label %.preheader877
 
 27:                                               ; preds = %26
   %28 = icmp sgt i64 %6, 1
@@ -6248,14 +6248,14 @@ define internal fastcc range(i64 -9223372036854775808, 1) i64 @merge_at(ptr noun
   %.372.lcssa.i = phi i64 [ 1, %27 ], [ %39, %.thread95.i.loopexit ]
   %.4.lcssa.i = phi i64 [ 1, %27 ], [ %.4.lcssa.i.ph, %.thread95.i.loopexit ]
   %spec.select87.i = tail call i64 @llvm.smin.i64(i64 %.4.lcssa.i, i64 %6)
-  br label %.preheader878
+  br label %.preheader877
 
-.preheader878:                                    ; preds = %26, %.thread95.i
+.preheader877:                                    ; preds = %26, %.thread95.i
   %.574.i.ph = phi i64 [ 0, %26 ], [ %.372.lcssa.i, %.thread95.i ]
   %.7.i.ph = phi i64 [ 0, %26 ], [ %spec.select87.i, %.thread95.i ]
   br label %40
 
-40:                                               ; preds = %.preheader878, %42
+40:                                               ; preds = %.preheader877, %42
   %.574.i = phi i64 [ %.675.i, %42 ], [ %.574.i.ph, %.preheader878 ]
   %.7.i = phi i64 [ %.8.i, %42 ], [ %.7.i.ph, %.preheader878 ]
   %41 = icmp slt i64 %.574.i, %.7.i
@@ -6417,9 +6417,9 @@ sortslice_copy_incr.exit.i:                       ; preds = %99, %sortslice_memc
   %.178.i = phi i64 [ %56, %107 ], [ %249, %255 ]
   %.175.i = phi i64 [ %103, %107 ], [ %.7.i51, %255 ]
   %.071.i = phi i64 [ %108, %107 ], [ %256, %255 ]
-  br label %.outer780
+  br label %.outer779
 
-.outer780:                                        ; preds = %140, %109
+.outer779:                                        ; preds = %140, %109
   %.sroa.16.2.i.ph = phi ptr [ %.sroa.16.9.i, %140 ], [ %.sroa.16.1.i, %109 ]
   %.sroa.0194.2.i.ph = phi ptr [ %131, %140 ], [ %.sroa.0194.1.i, %109 ]
   %.sroa.14.2.i.ph = phi ptr [ %.sroa.14.2.i, %140 ], [ %.sroa.14.1.i, %109 ]
@@ -6432,7 +6432,7 @@ sortslice_copy_incr.exit.i:                       ; preds = %99, %sortslice_memc
   %110 = add nsw i64 %.068.i.ph, 1
   br label %111
 
-111:                                              ; preds = %.outer780, %128
+111:                                              ; preds = %.outer779, %128
   %.sroa.14.2.i = phi ptr [ %.sroa.14.9.i, %128 ], [ %.sroa.14.2.i.ph, %.outer780 ]
   %.sroa.0180.2.i = phi ptr [ %119, %128 ], [ %.sroa.0180.2.i.ph, %.outer780 ]
   %.sroa.22.2.i = phi ptr [ %.sroa.22.11.i, %128 ], [ %.sroa.22.2.i.ph, %.outer780 ]
@@ -6449,7 +6449,7 @@ sortslice_copy_incr.exit.i:                       ; preds = %99, %sortslice_memc
 
 116:                                              ; preds = %111
   %117 = icmp slt i32 %115, 0
-  br i1 %117, label %.thread220..thread277_crit_edge.i, label %118
+  br i1 %117, label %.thread220.i, label %118
 
 118:                                              ; preds = %116
   %119 = getelementptr i8, ptr %.sroa.0180.2.i, i64 8
@@ -6471,12 +6471,12 @@ sortslice_copy_incr.exit118.i:                    ; preds = %122, %118
   %.sroa.22.11.i = phi ptr [ null, %118 ], [ %125, %122 ]
   %126 = add i64 %.276.i, -1
   %127 = icmp eq i64 %126, 0
-  br i1 %127, label %.thread220..thread277_crit_edge.i, label %128
+  br i1 %127, label %.thread220.i, label %128
 
 128:                                              ; preds = %sortslice_copy_incr.exit118.i
   %129 = add nuw nsw i64 %.0.i50, 1
   %.not108.i = icmp slt i64 %129, %.071.i
-  br i1 %.not108.i, label %111, label %.loopexit781
+  br i1 %.not108.i, label %111, label %.loopexit780
 
 130:                                              ; preds = %111
   %131 = getelementptr i8, ptr %.sroa.0194.2.i.ph, i64 8
@@ -6502,9 +6502,9 @@ sortslice_copy_incr.exit120.i:                    ; preds = %134, %130
 
 140:                                              ; preds = %sortslice_copy_incr.exit120.i
   %.not107.i = icmp slt i64 %.068.i, %.071.i
-  br i1 %.not107.i, label %.outer780, label %.loopexit781
+  br i1 %.not107.i, label %.outer779, label %.loopexit780
 
-.loopexit781:                                     ; preds = %140, %128
+.loopexit780:                                     ; preds = %140, %128
   %.sroa.16.4.i = phi ptr [ %.sroa.16.2.i.ph, %128 ], [ %.sroa.16.9.i, %140 ]
   %.sroa.0194.4.i = phi ptr [ %.sroa.0194.2.i.ph, %128 ], [ %131, %140 ]
   %.sroa.14.4.i = phi ptr [ %.sroa.14.9.i, %128 ], [ %.sroa.14.2.i, %140 ]
@@ -6516,7 +6516,7 @@ sortslice_copy_incr.exit120.i:                    ; preds = %134, %130
   %141 = add i64 %.071.i, 1
   br label %142
 
-142:                                              ; preds = %251, %.loopexit781
+142:                                              ; preds = %251, %.loopexit780
   %.sroa.16.6.i = phi ptr [ %.sroa.16.4.i, %.loopexit781 ], [ %.sroa.16.11.i, %251 ]
   %.sroa.0194.6.i = phi ptr [ %.sroa.0194.4.i, %.loopexit781 ], [ %242, %251 ]
   %.sroa.14.6.i = phi ptr [ %.sroa.14.4.i, %.loopexit781 ], [ %.sroa.14.7.i, %251 ]
@@ -6535,11 +6535,11 @@ sortslice_copy_incr.exit120.i:                    ; preds = %134, %130
   %147 = load ptr, ptr %.sroa.0194.6.i, align 8, !tbaa !112
   %148 = tail call i32 %146(ptr noundef %145, ptr noundef %147, ptr noundef nonnull %0) #12
   %149 = icmp slt i32 %148, 0
-  br i1 %149, label %.thread220..thread277_crit_edge.i, label %150
+  br i1 %149, label %.thread220.i, label %150
 
 150:                                              ; preds = %142
   %.not.i121.i = icmp eq i32 %148, 0
-  br i1 %.not.i121.i, label %151, label %.preheader770
+  br i1 %.not.i121.i, label %151, label %.preheader769
 
 151:                                              ; preds = %150
   %152 = icmp sgt i64 %.683.i, 1
@@ -6553,7 +6553,7 @@ sortslice_copy_incr.exit120.i:                    ; preds = %134, %130
   %155 = load ptr, ptr %154, align 8, !tbaa !112
   %156 = tail call i32 %153(ptr noundef %145, ptr noundef %155, ptr noundef nonnull %0) #12
   %157 = icmp slt i32 %156, 0
-  br i1 %157, label %.thread220..thread277_crit_edge.i, label %158
+  br i1 %157, label %.thread220.i, label %158
 
 158:                                              ; preds = %.lr.ph113.i.i
   %.not83.i.i = icmp eq i32 %156, 0
@@ -6575,14 +6575,14 @@ sortslice_copy_incr.exit120.i:                    ; preds = %134, %130
   %.372.lcssa.i.i = phi i64 [ 1, %151 ], [ %163, %.thread95.i.loopexit.i ]
   %.4.lcssa.i.i = phi i64 [ 1, %151 ], [ %.4.lcssa.i.ph.i, %.thread95.i.loopexit.i ]
   %spec.select87.i.i = tail call i64 @llvm.smin.i64(i64 %.4.lcssa.i.i, i64 %.683.i)
-  br label %.preheader770
+  br label %.preheader769
 
-.preheader770:                                    ; preds = %.thread95.i.i, %150
+.preheader769:                                    ; preds = %.thread95.i.i, %150
   %.574.i.i.ph = phi i64 [ 0, %150 ], [ %.372.lcssa.i.i, %.thread95.i.i ]
   %.7.i.i.ph = phi i64 [ 0, %150 ], [ %spec.select87.i.i, %.thread95.i.i ]
   br label %164
 
-164:                                              ; preds = %.preheader770, %166
+164:                                              ; preds = %.preheader769, %166
   %.574.i.i = phi i64 [ %.675.i.i, %166 ], [ %.574.i.i.ph, %.preheader770 ]
   %.7.i.i = phi i64 [ %.8.i.i, %166 ], [ %.7.i.i.ph, %.preheader770 ]
   %165 = icmp slt i64 %.574.i.i, %.7.i.i
@@ -6602,7 +6602,7 @@ sortslice_copy_incr.exit120.i:                    ; preds = %134, %130
   %.675.i.i = select i1 %.not85.i.i, i64 %175, i64 %.574.i.i
   %176 = icmp slt i32 %173, 1
   %.8.i.i = select i1 %176, i64 %.7.i.i, i64 %169
-  br i1 %174, label %164, label %.thread220..thread277_crit_edge.i
+  br i1 %174, label %164, label %.thread220.i
 
 gallop_right.exit.i:                              ; preds = %164
   %.not109.i = icmp eq i64 %.7.i.i, 0
@@ -6610,7 +6610,7 @@ gallop_right.exit.i:                              ; preds = %164
 
 177:                                              ; preds = %gallop_right.exit.i
   %178 = icmp slt i64 %.7.i.i, 0
-  br i1 %178, label %.thread220..thread277_crit_edge.i, label %179
+  br i1 %178, label %.thread220.i, label %179
 
 179:                                              ; preds = %177
   %180 = shl i64 %.7.i.i, 3
@@ -6661,7 +6661,7 @@ sortslice_copy_incr.exit129.i:                    ; preds = %191, %187
   %.sroa.22.14.i = phi ptr [ null, %187 ], [ %194, %191 ]
   %195 = add i64 %.6.i, -1
   %196 = icmp eq i64 %195, 0
-  br i1 %196, label %.thread220..thread277_crit_edge.i, label %197
+  br i1 %196, label %.thread220.i, label %197
 
 197:                                              ; preds = %sortslice_copy_incr.exit129.i
   %198 = load ptr, ptr %.sroa.0194.7.i, align 8, !tbaa !112
@@ -6669,11 +6669,11 @@ sortslice_copy_incr.exit129.i:                    ; preds = %191, %187
   %200 = load ptr, ptr %188, align 8, !tbaa !112
   %201 = tail call i32 %199(ptr noundef %200, ptr noundef %198, ptr noundef nonnull %0) #12
   %202 = icmp slt i32 %201, 0
-  br i1 %202, label %.thread220..thread277_crit_edge.i, label %203
+  br i1 %202, label %.thread220.i, label %203
 
 203:                                              ; preds = %197
   %.not.i130.i = icmp eq i32 %201, 0
-  br i1 %.not.i130.i, label %.preheader768, label %204
+  br i1 %.not.i130.i, label %.preheader767, label %204
 
 204:                                              ; preds = %203
   %205 = icmp sgt i64 %195, 1
@@ -6687,7 +6687,7 @@ sortslice_copy_incr.exit129.i:                    ; preds = %191, %187
   %208 = load ptr, ptr %207, align 8, !tbaa !112
   %209 = tail call i32 %206(ptr noundef %208, ptr noundef %198, ptr noundef nonnull %0) #12
   %210 = icmp slt i32 %209, 0
-  br i1 %210, label %.thread220..thread277_crit_edge.i, label %211
+  br i1 %210, label %.thread220.i, label %211
 
 211:                                              ; preds = %.lr.ph.i.i
   %.not84.i.i = icmp eq i32 %209, 0
@@ -6709,14 +6709,14 @@ sortslice_copy_incr.exit129.i:                    ; preds = %191, %187
   %.069.lcssa.i.i = phi i64 [ 1, %204 ], [ %216, %.thread.i.loopexit.i ]
   %.066.lcssa.i.i = phi i64 [ 1, %204 ], [ %.066.lcssa.i.ph.i, %.thread.i.loopexit.i ]
   %spec.select.i.i = tail call i64 @llvm.smin.i64(i64 %.066.lcssa.i.i, i64 %195)
-  br label %.preheader768
+  br label %.preheader767
 
-.preheader768:                                    ; preds = %.thread.i.i, %203
+.preheader767:                                    ; preds = %.thread.i.i, %203
   %.574.i133.i.ph = phi i64 [ 0, %203 ], [ %.069.lcssa.i.i, %.thread.i.i ]
   %.7.i134.i.ph = phi i64 [ 0, %203 ], [ %spec.select.i.i, %.thread.i.i ]
   br label %217
 
-217:                                              ; preds = %.preheader768, %219
+217:                                              ; preds = %.preheader767, %219
   %.574.i133.i = phi i64 [ %.675.i137.i, %219 ], [ %.574.i133.i.ph, %.preheader768 ]
   %.7.i134.i = phi i64 [ %.8.i138.i, %219 ], [ %.7.i134.i.ph, %.preheader768 ]
   %218 = icmp slt i64 %.574.i133.i, %.7.i134.i
@@ -6736,7 +6736,7 @@ sortslice_copy_incr.exit129.i:                    ; preds = %191, %187
   %229 = icmp slt i32 %226, 1
   %.675.i137.i = select i1 %229, i64 %.574.i133.i, i64 %228
   %.8.i138.i = select i1 %.not85.i136.i, i64 %222, i64 %.7.i134.i
-  br i1 %227, label %217, label %.thread220..thread277_crit_edge.i
+  br i1 %227, label %217, label %.thread220.i
 
 gallop_left.exit.i:                               ; preds = %217
   %.not110.i = icmp eq i64 %.7.i134.i, 0
@@ -6744,7 +6744,7 @@ gallop_left.exit.i:                               ; preds = %217
 
 230:                                              ; preds = %gallop_left.exit.i
   %231 = icmp slt i64 %.7.i134.i, 0
-  br i1 %231, label %.thread220..thread277_crit_edge.i, label %232
+  br i1 %231, label %.thread220.i, label %232
 
 232:                                              ; preds = %230
   %233 = shl i64 %.7.i134.i, 3
@@ -6766,7 +6766,7 @@ sortslice_advance.exit145.i:                      ; preds = %234, %232
   %spec.select292.i = select i1 %.not.i146.i, ptr null, ptr %238
   %239 = sub i64 %195, %.7.i134.i
   %240 = icmp eq i64 %239, 0
-  br i1 %240, label %.thread220..thread277_crit_edge.i, label %241
+  br i1 %240, label %.thread220.i, label %241
 
 241:                                              ; preds = %sortslice_advance.exit145.i, %gallop_left.exit.i
   %.sroa.14.7.i = phi ptr [ %.sroa.14.10.i, %gallop_left.exit.i ], [ %spec.select292.i, %sortslice_advance.exit145.i ]
@@ -6806,7 +6806,7 @@ sortslice_copy_incr.exit149.i:                    ; preds = %245, %241
   store i64 %256, ptr %0, align 8, !tbaa !139
   br label %109
 
-.thread220..thread277_crit_edge.i:                ; preds = %sortslice_copy_incr.exit118.i, %116, %sortslice_advance.exit145.i, %230, %197, %sortslice_copy_incr.exit129.i, %177, %142, %.lr.ph113.i.i, %166, %.lr.ph.i.i, %219
+.thread220.i:                                     ; preds = %sortslice_copy_incr.exit118.i, %116, %sortslice_advance.exit145.i, %230, %197, %sortslice_copy_incr.exit129.i, %177, %142, %.lr.ph113.i.i, %166, %.lr.ph.i.i, %219
   %.sroa.16.8.i = phi ptr [ %.sroa.16.7.i, %219 ], [ %.sroa.16.7.i, %.lr.ph.i.i ], [ %.sroa.16.6.i, %166 ], [ %.sroa.16.6.i, %.lr.ph113.i.i ], [ %.sroa.16.7.i, %sortslice_advance.exit145.i ], [ %.sroa.16.7.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.16.6.i, %177 ], [ %.sroa.16.7.i, %230 ], [ %.sroa.16.6.i, %142 ], [ %.sroa.16.7.i, %197 ], [ %.sroa.16.2.i.ph, %116 ], [ %.sroa.16.2.i.ph, %sortslice_copy_incr.exit118.i ]
   %.sroa.0194.8.i = phi ptr [ %.sroa.0194.7.i, %219 ], [ %.sroa.0194.7.i, %.lr.ph.i.i ], [ %.sroa.0194.6.i, %166 ], [ %.sroa.0194.6.i, %.lr.ph113.i.i ], [ %.sroa.0194.7.i, %sortslice_advance.exit145.i ], [ %.sroa.0194.7.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.0194.6.i, %177 ], [ %.sroa.0194.7.i, %230 ], [ %.sroa.0194.6.i, %142 ], [ %.sroa.0194.7.i, %197 ], [ %.sroa.0194.2.i.ph, %116 ], [ %.sroa.0194.2.i.ph, %sortslice_copy_incr.exit118.i ]
   %.sroa.22.9.i = phi ptr [ %.sroa.22.14.i, %219 ], [ %.sroa.22.14.i, %.lr.ph.i.i ], [ %.sroa.22.6.i, %166 ], [ %.sroa.22.6.i, %.lr.ph113.i.i ], [ %.sroa.22.15.i, %sortslice_advance.exit145.i ], [ %.sroa.22.14.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.22.6.i, %177 ], [ %.sroa.22.14.i, %230 ], [ %.sroa.22.6.i, %142 ], [ %.sroa.22.14.i, %197 ], [ %.sroa.22.11.i, %sortslice_copy_incr.exit118.i ], [ %.sroa.22.2.i, %116 ]

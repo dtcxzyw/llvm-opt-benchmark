@@ -212,7 +212,7 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
 
 .thread.i37.i.i.i:                                ; preds = %107, %98
   %109 = mul i64 %39, 10
-  br label %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit38.i.i.i
+  br label %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit39.i.i.i
 
 .lr.ph.split.i.i.i.i:                             ; preds = %.lr.ph.split.i.i.i.i.preheader, %.lr.ph.split.i.i.i.i
   %.144.i.i.i.i = phi i64 [ %.2.i.i.i.i, %.lr.ph.split.i.i.i.i ], [ %.144.i.i.i.i.ph, %.lr.ph.split.i.i.i.i.preheader ]
@@ -229,9 +229,9 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
 
 ._crit_edge.i32.i.i.i:                            ; preds = %.lr.ph.split.i.i.i.i
   %115 = lshr i64 %.2.i.i.i.i, 3
-  br label %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit38.i.i.i
+  br label %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit39.i.i.i
 
-_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit38.i.i.i: ; preds = %._crit_edge.i32.i.i.i, %.thread.i37.i.i.i
+_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit39.i.i.i: ; preds = %._crit_edge.i32.i.i.i, %.thread.i37.i.i.i
   %.034.i34.i.i.i = phi i64 [ %109, %.thread.i37.i.i.i ], [ %115, %._crit_edge.i32.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %116 = getelementptr inbounds nuw i8, ptr %16, i64 152
@@ -243,23 +243,23 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   %120 = call noundef i64 @_ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm(ptr noundef %32, ptr noundef nonnull %7, ptr noundef %52, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %39, ptr noundef %32, i64 noundef 8920)
   switch i32 %117, label %125 [
     i32 0, label %121
-    i32 1, label %.lr.ph.split.i43.i.i.i.preheader
+    i32 1, label %.lr.ph.split.i44.i.i.i.preheader
   ]
 
-.lr.ph.split.i43.i.i.i.preheader:                 ; preds = %130, %125, %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit38.i.i.i
-  %.144.i44.i.i.i.ph = phi i64 [ 0, %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit38.i.i.i ], [ 0, %125 ], [ %.0.i53.i.i.i, %130 ]
-  br label %.lr.ph.split.i43.i.i.i
+.lr.ph.split.i44.i.i.i.preheader:                 ; preds = %130, %125, %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit39.i.i.i
+  %.144.i45.i.i.i.ph = phi i64 [ 0, %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit38.i.i.i ], [ 0, %125 ], [ %.0.i54.i.i.i, %130 ]
+  br label %.lr.ph.split.i44.i.i.i
 
-121:                                              ; preds = %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit38.i.i.i
+121:                                              ; preds = %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit39.i.i.i
   %122 = load i32, ptr %7, align 4, !tbaa !66
-  %.not.i52.i.i.i = icmp ugt i32 %122, 52
-  br i1 %.not.i52.i.i.i, label %.thread.i54.i.i.i, label %123
+  %.not.i53.i.i.i = icmp ugt i32 %122, 52
+  br i1 %.not.i53.i.i.i, label %.thread.i55.i.i.i, label %123
 
 123:                                              ; preds = %121
   %124 = call noundef i64 @_ZN11duckdb_zstd21ZSTD_crossEntropyCostEPKsjPKjj(ptr noundef nonnull @_ZN11duckdb_zstdL14ML_defaultNormE, i32 noundef 6, ptr noundef %32, i32 noundef %122)
   br label %130
 
-125:                                              ; preds = %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit38.i.i.i
+125:                                              ; preds = %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit39.i.i.i
   %126 = icmp ult i32 %117, 4
   br i1 %126, label %127, label %.lr.ph.split.i43.i.i.i.preheader
 
@@ -269,50 +269,50 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   br label %130
 
 130:                                              ; preds = %127, %123
-  %.0.i53.i.i.i = phi i64 [ %129, %127 ], [ %124, %123 ]
-  %131 = icmp ult i64 %.0.i53.i.i.i, -119
-  br i1 %131, label %.lr.ph.split.i43.i.i.i.preheader, label %.thread.i54.i.i.i
+  %.0.i54.i.i.i = phi i64 [ %129, %127 ], [ %124, %123 ]
+  %131 = icmp ult i64 %.0.i54.i.i.i, -119
+  br i1 %131, label %.lr.ph.split.i44.i.i.i.preheader, label %.thread.i55.i.i.i
 
-.thread.i54.i.i.i:                                ; preds = %130, %121
+.thread.i55.i.i.i:                                ; preds = %130, %121
   %132 = mul i64 %39, 10
-  br label %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit55.i.i.i
+  br label %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit57.i.i.i
 
-.lr.ph.split.i43.i.i.i:                           ; preds = %.lr.ph.split.i43.i.i.i.preheader, %.lr.ph.split.i43.i.i.i
-  %.144.i44.i.i.i = phi i64 [ %.2.i48.i.i.i, %.lr.ph.split.i43.i.i.i ], [ %.144.i44.i.i.i.ph, %.lr.ph.split.i43.i.i.i.preheader ]
-  %.03543.i45.i.i.i = phi ptr [ %136, %.lr.ph.split.i43.i.i.i ], [ %52, %.lr.ph.split.i43.i.i.i.preheader ]
-  %133 = load i8, ptr %.03543.i45.i.i.i, align 1, !tbaa !68
+.lr.ph.split.i44.i.i.i:                           ; preds = %.lr.ph.split.i44.i.i.i.preheader, %.lr.ph.split.i44.i.i.i
+  %.144.i45.i.i.i = phi i64 [ %.2.i49.i.i.i, %.lr.ph.split.i43.i.i.i ], [ %.144.i45.i.i.i.ph, %.lr.ph.split.i43.i.i.i.preheader ]
+  %.03543.i46.i.i.i = phi ptr [ %136, %.lr.ph.split.i43.i.i.i ], [ %52, %.lr.ph.split.i43.i.i.i.preheader ]
+  %133 = load i8, ptr %.03543.i46.i.i.i, align 1, !tbaa !68
   %134 = zext i8 %133 to i64
   %135 = getelementptr inbounds nuw i8, ptr @_ZN11duckdb_zstdL7ML_bitsE, i64 %134
-  %.pn.in.i46.i.i.i = load i8, ptr %135, align 1, !tbaa !68
-  %.pn.i47.i.i.i = zext i8 %.pn.in.i46.i.i.i to i64
-  %.2.i48.i.i.i = add i64 %.144.i44.i.i.i, %.pn.i47.i.i.i
-  %136 = getelementptr inbounds nuw i8, ptr %.03543.i45.i.i.i, i64 1
+  %.pn.in.i47.i.i.i = load i8, ptr %135, align 1, !tbaa !68
+  %.pn.i48.i.i.i = zext i8 %.pn.in.i47.i.i.i to i64
+  %.2.i49.i.i.i = add i64 %.144.i45.i.i.i, %.pn.i48.i.i.i
+  %136 = getelementptr inbounds nuw i8, ptr %.03543.i46.i.i.i, i64 1
   %137 = icmp ult ptr %136, %119
-  br i1 %137, label %.lr.ph.split.i43.i.i.i, label %._crit_edge.i49.i.i.i, !llvm.loop !69
+  br i1 %137, label %.lr.ph.split.i44.i.i.i, label %._crit_edge.i50.i.i.i, !llvm.loop !69
 
-._crit_edge.i49.i.i.i:                            ; preds = %.lr.ph.split.i43.i.i.i
-  %138 = lshr i64 %.2.i48.i.i.i, 3
-  br label %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit55.i.i.i
+._crit_edge.i50.i.i.i:                            ; preds = %.lr.ph.split.i44.i.i.i
+  %138 = lshr i64 %.2.i49.i.i.i, 3
+  br label %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit57.i.i.i
 
-_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit55.i.i.i: ; preds = %._crit_edge.i49.i.i.i, %.thread.i54.i.i.i
-  %.034.i51.i.i.i = phi i64 [ %132, %.thread.i54.i.i.i ], [ %138, %._crit_edge.i49.i.i.i ]
+_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit57.i.i.i: ; preds = %._crit_edge.i50.i.i.i, %.thread.i55.i.i.i
+  %.034.i52.i.i.i = phi i64 [ %132, %.thread.i54.i.i.i ], [ %138, %._crit_edge.i49.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %139 = getelementptr inbounds nuw i8, ptr %16, i64 296
   %140 = load i64, ptr %139, align 8, !tbaa !73
   %141 = add i64 %.020.i.i.i, 6
   %142 = add i64 %141, %.034.i.i.i.i
   %143 = add i64 %142, %.034.i34.i.i.i
-  %144 = add i64 %143, %.034.i51.i.i.i
+  %144 = add i64 %143, %.034.i52.i.i.i
   %145 = add i64 %144, %140
   %.not301.i = icmp eq ptr %43, %41
   br i1 %.not301.i, label %149, label %146
 
-146:                                              ; preds = %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit55.i.i.i
+146:                                              ; preds = %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit57.i.i.i
   %147 = shl i64 %.020.i.i.i, 8
   %148 = udiv i64 %147, %46
   br label %149
 
-149:                                              ; preds = %146, %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit55.i.i.i
+149:                                              ; preds = %146, %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit57.i.i.i
   %150 = phi i64 [ %148, %146 ], [ 256, %_ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_eEPKhjmPKjS2_PKsjjPvm.exit55.i.i.i ]
   %151 = sub i64 %145, %.020.i.i.i
   %152 = shl i64 %151, 8

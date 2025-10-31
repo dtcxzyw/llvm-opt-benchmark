@@ -28024,12 +28024,12 @@ define hidden void @_ZN18ty_python_semantic5types10signatures9Parameter18apply_t
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.03.0.copyload = load i8, ptr %20, align 8
   %.not = icmp eq i8 %.sroa.03.0.copyload, 29
-  %.sink19.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 23
-  %.sink19.sroa.gep20 = getelementptr inbounds nuw i8, ptr %9, i64 23
-  %.sink19.sroa.gep21 = getelementptr inbounds nuw i8, ptr %10, i64 23
-  %.sink19.sroa.gep22 = getelementptr inbounds nuw i8, ptr %10, i64 23
-  %.sink19.sroa.gep23 = getelementptr inbounds nuw i8, ptr %11, i64 23
-  %.sink19.sroa.gep24 = getelementptr inbounds nuw i8, ptr %11, i64 23
+  %.sink18.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 23
+  %.sink18.sroa.gep19 = getelementptr inbounds nuw i8, ptr %9, i64 23
+  %.sink18.sroa.gep20 = getelementptr inbounds nuw i8, ptr %10, i64 23
+  %.sink18.sroa.gep21 = getelementptr inbounds nuw i8, ptr %10, i64 23
+  %.sink18.sroa.gep22 = getelementptr inbounds nuw i8, ptr %11, i64 23
+  %.sink18.sroa.gep23 = getelementptr inbounds nuw i8, ptr %11, i64 23
   br i1 %.not, label %22, label %21
 
 21:                                               ; preds = %5
@@ -28136,11 +28136,11 @@ default.unreachable:                              ; preds = %30, %22
   br label %"_ZN91_$LT$ty_python_semantic..types..signatures..ParameterKind$u20$as$u20$core..clone..Clone$GT$5clone17ha1dc727bec5819f0E.exit.i"
 
 "_ZN91_$LT$ty_python_semantic..types..signatures..ParameterKind$u20$as$u20$core..clone..Clone$GT$5clone17ha1dc727bec5819f0E.exit.i": ; preds = %46, %47, %42, %45, %38, %39
-  %.sink19.sroa.phi = phi ptr [ %.sink19.sroa.gep, %39 ], [ %.sink19.sroa.gep20, %38 ], [ %.sink19.sroa.gep21, %45 ], [ %.sink19.sroa.gep22, %42 ], [ %.sink19.sroa.gep23, %47 ], [ %.sink19.sroa.gep24, %46 ]
-  %.sink19 = phi ptr [ %9, %39 ], [ %9, %38 ], [ %10, %45 ], [ %10, %42 ], [ %11, %47 ], [ %11, %46 ]
+  %.sink18.sroa.phi = phi ptr [ %.sink18.sroa.gep, %39 ], [ %.sink18.sroa.gep19, %38 ], [ %.sink18.sroa.gep20, %45 ], [ %.sink18.sroa.gep21, %42 ], [ %.sink18.sroa.gep22, %47 ], [ %.sink18.sroa.gep23, %46 ]
+  %.sink18 = phi ptr [ %9, %39 ], [ %9, %38 ], [ %10, %45 ], [ %10, %42 ], [ %11, %47 ], [ %11, %46 ]
   %.sroa.16.0 = phi i8 [ undef, %39 ], [ undef, %38 ], [ %44, %45 ], [ %44, %42 ], [ undef, %47 ], [ undef, %46 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.04.i, ptr noundef nonnull align 8 dereferenceable(23) %.sink19, i64 23, i1 false)
-  %.sroa.15.8.copyload13 = load i8, ptr %.sink19.sroa.phi, align 1, !noalias !5141
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.04.i, ptr noundef nonnull align 8 dereferenceable(23) %.sink18, i64 23, i1 false)
+  %.sroa.15.8.copyload13 = load i8, ptr %.sink18.sroa.phi, align 1, !noalias !5141
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !5137
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !5137
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !5137

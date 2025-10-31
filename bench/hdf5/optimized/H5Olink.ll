@@ -416,7 +416,7 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr readnone captures(none
   %206 = getelementptr inbounds nuw i8, ptr %198, i64 7
   br label %207
 
-default.unreachable249:                           ; preds = %121
+default.unreachable248:                           ; preds = %121
   unreachable
 
 207:                                              ; preds = %205, %166, %147, %133
@@ -509,8 +509,8 @@ default.unreachable249:                           ; preds = %121
   %257 = ptrtoint ptr %236 to i64
   %258 = sub i64 %218, %257
   %259 = icmp ult i64 %258, 2
-  %or.cond255 = select i1 %256, i1 true, i1 %259
-  br i1 %or.cond255, label %260, label %264
+  %or.cond254 = select i1 %256, i1 true, i1 %259
+  br i1 %or.cond254, label %260, label %264
 
 260:                                              ; preds = %255
   %261 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
@@ -542,8 +542,8 @@ default.unreachable249:                           ; preds = %121
   %280 = ptrtoint ptr %272 to i64
   %281 = sub i64 %218, %280
   %282 = icmp ugt i64 %271, %281
-  %or.cond258 = select i1 %279, i1 true, i1 %282
-  br i1 %or.cond258, label %283, label %287
+  %or.cond257 = select i1 %279, i1 true, i1 %282
+  br i1 %or.cond257, label %283, label %287
 
 283:                                              ; preds = %278
   %284 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
@@ -587,8 +587,8 @@ default.unreachable249:                           ; preds = %121
   %306 = ptrtoint ptr %236 to i64
   %307 = sub i64 %218, %306
   %308 = icmp ult i64 %307, 2
-  %or.cond261 = select i1 %305, i1 true, i1 %308
-  br i1 %or.cond261, label %309, label %313
+  %or.cond260 = select i1 %305, i1 true, i1 %308
+  br i1 %or.cond260, label %309, label %313
 
 309:                                              ; preds = %304
   %310 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
@@ -629,8 +629,8 @@ default.unreachable249:                           ; preds = %121
   %333 = ptrtoint ptr %321 to i64
   %334 = sub i64 %218, %333
   %335 = icmp ugt i64 %320, %334
-  %or.cond264 = select i1 %332, i1 true, i1 %335
-  br i1 %or.cond264, label %336, label %340
+  %or.cond263 = select i1 %332, i1 true, i1 %335
+  br i1 %or.cond263, label %336, label %340
 
 336:                                              ; preds = %331
   %337 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11

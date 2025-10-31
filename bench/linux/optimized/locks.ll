@@ -5250,37 +5250,37 @@ define dso_local i32 @generic_setlease(ptr noundef %0, i32 noundef %1, ptr nound
   %82 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, %82
-  br i1 %84, label %.loopexit25, label %.preheader24
+  br i1 %84, label %.loopexit24, label %.preheader23
 
-.preheader24:                                     ; preds = %81, %93
+.preheader23:                                     ; preds = %81, %93
   %85 = phi ptr [ %94, %93 ], [ %83, %81 ]
   %86 = getelementptr i8, ptr %85, i64 112
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, %0
   br i1 %88, label %89, label %93
 
-89:                                               ; preds = %.preheader24
+89:                                               ; preds = %.preheader23
   %90 = getelementptr i8, ptr %85, i64 64
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, %39
   br i1 %92, label %96, label %93
 
-93:                                               ; preds = %89, %.preheader24
+93:                                               ; preds = %89, %.preheader23
   %94 = load ptr, ptr %85, align 8
   %95 = icmp eq ptr %94, %82
-  br i1 %95, label %.loopexit25, label %.preheader24, !llvm.loop !113
+  br i1 %95, label %.loopexit24, label %.preheader23, !llvm.loop !113
 
 96:                                               ; preds = %89
   %97 = getelementptr i8, ptr %85, i64 -8
-  br label %.loopexit25
+  br label %.loopexit24
 
-.loopexit25:                                      ; preds = %93, %96, %81
+.loopexit24:                                      ; preds = %93, %96, %81
   %98 = phi ptr [ %85, %96 ], [ %83, %81 ], [ %94, %93 ]
   %99 = phi ptr [ %97, %96 ], [ null, %81 ], [ null, %93 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_generic_delete_lease, i64 8), i32 2) #15
           to label %120 [label %100], !srcloc !71
 
-100:                                              ; preds = %.loopexit25
+100:                                              ; preds = %.loopexit24
   %101 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !109
   %102 = zext i32 %101 to i64
   %103 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %102) #15, !srcloc !73
@@ -5316,7 +5316,7 @@ define dso_local i32 @generic_setlease(ptr noundef %0, i32 noundef %1, ptr nound
   call void @llvm.write_register.i64(metadata !0, i64 %119)
   br label %120
 
-120:                                              ; preds = %117, %113, %100, %.loopexit25
+120:                                              ; preds = %117, %113, %100, %.loopexit24
   %121 = icmp eq ptr %99, null
   br i1 %121, label %128, label %122
 
@@ -5507,7 +5507,7 @@ define dso_local i32 @generic_setlease(ptr noundef %0, i32 noundef %1, ptr nound
   %217 = load ptr, ptr %7, align 8
   %218 = and i32 %216, 2052
   %219 = icmp eq i32 %218, 0
-  br i1 %219, label %220, label %select.unfold22
+  br i1 %219, label %220, label %select.unfold21
 
 220:                                              ; preds = %215
   %221 = icmp eq i32 %1, 0
@@ -5517,7 +5517,7 @@ define dso_local i32 @generic_setlease(ptr noundef %0, i32 noundef %1, ptr nound
   %223 = getelementptr inbounds nuw i8, ptr %217, i64 336
   %224 = load volatile i32, ptr %223, align 4
   %225 = icmp sgt i32 %224, 0
-  br i1 %225, label %select.unfold, label %select.unfold22.thread
+  br i1 %225, label %select.unfold, label %select.unfold21.thread
 
 226:                                              ; preds = %220
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5536,35 +5536,35 @@ define dso_local i32 @generic_setlease(ptr noundef %0, i32 noundef %1, ptr nound
   %238 = getelementptr inbounds nuw i8, ptr %217, i64 340
   %239 = load volatile i32, ptr %238, align 4
   %240 = icmp eq i32 %239, %237
-  br i1 %240, label %select.unfold22.thread71, label %select.unfold
+  br i1 %240, label %select.unfold21.thread69, label %select.unfold
 
-select.unfold22:                                  ; preds = %215
+select.unfold21:                                  ; preds = %215
   %241 = getelementptr inbounds nuw i8, ptr %193, i64 40
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, %241
-  br i1 %243, label %.thread23, label %252
+  br i1 %243, label %.thread22, label %252
 
-select.unfold22.thread71:                         ; preds = %234
+select.unfold21.thread69:                         ; preds = %234
   %244 = getelementptr inbounds nuw i8, ptr %193, i64 40
   %245 = load ptr, ptr %244, align 8
   %246 = icmp eq ptr %245, %244
-  br i1 %246, label %.thread23, label %.thread72
+  br i1 %246, label %.thread22, label %.thread70
 
-.thread72:                                        ; preds = %select.unfold22.thread71
+.thread70:                                        ; preds = %select.unfold21.thread69
   %247 = getelementptr inbounds nuw i8, ptr %158, i64 72
   br label %.split.us
 
-select.unfold22.thread:                           ; preds = %222
+select.unfold21.thread:                           ; preds = %222
   %248 = getelementptr inbounds nuw i8, ptr %193, i64 40
   %249 = load ptr, ptr %248, align 8
   %250 = icmp eq ptr %249, %248
-  br i1 %250, label %.thread23, label %.thread
+  br i1 %250, label %.thread22, label %.thread
 
-.thread:                                          ; preds = %select.unfold22.thread
+.thread:                                          ; preds = %select.unfold21.thread
   %251 = getelementptr inbounds nuw i8, ptr %158, i64 72
   br label %.split.preheader
 
-252:                                              ; preds = %select.unfold22
+252:                                              ; preds = %select.unfold21
   %253 = getelementptr inbounds nuw i8, ptr %158, i64 72
   %254 = icmp eq i32 %1, 1
   br i1 %254, label %.split.us, label %.split.preheader
@@ -5575,7 +5575,7 @@ select.unfold22.thread:                           ; preds = %222
   %257 = phi ptr [ %249, %.thread ], [ %242, %252 ]
   br label %.split
 
-.split.us:                                        ; preds = %.thread72, %252
+.split.us:                                        ; preds = %.thread70, %252
   %258 = phi ptr [ %247, %.thread72 ], [ %253, %252 ]
   %259 = phi ptr [ %244, %.thread72 ], [ %241, %252 ]
   %260 = phi ptr [ %245, %.thread72 ], [ %242, %252 ]
@@ -5589,25 +5589,25 @@ select.unfold22.thread:                           ; preds = %222
   %265 = getelementptr i8, ptr %260, i64 64
   %266 = load ptr, ptr %265, align 8
   %267 = icmp eq ptr %266, %264
-  br i1 %267, label %.lr.ph89, label %select.unfold
+  br i1 %267, label %.lr.ph87, label %select.unfold
 
-268:                                              ; preds = %.lr.ph89
+268:                                              ; preds = %.lr.ph87
   %269 = getelementptr i8, ptr %277, i64 112
   %270 = load ptr, ptr %269, align 8
   %271 = icmp eq ptr %270, %0
-  br i1 %271, label %272, label %.select.unfold.loopexit81_crit_edge, !llvm.loop !121
+  br i1 %271, label %272, label %.select.unfold.loopexit79_crit_edge, !llvm.loop !121
 
 272:                                              ; preds = %268
   %273 = getelementptr i8, ptr %277, i64 64
   %274 = load ptr, ptr %273, align 8
   %275 = icmp eq ptr %274, %264
-  br i1 %275, label %.lr.ph89, label %select.unfold.loopexit98, !llvm.loop !121
+  br i1 %275, label %.lr.ph87, label %select.unfold.loopexit96, !llvm.loop !121
 
-.lr.ph89:                                         ; preds = %.lr.ph, %272
+.lr.ph87:                                         ; preds = %.lr.ph, %272
   %276 = phi ptr [ %277, %272 ], [ %260, %.lr.ph ]
   %277 = load ptr, ptr %276, align 8
   %278 = icmp eq ptr %277, %259
-  br i1 %278, label %.split34.us.loopexit97, label %268, !llvm.loop !121
+  br i1 %278, label %.split33.us.loopexit95, label %268, !llvm.loop !121
 
 .split:                                           ; preds = %.split.preheader, %295
   %279 = phi ptr [ %297, %295 ], [ %257, %.split.preheader ]
@@ -5636,34 +5636,34 @@ select.unfold22.thread:                           ; preds = %222
   %296 = phi ptr [ %280, %290 ], [ %285, %284 ]
   %297 = load ptr, ptr %279, align 8
   %298 = icmp eq ptr %297, %256
-  br i1 %298, label %.split34.us, label %.split, !llvm.loop !121
+  br i1 %298, label %.split33.us, label %.split, !llvm.loop !121
 
-.split34.us.loopexit97:                           ; preds = %.lr.ph89
+.split33.us.loopexit95:                           ; preds = %.lr.ph87
   %299 = getelementptr i8, ptr %276, i64 -8
-  br label %.split34.us
+  br label %.split33.us
 
-.split34.us:                                      ; preds = %295, %.split34.us.loopexit97
+.split33.us:                                      ; preds = %295, %.split33.us.loopexit95
   %300 = phi ptr [ %259, %.split34.us.loopexit97 ], [ %256, %295 ]
-  %.us-phi35 = phi ptr [ %299, %.split34.us.loopexit97 ], [ %296, %295 ]
-  %301 = icmp eq ptr %.us-phi35, null
-  br i1 %301, label %.thread23, label %302
+  %.us-phi34 = phi ptr [ %299, %.split34.us.loopexit97 ], [ %296, %295 ]
+  %301 = icmp eq ptr %.us-phi34, null
+  br i1 %301, label %.thread22, label %302
 
-302:                                              ; preds = %.split34.us
-  %303 = getelementptr inbounds nuw i8, ptr %.us-phi35, i64 176
+302:                                              ; preds = %.split33.us
+  %303 = getelementptr inbounds nuw i8, ptr %.us-phi34, i64 176
   %304 = load ptr, ptr %303, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 48
   %306 = load ptr, ptr %305, align 8
-  %307 = call i32 %306(ptr noundef nonnull %.us-phi35, i32 noundef %1, ptr noundef nonnull %5) #15
+  %307 = call i32 %306(ptr noundef nonnull %.us-phi34, i32 noundef %1, ptr noundef nonnull %5) #15
   %308 = icmp eq i32 %307, 0
   br i1 %308, label %317, label %select.unfold
 
-.thread23:                                        ; preds = %select.unfold22.thread71, %select.unfold22.thread, %select.unfold22, %.split34.us
+.thread22:                                        ; preds = %select.unfold21.thread69, %select.unfold21.thread, %select.unfold21, %.split33.us
   %309 = phi ptr [ %248, %select.unfold22.thread ], [ %241, %select.unfold22 ], [ %300, %.split34.us ], [ %244, %select.unfold22.thread71 ]
   %310 = load i32, ptr @leases_enable, align 4
   %311 = icmp eq i32 %310, 0
   br i1 %311, label %select.unfold, label %312
 
-312:                                              ; preds = %.thread23
+312:                                              ; preds = %.thread22
   call fastcc void @locks_insert_lock_ctx(ptr noundef %158, ptr noundef nonnull %309)
   call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !122
   %313 = load i32, ptr %167, align 8
@@ -5676,8 +5676,8 @@ select.unfold22.thread:                           ; preds = %222
   br label %select.unfold
 
 317:                                              ; preds = %312, %302
-  %318 = phi ptr [ %.us-phi35, %302 ], [ null, %312 ]
-  %319 = phi ptr [ %.us-phi35, %302 ], [ %158, %312 ]
+  %318 = phi ptr [ %.us-phi34, %302 ], [ null, %312 ]
+  %319 = phi ptr [ %.us-phi34, %302 ], [ %158, %312 ]
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 176
   %321 = load ptr, ptr %320, align 8
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 56
@@ -5689,17 +5689,17 @@ select.unfold22.thread:                           ; preds = %222
   call void %323(ptr noundef %319, ptr noundef %3) #15
   br label %select.unfold
 
-.select.unfold.loopexit81_crit_edge:              ; preds = %268
+.select.unfold.loopexit79_crit_edge:              ; preds = %268
   %326 = getelementptr i8, ptr %276, i64 -8
   br label %select.unfold, !llvm.loop !121
 
-select.unfold.loopexit98:                         ; preds = %272
+select.unfold.loopexit96:                         ; preds = %272
   %327 = getelementptr i8, ptr %276, i64 -8
   br label %select.unfold
 
-select.unfold:                                    ; preds = %290, %select.unfold.loopexit98, %.lr.ph, %.select.unfold.loopexit81_crit_edge, %.split.us, %222, %226, %234, %325, %317, %316, %.thread23, %302
+select.unfold:                                    ; preds = %290, %select.unfold.loopexit96, %.lr.ph, %.select.unfold.loopexit79_crit_edge, %.split.us, %222, %226, %234, %325, %317, %316, %.thread22, %302
   %328 = phi i32 [ %307, %302 ], [ 0, %325 ], [ 0, %317 ], [ %314, %316 ], [ -22, %.thread23 ], [ -11, %226 ], [ -11, %234 ], [ -11, %222 ], [ -11, %.split.us ], [ -11, %.select.unfold.loopexit81_crit_edge ], [ -11, %.lr.ph ], [ -11, %select.unfold.loopexit98 ], [ -11, %290 ]
-  %329 = phi ptr [ %.us-phi35, %302 ], [ %318, %325 ], [ %318, %317 ], [ null, %316 ], [ null, %.thread23 ], [ null, %226 ], [ null, %234 ], [ null, %222 ], [ null, %.split.us ], [ %326, %.select.unfold.loopexit81_crit_edge ], [ null, %.lr.ph ], [ %327, %select.unfold.loopexit98 ], [ %280, %290 ]
+  %329 = phi ptr [ %.us-phi34, %302 ], [ %318, %325 ], [ %318, %317 ], [ null, %316 ], [ null, %.thread23 ], [ null, %226 ], [ null, %234 ], [ null, %222 ], [ null, %.split.us ], [ %326, %.select.unfold.loopexit81_crit_edge ], [ null, %.lr.ph ], [ %327, %select.unfold.loopexit98 ], [ %280, %290 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %193) #15
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !50
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !57
@@ -5736,9 +5736,9 @@ select.unfold:                                    ; preds = %290, %select.unfold
 344:                                              ; preds = %341, %337
   %345 = load volatile ptr, ptr %5, align 8
   %346 = icmp eq ptr %345, %5
-  br i1 %346, label %.loopexit27, label %.preheader26
+  br i1 %346, label %.loopexit26, label %.preheader25
 
-.preheader26:                                     ; preds = %344, %.preheader26
+.preheader25:                                     ; preds = %344, %.preheader25
   %347 = phi ptr [ %354, %.preheader26 ], [ %345, %344 ]
   %348 = getelementptr i8, ptr %347, i64 -8
   %349 = getelementptr inbounds nuw i8, ptr %347, i64 8
@@ -5754,17 +5754,17 @@ select.unfold:                                    ; preds = %290, %select.unfold
   call void @kmem_cache_free(ptr noundef %353, ptr noundef %348) #15
   %354 = load volatile ptr, ptr %5, align 8
   %355 = icmp eq ptr %354, %5
-  br i1 %355, label %.loopexit27, label %.preheader26, !llvm.loop !77
+  br i1 %355, label %.loopexit26, label %.preheader25, !llvm.loop !77
 
-.loopexit27:                                      ; preds = %.preheader26, %344
+.loopexit26:                                      ; preds = %.preheader25, %344
   br i1 %170, label %358, label %356
 
-356:                                              ; preds = %.loopexit27
+356:                                              ; preds = %.loopexit26
   %357 = getelementptr inbounds nuw i8, ptr %166, i64 160
   call void @up_write(ptr noundef nonnull %357) #15
   br label %358
 
-358:                                              ; preds = %356, %.loopexit27
+358:                                              ; preds = %356, %.loopexit26
   %359 = icmp ne i32 %328, 0
   %360 = icmp ne ptr %329, null
   %361 = select i1 %359, i1 true, i1 %360

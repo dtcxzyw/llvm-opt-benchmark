@@ -1804,9 +1804,9 @@ Vec_WrdReadHex.exit.thread:                       ; preds = %7
   %.val58.ph = phi ptr [ %.pre.i4474.i, %Vec_WrdPush.exit48.i ], [ %.pre.i4469.i, %.outer.i ]
   %.ph = phi i32 [ %86, %Vec_WrdPush.exit48.i ], [ %14, %.outer.i ]
   %.val.ph = phi i32 [ %87, %Vec_WrdPush.exit48.i ], [ %.val67.i, %.outer.i ]
-  %.ph184 = phi ptr [ %.pre.i4474.i, %Vec_WrdPush.exit48.i ], [ %.pre.i60.i, %.outer.i ]
-  %.ph185 = phi i32 [ %86, %Vec_WrdPush.exit48.i ], [ %15, %.outer.i ]
-  %.ph186 = phi i32 [ %87, %Vec_WrdPush.exit48.i ], [ %16, %.outer.i ]
+  %.ph183 = phi ptr [ %.pre.i4474.i, %Vec_WrdPush.exit48.i ], [ %.pre.i60.i, %.outer.i ]
+  %.ph184 = phi i32 [ %86, %Vec_WrdPush.exit48.i ], [ %15, %.outer.i ]
+  %.ph185 = phi i32 [ %87, %Vec_WrdPush.exit48.i ], [ %16, %.outer.i ]
   %.033.ph50.i.ph = phi i32 [ 0, %Vec_WrdPush.exit48.i ], [ %.033.ph.i, %.outer.i ]
   %.032.ph51.i.ph = phi i64 [ 0, %Vec_WrdPush.exit48.i ], [ %.032.ph.i, %.outer.i ]
   br label %.outer49.i
@@ -1834,19 +1834,19 @@ Vec_WrdReadHex.exit.thread:                       ; preds = %7
   br i1 %19, label %20, label %42
 
 20:                                               ; preds = %18
-  %21 = icmp eq i32 %.ph186, %.ph185
+  %21 = icmp eq i32 %.ph185, %.ph184
   br i1 %21, label %22, label %Vec_WrdPush.exit.i
 
 22:                                               ; preds = %20
-  %23 = icmp slt i32 %.ph185, 16
+  %23 = icmp slt i32 %.ph184, 16
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %22
-  %.not9.i.i.i = icmp eq ptr %.ph184, null
+  %.not9.i.i.i = icmp eq ptr %.ph183, null
   br i1 %.not9.i.i.i, label %27, label %25
 
 25:                                               ; preds = %24
-  %26 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %.ph184, i64 noundef 128) #18
+  %26 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %.ph183, i64 noundef 128) #18
   br label %Vec_WrdPush.exit.i
 
 27:                                               ; preds = %24
@@ -1854,14 +1854,14 @@ Vec_WrdReadHex.exit.thread:                       ; preds = %7
   br label %Vec_WrdPush.exit.i
 
 29:                                               ; preds = %22
-  %30 = shl nuw nsw i32 %.ph185, 1
-  %.not9.i9.i.i = icmp eq ptr %.ph184, null
+  %30 = shl nuw nsw i32 %.ph184, 1
+  %.not9.i9.i.i = icmp eq ptr %.ph183, null
   %31 = zext nneg i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 3
   br i1 %.not9.i9.i.i, label %35, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call ptr @realloc(ptr noundef nonnull %.ph184, i64 noundef %32) #18
+  %34 = tail call ptr @realloc(ptr noundef nonnull %.ph183, i64 noundef %32) #18
   br label %Vec_WrdPush.exit.i
 
 35:                                               ; preds = %29
@@ -1871,10 +1871,10 @@ Vec_WrdReadHex.exit.thread:                       ; preds = %7
 Vec_WrdPush.exit.i:                               ; preds = %25, %27, %33, %35, %20
   %.pre.i4471.i = phi ptr [ %.val58.ph, %20 ], [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
   %37 = phi i32 [ %.ph, %20 ], [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
-  %.pre.i62.i = phi ptr [ %.ph184, %20 ], [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
-  %38 = phi i32 [ %.ph185, %20 ], [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
-  %39 = add i32 %.ph186, 1
-  %40 = sext i32 %.ph186 to i64
+  %.pre.i62.i = phi ptr [ %.ph183, %20 ], [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
+  %38 = phi i32 [ %.ph184, %20 ], [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
+  %39 = add i32 %.ph185, 1
+  %40 = sext i32 %.ph185 to i64
   %41 = getelementptr inbounds i64, ptr %.pre.i62.i, i64 %40
   store i64 %.032.ph51.i, ptr %41, align 8, !tbaa !56
   br label %42
@@ -1883,9 +1883,9 @@ Vec_WrdPush.exit.i:                               ; preds = %25, %27, %33, %35, 
   %.pre.i4470.i = phi ptr [ %.pre.i4471.i, %Vec_WrdPush.exit.i ], [ %.val58.ph, %18 ]
   %43 = phi i32 [ %37, %Vec_WrdPush.exit.i ], [ %.ph, %18 ]
   %.val.i = phi i32 [ %39, %Vec_WrdPush.exit.i ], [ %.val.ph, %18 ]
-  %.pre.i61.i = phi ptr [ %.pre.i62.i, %Vec_WrdPush.exit.i ], [ %.ph184, %18 ]
-  %44 = phi i32 [ %38, %Vec_WrdPush.exit.i ], [ %.ph185, %18 ]
-  %45 = phi i32 [ %39, %Vec_WrdPush.exit.i ], [ %.ph186, %18 ]
+  %.pre.i61.i = phi ptr [ %.pre.i62.i, %Vec_WrdPush.exit.i ], [ %.ph183, %18 ]
+  %44 = phi i32 [ %38, %Vec_WrdPush.exit.i ], [ %.ph184, %18 ]
+  %45 = phi i32 [ %39, %Vec_WrdPush.exit.i ], [ %.ph185, %18 ]
   %.134.i = phi i32 [ 0, %Vec_WrdPush.exit.i ], [ %.033.ph50.i, %18 ]
   %.1.i = phi i64 [ 0, %Vec_WrdPush.exit.i ], [ %.032.ph51.i, %18 ]
   %46 = icmp eq i32 %.035.ph.i, -1

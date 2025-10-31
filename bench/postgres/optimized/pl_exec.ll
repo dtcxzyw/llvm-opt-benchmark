@@ -5248,9 +5248,9 @@ assign_simple_var.exit:                           ; preds = %658, %681, %682
   br label %exec_stmt_case.exit
 
 exec_stmt_case.exit:                              ; preds = %656, %698
-  %.sink1044.in = phi ptr [ %657, %656 ], [ %699, %698 ]
-  %.sink1044 = load ptr, ptr %.sink1044.in, align 8
-  %700 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %.sink1044)
+  %.sink1039.in = phi ptr [ %657, %656 ], [ %699, %698 ]
+  %.sink1039 = load ptr, ptr %.sink1039.in, align 8
+  %700 = call fastcc i32 @exec_stmts(ptr noundef nonnull %0, ptr noundef %.sink1039)
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %exec_stmt_perform.exit
 
@@ -5572,7 +5572,7 @@ exec_eval_cleanup.exit225:                        ; preds = %844, %846
   %.pre754 = load i32, ptr %855, align 8
   br label %860
 
-860:                                              ; preds = %.backedge1200, %854
+860:                                              ; preds = %.backedge1195, %854
   %861 = phi i32 [ %.pre754, %854 ], [ %.be, %.backedge1200 ]
   %.065.i = phi i32 [ %788, %854 ], [ %.065.i.be, %.backedge1200 ]
   %.062.i = phi i8 [ 0, %854 ], [ 1, %.backedge1200 ]
@@ -5649,7 +5649,7 @@ exec_eval_cleanup.exit225:                        ; preds = %844, %846
 
 892:                                              ; preds = %890
   %893 = sub i32 %.065.i, %.064.i
-  br label %.backedge1200
+  br label %.backedge1195
 
 894:                                              ; preds = %888
   %895 = icmp sgt i32 %.065.i, %859
@@ -5657,9 +5657,9 @@ exec_eval_cleanup.exit225:                        ; preds = %844, %846
 
 896:                                              ; preds = %894
   %897 = add i32 %.065.i, %.064.i
-  br label %.backedge1200
+  br label %.backedge1195
 
-.backedge1200:                                    ; preds = %896, %892
+.backedge1195:                                    ; preds = %896, %892
   %.be = phi i32 [ %889, %896 ], [ 1, %892 ]
   %.065.i.be = phi i32 [ %897, %896 ], [ %893, %892 ]
   br label %860
@@ -7814,8 +7814,8 @@ exec_eval_cleanup.exit.i183:                      ; preds = %1851, %1849
   %1909 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
   %1910 = call i32 @errcode(i32 noundef 33554464) #11
   %1911 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.119) #11
-  %.not48.i184 = icmp eq ptr %.043.i, null
-  br i1 %.not48.i184, label %1914, label %1912
+  %.not47.i184 = icmp eq ptr %.043.i, null
+  br i1 %.not47.i184, label %1914, label %1912
 
 1912:                                             ; preds = %1908
   %1913 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.120, ptr noundef nonnull %.043.i) #11
@@ -7847,8 +7847,8 @@ exec_eval_cleanup.exit.i183:                      ; preds = %1851, %1849
   %1927 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
   %1928 = call i32 @errcode(i32 noundef 50331680) #11
   %1929 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37) #11
-  %.not47.i186 = icmp eq ptr %.0.i185, null
-  br i1 %.not47.i186, label %1932, label %1930
+  %.not46.i186 = icmp eq ptr %.0.i185, null
+  br i1 %.not46.i186, label %1932, label %1930
 
 1930:                                             ; preds = %1926
   %1931 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.120, ptr noundef nonnull %.0.i185) #11
@@ -7869,8 +7869,8 @@ exec_eval_cleanup.exit.i183:                      ; preds = %1851, %1849
   %1938 = load ptr, ptr %1882, align 8
   call fastcc void @exec_move_row(ptr noundef nonnull %0, ptr noundef %1896, ptr noundef %.sink.i, ptr noundef %1938)
   %1939 = load ptr, ptr %83, align 8
-  %.not.i49.i = icmp eq ptr %1939, null
-  br i1 %.not.i49.i, label %1941, label %1940
+  %.not.i48.i = icmp eq ptr %1939, null
+  br i1 %.not.i48.i, label %1941, label %1940
 
 1940:                                             ; preds = %1937
   call void @SPI_freetuptable(ptr noundef nonnull %1939) #11
@@ -7879,8 +7879,8 @@ exec_eval_cleanup.exit.i183:                      ; preds = %1851, %1849
 1941:                                             ; preds = %1940, %1937
   store ptr null, ptr %83, align 8
   %1942 = load ptr, ptr %82, align 8
-  %.not6.i50.i = icmp eq ptr %1942, null
-  br i1 %.not6.i50.i, label %exec_stmt_dynexecute.exit, label %1943
+  %.not6.i49.i = icmp eq ptr %1942, null
+  br i1 %.not6.i49.i, label %exec_stmt_dynexecute.exit, label %1943
 
 1943:                                             ; preds = %1941
   %1944 = getelementptr inbounds nuw i8, ptr %1942, i64 40
@@ -9239,9 +9239,9 @@ define internal fastcc void @exec_stmt_execsql(ptr noundef nonnull captures(none
   %.not = icmp ne i32 %6, 0
   %7 = load i32, ptr @plpgsql_extra_warnings, align 4
   %8 = and i32 %7, 4
-  %.not91 = icmp ne i32 %8, 0
-  %spec.select99 = select i1 %.not91, i32 19, i32 0
-  %9 = select i1 %.not, i1 true, i1 %.not91
+  %.not90 = icmp ne i32 %8, 0
+  %spec.select98 = select i1 %.not90, i32 19, i32 0
+  %9 = select i1 %.not, i1 true, i1 %.not90
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -9262,35 +9262,35 @@ define internal fastcc void @exec_stmt_execsql(ptr noundef nonnull captures(none
   store i8 0, ptr %19, align 8
   %20 = load ptr, ptr %10, align 8
   %21 = tail call ptr @SPI_plan_get_plan_sources(ptr noundef %20) #11
-  %.not92 = icmp eq ptr %21, null
-  br i1 %.not92, label %.critedge, label %.lr.ph
+  %.not91 = icmp eq ptr %21, null
+  br i1 %.not91, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph106, label %.critedge
+  br i1 %24, label %.lr.ph105, label %.critedge
 
-.lr.ph106:                                        ; preds = %.lr.ph
+.lr.ph105:                                        ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %26 = load ptr, ptr %25, align 8
   %wide.trip.count = zext nneg i32 %23 to i64
   br label %27
 
-27:                                               ; preds = %.lr.ph106, %32
+27:                                               ; preds = %.lr.ph105, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next, %32 ]
   %28 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %32 [
-    i32 158, label %.critedge101
-    i32 191, label %.critedge101
-    i32 103, label %.critedge101
-    i32 163, label %.critedge101
+    i32 158, label %.critedge100
+    i32 191, label %.critedge100
+    i32 103, label %.critedge100
+    i32 163, label %.critedge100
   ]
 
-.critedge101:                                     ; preds = %27, %27, %27, %27
+.critedge100:                                     ; preds = %27, %27, %27, %27
   store i8 1, ptr %19, align 8
   br label %.critedge
 
@@ -9299,7 +9299,7 @@ define internal fastcc void @exec_stmt_execsql(ptr noundef nonnull captures(none
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %27
 
-.critedge:                                        ; preds = %32, %18, %.lr.ph, %.critedge101
+.critedge:                                        ; preds = %32, %18, %.lr.ph, %.critedge100
   store i8 1, ptr %15, align 1
   br label %33
 
@@ -9334,11 +9334,11 @@ setup_param_list.exit:                            ; preds = %33, %37
   %50 = load i8, ptr %49, align 8, !range !3, !noundef !4
   %51 = trunc nuw i8 %50 to i1
   %or.cond = or i1 %9, %51
-  %spec.select102 = select i1 %or.cond, i64 2, i64 1
+  %spec.select101 = select i1 %or.cond, i64 2, i64 1
   br label %52
 
 52:                                               ; preds = %48, %setup_param_list.exit, %44
-  %.0 = phi i64 [ 2, %44 ], [ 0, %setup_param_list.exit ], [ %spec.select102, %48 ]
+  %.0 = phi i64 [ 2, %44 ], [ 0, %setup_param_list.exit ], [ %spec.select101, %48 ]
   %53 = load ptr, ptr %10, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %55 = load i8, ptr %54, align 2, !range !3, !noundef !4
@@ -9479,8 +9479,8 @@ setup_param_list.exit:                            ; preds = %33, %37
   %135 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #12
   %136 = tail call i32 @errcode(i32 noundef 33554464) #11
   %137 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.119) #11
-  %.not97 = icmp eq ptr %.081, null
-  br i1 %.not97, label %140, label %138
+  %.not96 = icmp eq ptr %.081, null
+  br i1 %.not96, label %140, label %138
 
 138:                                              ; preds = %134
   %139 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.120, ptr noundef nonnull %.081) #11
@@ -9526,7 +9526,7 @@ setup_param_list.exit:                            ; preds = %33, %37
   %161 = load i8, ptr %160, align 8, !range !3, !noundef !4
   %162 = trunc nuw i8 %161 to i1
   %163 = select i1 %162, i1 true, i1 %.not
-  %spec.select = select i1 %163, i32 21, i32 %spec.select99
+  %spec.select = select i1 %163, i32 21, i32 %spec.select98
   br label %164
 
 164:                                              ; preds = %156, %159
@@ -9537,8 +9537,8 @@ setup_param_list.exit:                            ; preds = %33, %37
 167:                                              ; preds = %164
   %168 = tail call i32 @errcode(i32 noundef 50331680) #11
   %169 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37) #11
-  %.not96 = icmp eq ptr %.080, null
-  br i1 %.not96, label %172, label %170
+  %.not95 = icmp eq ptr %.080, null
+  br i1 %.not95, label %172, label %170
 
 170:                                              ; preds = %167
   %171 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.120, ptr noundef nonnull %.080) #11

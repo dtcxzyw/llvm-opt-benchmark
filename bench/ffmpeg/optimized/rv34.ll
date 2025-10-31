@@ -5884,7 +5884,7 @@ rv34_pred_b_vector.exit:                          ; preds = %112, %124, %126, %1
   store i32 0, ptr %165, align 4, !tbaa !76
   br label %166
 
-166:                                              ; preds = %153, %154
+167:                                              ; preds = %153, %154
   ret void
 }
 

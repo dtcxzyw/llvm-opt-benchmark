@@ -34,19 +34,19 @@ sub_0:
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %15, label %.thread339
+  br i1 %12, label %15, label %.thread338
 
 .tail.thread:                                     ; preds = %sub_0
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.1) #8
   %.not130 = icmp eq i32 %13, 0
   br i1 %.not130, label %15, label %sub_0224
 
-.thread339:                                       ; preds = %.tail
+.thread338:                                       ; preds = %.tail
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.1) #8
-  %.not130340 = icmp eq i32 %14, 0
-  br i1 %.not130340, label %15, label %.tail223.thread
+  %.not130339 = icmp eq i32 %14, 0
+  br i1 %.not130339, label %15, label %.tail223.thread
 
-15:                                               ; preds = %.thread339, %.tail.thread, %.tail
+15:                                               ; preds = %.thread338, %.tail.thread, %.tail
   %16 = getelementptr i8, ptr %1, i64 24
   %.val = load ptr, ptr %16, align 8, !tbaa !12
   %17 = ptrtoint ptr %.val to i64
@@ -64,7 +64,7 @@ sub_0224:                                         ; preds = %.tail.thread
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %24, label %.tail223.thread
 
-.tail223.thread:                                  ; preds = %.thread339, %sub_0224, %.tail223
+.tail223.thread:                                  ; preds = %.thread338, %sub_0224, %.tail223
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.3) #8
   %.not132 = icmp eq i32 %23, 0
   br i1 %.not132, label %24, label %.preheader229

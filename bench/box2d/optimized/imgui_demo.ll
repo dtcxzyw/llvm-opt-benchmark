@@ -19329,21 +19329,21 @@ _ZL10HelpMarkerPKc.exit615:                       ; preds = %442, %444
 470:                                              ; preds = %_ZL10HelpMarkerPKc.exit615
   %471 = load i8, ptr @_ZZL20ShowDemoWindowTablesvE20show_widget_frame_bg, align 1, !tbaa !29, !range !11, !noundef !12
   %472 = trunc nuw i8 %471 to i1
-  br i1 %472, label %.preheader1073, label %473
+  br i1 %472, label %.preheader1072, label %473
 
-.preheader1073:                                   ; preds = %473, %470
+.preheader1072:                                   ; preds = %473, %470
   br label %477
 
 473:                                              ; preds = %470
   call void @_ZN5ImGui14PushStyleColorEij(i32 noundef 7, i32 noundef 0)
-  br label %.preheader1073
+  br label %.preheader1072
 
 474:                                              ; preds = %481
   %475 = load i8, ptr @_ZZL20ShowDemoWindowTablesvE20show_widget_frame_bg, align 1, !tbaa !29, !range !11, !noundef !12
   %476 = trunc nuw i8 %475 to i1
   br i1 %476, label %486, label %485
 
-477:                                              ; preds = %.preheader1073, %481
+477:                                              ; preds = %.preheader1072, %481
   %indvars.iv = phi i64 [ %indvars.iv.next, %481 ], [ 0, %.preheader1073 ]
   %478 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
   %.b = load i1, ptr @_ZZL20ShowDemoWindowTablesvE4init, align 1
@@ -21039,9 +21039,9 @@ _ZL10HelpMarkerPKc.exit632:                       ; preds = %_ZL10HelpMarkerPKc.
   %1137 = uitofp nneg i32 %.0477818 to float
   %1138 = fmul float %1137, 0x3FB99999A0000000
   %1139 = fadd float %1138, 0x3FC99999A0000000
-  %storemerge1053 = select i1 %1136, float 0x3FE6666660000000, float %1139
+  %storemerge1052 = select i1 %1136, float 0x3FE6666660000000, float %1139
   %storemerge = select i1 %1136, float 0x3FD3333340000000, float 0x3FC99999A0000000
-  store float %storemerge1053, ptr %57, align 4, !tbaa !114
+  store float %storemerge1052, ptr %57, align 4, !tbaa !114
   store float %storemerge, ptr %1126, align 4, !tbaa !115
   store float %storemerge, ptr %1127, align 4, !tbaa !116
   store float 0x3FE4CCCCC0000000, ptr %1128, align 4, !tbaa !117
@@ -21938,20 +21938,20 @@ _ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i: ; preds = %_ZNK8ImVector
 
 .preheader.i:                                     ; preds = %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i.thread, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i
   %1474 = phi i32 [ 0, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i.thread ], [ %.pre, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i ]
-  %_ZZL20ShowDemoWindowTablesvE5items.val599.pre1056 = phi ptr [ %_ZZL20ShowDemoWindowTablesvE5items.val599.pre.pre, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i.thread ], [ %1466, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i ]
+  %_ZZL20ShowDemoWindowTablesvE5items.val599.pre1055 = phi ptr [ %_ZZL20ShowDemoWindowTablesvE5items.val599.pre.pre, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i.thread ], [ %1466, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i ]
   %1475 = sext i32 %1474 to i64
   br label %1476
 
 1476:                                             ; preds = %1476, %.preheader.i
   %indvars.iv.i = phi i64 [ %1475, %.preheader.i ], [ %indvars.iv.next.i, %1476 ]
-  %1477 = getelementptr inbounds %"struct.(anonymous namespace)::MyItem", ptr %_ZZL20ShowDemoWindowTablesvE5items.val599.pre1056, i64 %indvars.iv.i
+  %1477 = getelementptr inbounds %"struct.(anonymous namespace)::MyItem", ptr %_ZZL20ShowDemoWindowTablesvE5items.val599.pre1055, i64 %indvars.iv.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1477, i8 0, i64 24, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 50
   br i1 %exitcond.not.i, label %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE6resizeEiRKS1_.exit, label %1476, !llvm.loop !355
 
 _ZN8ImVectorIN12_GLOBAL__N_16MyItemEE6resizeEiRKS1_.exit: ; preds = %1476, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i
-  %_ZZL20ShowDemoWindowTablesvE5items.val599.pre1055 = phi ptr [ %1466, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i ], [ %_ZZL20ShowDemoWindowTablesvE5items.val599.pre1056, %1476 ]
+  %_ZZL20ShowDemoWindowTablesvE5items.val599.pre1054 = phi ptr [ %1466, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE7reserveEi.exit.i ], [ %_ZZL20ShowDemoWindowTablesvE5items.val599.pre1055, %1476 ]
   store i32 50, ptr @_ZZL20ShowDemoWindowTablesvE5items, align 8, !tbaa !350
   br label %1478
 
@@ -21959,7 +21959,7 @@ _ZN8ImVectorIN12_GLOBAL__N_16MyItemEE6resizeEiRKS1_.exit: ; preds = %1476, %_ZN8
   %indvars.iv940 = phi i64 [ 0, %_ZN8ImVectorIN12_GLOBAL__N_16MyItemEE6resizeEiRKS1_.exit ], [ %indvars.iv.next941, %1478 ]
   %indvars943 = trunc i64 %indvars.iv940 to i32
   %1479 = urem i32 %indvars943, 15
-  %1480 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MyItem", ptr %_ZZL20ShowDemoWindowTablesvE5items.val599.pre1055, i64 %indvars.iv940
+  %1480 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MyItem", ptr %_ZZL20ShowDemoWindowTablesvE5items.val599.pre1054, i64 %indvars.iv940
   store i32 %indvars943, ptr %1480, align 8, !tbaa !356
   %1481 = zext nneg i32 %1479 to i64
   %1482 = getelementptr inbounds nuw ptr, ptr @_ZZL20ShowDemoWindowTablesvE20template_items_names, i64 %1481
@@ -22794,32 +22794,32 @@ _ZN12_GLOBAL__N_16MyItem17SortWithSortSpecsEP19ImGuiTableSortSpecsPS0_i.exit663:
   %.not579 = icmp eq i32 %1825, 0
   %1826 = load i8, ptr @_ZZL20ShowDemoWindowTablesvE12show_headers_0, align 1, !tbaa !29, !range !11, !noundef !12
   %1827 = trunc nuw i8 %1826 to i1
-  br i1 %1827, label %1828, label %.thread1058
+  br i1 %1827, label %1828, label %.thread1057
 
 1828:                                             ; preds = %.thread
   %1829 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE18columns_base_flags, align 4, !tbaa !54
   %1830 = and i32 %1829, 262144
   %.not580 = icmp eq i32 %1830, 0
-  br i1 %.not580, label %.thread1057, label %1831
+  br i1 %.not580, label %.thread1056, label %1831
 
 1831:                                             ; preds = %1828
   call void @_ZN5ImGui21TableAngledHeadersRowEv()
   %.pre957 = load i8, ptr @_ZZL20ShowDemoWindowTablesvE12show_headers_0, align 1, !tbaa !29, !range !11
   %1832 = trunc nuw i8 %.pre957 to i1
-  br i1 %1832, label %.thread1057, label %.thread1058
+  br i1 %1832, label %.thread1056, label %.thread1057
 
-.thread1057:                                      ; preds = %1828, %1831
+.thread1056:                                      ; preds = %1828, %1831
   call void @_ZN5ImGui15TableHeadersRowEv()
-  br label %.thread1058
+  br label %.thread1057
 
-.thread1058:                                      ; preds = %.thread, %.thread1057, %1831
+.thread1057:                                      ; preds = %.thread, %.thread1056, %1831
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   call void @_ZN16ImGuiListClipperC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %76)
   %1833 = load i32, ptr @_ZZL20ShowDemoWindowTablesvE5items_0, align 8, !tbaa !350
   invoke void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(48) %76, i32 noundef %1833, float noundef -1.000000e+00)
           to label %.preheader unwind label %.loopexit.split-lp
 
-.preheader:                                       ; preds = %.thread1058
+.preheader:                                       ; preds = %.thread1057
   %1834 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %1835 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %1836 = getelementptr inbounds nuw i8, ptr %79, i64 4
@@ -22852,7 +22852,7 @@ _ZN12_GLOBAL__N_16MyItem17SortWithSortSpecsEP19ImGuiTableSortSpecsPS0_i.exit663:
           cleanup
   br label %2058
 
-.loopexit.split-lp:                               ; preds = %.thread1058, %2046, %2048
+.loopexit.split-lp:                               ; preds = %.thread1057, %2046, %2048
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %2058

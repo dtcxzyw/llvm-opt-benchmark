@@ -10445,14 +10445,14 @@ ZSTD_wildcopy.exit:                               ; preds = %134, %.lr.ph.i, %ZS
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %22, %.critedge
-  %.lcssa203 = phi i64 [ %.lcssa, %.critedge ], [ %26, %22 ], [ %.lcssa, %.critedge.thread.sink.split ]
-  %.0109.lcssa202 = phi i32 [ %.0109.lcssa, %.critedge ], [ %9, %22 ], [ %.0109.lcssa, %.critedge.thread.sink.split ]
-  %.0112.lcssa201 = phi ptr [ %.0112.lcssa, %.critedge ], [ %4, %22 ], [ %.0112.lcssa, %.critedge.thread.sink.split ]
+  %.lcssa202 = phi i64 [ %.lcssa, %.critedge ], [ %26, %22 ], [ %.lcssa, %.critedge.thread.sink.split ]
+  %.0109.lcssa201 = phi i32 [ %.0109.lcssa, %.critedge ], [ %9, %22 ], [ %.0109.lcssa, %.critedge.thread.sink.split ]
+  %.0112.lcssa200 = phi ptr [ %.0112.lcssa, %.critedge ], [ %4, %22 ], [ %.0112.lcssa, %.critedge.thread.sink.split ]
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 3184
   %225 = load ptr, ptr %224, align 8, !tbaa !56
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %226, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
-  %227 = getelementptr inbounds nuw %struct.ZSTD_Sequence, ptr %2, i64 %.lcssa203
+  %227 = getelementptr inbounds nuw %struct.ZSTD_Sequence, ptr %2, i64 %.lcssa202
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 4
   %229 = load i32, ptr %228, align 4, !tbaa !207
   %.not128 = icmp eq i32 %229, 0
@@ -10462,13 +10462,13 @@ ZSTD_wildcopy.exit:                               ; preds = %134, %.lr.ph.i, %ZS
   %231 = zext i32 %229 to i64
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %233 = load ptr, ptr %232, align 8, !tbaa !193
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %233, ptr readonly align 1 %.0112.lcssa201, i64 %231, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %233, ptr readonly align 1 %.0112.lcssa200, i64 %231, i1 false)
   %234 = load ptr, ptr %232, align 8, !tbaa !193
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 %231
   store ptr %235, ptr %232, align 8, !tbaa !193
   %236 = load i32, ptr %228, align 4, !tbaa !207
   %237 = zext i32 %236 to i64
-  %238 = getelementptr inbounds nuw i8, ptr %.0112.lcssa201, i64 %237
+  %238 = getelementptr inbounds nuw i8, ptr %.0112.lcssa200, i64 %237
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %240 = load i64, ptr %239, align 8, !tbaa !336
   %241 = add i64 %240, %237
@@ -10476,12 +10476,12 @@ ZSTD_wildcopy.exit:                               ; preds = %134, %.lr.ph.i, %ZS
   br label %242
 
 242:                                              ; preds = %230, %.critedge.thread
-  %.2114 = phi ptr [ %238, %230 ], [ %.0112.lcssa201, %.critedge.thread ]
+  %.2114 = phi ptr [ %238, %230 ], [ %.0112.lcssa200, %.critedge.thread ]
   %.not129 = icmp eq ptr %.2114, %10
   br i1 %.not129, label %243, label %.thread
 
 243:                                              ; preds = %242
-  %244 = add i32 %.0109.lcssa202, 1
+  %244 = add i32 %.0109.lcssa201, 1
   store i32 %244, ptr %1, align 8, !tbaa !333
   br label %.thread
 
@@ -15504,12 +15504,12 @@ ZSTD_estimateBlockSize_literal.exit.i:            ; preds = %61, %58, %48, %47, 
   br i1 %77, label %.preheader.i.i.i, label %80
 
 .preheader.i.i.i:                                 ; preds = %76, %71, %ZSTD_estimateBlockSize_literal.exit.i
-  %.044.i.i.i = phi i64 [ %.0.i.i.i, %76 ], [ 0, %71 ], [ 0, %ZSTD_estimateBlockSize_literal.exit.i ]
+  %.043.i.i.i = phi i64 [ %.0.i.i.i, %76 ], [ 0, %71 ], [ 0, %ZSTD_estimateBlockSize_literal.exit.i ]
   %.not.i.i.i = icmp eq ptr %32, %33
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.split.us.i.i.i
 
 .lr.ph.split.us.i.i.i:                            ; preds = %.preheader.i.i.i, %.lr.ph.split.us.i.i.i
-  %.139.us.i.i.i = phi i64 [ %.2.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.044.i.i.i, %.preheader.i.i.i ]
+  %.139.us.i.i.i = phi i64 [ %.2.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.043.i.i.i, %.preheader.i.i.i ]
   %.03438.us.i.i.i = phi ptr [ %78, %.lr.ph.split.us.i.i.i ], [ %26, %.preheader.i.i.i ]
   %.pn.in.us.i.i.i = load i8, ptr %.03438.us.i.i.i, align 1, !tbaa !188
   %.pn.us.i.i.i = zext i8 %.pn.in.us.i.i.i to i64
@@ -15523,7 +15523,7 @@ ZSTD_estimateBlockSize_literal.exit.i:            ; preds = %61, %58, %48, %47, 
   br label %ZSTD_estimateBlockSize_symbolType.exit.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.split.us.i.i.i, %.preheader.i.i.i
-  %.1.lcssa.i.i.i = phi i64 [ %.044.i.i.i, %.preheader.i.i.i ], [ %.2.us.i.i.i, %.lr.ph.split.us.i.i.i ]
+  %.1.lcssa.i.i.i = phi i64 [ %.043.i.i.i, %.preheader.i.i.i ], [ %.2.us.i.i.i, %.lr.ph.split.us.i.i.i ]
   %82 = lshr i64 %.1.lcssa.i.i.i, 3
   br label %ZSTD_estimateBlockSize_symbolType.exit.i.i
 
@@ -15561,16 +15561,16 @@ ZSTD_estimateBlockSize_symbolType.exit.i.i:       ; preds = %._crit_edge.i.i.i, 
   br i1 %96, label %.preheader.i27.i.i, label %97
 
 .preheader.i27.i.i:                               ; preds = %95, %90, %ZSTD_estimateBlockSize_symbolType.exit.i.i
-  %.044.i28.i.i = phi i64 [ %.0.i34.i.i, %95 ], [ 0, %90 ], [ 0, %ZSTD_estimateBlockSize_symbolType.exit.i.i ]
+  %.043.i28.i.i = phi i64 [ %.0.i34.i.i, %95 ], [ 0, %90 ], [ 0, %ZSTD_estimateBlockSize_symbolType.exit.i.i ]
   %.not.i29.i.i = icmp eq ptr %32, %33
   br i1 %.not.i29.i.i, label %._crit_edge.i31.i.i, label %.lr.ph.split.i.i.i
 
 97:                                               ; preds = %95
   %98 = mul i64 %37, 10
-  br label %ZSTD_estimateBlockSize_symbolType.exit35.i.i
+  br label %ZSTD_estimateBlockSize_symbolType.exit36.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %.preheader.i27.i.i, %.lr.ph.split.i.i.i
-  %.139.i.i.i = phi i64 [ %.2.i.i.i, %.lr.ph.split.i.i.i ], [ %.044.i28.i.i, %.preheader.i27.i.i ]
+  %.139.i.i.i = phi i64 [ %.2.i.i.i, %.lr.ph.split.i.i.i ], [ %.043.i28.i.i, %.preheader.i27.i.i ]
   %.03438.i.i.i = phi ptr [ %102, %.lr.ph.split.i.i.i ], [ %28, %.preheader.i27.i.i ]
   %99 = load i8, ptr %.03438.i.i.i, align 1, !tbaa !188
   %100 = zext i8 %99 to i64
@@ -15583,11 +15583,11 @@ ZSTD_estimateBlockSize_symbolType.exit.i.i:       ; preds = %._crit_edge.i.i.i, 
   br i1 %103, label %.lr.ph.split.i.i.i, label %._crit_edge.i31.i.i, !llvm.loop !429
 
 ._crit_edge.i31.i.i:                              ; preds = %.lr.ph.split.i.i.i, %.preheader.i27.i.i
-  %.1.lcssa.i32.i.i = phi i64 [ %.044.i28.i.i, %.preheader.i27.i.i ], [ %.2.i.i.i, %.lr.ph.split.i.i.i ]
+  %.1.lcssa.i32.i.i = phi i64 [ %.043.i28.i.i, %.preheader.i27.i.i ], [ %.2.i.i.i, %.lr.ph.split.i.i.i ]
   %104 = lshr i64 %.1.lcssa.i32.i.i, 3
-  br label %ZSTD_estimateBlockSize_symbolType.exit35.i.i
+  br label %ZSTD_estimateBlockSize_symbolType.exit36.i.i
 
-ZSTD_estimateBlockSize_symbolType.exit35.i.i:     ; preds = %._crit_edge.i31.i.i, %97
+ZSTD_estimateBlockSize_symbolType.exit36.i.i:     ; preds = %._crit_edge.i31.i.i, %97
   %.033.i33.i.i = phi i64 [ %98, %97 ], [ %104, %._crit_edge.i31.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 5048
@@ -15599,15 +15599,15 @@ ZSTD_estimateBlockSize_symbolType.exit35.i.i:     ; preds = %._crit_edge.i31.i.i
   %109 = call i64 @HIST_countFast_wksp(ptr noundef %39, ptr noundef nonnull %3, ptr noundef %30, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %37, ptr noundef %39, i64 noundef 8920) #28
   switch i32 %106, label %113 [
     i32 0, label %110
-    i32 1, label %.preheader.i36.i.i
+    i32 1, label %.preheader.i37.i.i
   ]
 
-110:                                              ; preds = %ZSTD_estimateBlockSize_symbolType.exit35.i.i
+110:                                              ; preds = %ZSTD_estimateBlockSize_symbolType.exit36.i.i
   %111 = load i32, ptr %3, align 4, !tbaa !49
   %112 = call i64 @ZSTD_crossEntropyCost(ptr noundef nonnull @ML_defaultNorm, i32 noundef 6, ptr noundef %39, i32 noundef %111) #28
   br label %118
 
-113:                                              ; preds = %ZSTD_estimateBlockSize_symbolType.exit35.i.i
+113:                                              ; preds = %ZSTD_estimateBlockSize_symbolType.exit36.i.i
   %114 = icmp ult i32 %106, 4
   br i1 %114, label %115, label %.preheader.i36.i.i
 
@@ -15617,39 +15617,39 @@ ZSTD_estimateBlockSize_symbolType.exit35.i.i:     ; preds = %._crit_edge.i31.i.i
   br label %118
 
 118:                                              ; preds = %115, %110
-  %.0.i49.i.i = phi i64 [ %112, %110 ], [ %117, %115 ]
-  %119 = icmp ult i64 %.0.i49.i.i, -119
-  br i1 %119, label %.preheader.i36.i.i, label %120
+  %.0.i50.i.i = phi i64 [ %112, %110 ], [ %117, %115 ]
+  %119 = icmp ult i64 %.0.i50.i.i, -119
+  br i1 %119, label %.preheader.i37.i.i, label %120
 
-.preheader.i36.i.i:                               ; preds = %118, %113, %ZSTD_estimateBlockSize_symbolType.exit35.i.i
-  %.044.i37.i.i = phi i64 [ %.0.i49.i.i, %118 ], [ 0, %113 ], [ 0, %ZSTD_estimateBlockSize_symbolType.exit35.i.i ]
-  %.not.i38.i.i = icmp eq ptr %32, %33
-  br i1 %.not.i38.i.i, label %._crit_edge.i46.i.i, label %.lr.ph.split.i40.i.i
+.preheader.i37.i.i:                               ; preds = %118, %113, %ZSTD_estimateBlockSize_symbolType.exit36.i.i
+  %.043.i38.i.i = phi i64 [ %.0.i50.i.i, %118 ], [ 0, %113 ], [ 0, %ZSTD_estimateBlockSize_symbolType.exit35.i.i ]
+  %.not.i39.i.i = icmp eq ptr %32, %33
+  br i1 %.not.i39.i.i, label %._crit_edge.i47.i.i, label %.lr.ph.split.i41.i.i
 
 120:                                              ; preds = %118
   %121 = mul i64 %37, 10
   br label %ZSTD_estimateBlockSize.exit
 
-.lr.ph.split.i40.i.i:                             ; preds = %.preheader.i36.i.i, %.lr.ph.split.i40.i.i
-  %.139.i41.i.i = phi i64 [ %.2.i45.i.i, %.lr.ph.split.i40.i.i ], [ %.044.i37.i.i, %.preheader.i36.i.i ]
-  %.03438.i42.i.i = phi ptr [ %125, %.lr.ph.split.i40.i.i ], [ %30, %.preheader.i36.i.i ]
-  %122 = load i8, ptr %.03438.i42.i.i, align 1, !tbaa !188
+.lr.ph.split.i41.i.i:                             ; preds = %.preheader.i37.i.i, %.lr.ph.split.i41.i.i
+  %.139.i42.i.i = phi i64 [ %.2.i46.i.i, %.lr.ph.split.i40.i.i ], [ %.043.i38.i.i, %.preheader.i36.i.i ]
+  %.03438.i43.i.i = phi ptr [ %125, %.lr.ph.split.i40.i.i ], [ %30, %.preheader.i36.i.i ]
+  %122 = load i8, ptr %.03438.i43.i.i, align 1, !tbaa !188
   %123 = zext i8 %122 to i64
   %124 = getelementptr inbounds nuw i8, ptr @ML_bits, i64 %123
-  %.pn.in.i43.i.i = load i8, ptr %124, align 1, !tbaa !188
-  %.pn.i44.i.i = zext i8 %.pn.in.i43.i.i to i64
-  %.2.i45.i.i = add i64 %.139.i41.i.i, %.pn.i44.i.i
-  %125 = getelementptr inbounds nuw i8, ptr %.03438.i42.i.i, i64 1
+  %.pn.in.i44.i.i = load i8, ptr %124, align 1, !tbaa !188
+  %.pn.i45.i.i = zext i8 %.pn.in.i44.i.i to i64
+  %.2.i46.i.i = add i64 %.139.i42.i.i, %.pn.i45.i.i
+  %125 = getelementptr inbounds nuw i8, ptr %.03438.i43.i.i, i64 1
   %126 = icmp ult ptr %125, %108
-  br i1 %126, label %.lr.ph.split.i40.i.i, label %._crit_edge.i46.i.i, !llvm.loop !429
+  br i1 %126, label %.lr.ph.split.i41.i.i, label %._crit_edge.i47.i.i, !llvm.loop !429
 
-._crit_edge.i46.i.i:                              ; preds = %.lr.ph.split.i40.i.i, %.preheader.i36.i.i
-  %.1.lcssa.i47.i.i = phi i64 [ %.044.i37.i.i, %.preheader.i36.i.i ], [ %.2.i45.i.i, %.lr.ph.split.i40.i.i ]
-  %127 = lshr i64 %.1.lcssa.i47.i.i, 3
+._crit_edge.i47.i.i:                              ; preds = %.lr.ph.split.i41.i.i, %.preheader.i37.i.i
+  %.1.lcssa.i48.i.i = phi i64 [ %.043.i38.i.i, %.preheader.i36.i.i ], [ %.2.i46.i.i, %.lr.ph.split.i40.i.i ]
+  %127 = lshr i64 %.1.lcssa.i48.i.i, 3
   br label %ZSTD_estimateBlockSize.exit
 
-ZSTD_estimateBlockSize.exit:                      ; preds = %120, %._crit_edge.i46.i.i
-  %.033.i48.i.i = phi i64 [ %121, %120 ], [ %127, %._crit_edge.i46.i.i ]
+ZSTD_estimateBlockSize.exit:                      ; preds = %120, %._crit_edge.i47.i.i
+  %.033.i49.i.i = phi i64 [ %121, %120 ], [ %127, %._crit_edge.i46.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 5192
   %129 = load i64, ptr %128, align 8, !tbaa !430
@@ -15661,7 +15661,7 @@ ZSTD_estimateBlockSize.exit:                      ; preds = %120, %._crit_edge.i
   %135 = add i64 %134, %.025.i.i
   %136 = add i64 %135, %.033.i.i.i
   %137 = add i64 %136, %.033.i33.i.i
-  %138 = add i64 %137, %.033.i48.i.i
+  %138 = add i64 %137, %.033.i49.i.i
   %139 = add i64 %138, %129
   br label %140
 

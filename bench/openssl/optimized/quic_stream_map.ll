@@ -850,45 +850,45 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_reset_recv_part(ptr noun
   %8 = lshr i64 %7, 16
   %trunc = trunc i64 %8 to i8
   switch i8 %trunc, label %19 [
-    i8 6, label %18
-    i8 5, label %18
-    i8 4, label %18
+    i8 6, label %19
+    i8 5, label %19
+    i8 4, label %19
     i8 1, label %ossl_quic_stream_recv_get_final_size.exit.thread
-    i8 2, label %ossl_quic_stream_recv_get_final_size.exit
-    i8 3, label %ossl_quic_stream_recv_get_final_size.exit
+    i8 2, label %9
+    i8 3, label %9
   ]
 
-ossl_quic_stream_recv_get_final_size.exit:        ; preds = %4, %4
+9:                                                ; preds = %4, %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %10 = call i32 @ossl_quic_rxfc_get_final_size(ptr noundef nonnull %9, ptr noundef nonnull %5) #13
   %.not.i.not = icmp eq i32 %10, 0
   %11 = load i64, ptr %5, align 8
   %.not11 = icmp eq i64 %11, %3
   %or.cond = select i1 %.not.i.not, i1 true, i1 %.not11
-  br i1 %or.cond, label %ossl_quic_stream_recv_get_final_size.exit.ossl_quic_stream_recv_get_final_size.exit.thread_crit_edge, label %19
+  br i1 %or.cond, label %ossl_quic_stream_recv_get_final_size.exit.ossl_quic_stream_recv_get_final_size.exit.thread_crit_edge, label %20
 
 ossl_quic_stream_recv_get_final_size.exit.ossl_quic_stream_recv_get_final_size.exit.thread_crit_edge: ; preds = %ossl_quic_stream_recv_get_final_size.exit
   %.pre = load i64, ptr %6, align 8
   br label %ossl_quic_stream_recv_get_final_size.exit.thread
 
 ossl_quic_stream_recv_get_final_size.exit.thread: ; preds = %4, %ossl_quic_stream_recv_get_final_size.exit.ossl_quic_stream_recv_get_final_size.exit.thread_crit_edge
-  %12 = phi i64 [ %.pre, %ossl_quic_stream_recv_get_final_size.exit.ossl_quic_stream_recv_get_final_size.exit.thread_crit_edge ], [ %7, %4 ]
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i64 %2, ptr %13, align 8, !tbaa !48
-  %14 = and i64 %12, -17196580865
-  %15 = or disjoint i64 %14, 327680
-  store i64 %15, ptr %6, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %17 = load ptr, ptr %16, align 8, !tbaa !42
-  call void @ossl_quic_rstream_free(ptr noundef %17) #13
-  store ptr null, ptr %16, align 8, !tbaa !42
+  %13 = phi i64 [ %.pre, %ossl_quic_stream_recv_get_final_size.exit.ossl_quic_stream_recv_get_final_size.exit.thread_crit_edge ], [ %7, %4 ]
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i64 %2, ptr %14, align 8, !tbaa !48
+  %15 = and i64 %13, -17196580865
+  %16 = or disjoint i64 %15, 327680
+  store i64 %16, ptr %6, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %18 = load ptr, ptr %17, align 8, !tbaa !42
+  call void @ossl_quic_rstream_free(ptr noundef %18) #13
+  store ptr null, ptr %17, align 8, !tbaa !42
   call void @ossl_quic_stream_map_update_state(ptr noundef %0, ptr noundef nonnull %1)
-  br label %19
+  br label %20
 
-18:                                               ; preds = %4, %4, %4
-  br label %19
+19:                                               ; preds = %4, %4, %4
+  br label %20
 
-19:                                               ; preds = %4, %ossl_quic_stream_recv_get_final_size.exit, %18, %ossl_quic_stream_recv_get_final_size.exit.thread
+20:                                               ; preds = %4, %ossl_quic_stream_recv_get_final_size.exit, %19, %ossl_quic_stream_recv_get_final_size.exit.thread
   %.0 = phi i32 [ 1, %ossl_quic_stream_recv_get_final_size.exit.thread ], [ 1, %18 ], [ 0, %4 ], [ 0, %ossl_quic_stream_recv_get_final_size.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

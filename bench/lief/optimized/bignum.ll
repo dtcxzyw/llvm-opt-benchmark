@@ -5490,8 +5490,8 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
   br label %8
 
 8:                                                ; preds = %.preheader, %.critedge
-  %.031 = phi i32 [ 3, %.preheader ], [ %59, %.critedge ]
-  %.01030 = phi i64 [ 0, %.preheader ], [ %60, %.critedge ]
+  %.031 = phi i32 [ 3, %.preheader ], [ %64, %.critedge ]
+  %.01030 = phi i64 [ 0, %.preheader ], [ %65, %.critedge ]
   %9 = zext i32 %.031 to i64
   switch i32 %.031, label %10 [
     i32 0, label %mbedtls_mpi_mod_int.exit
@@ -5556,65 +5556,65 @@ define internal fastcc range(i32 -14, 2) i32 @mpi_check_small_factors(ptr nounde
   %.not39.i.i = icmp eq i64 %39, 0
   br i1 %.not39.i.i, label %40, label %.lr.ph51.i.i
 
-40:                                               ; preds = %36
+.lr.ph.i.i:                                       ; preds = %36
   %41 = add nsw i64 %.03545.i.i, -1
   %.not.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i, label %mbedtls_mpi_mod_int.exit, label %36, !llvm.loop !31
 
-.lr.ph51.i.i:                                     ; preds = %36
+38:                                               ; preds = %36
   %42 = icmp ugt i64 %.03545.i.i, 1
-  br i1 %42, label %43, label %46
+  br i1 %42, label %43, label %54
 
-43:                                               ; preds = %.lr.ph51.i.i
-  %44 = load i16, ptr %7, align 8, !tbaa !10
-  %45 = sext i16 %44 to i32
+47:                                               ; preds = %38
+  %48 = load i16, ptr %7, align 8, !tbaa !10
+  %49 = sext i16 %48 to i32
   br label %mbedtls_mpi_cmp_int.exit
 
-46:                                               ; preds = %.lr.ph51.i.i
-  %47 = icmp eq i64 %.03545.i.i, 0
-  br i1 %47, label %mbedtls_mpi_mod_int.exit, label %48
+50:                                               ; preds = %38
+  %51 = icmp eq i64 %.03545.i.i, 0
+  br i1 %51, label %mbedtls_mpi_mod_int.exit, label %52
 
-48:                                               ; preds = %46
-  %49 = load i16, ptr %7, align 8, !tbaa !10
-  %or.cond = icmp sgt i16 %49, -1
+52:                                               ; preds = %50
+  %53 = load i16, ptr %7, align 8, !tbaa !10
+  %or.cond = icmp sgt i16 %53, -1
   br i1 %or.cond, label %.preheader.preheader.i.i, label %mbedtls_mpi_mod_int.exit
 
-.preheader.preheader.i.i:                         ; preds = %48
-  %50 = icmp ugt i64 %.fr36, %9
+.preheader.preheader.i.i:                         ; preds = %52
+  %54 = icmp ugt i64 %.fr36, %9
   br i1 %50, label %.split.us, label %.preheader.preheader.i.i.split
 
 .preheader.preheader.i.i.split:                   ; preds = %.preheader.preheader.i.i
-  %51 = icmp ult i64 %.fr36, %9
-  br i1 %51, label %.split.us34, label %mbedtls_mpi_cmp_int.exit.thread, !llvm.loop !38
+  %56 = icmp ult i64 %.fr36, %9
+  br i1 %56, label %.split.us34, label %mbedtls_mpi_cmp_int.exit.thread, !llvm.loop !38
 
 .split.us:                                        ; preds = %.preheader.preheader.i.i
-  %52 = zext nneg i16 %49 to i32
+  %57 = zext nneg i16 %53 to i32
   br label %mbedtls_mpi_cmp_int.exit
 
 .split.us34:                                      ; preds = %.preheader.preheader.i.i.split
-  %53 = zext nneg i16 %49 to i32
-  %54 = sub nsw i32 0, %53
+  %58 = zext nneg i16 %53 to i32
+  %59 = sub nsw i32 0, %58
   br label %mbedtls_mpi_cmp_int.exit
 
-mbedtls_mpi_cmp_int.exit:                         ; preds = %43, %.split.us, %.split.us34
-  %.036.i.i = phi i32 [ %45, %43 ], [ %52, %.split.us ], [ %54, %.split.us34 ]
+mbedtls_mpi_cmp_int.exit:                         ; preds = %47, %.split.us, %.split.us34
+  %.036.i.i = phi i32 [ %49, %43 ], [ %57, %.split.us ], [ %59, %.split.us34 ]
   %.036.i.i.fr = freeze i32 %.036.i.i
-  %55 = icmp eq i32 %.036.i.i.fr, 0
-  br i1 %55, label %mbedtls_mpi_cmp_int.exit.thread, label %mbedtls_mpi_mod_int.exit
+  %60 = icmp eq i32 %.036.i.i.fr, 0
+  br i1 %60, label %mbedtls_mpi_cmp_int.exit.thread, label %mbedtls_mpi_mod_int.exit
 
 mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %.preheader.preheader.i.i.split, %mbedtls_mpi_cmp_int.exit
   br label %mbedtls_mpi_mod_int.exit
 
 .critedge:                                        ; preds = %13, %28
-  %56 = getelementptr inbounds nuw i8, ptr @small_prime_gaps, i64 %.01030
-  %57 = load i8, ptr %56, align 1, !tbaa !24
-  %58 = zext i8 %57 to i32
-  %59 = add i32 %.031, %58
-  %60 = add nuw nsw i64 %.01030, 1
-  %exitcond.not = icmp eq i64 %60, 167
+  %61 = getelementptr inbounds nuw i8, ptr @small_prime_gaps, i64 %.01030
+  %62 = load i8, ptr %61, align 1, !tbaa !24
+  %63 = zext i8 %62 to i32
+  %64 = add i32 %.031, %63
+  %65 = add nuw nsw i64 %.01030, 1
+  %exitcond.not = icmp eq i64 %65, 167
   br i1 %exitcond.not, label %mbedtls_mpi_mod_int.exit, label %8, !llvm.loop !56
 
-mbedtls_mpi_mod_int.exit:                         ; preds = %10, %8, %.critedge, %40, %.thread, %48, %46, %mbedtls_mpi_cmp_int.exit.thread, %mbedtls_mpi_cmp_int.exit, %1
+mbedtls_mpi_mod_int.exit:                         ; preds = %10, %8, %.critedge, %40, %.thread, %52, %50, %mbedtls_mpi_cmp_int.exit.thread, %mbedtls_mpi_cmp_int.exit, %1
   %.012 = phi i32 [ -14, %1 ], [ 1, %mbedtls_mpi_cmp_int.exit.thread ], [ -14, %mbedtls_mpi_cmp_int.exit ], [ -14, %46 ], [ -14, %48 ], [ -14, %.thread ], [ -14, %40 ], [ -14, %10 ], [ -12, %8 ], [ 0, %.critedge ]
   ret i32 %.012
 }

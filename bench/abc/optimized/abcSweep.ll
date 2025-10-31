@@ -2041,15 +2041,15 @@ define i32 @Abc_NtkLatchSweep(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !91
   %4 = getelementptr i8, ptr %3, i64 4
-  %.val53 = load i32, ptr %4, align 4, !tbaa !26
-  %5 = icmp sgt i32 %.val53, 0
+  %.val54 = load i32, ptr %4, align 4, !tbaa !26
+  %5 = icmp sgt i32 %.val54, 0
   br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %1 ]
   %6 = phi ptr [ %64, %63 ], [ %3, %1 ]
-  %.02556 = phi i32 [ %.1, %63 ], [ 0, %1 ]
-  %.02654 = phi ptr [ %.127, %63 ], [ null, %1 ]
+  %.02557 = phi i32 [ %.1, %63 ], [ 0, %1 ]
+  %.02655 = phi ptr [ %.127, %63 ], [ null, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val39.val = load ptr, ptr %7, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw ptr, ptr %.val39.val, i64 %indvars.iv
@@ -2093,17 +2093,17 @@ define i32 @Abc_NtkLatchSweep(ptr noundef %0) local_unnamed_addr #0 {
 
 24:                                               ; preds = %22, %20
   %.val42 = phi i32 [ 2, %22 ], [ 1, %20 ]
-  %25 = icmp eq ptr %.02654, null
+  %25 = icmp eq ptr %.02655, null
   br i1 %25, label %63, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr i8, ptr %.02654, i64 56
+  %27 = getelementptr i8, ptr %.02655, i64 56
   %.026.val = load ptr, ptr %27, align 8, !tbaa !30
   %28 = ptrtoint ptr %.026.val to i64
   %29 = trunc i64 %28 to i32
   %.not31 = icmp eq i32 %.val42, %29
-  %.026.val45 = load ptr, ptr %.02654, align 8, !tbaa !73
-  %30 = getelementptr i8, ptr %.02654, i64 48
+  %.026.val45 = load ptr, ptr %.02655, align 8, !tbaa !73
+  %30 = getelementptr i8, ptr %.02655, i64 48
   %.026.val46 = load ptr, ptr %30, align 8, !tbaa !92
   %31 = getelementptr i8, ptr %.026.val45, i64 32
   %.026.val45.val = load ptr, ptr %31, align 8, !tbaa !25
@@ -2119,7 +2119,7 @@ define i32 @Abc_NtkLatchSweep(ptr noundef %0) local_unnamed_addr #0 {
   %37 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef nonnull %0, ptr noundef %35) #11
   br label %50
 
-38:                                               ; preds = %20, %12, %22
+default.unreachable62:                            ; preds = %20, %12, %22
   %.val34 = load ptr, ptr %9, align 8, !tbaa !73
   %.val35 = load ptr, ptr %13, align 8, !tbaa !74
   %39 = getelementptr i8, ptr %.val34, i64 32
@@ -2168,12 +2168,12 @@ define i32 @Abc_NtkLatchSweep(ptr noundef %0) local_unnamed_addr #0 {
   %60 = getelementptr inbounds ptr, ptr %.val49.val.val, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !29
   tail call void @Abc_NtkDeleteObj_rec(ptr noundef %61, i32 noundef 0) #11
-  %62 = add nsw i32 %.02556, 1
+  %62 = add nsw i32 %.02557, 1
   br label %63
 
 63:                                               ; preds = %24, %12, %50, %.lr.ph
-  %.127 = phi ptr [ %.02654, %12 ], [ %.02654, %50 ], [ %.02654, %.lr.ph ], [ %9, %24 ]
-  %.1 = phi i32 [ %.02556, %12 ], [ %62, %50 ], [ %.02556, %.lr.ph ], [ %.02556, %24 ]
+  %.127 = phi ptr [ %.02655, %12 ], [ %.02655, %50 ], [ %.02655, %.lr.ph ], [ %9, %24 ]
+  %.1 = phi i32 [ %.02557, %12 ], [ %62, %50 ], [ %.02557, %.lr.ph ], [ %.02557, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load ptr, ptr %2, align 8, !tbaa !91
   %65 = getelementptr i8, ptr %64, i64 4

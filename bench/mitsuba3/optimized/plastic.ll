@@ -2001,21 +2001,21 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %32 = fcmp contract oeq float %23, 1.000000e+00
   %33 = fneg contract float %23
   %34 = tail call contract noundef float @llvm.fma.f32(float %33, float %31, float %7)
-  %35 = tail call contract noundef float @llvm.fma.f32(float %23, float %31, float %7)
+  %33 = tail call contract noundef float @llvm.fma.f32(float %23, float %31, float %7)
   %36 = fdiv contract float %34, %35
   %37 = tail call contract noundef float @llvm.fma.f32(float %33, float %7, float %31)
-  %38 = tail call contract noundef float @llvm.fma.f32(float %23, float %7, float %31)
+  %36 = tail call contract noundef float @llvm.fma.f32(float %23, float %7, float %31)
   %39 = fdiv contract float %37, %38
   %40 = fmul contract float %36, %36
-  %41 = fmul contract float %39, %39
-  %42 = fadd contract float %40, %41
+  %39 = fmul contract float %39, %39
+  %42 = fadd contract float %40, %39
   %43 = fmul contract float %42, 5.000000e-01
   %spec.select.i29 = select i1 %32, float 0.000000e+00, float %43
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %45 = load float, ptr %44, align 8
   %46 = fmul contract float %45, %spec.select.i29
   %47 = fsub contract float 1.000000e+00, %spec.select.i29
-  %48 = fsub contract float 1.000000e+00, %45
+  %46 = fsub contract float 1.000000e+00, %45
   %49 = fmul contract float %48, %47
   %50 = fadd contract float %46, %49
   %51 = fdiv contract float %49, %50
@@ -2023,12 +2023,12 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
 
 _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28.thread: ; preds = %18, %21
   %.025 = phi float [ %51, %21 ], [ 1.000000e+00, %18 ]
-  %52 = fmul contract float %9, 0x3FD45F3060000000
-  %53 = fmul contract float %52, %.025
+  %51 = fmul contract float %9, 0x3FD45F3060000000
+  %52 = fmul contract float %51, %.025
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit, %5, %17, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28.thread
-  %.0 = phi float [ %53, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28.thread ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit ], [ 0.000000e+00, %5 ]
+  %.0 = phi float [ %52, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28.thread ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit ], [ 0.000000e+00, %5 ]
   ret float %.0
 }
 
@@ -4455,10 +4455,10 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
     i8 106, label %.critedge
     i8 122, label %.critedge
     i8 116, label %.critedge
-    i8 117, label %.loopexit233
-    i8 100, label %.loopexit233
-    i8 105, label %.loopexit233
-    i8 111, label %.loopexit264
+    i8 117, label %.loopexit232
+    i8 100, label %.loopexit232
+    i8 105, label %.loopexit232
+    i8 111, label %.loopexit263
     i8 88, label %241
     i8 120, label %.loopexit
     i8 112, label %.loopexit
@@ -4599,14 +4599,14 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   store i32 %327, ptr %325, align 8
   br label %.thread117
 
-.loopexit233:                                     ; preds = %238, %238, %238
+.loopexit232:                                     ; preds = %238, %238, %238
   br label %.loopexit
 
-.loopexit264:                                     ; preds = %238
+.loopexit263:                                     ; preds = %238
   br label %.loopexit
 
-.loopexit:                                        ; preds = %241, %238, %238, %.loopexit264, %.loopexit233
-  %.sink226 = phi i32 [ 2, %.loopexit233 ], [ 64, %.loopexit264 ], [ 8, %238 ], [ 8, %238 ], [ 8, %241 ]
+.loopexit:                                        ; preds = %241, %238, %238, %.loopexit263, %.loopexit232
+  %.sink225 = phi i32 [ 2, %.loopexit233 ], [ 64, %.loopexit264 ], [ 8, %238 ], [ 8, %238 ], [ 8, %241 ]
   %328 = load ptr, ptr %0, align 8
   %329 = getelementptr i8, ptr %328, i64 -24
   %330 = load i64, ptr %329, align 8
@@ -4614,7 +4614,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
   %333 = load i32, ptr %332, align 8
   %334 = and i32 %333, -75
-  %335 = or disjoint i32 %334, %.sink226
+  %335 = or disjoint i32 %334, %.sink225
   store i32 %335, ptr %332, align 8
   %or.cond3 = or i1 %.167, %195
   br i1 %or.cond3, label %.thread117, label %336

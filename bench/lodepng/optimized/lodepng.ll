@@ -1452,14 +1452,14 @@ _ZL25generateFixedDistanceTreeP11HuffmanTree.exit.sink.split.i.i: ; preds = %.pr
   br i1 %146, label %_ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i.sink.split, label %_ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i
 
 _ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i.sink.split: ; preds = %143, %133
-  %.sink223 = phi i64 [ %131, %133 ], [ %145, %143 ]
-  %.sink220 = phi i32 [ 16, %133 ], [ 8, %143 ]
-  %.sink218 = phi i32 [ %136, %133 ], [ %144, %143 ]
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink223
+  %.sink222 = phi i64 [ %131, %133 ], [ %145, %143 ]
+  %.sink219 = phi i32 [ 16, %133 ], [ 8, %143 ]
+  %.sink217 = phi i32 [ %136, %133 ], [ %144, %143 ]
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink222
   %148 = load i8, ptr %147, align 1, !tbaa !18
   %149 = zext i8 %148 to i32
-  %150 = shl nuw nsw i32 %149, %.sink220
-  %151 = or disjoint i32 %150, %.sink218
+  %150 = shl nuw nsw i32 %149, %.sink219
+  %151 = or disjoint i32 %150, %.sink217
   br label %_ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i
 
 _ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i:   ; preds = %_ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i.sink.split, %143
@@ -6950,7 +6950,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
 .thread:                                          ; preds = %81
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !186
-  %spec.select203 = tail call i64 @llvm.umin.i64(i64 %83, i64 %87)
+  %spec.select201 = tail call i64 @llvm.umin.i64(i64 %83, i64 %87)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !291
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store i32 -1, ptr %91, align 8, !tbaa !294
@@ -6987,14 +6987,14 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
   br i1 %.not94140, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %102
-  %spec.select206 = phi i64 [ %spec.select203, %.thread ], [ %spec.select, %102 ]
-  %.083205 = phi ptr [ %90, %.thread ], [ %96, %102 ]
+  %spec.select204 = phi i64 [ %spec.select201, %.thread ], [ %spec.select, %102 ]
+  %.083203 = phi ptr [ %90, %.thread ], [ %96, %102 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %143
   %.080141 = phi i64 [ %145, %143 ], [ 0, %.lr.ph.preheader ]
   %104 = shl i64 %.080141, 2
-  %105 = getelementptr inbounds nuw i8, ptr %.083205, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr %.083203, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !18
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 1
   %108 = load i8, ptr %107, align 1, !tbaa !18
@@ -7055,7 +7055,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 128
   store i32 %113, ptr %144, align 8, !tbaa !294
   %145 = add i64 %.080141, 1
-  %.not94 = icmp eq i64 %145, %spec.select206
+  %.not94 = icmp eq i64 %145, %spec.select204
   br i1 %.not94, label %.loopexit, label %.lr.ph, !llvm.loop !306
 
 .loopexit:                                        ; preds = %143, %102, %.loopexit134
@@ -7253,8 +7253,8 @@ _ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit: ; preds = %.lr.ph148, %156, 
 ._crit_edge297.thread.i:                          ; preds = %.lr.ph296.i
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %231 = load i32, ptr %230, align 8, !tbaa !198, !noalias !313
-  %.not219335.i = icmp eq i32 %231, 0
-  br i1 %.not219335.i, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %.lr.ph303.i
+  %.not219334.i = icmp eq i32 %231, 0
+  br i1 %.not219334.i, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %.lr.ph303.i
 
 .lr.ph303.i:                                      ; preds = %._crit_edge297.thread.i
   %.neg220.i = mul i64 %18, -4
@@ -7425,8 +7425,8 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit.i:     ; preds = %_ZL26readBitsFromRe
 ._crit_edge.thread.i:                             ; preds = %.lr.ph283.i
   %313 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %314 = load i32, ptr %313, align 8, !tbaa !198, !noalias !313
-  %.not212340.i = icmp eq i32 %314, 0
-  br i1 %.not212340.i, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %.lr.ph288.i
+  %.not212339.i = icmp eq i32 %314, 0
+  br i1 %.not212339.i, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %.lr.ph288.i
 
 .lr.ph288.i:                                      ; preds = %._crit_edge.thread.i
   %.neg.i = mul i64 %18, -4

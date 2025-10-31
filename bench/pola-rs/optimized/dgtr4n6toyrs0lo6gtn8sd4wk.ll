@@ -171969,8 +171969,8 @@ default.unreachable:                              ; preds = %194
           to label %835 unwind label %826, !noalias !16390
 
 .sink.split:                                      ; preds = %828, %835
-  %.sink280 = phi i8 [ 1, %835 ], [ 0, %828 ]
-  store i8 %.sink280, ptr %3, align 1, !noalias !16390
+  %.sink279 = phi i8 [ 1, %835 ], [ 0, %828 ]
+  store i8 %.sink279, ptr %3, align 1, !noalias !16390
   br label %834
 
 834:                                              ; preds = %.sink.split, %835
@@ -172114,18 +172114,18 @@ default.unreachable:                              ; preds = %194
   %870 = load i16, ptr %869, align 2, !noalias !16390, !noundef !4
   %871 = and i16 %870, 32
   %.not483.i = icmp eq i16 %871, 0
-  br i1 %.not483.i, label %872, label %.sink.split281
+  br i1 %.not483.i, label %872, label %.sink.split280
 
 872:                                              ; preds = %868
   %873 = invoke noundef zeroext i1 @_ZN11polars_plan5plans7options15FunctionOptions14is_elementwise17h5145ee99e5129483E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %217)
           to label %877 unwind label %875, !noalias !16390
 
-.sink.split281:                                   ; preds = %868, %877
-  %.sink282 = phi i8 [ 1, %877 ], [ 0, %868 ]
-  store i8 %.sink282, ptr %3, align 1, !noalias !16390
+.sink.split280:                                   ; preds = %868, %877
+  %.sink281 = phi i8 [ 1, %877 ], [ 0, %868 ]
+  store i8 %.sink281, ptr %3, align 1, !noalias !16390
   br label %874
 
-874:                                              ; preds = %.sink.split281, %877
+874:                                              ; preds = %.sink.split280, %877
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, ptr noundef nonnull align 16 dereferenceable(80) %21, i64 80, i1 false), !noalias !16399
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !16394
   call void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$polars_core..datatypes..field..Field$GT$$GT$17h403572863e9e9bb1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26), !noalias !16390
@@ -172143,7 +172143,7 @@ default.unreachable:                              ; preds = %194
   %878 = load i8, ptr %850, align 8, !range !3
   %879 = icmp ne i8 %878, 0
   %or.cond215.not = select i1 %873, i1 true, i1 %879
-  br i1 %or.cond215.not, label %874, label %.sink.split281
+  br i1 %or.cond215.not, label %874, label %.sink.split280
 
 880:                                              ; preds = %861, %840
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !16394
