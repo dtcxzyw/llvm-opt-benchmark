@@ -17394,8 +17394,7 @@ lor.lhs.false:                                    ; preds = %_ZNK8QuantLib6detai
   ]
 
 cond.true.i.i79:                                  ; preds = %lor.lhs.false
-  %sub.i.i81 = add nsw i64 %j.0532, -2
-  %call.i.i82 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef %sub.i.i81)
+  %call.i.i82 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef 0)
   %.pre535 = load ptr, ptr %add.ptr.i343, align 8, !tbaa !155
   br label %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEixEm.exit83
 
@@ -17617,8 +17616,7 @@ if.else:                                          ; preds = %_ZNK8QuantLib6detai
   ]
 
 cond.true.i.i159:                                 ; preds = %if.else
-  %sub.i.i161 = add nsw i64 %j.0532, -2
-  %call.i.i162 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef %sub.i.i161)
+  %call.i.i162 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef 0)
   br label %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEixEm.exit163
 
 cond.false.i.i155:                                ; preds = %if.else
@@ -17645,8 +17643,7 @@ land.lhs.true:                                    ; preds = %_ZNK8QuantLib6detai
   ]
 
 cond.true.i.i168:                                 ; preds = %land.lhs.true
-  %sub.i.i170 = add nsw i64 %j.0532, -2
-  %call.i.i171 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef %sub.i.i170)
+  %call.i.i171 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef 0)
   br label %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEixEm.exit172
 
 cond.false.i.i164:                                ; preds = %land.lhs.true
@@ -17676,8 +17673,7 @@ cond.false56:                                     ; preds = %_ZNK8QuantLib6detai
   ]
 
 cond.true.i.i179:                                 ; preds = %cond.false56
-  %sub.i.i181 = add nsw i64 %j.0532, -2
-  %call.i.i182 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef %sub.i.i181)
+  %call.i.i182 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef 0)
   br label %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEixEm.exit183
 
 cond.false.i.i175:                                ; preds = %cond.false56
@@ -17757,29 +17753,28 @@ cond.true.i263.thread:                            ; preds = %cond.end73
   br label %cond.true.i273
 
 cond.true.i.i266:                                 ; preds = %cond.end73
-  %sub.i.i199 = add nsw i64 %j.0532, -2
-  %call.i.i200 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef %sub.i.i199)
+  %call.i.i200 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef 0)
   %sub82390 = fsub double %61, %call.i.i200
   %div391 = fdiv double %sub82390, %sub78
-  %call.i.i209 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i207, i64 noundef %sub.i.i199)
+  %call.i.i209 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i207, i64 noundef 0)
   store double %div391, ptr %call.i.i209, align 8, !tbaa !81
-  %call.i.i219 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef %sub.i.i199)
+  %call.i.i219 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef 0)
   %70 = load i64, ptr %cond.i340, align 8, !tbaa !36
   %71 = load ptr, ptr %add.ptr.i343, align 8, !tbaa !155
   %add.ptr.i221415 = getelementptr inbounds nuw double, ptr %71, i64 %70
   %72 = load double, ptr %add.ptr.i221415, align 8, !tbaa !81
   %sub87416 = fsub double %call.i.i219, %72
   %div88417 = fdiv double %sub87416, %sub78
-  %call.i.i229 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i227, i64 noundef %sub.i.i199)
+  %call.i.i229 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i227, i64 noundef 0)
   store double %div88417, ptr %call.i.i229, align 8, !tbaa !81
-  %call.i.i239 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i207, i64 noundef %sub.i.i199)
+  %call.i.i239 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i207, i64 noundef 0)
   %73 = load double, ptr %call.i.i239, align 8, !tbaa !81
-  %call.i.i249 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i207, i64 noundef %sub.i.i199)
+  %call.i.i249 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i207, i64 noundef 0)
   %74 = load double, ptr %call.i.i249, align 8, !tbaa !81
   %mul462 = fmul double %73, %74
-  %call.i.i259 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i207, i64 noundef %sub.i.i199)
+  %call.i.i259 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i207, i64 noundef 0)
   %75 = load double, ptr %call.i.i259, align 8, !tbaa !81
-  %call.i.i269 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i207, i64 noundef %sub.i.i199)
+  %call.i.i269 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i207, i64 noundef 0)
   %.pre538 = load double, ptr %call.i.i269, align 8, !tbaa !81
   br label %cond.true.i273
 

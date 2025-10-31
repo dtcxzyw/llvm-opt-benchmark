@@ -149,80 +149,75 @@ define ptr @ossl_rsa_ctx_to_pss_string(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %4, align 4, !tbaa !12
-  switch i32 %19, label %21 [
-    i32 -1, label %20
+  switch i32 %19, label %20 [
+    i32 -1, label %rsa_ctx_to_pss.exit.sink.split
     i32 -4, label %.thread.i
   ]
 
-20:                                               ; preds = %18
-  store i32 %10, ptr %4, align 4, !tbaa !12
-  br label %21
-
 .thread.i:                                        ; preds = %18
   store i32 -3, ptr %4, align 4, !tbaa !12
-  br label %24
+  br label %22
 
-21:                                               ; preds = %20, %18
-  %22 = phi i32 [ %10, %20 ], [ %19, %18 ]
-  %23 = add i32 %22, 3
-  %or.cond.i = icmp ult i32 %23, 2
-  br i1 %or.cond.i, label %24, label %rsa_ctx_to_pss.exit
+20:                                               ; preds = %18
+  %21 = icmp ugt i32 %19, -4
+  br i1 %21, label %22, label %rsa_ctx_to_pss.exit
 
-24:                                               ; preds = %21, %.thread.i
-  %.01423.i = phi i32 [ %10, %.thread.i ], [ -1, %21 ]
-  %25 = call i32 @EVP_PKEY_get_size(ptr noundef %5) #7
-  %reass.sub = sub i32 %25, %10
-  %26 = add i32 %reass.sub, -2
-  store i32 %26, ptr %4, align 4, !tbaa !12
-  %27 = call i32 @EVP_PKEY_get_bits(ptr noundef %5) #7
-  %28 = and i32 %27, 7
-  %29 = icmp eq i32 %28, 1
-  %30 = load i32, ptr %4, align 4, !tbaa !12
-  br i1 %29, label %31, label %thread-pre-split.i
+22:                                               ; preds = %20, %.thread.i
+  %.01424.i = phi i32 [ %10, %.thread.i ], [ -1, %20 ]
+  %23 = call i32 @EVP_PKEY_get_size(ptr noundef %5) #7
+  %reass.sub = sub i32 %23, %10
+  %24 = add i32 %reass.sub, -2
+  store i32 %24, ptr %4, align 4, !tbaa !12
+  %25 = call i32 @EVP_PKEY_get_bits(ptr noundef %5) #7
+  %26 = and i32 %25, 7
+  %27 = icmp eq i32 %26, 1
+  %28 = load i32, ptr %4, align 4, !tbaa !12
+  br i1 %27, label %29, label %thread-pre-split.i
 
-31:                                               ; preds = %24
-  %32 = add nsw i32 %30, -1
-  store i32 %32, ptr %4, align 4, !tbaa !12
+29:                                               ; preds = %22
+  %30 = add nsw i32 %28, -1
+  store i32 %30, ptr %4, align 4, !tbaa !12
   br label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %31, %24
-  %33 = phi i32 [ %32, %31 ], [ %30, %24 ]
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %rsa_ctx_to_pss.exit.thread, label %35
+thread-pre-split.i:                               ; preds = %29, %22
+  %31 = phi i32 [ %30, %29 ], [ %28, %22 ]
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %rsa_ctx_to_pss.exit.thread, label %33
 
-35:                                               ; preds = %thread-pre-split.i
-  %or.cond18.i = icmp ult i32 %.01423.i, %33
-  br i1 %or.cond18.i, label %36, label %rsa_ctx_to_pss.exit
-
-36:                                               ; preds = %35
-  store i32 %.01423.i, ptr %4, align 4, !tbaa !12
-  br label %rsa_ctx_to_pss.exit
+33:                                               ; preds = %thread-pre-split.i
+  %or.cond18.i = icmp ult i32 %.01424.i, %31
+  br i1 %or.cond18.i, label %rsa_ctx_to_pss.exit.sink.split, label %rsa_ctx_to_pss.exit
 
 rsa_ctx_to_pss.exit.thread:                       ; preds = %1, %8, %12, %15, %thread-pre-split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %45
+  br label %42
 
-rsa_ctx_to_pss.exit:                              ; preds = %21, %35, %36
-  %37 = phi i32 [ %33, %35 ], [ %.01423.i, %36 ], [ %22, %21 ]
-  %38 = load ptr, ptr %2, align 8, !tbaa !10
-  %39 = load ptr, ptr %3, align 8, !tbaa !10
-  %40 = call ptr @ossl_rsa_pss_params_create(ptr noundef %38, ptr noundef %39, i32 noundef %37)
+rsa_ctx_to_pss.exit.sink.split:                   ; preds = %33, %18
+  %.sink = phi i32 [ %10, %18 ], [ %.01424.i, %33 ]
+  store i32 %.sink, ptr %4, align 4, !tbaa !12
+  br label %rsa_ctx_to_pss.exit
+
+rsa_ctx_to_pss.exit:                              ; preds = %rsa_ctx_to_pss.exit.sink.split, %20, %33
+  %34 = phi i32 [ %31, %33 ], [ %19, %20 ], [ %.sink, %rsa_ctx_to_pss.exit.sink.split ]
+  %35 = load ptr, ptr %2, align 8, !tbaa !10
+  %36 = load ptr, ptr %3, align 8, !tbaa !10
+  %37 = call ptr @ossl_rsa_pss_params_create(ptr noundef %35, ptr noundef %36, i32 noundef %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %45, label %42
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %42, label %39
 
-42:                                               ; preds = %rsa_ctx_to_pss.exit
-  %43 = call ptr @RSA_PSS_PARAMS_it() #7
-  %44 = call ptr @ASN1_item_pack(ptr noundef nonnull %40, ptr noundef %43, ptr noundef null) #7
-  call void @RSA_PSS_PARAMS_free(ptr noundef nonnull %40) #7
-  br label %45
+39:                                               ; preds = %rsa_ctx_to_pss.exit
+  %40 = call ptr @RSA_PSS_PARAMS_it() #7
+  %41 = call ptr @ASN1_item_pack(ptr noundef nonnull %37, ptr noundef %40, ptr noundef null) #7
+  call void @RSA_PSS_PARAMS_free(ptr noundef nonnull %37) #7
+  br label %42
 
-45:                                               ; preds = %rsa_ctx_to_pss.exit.thread, %rsa_ctx_to_pss.exit, %42
-  %.0 = phi ptr [ %44, %42 ], [ null, %rsa_ctx_to_pss.exit ], [ null, %rsa_ctx_to_pss.exit.thread ]
+42:                                               ; preds = %rsa_ctx_to_pss.exit.thread, %rsa_ctx_to_pss.exit, %39
+  %.0 = phi ptr [ %41, %39 ], [ null, %rsa_ctx_to_pss.exit ], [ null, %rsa_ctx_to_pss.exit.thread ]
   ret ptr %.0
 }
 

@@ -1185,7 +1185,7 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr readnone cap
   %90 = lshr i32 %30, 16
   %91 = and i32 %90, 31
   %92 = trunc nuw nsw i32 %32 to i8
-  switch i8 %92, label %default.unreachable [
+  switch i8 %92, label %default.unreachable7 [
     i8 39, label %99
     i8 38, label %98
     i8 37, label %97
@@ -1217,7 +1217,7 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr readnone cap
 99:                                               ; preds = %86
   br label %xhci_trb_type_string.exit
 
-default.unreachable:                              ; preds = %86
+default.unreachable7:                             ; preds = %175, %86
   unreachable
 
 xhci_trb_type_string.exit:                        ; preds = %86, %93, %94, %95, %96, %97, %98, %99
@@ -1310,8 +1310,8 @@ xhci_trb_type_string.exit:                        ; preds = %86, %93, %94, %95, 
   %178 = and i32 %177, 31
   %179 = lshr i32 %28, 22
   %180 = trunc nuw nsw i32 %32 to i8
-  switch i8 %180, label %default.unreachable3 [
-    i8 1, label %xhci_trb_type_string.exit2
+  switch i8 %180, label %default.unreachable7 [
+    i8 1, label %xhci_trb_type_string.exit3
     i8 2, label %181
     i8 3, label %182
     i8 4, label %183
@@ -1322,30 +1322,27 @@ xhci_trb_type_string.exit:                        ; preds = %86, %93, %94, %95, 
   ]
 
 181:                                              ; preds = %175
-  br label %xhci_trb_type_string.exit2
+  br label %xhci_trb_type_string.exit3
 
 182:                                              ; preds = %175
-  br label %xhci_trb_type_string.exit2
+  br label %xhci_trb_type_string.exit3
 
 183:                                              ; preds = %175
-  br label %xhci_trb_type_string.exit2
+  br label %xhci_trb_type_string.exit3
 
 184:                                              ; preds = %175
-  br label %xhci_trb_type_string.exit2
+  br label %xhci_trb_type_string.exit3
 
 185:                                              ; preds = %175
-  br label %xhci_trb_type_string.exit2
+  br label %xhci_trb_type_string.exit3
 
 186:                                              ; preds = %175
-  br label %xhci_trb_type_string.exit2
+  br label %xhci_trb_type_string.exit3
 
 187:                                              ; preds = %175
-  br label %xhci_trb_type_string.exit2
+  br label %xhci_trb_type_string.exit3
 
-default.unreachable3:                             ; preds = %175
-  unreachable
-
-xhci_trb_type_string.exit2:                       ; preds = %175, %181, %182, %183, %184, %185, %186, %187
+xhci_trb_type_string.exit3:                       ; preds = %175, %181, %182, %183, %184, %185, %186, %187
   %188 = phi ptr [ @.str.48, %187 ], [ @.str.47, %186 ], [ @.str.46, %185 ], [ @.str.45, %184 ], [ @.str.44, %183 ], [ @.str.43, %182 ], [ @.str.42, %181 ], [ @.str.41, %175 ]
   %189 = and i32 %30, 512
   %190 = icmp eq i32 %189, 0
@@ -1511,7 +1508,7 @@ xhci_trb_type_string.exit2:                       ; preds = %175, %181, %182, %1
   %322 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.40, ptr noundef nonnull %321, i32 noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef %30) #14
   br label %323
 
-323:                                              ; preds = %319, %311, %303, %296, %288, %282, %273, %263, %252, %246, %237, %228, %220, %213, %xhci_trb_type_string.exit2, %158, %132, %108, %xhci_trb_type_string.exit, %33
+323:                                              ; preds = %319, %311, %303, %296, %288, %282, %273, %263, %252, %246, %237, %228, %220, %213, %xhci_trb_type_string.exit3, %158, %132, %108, %xhci_trb_type_string.exit, %33
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %324 = add nuw nsw i64 %17, 1
   %325 = icmp eq i64 %324, 256

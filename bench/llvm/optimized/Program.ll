@@ -791,7 +791,7 @@ define linkonce_odr hidden void @_ZNK5clang6interp7Pointer7atIndexEm(ptr dead_on
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %9, ptr %14, align 8, !tbaa !66
   store ptr %10, ptr %13, align 8, !tbaa !66
-  br label %54
+  br label %53
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %6, align 8, !tbaa !137
@@ -806,7 +806,7 @@ define linkonce_odr hidden void @_ZNK5clang6interp7Pointer7atIndexEm(ptr dead_on
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !141
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !142
-  br label %54
+  br label %53
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -824,26 +824,26 @@ _ZNK5clang6interp7Pointer11getDeclDescEv.exit:    ; preds = %20
   %28 = load i32, ptr %27, align 4, !tbaa !143
   %29 = zext i32 %28 to i64
   tail call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %24, i32 noundef -1, i64 noundef %29) #17
-  br label %54
+  br label %53
 
 30:                                               ; preds = %20
   %cond.i = icmp eq i32 %5, 0
+  %31 = load ptr, ptr %6, align 8, !tbaa !126
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %33 = load ptr, ptr %32, align 8, !tbaa !131
   br i1 %cond.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i, label %..thread4_crit_edge.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %30
-  %31 = load ptr, ptr %6, align 8, !tbaa !126, !nonnull !112, !noundef !112
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !107
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !109
   %36 = icmp eq i32 %22, %35
   %narrow = select i1 %36, i32 0, i32 %22
   %.pn.i.ph.idx = zext i32 %narrow to i64
   %.pn.i.ph = getelementptr inbounds nuw i8, ptr %31, i64 %.pn.i.ph.idx
-  %.0.i1.in.i18 = getelementptr inbounds nuw i8, ptr %.pn.i.ph, i64 32
-  %.0.i1.i19 = load ptr, ptr %.0.i1.in.i18, align 8, !tbaa !131
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i1.i19, i64 8
-  %.0.shrunk.i20 = load i32, ptr %37, align 4, !tbaa !23
+  %.0.i1.in.i14 = getelementptr inbounds nuw i8, ptr %.pn.i.ph, i64 32
+  %.0.i1.i15 = load ptr, ptr %.0.i1.in.i14, align 8, !tbaa !131
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i1.i15, i64 8
+  %.0.shrunk.i16 = load i32, ptr %37, align 4, !tbaa !23
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !107
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -851,42 +851,36 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %30
   %42 = icmp eq i32 %22, %41
   %43 = icmp eq i32 %22, 0
   %spec.select.i.i = or i1 %43, %42
-  br i1 %spec.select.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %46
+  br i1 %spec.select.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %45
 
 ..thread4_crit_edge.i:                            ; preds = %30
-  %44 = icmp ugt i32 %5, 3
-  tail call void @llvm.assume(i1 %44)
-  %.pre.i.i = load ptr, ptr %6, align 8, !tbaa !126
-  %.0.i1.in.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 32
-  %.0.i1.i = load ptr, ptr %.0.i1.in.i, align 8, !tbaa !131
-  %45 = getelementptr inbounds nuw i8, ptr %.0.i1.i, i64 8
-  %.0.shrunk.i = load i32, ptr %45, align 4, !tbaa !23
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.0.shrunk.i = load i32, ptr %44, align 4, !tbaa !23
   br label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit
 
-46:                                               ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
-  %47 = zext i32 %22 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %31, i64 %47
+45:                                               ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
+  %46 = zext i32 %22 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 %46
   br label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit
 
-_ZNK5clang6interp7Pointer12getFieldDescEv.exit:   ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i, %..thread4_crit_edge.i, %46
-  %.0.i621.pn.in = phi i32 [ %.0.shrunk.i20, %46 ], [ %.0.shrunk.i, %..thread4_crit_edge.i ], [ %.0.shrunk.i20, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
-  %.pre.i1323 = phi ptr [ %31, %46 ], [ %.pre.i.i, %..thread4_crit_edge.i ], [ %31, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
-  %.pn = phi ptr [ %48, %46 ], [ %.pre.i.i, %..thread4_crit_edge.i ], [ %31, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
-  %.0.i621.pn = zext i32 %.0.i621.pn.in to i64
-  %49 = mul i64 %2, %.0.i621.pn
+_ZNK5clang6interp7Pointer12getFieldDescEv.exit:   ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i, %..thread4_crit_edge.i, %45
+  %.0.i617.pn.in = phi i32 [ %.0.shrunk.i16, %45 ], [ %.0.shrunk.i, %..thread4_crit_edge.i ], [ %.0.shrunk.i16, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
+  %.pn = phi ptr [ %47, %45 ], [ %31, %..thread4_crit_edge.i ], [ %31, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i ]
+  %.0.i617.pn = zext i32 %.0.i617.pn.in to i64
+  %48 = mul i64 %2, %.0.i617.pn
   %.0.i8.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %.0.i8 = load ptr, ptr %.0.i8.in, align 8, !tbaa !131
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !144
-  %.not = icmp eq ptr %51, null
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 32
+  %50 = load ptr, ptr %49, align 8, !tbaa !144
+  %.not = icmp eq ptr %50, null
   %.0.v = select i1 %.not, i64 32, i64 16
-  %52 = zext i32 %22 to i64
-  %.0 = add i64 %49, %52
-  %53 = add i64 %.0, %.0.v
-  tail call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %.pre.i1323, i32 noundef %22, i64 noundef %53) #17
-  br label %54
+  %51 = zext i32 %22 to i64
+  %.0 = add i64 %48, %51
+  %52 = add i64 %.0, %.0.v
+  tail call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %31, i32 noundef %22, i64 noundef %52) #17
+  br label %53
 
-54:                                               ; preds = %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, %_ZNK5clang6interp7Pointer11getDeclDescEv.exit, %15, %7
+53:                                               ; preds = %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, %_ZNK5clang6interp7Pointer11getDeclDescEv.exit, %15, %7
   ret void
 }
 

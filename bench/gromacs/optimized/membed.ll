@@ -4912,7 +4912,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit44.i:      ; preds = %_ZNSt10filesystem7_
   br i1 %1951, label %.lr.ph53.i, label %.loopexit.i384, !llvm.loop !356
 
 .loopexit.sink.split.i:                           ; preds = %1930, %.noexc403, %.noexc400, %.lr.ph56.i
-  %.2.ph.i = phi i32 [ %.02955.i, %.noexc400 ], [ %spec.select.i390, %.noexc403 ], [ %.02955.i, %1930 ], [ %.02955.i, %.lr.ph56.i ]
+  %.2.ph.i = phi i32 [ %.02955.i, %.noexc400 ], [ %spec.select.i390, %.noexc403 ], [ 0, %1930 ], [ %.02955.i, %.lr.ph56.i ]
   %fputs39.i = call i32 @fputs(ptr nonnull %10, ptr %1875)
   br label %.loopexit.i384
 

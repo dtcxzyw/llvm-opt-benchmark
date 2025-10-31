@@ -854,7 +854,7 @@ _ZNK4decl18get_num_parametersEv.exit30.i:         ; preds = %140
   br i1 %154, label %.preheader.i, label %.thread, !llvm.loop !97
 
 _ZNK18expr_pattern_match10match_declEPK9func_declS2_.exit: ; preds = %.preheader.i, %140, %_ZNK4decl18get_num_parametersEv.exit30.i, %97
-  switch i32 %.sroa.0117.0, label %.thread [
+  switch i32 %.sroa.0117.0, label %default.unreachable [
     i32 1, label %.preheader230
     i32 2, label %165
     i32 3, label %184
@@ -1202,7 +1202,10 @@ _ZN6vectorIN18expr_pattern_match5instrELb0EjE4backEv.exit: ; preds = %_ZNK6vecto
   %.sroa.44.0.be = phi i32 [ %.sroa.44.0.copyload202, %.thread210 ], [ %.sroa.44.0.copyload204, %.thread ], [ %.sroa.44.0.copyload200, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE4backEv.exit ]
   br label %15, !llvm.loop !101
 
-.thread:                                          ; preds = %.noexc, %20, %114, %108, %_ZNK4decl13get_decl_kindEv.exit28.thread.i, %_ZNK4decl13get_family_idEv.exit27.thread.i, %_ZNK4decl18get_num_parametersEv.exit29.i, %_ZNK4decl13get_family_idEv.exit.i, %103, %175, %_ZNK18expr_pattern_match10match_declEPK9func_declS2_.exit, %90, %82, %._crit_edge243, %43, %34, %26, %64, %15, %281
+default.unreachable:                              ; preds = %_ZNK18expr_pattern_match10match_declEPK9func_declS2_.exit
+  unreachable
+
+.thread:                                          ; preds = %.noexc, %20, %114, %108, %_ZNK4decl13get_decl_kindEv.exit28.thread.i, %_ZNK4decl13get_family_idEv.exit27.thread.i, %_ZNK4decl18get_num_parametersEv.exit29.i, %_ZNK4decl13get_family_idEv.exit.i, %103, %175, %90, %82, %._crit_edge243, %43, %34, %26, %64, %15, %281
   %294 = load ptr, ptr %7, align 8, !tbaa !74
   %.sroa.0117.0.copyload123 = load i32, ptr %294, align 8, !tbaa !75
   %.sroa.11.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %294, i64 4

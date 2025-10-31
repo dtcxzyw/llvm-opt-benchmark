@@ -7033,8 +7033,8 @@ type_flatten.exit:                                ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %19
 
-19:                                               ; preds = %.backedge88, %type_flatten.exit
-  %.0.i24.in = phi ptr [ %18, %type_flatten.exit ], [ %.0.i24.in.be, %.backedge88 ]
+19:                                               ; preds = %.backedge89, %type_flatten.exit
+  %.0.i24.in = phi ptr [ %18, %type_flatten.exit ], [ %.0.i24.in.be, %.backedge89 ]
   %.0.i24 = load ptr, ptr %.0.i24.in, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -7051,13 +7051,13 @@ type_flatten.exit:                                ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  br label %.backedge88
+  br label %.backedge89
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  br label %.backedge88
+  br label %.backedge89
 
-.backedge88:                                      ; preds = %29, %23
+.backedge89:                                      ; preds = %29, %23
   %.0.i24.in.be = phi ptr [ %28, %23 ], [ %30, %29 ]
   br label %19
 
@@ -7140,47 +7140,36 @@ type_flatten.exit35:                              ; preds = %45
   %61 = icmp eq i16 %60, 14
   %62 = icmp eq ptr %21, %47
   %or.cond = or i1 %62, %61
-  br i1 %or.cond, label %86, label %63
+  br i1 %or.cond, label %80, label %63
 
 63:                                               ; preds = %type_flatten.exit35
-  %64 = icmp eq i32 %22, 31
-  br i1 %64, label %65, label %69
+  %64 = icmp eq i32 %22, 23
+  %65 = icmp eq i32 %48, 23
+  %or.cond36 = and i1 %65, %64
+  br i1 %or.cond36, label %80, label %66
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = load i32, ptr %67, align 8
-  br label %69
+66:                                               ; preds = %63
+  %67 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %67, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
+  %68 = load i16, ptr %58, align 8
+  %69 = and i16 %68, -256
+  %70 = or disjoint i16 %69, 9
+  store i16 %70, ptr %58, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i8 32, ptr %71, align 8
+  %72 = load ptr, ptr @expr_arena, align 8
+  %73 = ptrtoint ptr %67 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = sdiv exact i64 %75, 56
+  %77 = trunc i64 %76 to i32
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 %77, ptr %78, align 4
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 0, ptr %79, align 8
+  br label %80
 
-69:                                               ; preds = %65, %63
-  %.0 = phi i32 [ %68, %65 ], [ %22, %63 ]
-  %70 = icmp eq i32 %.0, 23
-  %71 = icmp eq i32 %48, 23
-  %or.cond36 = and i1 %71, %70
-  br i1 %or.cond36, label %86, label %72
-
-72:                                               ; preds = %69
-  %73 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %74 = load i16, ptr %58, align 8
-  %75 = and i16 %74, -256
-  %76 = or disjoint i16 %75, 9
-  store i16 %76, ptr %58, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i8 32, ptr %77, align 8
-  %78 = load ptr, ptr @expr_arena, align 8
-  %79 = ptrtoint ptr %73 to i64
-  %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %82 = sdiv exact i64 %81, 56
-  %83 = trunc i64 %82 to i32
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %83, ptr %84, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 0, ptr %85, align 8
-  br label %86
-
-86:                                               ; preds = %type_flatten.exit35, %69, %72
+80:                                               ; preds = %type_flatten.exit35, %63, %66
   store ptr %2, ptr %1, align 8
   ret void
 }
@@ -9013,7 +9002,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %88 = add i32 %.051, -3
   %89 = icmp ult i32 %88, 10
   %90 = getelementptr inbounds nuw i8, ptr %.053, i64 24
-  br i1 %89, label %.preheader, label %.preheader114
+  br i1 %89, label %.preheader, label %.preheader116
 
 .preheader:                                       ; preds = %87, %103
   %.0.i = phi ptr [ %.1.i, %103 ], [ %1, %87 ]
@@ -9052,7 +9041,7 @@ type_flatten.exit:                                ; preds = %.preheader
   %.053.64 = select i1 %104, ptr %.053, ptr null
   br label %.loopexit72
 
-.preheader114:                                    ; preds = %87, %117
+.preheader116:                                    ; preds = %87, %117
   %.0.i66 = phi ptr [ %.1.i68, %117 ], [ %1, %87 ]
   %105 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 8
   %106 = load ptr, ptr %105, align 8
@@ -9063,7 +9052,7 @@ type_flatten.exit:                                ; preds = %.preheader
     i32 31, label %116
   ]
 
-108:                                              ; preds = %.preheader114
+108:                                              ; preds = %.preheader116
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 96
@@ -9071,20 +9060,20 @@ type_flatten.exit:                                ; preds = %.preheader
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   br label %117
 
-114:                                              ; preds = %.preheader114
+114:                                              ; preds = %.preheader116
   %115 = getelementptr inbounds nuw i8, ptr %106, i64 56
   br label %117
 
-116:                                              ; preds = %.preheader114
+116:                                              ; preds = %.preheader116
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
   unreachable
 
 117:                                              ; preds = %114, %108
   %.1.in.i67 = phi ptr [ %113, %108 ], [ %115, %114 ]
   %.1.i68 = load ptr, ptr %.1.in.i67, align 8
-  br label %.preheader114
+  br label %.preheader116
 
-type_flatten.exit69:                              ; preds = %.preheader114
+type_flatten.exit69:                              ; preds = %.preheader116
   %118 = tail call zeroext i1 @expr_const_float_fits_type(ptr noundef nonnull %90, i32 noundef %107) #10
   %..053 = select i1 %118, ptr null, ptr %.053
   br label %.loopexit72

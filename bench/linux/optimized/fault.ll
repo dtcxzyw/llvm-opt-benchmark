@@ -1453,7 +1453,7 @@ declare ptr @llvm.returnaddress(i32 immarg) #6
 declare ptr @llvm.frameaddress.p0(i32 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @spurious_kernel_fault_check(i64 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @spurious_kernel_fault_check(i64 noundef range(i64 3, 18) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 16 {
   %3 = and i64 %0, 2
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %13, label %5
@@ -1466,29 +1466,28 @@ define internal fastcc noundef range(i32 0, 2) i32 @spurious_kernel_fault_check(
 
 9:                                                ; preds = %5
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 519, i32 128, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 104)) #14
-          to label %10 [label %10, label %20], !srcloc !14
+          to label %10 [label %10, label %19], !srcloc !14
 
 10:                                               ; preds = %9, %9
   %11 = and i64 %6, 64
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %20, label %13
+  br i1 %12, label %19, label %13
 
 13:                                               ; preds = %10, %5, %2
-  %14 = and i64 %0, 16
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %19, label %16
+  %14 = icmp samesign ult i64 %0, 16
+  br i1 %14, label %18, label %15
 
-16:                                               ; preds = %13
-  %17 = load i64, ptr %1, align 8
-  %18 = icmp slt i64 %17, 0
-  br i1 %18, label %20, label %19
+15:                                               ; preds = %13
+  %16 = load i64, ptr %1, align 8
+  %17 = icmp slt i64 %16, 0
+  br i1 %17, label %19, label %18
 
-19:                                               ; preds = %16, %13
-  br label %20
+18:                                               ; preds = %15, %13
+  br label %19
 
-20:                                               ; preds = %19, %16, %10, %9
-  %21 = phi i32 [ 1, %19 ], [ 0, %10 ], [ 0, %16 ], [ 0, %9 ]
-  ret i32 %21
+19:                                               ; preds = %18, %15, %10, %9
+  %20 = phi i32 [ 1, %18 ], [ 0, %10 ], [ 0, %15 ], [ 0, %9 ]
+  ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid

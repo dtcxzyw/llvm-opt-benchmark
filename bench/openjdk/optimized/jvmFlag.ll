@@ -2850,9 +2850,8 @@ _ZL11fill_to_posP12outputStreamj.exit54:          ; preds = %32, %34
   br label %78
 
 62:                                               ; preds = %_ZL11fill_to_posP12outputStreamj.exit54
-  %63 = and i32 %35, -2
-  %spec.select.i = icmp eq i32 %63, 8
-  br i1 %spec.select.i, label %64, label %76
+  %63 = icmp ult i32 %35, 10
+  br i1 %63, label %64, label %76
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr %0, align 8
@@ -2990,7 +2989,7 @@ _ZNK7JVMFlag12print_originEP12outputStreamj.exit: ; preds = %_ZL11fill_to_posP12
   %105 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 0) #13
   %106 = load i32, ptr %102, align 4
   %107 = icmp ult i32 %106, 10
-  br i1 %107, label %switch.lookup72, label %108
+  br i1 %107, label %switch.lookup73, label %108
 
 108:                                              ; preds = %104
   %109 = load ptr, ptr @g_assert_poison, align 8
@@ -2998,21 +2997,21 @@ _ZNK7JVMFlag12print_originEP12outputStreamj.exit: ; preds = %_ZL11fill_to_posP12
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.74, i32 noundef 217) #14
   unreachable
 
-switch.lookup72:                                  ; preds = %104
+switch.lookup73:                                  ; preds = %104
   %110 = zext nneg i32 %106 to i64
-  %switch.gep73 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 %110
-  %switch.load74 = load ptr, ptr %switch.gep73, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef 9, ptr noundef nonnull %switch.load74) #13
+  %switch.gep74 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 %110
+  %switch.load75 = load ptr, ptr %switch.gep74, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef 9, ptr noundef nonnull %switch.load75) #13
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %112 = load i32, ptr %111, align 8
   %113 = icmp ult i32 %112, 10
   br i1 %113, label %114, label %116
 
-114:                                              ; preds = %switch.lookup72
+114:                                              ; preds = %switch.lookup73
   %115 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 10) #13
   br label %_ZL11fill_to_posP12outputStreamj.exit60
 
-116:                                              ; preds = %switch.lookup72
+116:                                              ; preds = %switch.lookup73
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.34) #13
   br label %_ZL11fill_to_posP12outputStreamj.exit60
 
@@ -3379,9 +3378,8 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr noundef nonn
   br label %.loopexit
 
 46:                                               ; preds = %2
-  %47 = and i32 %4, -2
-  %spec.select.i = icmp eq i32 %47, 8
-  br i1 %spec.select.i, label %48, label %60
+  %47 = icmp ult i32 %4, 10
+  br i1 %47, label %48, label %60
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8

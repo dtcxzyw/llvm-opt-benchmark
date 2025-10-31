@@ -871,9 +871,8 @@ define void @_ZN6quiche5frame5Frame10from_bytes17hf4c8e3fb22322e1bE(ptr dead_on_
   br i1 %spec.select.i.not410, label %._crit_edge, label %.lr.ph
 
 46:                                               ; preds = %41
-  %47 = and i64 %34, -2
-  %or.cond = icmp eq i64 %47, 2
-  br i1 %or.cond, label %497, label %495
+  %47 = icmp ult i64 %34, 4
+  br i1 %47, label %497, label %495
 
 48:                                               ; preds = %41
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -1506,9 +1505,9 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   br i1 %367, label %370, label %376
 
 368:                                              ; preds = %362, %357
-  %.sink440 = phi i64 [ 16, %357 ], [ 8, %362 ]
+  %.sink441 = phi i64 [ 16, %357 ], [ 8, %362 ]
   %.sink = phi i64 [ %360, %357 ], [ 3, %362 ]
-  %369 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink440
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink441
   store i64 %.sink, ptr %369, align 8
   store i64 29, ptr %0, align 8
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"
@@ -1594,10 +1593,10 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   br label %thread-pre-split
 
 394:                                              ; preds = %386, %396
-  %.sink449 = phi i64 [ 16, %396 ], [ 8, %386 ]
-  %.sink447 = phi i64 [ %398, %396 ], [ 1, %386 ]
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink449
-  store i64 %.sink447, ptr %395, align 8
+  %.sink450 = phi i64 [ 16, %396 ], [ 8, %386 ]
+  %.sink448 = phi i64 [ %398, %396 ], [ 1, %386 ]
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink450
+  store i64 %.sink448, ptr %395, align 8
   store i64 29, ptr %0, align 8
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1672,10 +1671,10 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   br label %thread-pre-split
 
 424:                                              ; preds = %418, %413
-  %.sink443 = phi i64 [ 16, %413 ], [ 8, %418 ]
-  %.sink441 = phi i64 [ %416, %413 ], [ 1, %418 ]
-  %425 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink443
-  store i64 %.sink441, ptr %425, align 8
+  %.sink444 = phi i64 [ 16, %413 ], [ 8, %418 ]
+  %.sink442 = phi i64 [ %416, %413 ], [ 1, %418 ]
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink444
+  store i64 %.sink442, ptr %425, align 8
   store i64 29, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"
@@ -1710,10 +1709,10 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   br label %thread-pre-split
 
 437:                                              ; preds = %431, %426
-  %.sink446 = phi i64 [ 16, %426 ], [ 8, %431 ]
-  %.sink444 = phi i64 [ %429, %426 ], [ 1, %431 ]
-  %438 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink446
-  store i64 %.sink444, ptr %438, align 8
+  %.sink447 = phi i64 [ 16, %426 ], [ 8, %431 ]
+  %.sink445 = phi i64 [ %429, %426 ], [ 1, %431 ]
+  %438 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink447
+  store i64 %.sink445, ptr %438, align 8
   store i64 29, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"

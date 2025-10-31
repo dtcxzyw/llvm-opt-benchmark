@@ -33814,16 +33814,15 @@ _ZN11realclosure7manager3imp31find_biggest_interval_magnitudeEjPKPNS_5valueE.exi
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   %121 = load i32, ptr %120, align 8, !tbaa !81
   %.not98 = icmp ugt i32 %.0, %121
-  br i1 %.not98, label %._crit_edge101.invoke, label %.lr.ph100
+  br i1 %.not98, label %._crit_edge101.invoke, label %.lr.ph100.split.us.preheader
 
-.lr.ph100:                                        ; preds = %_ZN11realclosure7manager3imp31find_biggest_interval_magnitudeEjPKPNS_5valueE.exit
-  %.not105 = icmp eq i32 %1, 0
+.lr.ph100.split.us.preheader:                     ; preds = %_ZN11realclosure7manager3imp31find_biggest_interval_magnitudeEjPKPNS_5valueE.exit
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 58
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 59
-  br i1 %.not105, label %.lr.ph100.split, label %.lr.ph100.split.us
+  br label %.lr.ph100.split.us
 
-.lr.ph100.split.us:                               ; preds = %.lr.ph100, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76.us
-  %.199.us = phi i32 [ %141, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76.us ], [ %.0, %.lr.ph100 ]
+.lr.ph100.split.us:                               ; preds = %.lr.ph100.split.us.preheader, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76.us
+  %.199.us = phi i32 [ %141, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76.us ], [ %.0, %.lr.ph100.split.us.preheader ]
   invoke void @_ZN11realclosure7manager3imp10checkpointEv(ptr noundef nonnull align 8 dereferenceable(1497) %0)
           to label %.preheader.us unwind label %.loopexit.split-lp.loopexit.split.us
 
@@ -33903,104 +33902,50 @@ _ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69
           cleanup
   br label %.loopexit.split-lp
 
-.lr.ph100.split:                                  ; preds = %.lr.ph100, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76
-  %.199 = phi i32 [ %168, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76 ], [ %.0, %.lr.ph100 ]
-  invoke void @_ZN11realclosure7manager3imp10checkpointEv(ptr noundef nonnull align 8 dereferenceable(1497) %0)
-          to label %.preheader unwind label %.loopexit.split-lp.loopexit.split
-
-.preheader:                                       ; preds = %.lr.ph100.split
-  invoke void @_ZN11realclosure7manager3imp19eval_sign_at_approxEjPKPNS_5valueERK4mpbqRNS_11mpbq_config8intervalE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 noundef 0, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(52) %25)
-          to label %150 unwind label %.loopexit.split-lp.loopexit.split
-
-.loopexit.split-lp.loopexit.split:                ; preds = %.preheader, %.lr.ph100.split
-  %lpad.loopexit90 = landingpad { ptr, i32 }
-          cleanup
-  br label %.loopexit.split-lp
-
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %._crit_edge101.invoke
   %lpad.loopexit.split-lp91 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-150:                                              ; preds = %.preheader
-  %151 = load i8, ptr %33, align 8, !tbaa !107
-  %.fr83 = freeze i8 %151
-  %.not.i.i.i.i65 = icmp ne i8 %.fr83, 0
-  %152 = load i32, ptr %25, align 8
-  %.fr84 = freeze i32 %152
-  %153 = icmp slt i32 %.fr84, 0
-  %154 = or i1 %.not.i.i.i.i65, %153
-  br i1 %154, label %159, label %155
-
-155:                                              ; preds = %150
-  %156 = icmp ne i32 %.fr84, 0
-  %157 = load i8, ptr %122, align 2
-  %158 = icmp ne i8 %157, 0
-  %or.cond.i.i66 = select i1 %156, i1 true, i1 %158
-  br i1 %or.cond.i.i66, label %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread, label %159
-
-159:                                              ; preds = %155, %150
-  %160 = load i8, ptr %45, align 1, !tbaa !116
-  %.not.i.i8.i.i67 = icmp ne i8 %160, 0
-  %161 = load i32, ptr %29, align 8
-  %162 = icmp sgt i32 %161, 0
-  %163 = select i1 %.not.i.i8.i.i67, i1 true, i1 %162
-  br i1 %163, label %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76, label %164
-
-164:                                              ; preds = %159
-  %165 = icmp eq i32 %161, 0
-  %166 = load i8, ptr %123, align 1
-  %.not.i.i68 = icmp eq i8 %166, 0
-  %or.cond81 = select i1 %165, i1 %.not.i.i68, i1 false
-  br i1 %or.cond81, label %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76, label %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread
-
-_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread: ; preds = %129, %138, %155, %164
-  %.us-phi102 = phi i8 [ 0, %155 ], [ %.fr83, %164 ], [ 0, %129 ], [ %.fr83.us, %138 ]
-  %.us-phi103 = phi i32 [ %.fr84, %164 ], [ %.fr84, %155 ], [ %.fr84.us, %138 ], [ %.fr84.us, %129 ]
-  %.not.i.i.i70 = icmp eq i8 %.us-phi102, 0
-  %167 = icmp sgt i32 %.us-phi103, -1
-  %or.cond88 = and i1 %.not.i.i.i70, %167
+_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread: ; preds = %129, %138
+  %.not.i.i.i70 = icmp eq i8 %.fr83.us, 0
+  %150 = icmp sgt i32 %.fr84.us, -1
+  %or.cond88 = and i1 %.not.i.i.i70, %150
   %spec.select89 = select i1 %or.cond88, i32 1, i32 -1
   br label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread
 
-_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76: ; preds = %164, %159
-  %168 = add i32 %.199, 1
-  %169 = load i32, ptr %120, align 8, !tbaa !81
-  %.not = icmp ugt i32 %168, %169
-  br i1 %.not, label %._crit_edge101.invoke, label %.lr.ph100.split, !llvm.loop !337
-
-._crit_edge101.invoke:                            ; preds = %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76.us, %.noexc64.us, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76, %_ZN11realclosure7manager3imp31find_biggest_interval_magnitudeEjPKPNS_5valueE.exit
-  %170 = invoke noundef i32 @_ZN11realclosure7manager3imp22expensive_eval_sign_atEjPKPNS_5valueERK4mpbq(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(20) %3)
+._crit_edge101.invoke:                            ; preds = %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread76.us, %.noexc64.us, %_ZN11realclosure7manager3imp31find_biggest_interval_magnitudeEjPKPNS_5valueE.exit
+  %151 = invoke noundef i32 @_ZN11realclosure7manager3imp22expensive_eval_sign_atEjPKPNS_5valueERK4mpbq(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(20) %3)
           to label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread: ; preds = %._crit_edge101.invoke, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.thread, %87
-  %.133 = phi i32 [ %88, %87 ], [ %spec.select, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.thread ], [ %spec.select89, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread ], [ %170, %._crit_edge101.invoke ]
-  %171 = load ptr, ptr %5, align 8, !tbaa !249
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %173 = load ptr, ptr %172, align 8, !tbaa !113
-  %174 = load ptr, ptr %173, align 8, !tbaa !83
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %174, ptr noundef nonnull align 8 dereferenceable(52) %25)
-          to label %.noexc.i unwind label %177
+  %.133 = phi i32 [ %88, %87 ], [ %spec.select, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit.thread ], [ %spec.select89, %_ZNK11realclosure7manager3imp13contains_zeroERKNS_11mpbq_config8intervalE.exit69.thread ], [ %151, %._crit_edge101.invoke ]
+  %152 = load ptr, ptr %5, align 8, !tbaa !249
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %154 = load ptr, ptr %153, align 8, !tbaa !113
+  %155 = load ptr, ptr %154, align 8, !tbaa !83
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %155, ptr noundef nonnull align 8 dereferenceable(52) %25)
+          to label %.noexc.i unwind label %158
 
 .noexc.i:                                         ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread
-  %175 = load ptr, ptr %172, align 8, !tbaa !113
-  %176 = load ptr, ptr %175, align 8, !tbaa !83
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %176, ptr noundef nonnull align 8 dereferenceable(20) %29)
-          to label %_ZN16_scoped_intervalI16interval_managerIN11realclosure11mpbq_configEEED2Ev.exit unwind label %177
+  %156 = load ptr, ptr %153, align 8, !tbaa !113
+  %157 = load ptr, ptr %156, align 8, !tbaa !83
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %157, ptr noundef nonnull align 8 dereferenceable(20) %29)
+          to label %_ZN16_scoped_intervalI16interval_managerIN11realclosure11mpbq_configEEED2Ev.exit unwind label %158
 
-177:                                              ; preds = %.noexc.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread
-  %178 = landingpad { ptr, i32 }
+158:                                              ; preds = %.noexc.i, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread
+  %159 = landingpad { ptr, i32 }
           catch ptr null
-  %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #25
+  %160 = extractvalue { ptr, i32 } %159, 0
+  call void @__clang_call_terminate(ptr %160) #25
   unreachable
 
 _ZN16_scoped_intervalI16interval_managerIN11realclosure11mpbq_configEEED2Ev.exit: ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
 
-.loopexit.split-lp:                               ; preds = %.loopexit.split.us, %.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp, %.loopexit93, %.loopexit.split-lp94, %148
-  %.pn.pn = phi { ptr, i32 } [ %149, %148 ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp94 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp91, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit90, %.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit90.us, %.loopexit.split-lp.loopexit.split.us ]
+.loopexit.split-lp:                               ; preds = %.loopexit.split.us, %.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp, %.loopexit93, %.loopexit.split-lp94, %148
+  %.pn.pn = phi { ptr, i32 } [ %149, %148 ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp94 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp91, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit90.us, %.loopexit.split-lp.loopexit.split.us ]
   call void @_ZN16_scoped_intervalI16interval_managerIN11realclosure11mpbq_configEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn

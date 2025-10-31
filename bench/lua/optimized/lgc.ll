@@ -1498,7 +1498,7 @@ sweepgen.exit.i:                                  ; preds = %122, %markold.exit6
 .lr.ph.i73.i:                                     ; preds = %sweepgen.exit.i
   %.val54.i = load i8, ptr %93, align 2, !tbaa !30
   %127 = and i8 %.val54.i, 24
-  %invariant.op68 = or disjoint i8 %127, 1
+  %invariant.op69 = or disjoint i8 %127, 1
   br label %128
 
 128:                                              ; preds = %154, %.lr.ph.i73.i
@@ -1525,7 +1525,7 @@ sweepgen.exit.i:                                  ; preds = %122, %markold.exit6
 
 139:                                              ; preds = %136
   %140 = and i8 %131, -64
-  %.reass.i83.reass.i.reass = or disjoint i8 %140, %invariant.op68
+  %.reass.i83.reass.i.reass = or disjoint i8 %140, %invariant.op69
   store i8 %.reass.i83.reass.i.reass, ptr %130, align 1, !tbaa !27
   br label %154
 
@@ -1579,7 +1579,7 @@ sweepgen.exit84.i:                                ; preds = %sweepgen.exit84.loo
 .lr.ph.i86.i:                                     ; preds = %sweepgen.exit84.i
   %.val55.i = load i8, ptr %93, align 2, !tbaa !30
   %163 = and i8 %.val55.i, 24
-  %invariant.op69 = or disjoint i8 %163, 1
+  %invariant.op70 = or disjoint i8 %163, 1
   br label %164
 
 164:                                              ; preds = %187, %.lr.ph.i86.i
@@ -1606,7 +1606,7 @@ sweepgen.exit84.i:                                ; preds = %sweepgen.exit84.loo
 
 175:                                              ; preds = %172
   %176 = and i8 %167, -64
-  %.reass.i96.reass.i.reass = or disjoint i8 %176, %invariant.op69
+  %.reass.i96.reass.i.reass = or disjoint i8 %176, %invariant.op70
   store i8 %.reass.i96.reass.i.reass, ptr %166, align 1, !tbaa !27
   br label %187
 
@@ -1644,7 +1644,7 @@ sweepgen.exit97.i:                                ; preds = %187, %sweepgen.exit
 .lr.ph.i99.i:                                     ; preds = %sweepgen.exit97.i
   %.val56.i = load i8, ptr %93, align 2, !tbaa !30
   %192 = and i8 %.val56.i, 24
-  %invariant.op70 = or disjoint i8 %192, 1
+  %invariant.op71 = or disjoint i8 %192, 1
   br label %193
 
 193:                                              ; preds = %216, %.lr.ph.i99.i
@@ -1671,7 +1671,7 @@ sweepgen.exit97.i:                                ; preds = %187, %sweepgen.exit
 
 204:                                              ; preds = %201
   %205 = and i8 %196, -64
-  %.reass.i109.reass.i.reass = or disjoint i8 %205, %invariant.op70
+  %.reass.i109.reass.i.reass = or disjoint i8 %205, %invariant.op71
   store i8 %.reass.i109.reass.i.reass, ptr %195, align 1, !tbaa !27
   br label %216
 
@@ -1716,7 +1716,7 @@ sweepgen.exit110.i:                               ; preds = %sweepgen.exit110.lo
 .lr.ph.i112.i:                                    ; preds = %sweepgen.exit110.i
   %.val57.i = load i8, ptr %93, align 2, !tbaa !30
   %222 = and i8 %.val57.i, 24
-  %invariant.op71 = or disjoint i8 %222, 1
+  %invariant.op72 = or disjoint i8 %222, 1
   br label %223
 
 223:                                              ; preds = %246, %.lr.ph.i112.i
@@ -1743,7 +1743,7 @@ sweepgen.exit110.i:                               ; preds = %sweepgen.exit110.lo
 
 234:                                              ; preds = %231
   %235 = and i8 %226, -64
-  %.reass.i122.reass.i.reass = or disjoint i8 %235, %invariant.op71
+  %.reass.i122.reass.i.reass = or disjoint i8 %235, %invariant.op72
   store i8 %.reass.i122.reass.i.reass, ptr %225, align 1, !tbaa !27
   br label %246
 

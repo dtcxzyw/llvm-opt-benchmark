@@ -590,12 +590,13 @@ read_2_bytes.exit:                                ; preds = %110
   unreachable
 
 read_1_byte.exit11.i:                             ; preds = %read_2_bytes.exit
-  %switch.tableidx = add i32 %60, -192
-  %125 = icmp ult i32 %switch.tableidx, 16
+  %trunc.i = trunc nuw i32 %60 to i8
+  %switch.tableidx = add i8 %trunc.i, 64
+  %125 = icmp ult i8 %switch.tableidx, 16
   br i1 %125, label %switch.lookup, label %127
 
 switch.lookup:                                    ; preds = %read_1_byte.exit11.i
-  %126 = zext nneg i32 %switch.tableidx to i64
+  %126 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.scan_JPEG_header, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %127

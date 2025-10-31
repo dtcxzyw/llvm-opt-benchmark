@@ -115,7 +115,6 @@ $_ZTV13BaseException = comdat any
 @.str.17 = private unnamed_addr constant [26 x i8] c"invalid compression level\00", align 1
 @.str.18 = private unnamed_addr constant [35 x i8] c"invalid or incomplete deflate data\00", align 1
 @.str.19 = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
-@.str.20 = private unnamed_addr constant [23 x i8] c"zlib version mismatch!\00", align 1
 @.str.21 = private unnamed_addr constant [16 x i8] c"return value = \00", align 1
 @.str.22 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_serialization.cpp, ptr null }]
@@ -461,7 +460,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZL4zerri(i32 noundef %ret) unnamed_addr #6 {
+define internal fastcc void @_ZL4zerri(i32 noundef range(i32 -4, 3) %ret) unnamed_addr #6 {
 entry:
   %.not = icmp eq ptr @_ZTH7dstream, null
   br i1 %.not, label %_ZTW7dstream.exit, label %0
@@ -492,7 +491,6 @@ _ZN9LogStreamlsIRA7_KcEER11StreamProxyOT_.exit:   ; preds = %if.then.i.i, %_ZTW7
     i32 -2, label %sw.bb10
     i32 -3, label %sw.bb13
     i32 -4, label %sw.bb16
-    i32 -6, label %sw.bb19
   ]
 
 sw.bb:                                            ; preds = %_ZN9LogStreamlsIRA7_KcEER11StreamProxyOT_.exit
@@ -818,88 +816,26 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit195: ; preds = %i
   %call1.i188 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %.pr244, i8 noundef signext %retval.0.i.i.i187)
   br label %sw.epilog.sink.split
 
-sw.bb19:                                          ; preds = %_ZN9LogStreamlsIRA7_KcEER11StreamProxyOT_.exit
-  br i1 %.not, label %_ZTW7dstream.exit86, label %47
-
-47:                                               ; preds = %sw.bb19
-  tail call void @_ZTH7dstream()
-  br label %_ZTW7dstream.exit86
-
-_ZTW7dstream.exit86:                              ; preds = %47, %sw.bb19
-  %48 = load ptr, ptr %1, align 8, !tbaa !23
-  %vtable.i87 = load ptr, ptr %48, align 8, !tbaa !21
-  %49 = load ptr, ptr %vtable.i87, align 8
-  %call.i88 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(8) %48)
-  %cond-lvalue.v.i89 = select i1 %call.i88, i64 976, i64 984
-  %cond-lvalue.i90 = getelementptr inbounds nuw i8, ptr %1, i64 %cond-lvalue.v.i89
-  %50 = load ptr, ptr %cond-lvalue.i90, align 8, !tbaa !33
-  %tobool.not.i.i91 = icmp eq ptr %50, null
-  br i1 %tobool.not.i.i91, label %sw.epilog, label %_ZN9LogStreamlsIRA23_KcEER11StreamProxyOT_.exit
-
-_ZN9LogStreamlsIRA23_KcEER11StreamProxyOT_.exit:  ; preds = %_ZTW7dstream.exit86
-  %call1.i.i.i94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.20, i64 noundef 22)
-  %.pr246 = load ptr, ptr %cond-lvalue.i90, align 8, !tbaa !33
-  %tobool.not.i95 = icmp eq ptr %.pr246, null
-  br i1 %tobool.not.i95, label %sw.epilog, label %if.then.i96
-
-if.then.i96:                                      ; preds = %_ZN9LogStreamlsIRA23_KcEER11StreamProxyOT_.exit
-  %vtable.i196 = load ptr, ptr %.pr246, align 8, !tbaa !21
-  %vbase.offset.ptr.i197 = getelementptr i8, ptr %vtable.i196, i64 -24
-  %vbase.offset.i198 = load i64, ptr %vbase.offset.ptr.i197, align 8
-  %add.ptr.i199 = getelementptr inbounds i8, ptr %.pr246, i64 %vbase.offset.i198
-  %_M_ctype.i.i200 = getelementptr inbounds nuw i8, ptr %add.ptr.i199, i64 240
-  %51 = load ptr, ptr %_M_ctype.i.i200, align 8, !tbaa !35
-  %tobool.not.i.i.i201 = icmp eq ptr %51, null
-  br i1 %tobool.not.i.i.i201, label %if.then.i.i.i214, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i202
-
-if.then.i.i.i214:                                 ; preds = %if.then.i96
-  tail call void @_ZSt16__throw_bad_castv() #21
-  unreachable
-
-_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i202: ; preds = %if.then.i96
-  %_M_widen_ok.i.i.i203 = getelementptr inbounds nuw i8, ptr %51, i64 56
-  %52 = load i8, ptr %_M_widen_ok.i.i.i203, align 8, !tbaa !42
-  %tobool.not.i3.i.i204 = icmp eq i8 %52, 0
-  br i1 %tobool.not.i3.i.i204, label %if.end.i.i.i210, label %if.then.i4.i.i205
-
-if.then.i4.i.i205:                                ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i202
-  %arrayidx.i.i.i206 = getelementptr inbounds nuw i8, ptr %51, i64 67
-  %53 = load i8, ptr %arrayidx.i.i.i206, align 1, !tbaa !19
-  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit215
-
-if.end.i.i.i210:                                  ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i202
-  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %51)
-  %vtable.i.i.i211 = load ptr, ptr %51, align 8, !tbaa !21
-  %vfn.i.i.i212 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i211, i64 48
-  %54 = load ptr, ptr %vfn.i.i.i212, align 8
-  %call.i.i.i213 = tail call noundef signext i8 %54(ptr noundef nonnull align 8 dereferenceable(570) %51, i8 noundef signext 10)
-  br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit215
-
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit215: ; preds = %if.end.i.i.i210, %if.then.i4.i.i205
-  %retval.0.i.i.i207 = phi i8 [ %53, %if.then.i4.i.i205 ], [ %call.i.i.i213, %if.end.i.i.i210 ]
-  %call1.i208 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %.pr246, i8 noundef signext %retval.0.i.i.i207)
-  br label %sw.epilog.sink.split
-
 sw.default:                                       ; preds = %_ZN9LogStreamlsIRA7_KcEER11StreamProxyOT_.exit
-  br i1 %.not, label %_ZTW7dstream.exit99, label %55
+  br i1 %.not, label %_ZTW7dstream.exit99, label %47
 
-55:                                               ; preds = %sw.default
+47:                                               ; preds = %sw.default
   tail call void @_ZTH7dstream()
   br label %_ZTW7dstream.exit99
 
-_ZTW7dstream.exit99:                              ; preds = %55, %sw.default
-  %56 = load ptr, ptr %1, align 8, !tbaa !23
-  %vtable.i100 = load ptr, ptr %56, align 8, !tbaa !21
-  %57 = load ptr, ptr %vtable.i100, align 8
-  %call.i101 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(8) %56)
+_ZTW7dstream.exit99:                              ; preds = %47, %sw.default
+  %48 = load ptr, ptr %1, align 8, !tbaa !23
+  %vtable.i100 = load ptr, ptr %48, align 8, !tbaa !21
+  %49 = load ptr, ptr %vtable.i100, align 8
+  %call.i101 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(8) %48)
   %cond-lvalue.v.i102 = select i1 %call.i101, i64 976, i64 984
   %cond-lvalue.i103 = getelementptr inbounds nuw i8, ptr %1, i64 %cond-lvalue.v.i102
-  %58 = load ptr, ptr %cond-lvalue.i103, align 8, !tbaa !33
-  %tobool.not.i.i104 = icmp eq ptr %58, null
+  %50 = load ptr, ptr %cond-lvalue.i103, align 8, !tbaa !33
+  %tobool.not.i.i104 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i104, label %sw.epilog, label %_ZN9LogStreamlsIRA16_KcEER11StreamProxyOT_.exit
 
 _ZN9LogStreamlsIRA16_KcEER11StreamProxyOT_.exit:  ; preds = %_ZTW7dstream.exit99
-  %call1.i.i.i107 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull @.str.21, i64 noundef 15)
+  %call1.i.i.i107 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.21, i64 noundef 15)
   %.pr248 = load ptr, ptr %cond-lvalue.i103, align 8, !tbaa !33
   %tobool.not.i108 = icmp eq ptr %.pr248, null
   br i1 %tobool.not.i108, label %sw.epilog, label %_ZN11StreamProxylsIRiEERS_OT_.exit
@@ -916,8 +852,8 @@ if.then.i112:                                     ; preds = %_ZN11StreamProxylsI
   %vbase.offset.i218 = load i64, ptr %vbase.offset.ptr.i217, align 8
   %add.ptr.i219 = getelementptr inbounds i8, ptr %.pr250, i64 %vbase.offset.i218
   %_M_ctype.i.i220 = getelementptr inbounds nuw i8, ptr %add.ptr.i219, i64 240
-  %59 = load ptr, ptr %_M_ctype.i.i220, align 8, !tbaa !35
-  %tobool.not.i.i.i221 = icmp eq ptr %59, null
+  %51 = load ptr, ptr %_M_ctype.i.i220, align 8, !tbaa !35
+  %tobool.not.i.i.i221 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i.i221, label %if.then.i.i.i234, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i222
 
 if.then.i.i.i234:                                 ; preds = %if.then.i112
@@ -925,35 +861,35 @@ if.then.i.i.i234:                                 ; preds = %if.then.i112
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i222: ; preds = %if.then.i112
-  %_M_widen_ok.i.i.i223 = getelementptr inbounds nuw i8, ptr %59, i64 56
-  %60 = load i8, ptr %_M_widen_ok.i.i.i223, align 8, !tbaa !42
-  %tobool.not.i3.i.i224 = icmp eq i8 %60, 0
+  %_M_widen_ok.i.i.i223 = getelementptr inbounds nuw i8, ptr %51, i64 56
+  %52 = load i8, ptr %_M_widen_ok.i.i.i223, align 8, !tbaa !42
+  %tobool.not.i3.i.i224 = icmp eq i8 %52, 0
   br i1 %tobool.not.i3.i.i224, label %if.end.i.i.i230, label %if.then.i4.i.i225
 
 if.then.i4.i.i225:                                ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i222
-  %arrayidx.i.i.i226 = getelementptr inbounds nuw i8, ptr %59, i64 67
-  %61 = load i8, ptr %arrayidx.i.i.i226, align 1, !tbaa !19
+  %arrayidx.i.i.i226 = getelementptr inbounds nuw i8, ptr %51, i64 67
+  %53 = load i8, ptr %arrayidx.i.i.i226, align 1, !tbaa !19
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit235
 
 if.end.i.i.i230:                                  ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i222
-  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %59)
-  %vtable.i.i.i231 = load ptr, ptr %59, align 8, !tbaa !21
+  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %51)
+  %vtable.i.i.i231 = load ptr, ptr %51, align 8, !tbaa !21
   %vfn.i.i.i232 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i231, i64 48
-  %62 = load ptr, ptr %vfn.i.i.i232, align 8
-  %call.i.i.i233 = tail call noundef signext i8 %62(ptr noundef nonnull align 8 dereferenceable(570) %59, i8 noundef signext 10)
+  %54 = load ptr, ptr %vfn.i.i.i232, align 8
+  %call.i.i.i233 = tail call noundef signext i8 %54(ptr noundef nonnull align 8 dereferenceable(570) %51, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit235
 
 _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit235: ; preds = %if.end.i.i.i230, %if.then.i4.i.i225
-  %retval.0.i.i.i227 = phi i8 [ %61, %if.then.i4.i.i225 ], [ %call.i.i.i233, %if.end.i.i.i230 ]
+  %retval.0.i.i.i227 = phi i8 [ %53, %if.then.i4.i.i225 ], [ %call.i.i.i233, %if.end.i.i.i230 ]
   %call1.i228 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %.pr250, i8 noundef signext %retval.0.i.i.i227)
   br label %sw.epilog.sink.split
 
-sw.epilog.sink.split:                             ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit235, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit215, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit195, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit175, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit155, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit135
-  %call1.i228.sink = phi ptr [ %call1.i228, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit235 ], [ %call1.i208, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit215 ], [ %call1.i188, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit195 ], [ %call1.i168, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit175 ], [ %call1.i148, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit155 ], [ %call1.i129, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit135 ]
+sw.epilog.sink.split:                             ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit235, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit195, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit175, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit155, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit135
+  %call1.i228.sink = phi ptr [ %call1.i228, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit235 ], [ %call1.i188, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit195 ], [ %call1.i168, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit175 ], [ %call1.i148, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit155 ], [ %call1.i129, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit135 ]
   %call.i.i229 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %call1.i228.sink)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN11StreamProxylsIRiEERS_OT_.exit, %_ZN9LogStreamlsIRA16_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit99, %_ZN9LogStreamlsIRA23_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit86, %_ZN9LogStreamlsIRA14_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit73, %_ZN9LogStreamlsIRA35_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit60, %_ZN9LogStreamlsIRA26_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit47, %_ZN9LogStreamlsIRA21_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit34, %if.end
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN11StreamProxylsIRiEERS_OT_.exit, %_ZN9LogStreamlsIRA16_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit99, %_ZN9LogStreamlsIRA14_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit73, %_ZN9LogStreamlsIRA35_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit60, %_ZN9LogStreamlsIRA26_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit47, %_ZN9LogStreamlsIRA21_KcEER11StreamProxyOT_.exit, %_ZTW7dstream.exit34, %if.end
   ret void
 }
 

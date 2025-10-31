@@ -4612,10 +4612,10 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %_ZNK6hermes2vm10Str
   store ptr @.str.11, ptr %ref.tmp12, align 8
   %ref.tmp13.sroa.2.0.ref.tmp12.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   store i32 3, ptr %ref.tmp13.sroa.2.0.ref.tmp12.sroa_idx, align 8
-  %ref.tmp13.sroa.3141.0.ref.tmp12.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 24
-  store i32 1, ptr %ref.tmp13.sroa.3141.0.ref.tmp12.sroa_idx, align 8
-  %ref.tmp13.sroa.4142.0.ref.tmp12.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 32
-  store i64 10, ptr %ref.tmp13.sroa.4142.0.ref.tmp12.sroa_idx, align 8
+  %ref.tmp13.sroa.3142.0.ref.tmp12.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 24
+  store i32 1, ptr %ref.tmp13.sroa.3142.0.ref.tmp12.sroa_idx, align 8
+  %ref.tmp13.sroa.4143.0.ref.tmp12.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 32
+  store i64 10, ptr %ref.tmp13.sroa.4143.0.ref.tmp12.sroa_idx, align 8
   %ref.tmp13.sroa.5.0.ref.tmp12.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 40
   store i64 0, ptr %ref.tmp13.sroa.5.0.ref.tmp12.sroa_idx, align 8
   %leftKind_.i.i.i34.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
@@ -6017,10 +6017,10 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %_ZNK6hermes2vm10Str
   store ptr @.str.13, ptr %ref.tmp77, align 8
   %ref.tmp78.sroa.2.0.ref.tmp77.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 8
   store i32 3, ptr %ref.tmp78.sroa.2.0.ref.tmp77.sroa_idx, align 8
-  %ref.tmp78.sroa.3689.0.ref.tmp77.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 24
-  store i32 1, ptr %ref.tmp78.sroa.3689.0.ref.tmp77.sroa_idx, align 8
-  %ref.tmp78.sroa.4690.0.ref.tmp77.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 32
-  store i64 27, ptr %ref.tmp78.sroa.4690.0.ref.tmp77.sroa_idx, align 8
+  %ref.tmp78.sroa.3691.0.ref.tmp77.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 24
+  store i32 1, ptr %ref.tmp78.sroa.3691.0.ref.tmp77.sroa_idx, align 8
+  %ref.tmp78.sroa.4692.0.ref.tmp77.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 32
+  store i64 27, ptr %ref.tmp78.sroa.4692.0.ref.tmp77.sroa_idx, align 8
   %ref.tmp78.sroa.5.0.ref.tmp77.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 40
   store i64 0, ptr %ref.tmp78.sroa.5.0.ref.tmp77.sroa_idx, align 8
   %leftKind_.i.i.i80.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 8
@@ -6747,14 +6747,14 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i518: ; preds = %if.else13.i.
 
 _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit443.thread: ; preds = %if.else.i.i561, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i518
   %newRight.sroa.0.0.copyload.i.i429.ph = phi ptr [ %add.ptr10.i.i564, %if.else.i.i561 ], [ %add.ptr10.i18.i522, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i518 ]
-  %.ph683 = phi i32 [ 3, %if.else.i.i561 ], [ 4, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i518 ]
+  %.ph685 = phi i32 [ 3, %if.else.i.i561 ], [ 4, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i518 ]
   store ptr @.str.11, ptr %ref.tmp355, align 8, !alias.scope !67
   %leftKind_.i22.i.i432 = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 8
   store i32 3, ptr %leftKind_.i22.i.i432, align 8, !alias.scope !67
   %rightChild_.i.i.i433 = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 16
   store ptr %newRight.sroa.0.0.copyload.i.i429.ph, ptr %rightChild_.i.i.i433, align 8, !alias.scope !67
   %rightKind_.i23.i.i434 = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 24
-  store i32 %.ph683, ptr %rightKind_.i23.i.i434, align 8, !alias.scope !67
+  store i32 %.ph685, ptr %rightKind_.i23.i.i434, align 8, !alias.scope !67
   %leftSize_.i24.i.i435 = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 32
   store i64 10, ptr %leftSize_.i24.i.i435, align 8, !alias.scope !67
   %rightSize_.i25.i.i436 = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 40
@@ -6765,10 +6765,10 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit443:  ; preds = %_ZNK6hermes2vm10Str
   store ptr @.str.11, ptr %ref.tmp355, align 8
   %ref.tmp356.sroa.2.0.ref.tmp355.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 8
   store i32 3, ptr %ref.tmp356.sroa.2.0.ref.tmp355.sroa_idx, align 8
-  %ref.tmp356.sroa.3687.0.ref.tmp355.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 24
-  store i32 1, ptr %ref.tmp356.sroa.3687.0.ref.tmp355.sroa_idx, align 8
-  %ref.tmp356.sroa.4688.0.ref.tmp355.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 32
-  store i64 10, ptr %ref.tmp356.sroa.4688.0.ref.tmp355.sroa_idx, align 8
+  %ref.tmp356.sroa.3689.0.ref.tmp355.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 24
+  store i32 1, ptr %ref.tmp356.sroa.3689.0.ref.tmp355.sroa_idx, align 8
+  %ref.tmp356.sroa.4690.0.ref.tmp355.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 32
+  store i64 10, ptr %ref.tmp356.sroa.4690.0.ref.tmp355.sroa_idx, align 8
   %ref.tmp356.sroa.5.0.ref.tmp355.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 40
   store i64 0, ptr %ref.tmp356.sroa.5.0.ref.tmp355.sroa_idx, align 8
   %leftKind_.i.i.i452.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 8
@@ -6914,11 +6914,11 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6hermes2vm15Hand
   %leftKind_.i8.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 8
   %6 = load i32, ptr %leftKind_.i8.i.i, align 8, !noalias !88
   switch i32 %6, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit.thread [
-    i32 0, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit.thread352
+    i32 0, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit.thread356
     i32 1, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
   ]
 
-_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit.thread352: ; preds = %lor.lhs.false.i.i
+_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit.thread356: ; preds = %lor.lhs.false.i.i
   %leftKind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
   store i32 0, ptr %leftKind_.i.i.i.i, align 8, !alias.scope !89
   %rightKind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 24
@@ -6956,10 +6956,10 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %lor.lhs.false.i.i
   store ptr @.str.35, ptr %ref.tmp15, align 8
   %ref.tmp16.sroa.2.0.ref.tmp15.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
   store i32 3, ptr %ref.tmp16.sroa.2.0.ref.tmp15.sroa_idx, align 8
-  %ref.tmp16.sroa.3359.0.ref.tmp15.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 24
-  store i32 1, ptr %ref.tmp16.sroa.3359.0.ref.tmp15.sroa_idx, align 8
-  %ref.tmp16.sroa.4360.0.ref.tmp15.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 32
-  store i64 49, ptr %ref.tmp16.sroa.4360.0.ref.tmp15.sroa_idx, align 8
+  %ref.tmp16.sroa.3363.0.ref.tmp15.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 24
+  store i32 1, ptr %ref.tmp16.sroa.3363.0.ref.tmp15.sroa_idx, align 8
+  %ref.tmp16.sroa.4364.0.ref.tmp15.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 32
+  store i64 49, ptr %ref.tmp16.sroa.4364.0.ref.tmp15.sroa_idx, align 8
   %ref.tmp16.sroa.5.0.ref.tmp15.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 40
   store i64 0, ptr %ref.tmp16.sroa.5.0.ref.tmp15.sroa_idx, align 8
   %leftKind_.i.i.i17.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
@@ -6971,7 +6971,7 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %lor.lhs.false.i.i
     i32 1, label %if.then4.i.i49
   ]
 
-if.then.i.i50:                                    ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit.thread352, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
+if.then.i.i50:                                    ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit.thread356, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
   %leftKind_.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %leftKind_.i.i.i.i51, align 8, !alias.scope !99
   %rightKind_.i.i.i.i52 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
@@ -7048,11 +7048,11 @@ lor.lhs.false.i.i70:                              ; preds = %if.end30, %cond.tru
   %leftKind_.i8.i.i71 = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 8
   %20 = load i32, ptr %leftKind_.i8.i.i71, align 8, !noalias !108
   switch i32 %20, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105.thread [
-    i32 0, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105.thread353
+    i32 0, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105.thread357
     i32 1, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105
   ]
 
-_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105.thread353: ; preds = %lor.lhs.false.i.i70
+_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105.thread357: ; preds = %lor.lhs.false.i.i70
   %leftKind_.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 8
   store i32 0, ptr %leftKind_.i.i.i.i102, align 8, !alias.scope !109
   %rightKind_.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 24
@@ -7090,10 +7090,10 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105:  ; preds = %lor.lhs.false.i.i70
   store ptr @.str.35, ptr %ref.tmp37, align 8
   %ref.tmp38.sroa.2.0.ref.tmp37.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 8
   store i32 3, ptr %ref.tmp38.sroa.2.0.ref.tmp37.sroa_idx, align 8
-  %ref.tmp38.sroa.3357.0.ref.tmp37.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 24
-  store i32 1, ptr %ref.tmp38.sroa.3357.0.ref.tmp37.sroa_idx, align 8
-  %ref.tmp38.sroa.4358.0.ref.tmp37.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 32
-  store i64 49, ptr %ref.tmp38.sroa.4358.0.ref.tmp37.sroa_idx, align 8
+  %ref.tmp38.sroa.3361.0.ref.tmp37.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 24
+  store i32 1, ptr %ref.tmp38.sroa.3361.0.ref.tmp37.sroa_idx, align 8
+  %ref.tmp38.sroa.4362.0.ref.tmp37.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 32
+  store i64 49, ptr %ref.tmp38.sroa.4362.0.ref.tmp37.sroa_idx, align 8
   %ref.tmp38.sroa.5.0.ref.tmp37.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 40
   store i64 0, ptr %ref.tmp38.sroa.5.0.ref.tmp37.sroa_idx, align 8
   %leftKind_.i.i.i114.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 8
@@ -7105,7 +7105,7 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105:  ; preds = %lor.lhs.false.i.i70
     i32 1, label %if.then4.i.i146
   ]
 
-if.then.i.i147:                                   ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105.thread353, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105
+if.then.i.i147:                                   ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105.thread357, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit105
   %leftKind_.i.i.i.i148 = getelementptr inbounds nuw i8, ptr %ref.tmp36, i64 8
   store i32 0, ptr %leftKind_.i.i.i.i148, align 8, !alias.scope !119
   %rightKind_.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %ref.tmp36, i64 24
@@ -7159,11 +7159,11 @@ lor.lhs.false.i.i162:                             ; preds = %cond.true.i.i
   %leftKind_.i8.i.i163 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 8
   %28 = load i32, ptr %leftKind_.i8.i.i163, align 8, !noalias !128
   switch i32 %28, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197.thread [
-    i32 0, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197.thread354
+    i32 0, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197.thread358
     i32 1, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197
   ]
 
-_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197.thread354: ; preds = %lor.lhs.false.i.i162
+_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197.thread358: ; preds = %lor.lhs.false.i.i162
   %leftKind_.i.i.i.i194 = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 8
   store i32 0, ptr %leftKind_.i.i.i.i194, align 8, !alias.scope !129
   %rightKind_.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 24
@@ -7201,10 +7201,10 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197:  ; preds = %lor.lhs.false.i.i16
   store ptr @.str.35, ptr %ref.tmp47, align 8
   %ref.tmp48.sroa.2.0.ref.tmp47.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 8
   store i32 3, ptr %ref.tmp48.sroa.2.0.ref.tmp47.sroa_idx, align 8
-  %ref.tmp48.sroa.3355.0.ref.tmp47.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 24
-  store i32 1, ptr %ref.tmp48.sroa.3355.0.ref.tmp47.sroa_idx, align 8
-  %ref.tmp48.sroa.4356.0.ref.tmp47.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 32
-  store i64 49, ptr %ref.tmp48.sroa.4356.0.ref.tmp47.sroa_idx, align 8
+  %ref.tmp48.sroa.3359.0.ref.tmp47.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 24
+  store i32 1, ptr %ref.tmp48.sroa.3359.0.ref.tmp47.sroa_idx, align 8
+  %ref.tmp48.sroa.4360.0.ref.tmp47.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 32
+  store i64 49, ptr %ref.tmp48.sroa.4360.0.ref.tmp47.sroa_idx, align 8
   %ref.tmp48.sroa.5.0.ref.tmp47.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 40
   store i64 0, ptr %ref.tmp48.sroa.5.0.ref.tmp47.sroa_idx, align 8
   %leftKind_.i.i.i206.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 8
@@ -7216,7 +7216,7 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197:  ; preds = %lor.lhs.false.i.i16
     i32 1, label %if.then4.i.i238
   ]
 
-if.then.i.i239:                                   ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197.thread354, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197
+if.then.i.i239:                                   ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197.thread358, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit197
   %leftKind_.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %ref.tmp46, i64 8
   store i32 0, ptr %leftKind_.i.i.i.i240, align 8, !alias.scope !139
   %rightKind_.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %ref.tmp46, i64 24
@@ -7281,8 +7281,10 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit243:  ; preds = %if.then.i.i239, %if
 lor.lhs.false.i.i248:                             ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit243
   %leftKind_.i8.i.i249 = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 8
   %40 = load i32, ptr %leftKind_.i8.i.i249, align 8, !noalias !148
-  %cmp.i9.i.i250 = icmp eq i32 %40, 0
-  br i1 %cmp.i9.i.i250, label %if.then.i.i279, label %if.end.i.i251
+  switch i32 %40, label %if.end8.i.i255 [
+    i32 0, label %if.then.i.i279
+    i32 1, label %if.then7.i.i277
+  ]
 
 if.then.i.i279:                                   ; preds = %lor.lhs.false.i.i248, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit243
   %leftKind_.i.i.i.i280 = getelementptr inbounds nuw i8, ptr %ref.tmp45, i64 8
@@ -7293,23 +7295,11 @@ if.then.i.i279:                                   ; preds = %lor.lhs.false.i.i24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i.i.i.i282, i8 0, i64 16, i1 false), !alias.scope !149
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283
 
-if.end.i.i251:                                    ; preds = %lor.lhs.false.i.i248
-  %cmp.i11.i.i252 = icmp eq i32 %38, 1
-  br i1 %cmp.i11.i.i252, label %if.then4.i.i278, label %if.end5.i.i253
-
-if.then4.i.i278:                                  ; preds = %if.end.i.i251
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp52, i64 48, i1 false)
-  br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283
-
-if.end5.i.i253:                                   ; preds = %if.end.i.i251
-  %cmp.i13.i.i254 = icmp eq i32 %40, 1
-  br i1 %cmp.i13.i.i254, label %if.then7.i.i277, label %if.end8.i.i255
-
-if.then7.i.i277:                                  ; preds = %if.end5.i.i253
+if.then7.i.i277:                                  ; preds = %lor.lhs.false.i.i248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp46, i64 48, i1 false)
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283
 
-if.end8.i.i255:                                   ; preds = %if.end5.i.i253
+if.end8.i.i255:                                   ; preds = %lor.lhs.false.i.i248
   %add.i.i.i258 = add i64 %36, %37
   %leftSize_.i14.i.i259 = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 32
   %41 = load i64, ptr %leftSize_.i14.i.i259, align 8, !noalias !148
@@ -7337,7 +7327,7 @@ if.end8.i.i255:                                   ; preds = %if.end5.i.i253
   store i64 %add.i16.i.i261, ptr %rightSize_.i25.i.i276, align 8, !alias.scope !148
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283
 
-_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283:  ; preds = %if.then.i.i279, %if.then4.i.i278, %if.then7.i.i277, %if.end8.i.i255
+_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283:  ; preds = %if.then.i.i279, %if.then7.i.i277, %if.end8.i.i255
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
   %leftKind_.i.i.i292 = getelementptr inbounds nuw i8, ptr %ref.tmp45, i64 8
@@ -7562,10 +7552,10 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %_ZNK6hermes2vm10Str
   store ptr @.str.32, ptr %ref.tmp11, align 8
   %ref.tmp12.sroa.2.0.ref.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   store i32 3, ptr %ref.tmp12.sroa.2.0.ref.tmp11.sroa_idx, align 8
-  %ref.tmp12.sroa.385.0.ref.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 24
-  store i32 1, ptr %ref.tmp12.sroa.385.0.ref.tmp11.sroa_idx, align 8
-  %ref.tmp12.sroa.486.0.ref.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 32
-  store i64 25, ptr %ref.tmp12.sroa.486.0.ref.tmp11.sroa_idx, align 8
+  %ref.tmp12.sroa.386.0.ref.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 24
+  store i32 1, ptr %ref.tmp12.sroa.386.0.ref.tmp11.sroa_idx, align 8
+  %ref.tmp12.sroa.487.0.ref.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 32
+  store i64 25, ptr %ref.tmp12.sroa.487.0.ref.tmp11.sroa_idx, align 8
   %ref.tmp12.sroa.5.0.ref.tmp11.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 40
   store i64 0, ptr %ref.tmp12.sroa.5.0.ref.tmp11.sroa_idx, align 8
   %leftKind_.i.i.i16.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
@@ -9007,10 +8997,10 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %_ZNK6hermes2vm10Str
   store ptr @.str.11, ptr %ref.tmp58, align 8
   %ref.tmp59.sroa.2.0.ref.tmp58.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 8
   store i32 3, ptr %ref.tmp59.sroa.2.0.ref.tmp58.sroa_idx, align 8
-  %ref.tmp59.sroa.3142.0.ref.tmp58.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 24
-  store i32 1, ptr %ref.tmp59.sroa.3142.0.ref.tmp58.sroa_idx, align 8
-  %ref.tmp59.sroa.4143.0.ref.tmp58.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 32
-  store i64 10, ptr %ref.tmp59.sroa.4143.0.ref.tmp58.sroa_idx, align 8
+  %ref.tmp59.sroa.3143.0.ref.tmp58.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 24
+  store i32 1, ptr %ref.tmp59.sroa.3143.0.ref.tmp58.sroa_idx, align 8
+  %ref.tmp59.sroa.4144.0.ref.tmp58.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 32
+  store i64 10, ptr %ref.tmp59.sroa.4144.0.ref.tmp58.sroa_idx, align 8
   %ref.tmp59.sroa.5.0.ref.tmp58.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 40
   store i64 0, ptr %ref.tmp59.sroa.5.0.ref.tmp58.sroa_idx, align 8
   %leftKind_.i.i.i45.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 8
