@@ -8232,21 +8232,10 @@ return:                                           ; preds = %if.end, %if.then
 define hidden { i32, ptr } @_ZN4llvh3sys2fs8openFileERKNS_5TwineERiNS1_19CreationDispositionENS1_10FileAccessENS1_9OpenFlagsEj(ptr noundef nonnull align 8 dereferenceable(18) %Name, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %ResultFD, i32 noundef %Disp, i32 noundef %Access, i32 noundef %Flags, i32 noundef %Mode) local_unnamed_addr #0 {
 entry:
   %Storage = alloca %"class.llvh::SmallString.11", align 8
-  switch i32 %Access, label %if.else4.i [
-    i32 1, label %if.end9.i
-    i32 2, label %if.then2.i
-  ]
-
-if.then2.i:                                       ; preds = %entry
-  br label %if.end9.i
-
-if.else4.i:                                       ; preds = %entry
-  %cmp5.i = icmp eq i32 %Access, 3
-  %spec.select.i = select i1 %cmp5.i, i32 2, i32 0
-  br label %if.end9.i
-
-if.end9.i:                                        ; preds = %if.else4.i, %if.then2.i, %entry
-  %Result.0.i = phi i32 [ 1, %if.then2.i ], [ 0, %entry ], [ %spec.select.i, %if.else4.i ]
+  %switch.selectcmp.i = icmp eq i32 %Access, 2
+  %switch.select.i = zext i1 %switch.selectcmp.i to i32
+  %switch.selectcmp20.i = icmp eq i32 %Access, 3
+  %switch.select21.i = select i1 %switch.selectcmp20.i, i32 2, i32 %switch.select.i
   %and.i = and i32 %Flags, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   %spec.select18.i = select i1 %tobool.not.i, i32 %Disp, i32 3
@@ -8256,20 +8245,20 @@ if.end9.i:                                        ; preds = %if.else4.i, %if.the
     i32 3, label %if.then23.i
   ]
 
-if.then13.i:                                      ; preds = %if.end9.i
-  %or15.i = or disjoint i32 %Result.0.i, 192
+if.then13.i:                                      ; preds = %entry
+  %or15.i = or disjoint i32 %switch.select21.i, 192
   br label %_ZN4llvh3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
 
-if.then18.i:                                      ; preds = %if.end9.i
-  %or20.i = or disjoint i32 %Result.0.i, 576
+if.then18.i:                                      ; preds = %entry
+  %or20.i = or disjoint i32 %switch.select21.i, 576
   br label %_ZN4llvh3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
 
-if.then23.i:                                      ; preds = %if.end9.i
-  %or24.i = or disjoint i32 %Result.0.i, 64
+if.then23.i:                                      ; preds = %entry
+  %or24.i = or disjoint i32 %switch.select21.i, 64
   br label %_ZN4llvh3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
 
-_ZN4llvh3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit: ; preds = %if.end9.i, %if.then13.i, %if.then18.i, %if.then23.i
-  %Result.1.i = phi i32 [ %or15.i, %if.then13.i ], [ %or20.i, %if.then18.i ], [ %or24.i, %if.then23.i ], [ %Result.0.i, %if.end9.i ]
+_ZN4llvh3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit: ; preds = %entry, %if.then13.i, %if.then18.i, %if.then23.i
+  %Result.1.i = phi i32 [ %or15.i, %if.then13.i ], [ %or20.i, %if.then18.i ], [ %or24.i, %if.then23.i ], [ %switch.select21.i, %entry ]
   %0 = shl nuw nsw i32 %and.i, 9
   %and37.i = shl i32 %Flags, 16
   %1 = and i32 %and37.i, 524288

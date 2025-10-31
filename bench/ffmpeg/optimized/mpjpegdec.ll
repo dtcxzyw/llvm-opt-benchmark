@@ -484,12 +484,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_multipart_header(ptr
 12:                                               ; preds = %9
   %13 = load i8, ptr %5, align 16, !tbaa !12
   %.not.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i, label %.preheader119, label %14
+  br i1 %.not.i.i, label %.preheader117, label %14
 
 14:                                               ; preds = %12
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #10
   %.not14.i.i = icmp eq i64 %15, 0
-  br i1 %.not14.i.i, label %.preheader119, label %.lr.ph.preheader.i.i
+  br i1 %.not14.i.i, label %.preheader117, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
@@ -499,7 +499,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_multipart_header(ptr
   %.012.i.i = phi ptr [ %17, %av_isspace.exit.thread.i.i ], [ %16, %.lr.ph.preheader.i.i ]
   %17 = getelementptr inbounds i8, ptr %.012.i.i, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !12
-  switch i8 %18, label %.preheader119 [
+  switch i8 %18, label %.preheader117 [
     i8 32, label %av_isspace.exit.thread.i.i
     i8 13, label %av_isspace.exit.thread.i.i
     i8 12, label %av_isspace.exit.thread.i.i
@@ -511,17 +511,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_multipart_header(ptr
 av_isspace.exit.thread.i.i:                       ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   store i8 0, ptr %17, align 1, !tbaa !12
   %19 = icmp ugt ptr %17, %5
-  br i1 %19, label %.lr.ph.i.i, label %.preheader119, !llvm.loop !31
+  br i1 %19, label %.lr.ph.i.i, label %.preheader117, !llvm.loop !31
 
 get_line.exit:                                    ; preds = %4
   %20 = icmp slt i32 %8, 0
-  br i1 %20, label %get_line.exit.thread, label %.preheader119
+  br i1 %20, label %get_line.exit.thread, label %.preheader117
 
-.preheader119:                                    ; preds = %.lr.ph.i.i, %av_isspace.exit.thread.i.i, %14, %12, %get_line.exit
+.preheader117:                                    ; preds = %.lr.ph.i.i, %av_isspace.exit.thread.i.i, %14, %12, %get_line.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %22
 
-22:                                               ; preds = %.preheader119, %get_line.exit58
+22:                                               ; preds = %.preheader117, %get_line.exit58
   %23 = load i8, ptr %5, align 16, !tbaa !12
   %.not = icmp eq i8 %23, 0
   br i1 %.not, label %24, label %38
@@ -581,8 +581,8 @@ get_line.exit58:                                  ; preds = %.lr.ph.i.i55, %av_i
 
 .preheader:                                       ; preds = %38
   %40 = load i32, ptr %21, align 8, !tbaa !30
-  %.not43131 = icmp eq i32 %40, 0
-  br i1 %.not43131, label %.lr.ph, label %split_tag_value.exit.thread110.thread
+  %.not43129 = icmp eq i32 %40, 0
+  br i1 %.not43129, label %.lr.ph, label %split_tag_value.exit.thread108.thread
 
 .lr.ph:                                           ; preds = %.preheader
   %41 = icmp ne ptr %3, null
@@ -598,7 +598,7 @@ get_line.exit58:                                  ; preds = %.lr.ph.i.i55, %av_i
   br label %get_line.exit.thread
 
 45:                                               ; preds = %.lr.ph, %split_tag_value.exit
-  %.029132 = phi i32 [ 0, %.lr.ph ], [ %.2, %split_tag_value.exit ]
+  %.029130 = phi i32 [ 0, %.lr.ph ], [ %.2, %split_tag_value.exit ]
   %46 = call i32 @ff_get_line(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 128) #9
   %47 = load i32, ptr %7, align 4, !tbaa !28
   %.not.i59 = icmp eq i32 %47, 0
@@ -607,17 +607,17 @@ get_line.exit58:                                  ; preds = %.lr.ph.i.i55, %av_i
 48:                                               ; preds = %45
   %49 = load i32, ptr %21, align 8, !tbaa !30
   %.not8.i61 = icmp eq i32 %49, 0
-  br i1 %.not8.i61, label %50, label %split_tag_value.exit.thread110
+  br i1 %.not8.i61, label %50, label %split_tag_value.exit.thread108
 
 50:                                               ; preds = %48
   %51 = load i8, ptr %5, align 16, !tbaa !12
   %.not.i.i62 = icmp eq i8 %51, 0
-  br i1 %.not.i.i62, label %split_tag_value.exit.thread110, label %52
+  br i1 %.not.i.i62, label %split_tag_value.exit.thread108, label %52
 
 52:                                               ; preds = %50
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #10
   %.not14.i.i63 = icmp eq i64 %53, 0
-  br i1 %.not14.i.i63, label %get_line.exit68.thread.thread117.preheader, label %.lr.ph.preheader.i.i64
+  br i1 %.not14.i.i63, label %get_line.exit68.thread.thread115.preheader, label %.lr.ph.preheader.i.i64
 
 .lr.ph.preheader.i.i64:                           ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 %53
@@ -643,25 +643,25 @@ av_isspace.exit.thread.i.i67:                     ; preds = %.lr.ph.i.i65, %.lr.
 
 get_line.exit68:                                  ; preds = %45
   %58 = icmp slt i32 %47, 0
-  br i1 %58, label %get_line.exit68.thread91, label %get_line.exit68.thread
+  br i1 %58, label %get_line.exit68.thread89, label %get_line.exit68.thread
 
-get_line.exit68.thread91:                         ; preds = %get_line.exit68
+get_line.exit68.thread89:                         ; preds = %get_line.exit68
   %59 = icmp eq i32 %47, -541478725
-  br i1 %59, label %split_tag_value.exit.thread110, label %get_line.exit.thread
+  br i1 %59, label %split_tag_value.exit.thread108, label %get_line.exit.thread
 
 get_line.exit68.thread:                           ; preds = %av_isspace.exit.thread.i.i67, %.lr.ph.i.i65, %get_line.exit68
-  %.pr116 = load i8, ptr %5, align 16, !tbaa !12
-  %60 = icmp eq i8 %.pr116, 0
-  br i1 %60, label %split_tag_value.exit.thread110, label %get_line.exit68.thread.thread117.preheader
+  %.pr114 = load i8, ptr %5, align 16, !tbaa !12
+  %60 = icmp eq i8 %.pr114, 0
+  br i1 %60, label %split_tag_value.exit.thread108, label %get_line.exit68.thread.thread115.preheader
 
-get_line.exit68.thread.thread117.preheader:       ; preds = %52, %get_line.exit68.thread
-  %.ph = phi i8 [ %51, %52 ], [ %.pr116, %get_line.exit68.thread ]
-  br label %get_line.exit68.thread.thread117
+get_line.exit68.thread.thread115.preheader:       ; preds = %52, %get_line.exit68.thread
+  %.ph = phi i8 [ %51, %52 ], [ %.pr114, %get_line.exit68.thread ]
+  br label %get_line.exit68.thread.thread115
 
-get_line.exit68.thread.thread117:                 ; preds = %get_line.exit68.thread.thread117.preheader, %av_isspace.exit.thread.i
-  %61 = phi i8 [ %.pr, %av_isspace.exit.thread.i ], [ %.ph, %get_line.exit68.thread.thread117.preheader ]
-  %.019.i = phi ptr [ %63, %av_isspace.exit.thread.i ], [ %5, %get_line.exit68.thread.thread117.preheader ]
-  %.0.i69 = phi i32 [ %62, %av_isspace.exit.thread.i ], [ 0, %get_line.exit68.thread.thread117.preheader ]
+get_line.exit68.thread.thread115:                 ; preds = %get_line.exit68.thread.thread115.preheader, %av_isspace.exit.thread.i
+  %61 = phi i8 [ %.pr, %av_isspace.exit.thread.i ], [ %.ph, %get_line.exit68.thread.thread115.preheader ]
+  %.019.i = phi ptr [ %63, %av_isspace.exit.thread.i ], [ %5, %get_line.exit68.thread.thread115.preheader ]
+  %.0.i69 = phi i32 [ %62, %av_isspace.exit.thread.i ], [ 0, %get_line.exit68.thread.thread115.preheader ]
   switch i8 %61, label %av_isspace.exit.i [
     i8 58, label %65
     i8 0, label %64
@@ -670,24 +670,23 @@ get_line.exit68.thread.thread117:                 ; preds = %get_line.exit68.thr
     i8 12, label %av_isspace.exit.thread.i
     i8 10, label %av_isspace.exit.thread.i
     i8 9, label %av_isspace.exit.thread.i
+    i8 11, label %av_isspace.exit.thread.i
   ]
 
-av_isspace.exit.i:                                ; preds = %get_line.exit68.thread.thread117
-  %.not.i76 = icmp eq i8 %61, 11
-  %spec.select.i = select i1 %.not.i76, i32 %.0.i69, i32 1
+av_isspace.exit.i:                                ; preds = %get_line.exit68.thread.thread115
   br label %av_isspace.exit.thread.i
 
-av_isspace.exit.thread.i:                         ; preds = %av_isspace.exit.i, %get_line.exit68.thread.thread117, %get_line.exit68.thread.thread117, %get_line.exit68.thread.thread117, %get_line.exit68.thread.thread117, %get_line.exit68.thread.thread117
-  %62 = phi i32 [ %spec.select.i, %av_isspace.exit.i ], [ %.0.i69, %get_line.exit68.thread.thread117 ], [ %.0.i69, %get_line.exit68.thread.thread117 ], [ %.0.i69, %get_line.exit68.thread.thread117 ], [ %.0.i69, %get_line.exit68.thread.thread117 ], [ %.0.i69, %get_line.exit68.thread.thread117 ]
+av_isspace.exit.thread.i:                         ; preds = %av_isspace.exit.i, %get_line.exit68.thread.thread115, %get_line.exit68.thread.thread115, %get_line.exit68.thread.thread115, %get_line.exit68.thread.thread115, %get_line.exit68.thread.thread115, %get_line.exit68.thread.thread115
+  %62 = phi i32 [ 1, %av_isspace.exit.i ], [ %.0.i69, %get_line.exit68.thread.thread115 ], [ %.0.i69, %get_line.exit68.thread.thread115 ], [ %.0.i69, %get_line.exit68.thread.thread115 ], [ %.0.i69, %get_line.exit68.thread.thread115 ], [ %.0.i69, %get_line.exit68.thread.thread115 ], [ %.0.i69, %get_line.exit68.thread.thread115 ]
   %63 = getelementptr inbounds nuw i8, ptr %.019.i, i64 1
   %.pr = load i8, ptr %63, align 1, !tbaa !12
-  br label %get_line.exit68.thread.thread117, !llvm.loop !60
+  br label %get_line.exit68.thread.thread115, !llvm.loop !60
 
-64:                                               ; preds = %get_line.exit68.thread.thread117
+64:                                               ; preds = %get_line.exit68.thread.thread115
   %.not26.i = icmp eq i32 %.0.i69, 0
-  br i1 %.not26.i, label %split_tag_value.exit.thread110, label %get_line.exit.thread
+  br i1 %.not26.i, label %split_tag_value.exit.thread108, label %get_line.exit.thread
 
-65:                                               ; preds = %get_line.exit68.thread.thread117
+65:                                               ; preds = %get_line.exit68.thread.thread115
   store i8 0, ptr %.019.i, align 1, !tbaa !12
   %66 = load i8, ptr %5, align 16, !tbaa !12
   %.not.i.i70 = icmp eq i8 %66, 0
@@ -806,13 +805,13 @@ av_isspace.exit.thread.i34.i:                     ; preds = %.lr.ph.i32.i, %.lr.
 92:                                               ; preds = %85
   %93 = icmp sgt i64 %86, 2147483647
   %94 = trunc i64 %86 to i32
-  %spec.select.i77 = select i1 %93, i32 -34, i32 %94
+  %spec.select.i = select i1 %93, i32 -34, i32 %94
   br label %parse_content_length.exit
 
 parse_content_length.exit:                        ; preds = %88, %92
-  %.0.i78 = phi i32 [ %91, %88 ], [ %spec.select.i77, %92 ]
-  store i32 %.0.i78, ptr %1, align 4, !tbaa !53
-  %95 = icmp slt i32 %.0.i78, 0
+  %.0.i76 = phi i32 [ %91, %88 ], [ %spec.select.i, %92 ]
+  store i32 %.0.i76, ptr %1, align 4, !tbaa !53
+  %95 = icmp slt i32 %.0.i76, 0
   %or.cond3 = and i1 %41, %95
   br i1 %or.cond3, label %96, label %split_tag_value.exit
 
@@ -821,22 +820,22 @@ parse_content_length.exit:                        ; preds = %88, %92
   br label %split_tag_value.exit
 
 split_tag_value.exit:                             ; preds = %parse_content_length.exit, %96, %83, %79
-  %.2 = phi i32 [ %.029132, %83 ], [ %.029132, %96 ], [ %.029132, %parse_content_length.exit ], [ 1, %79 ]
+  %.2 = phi i32 [ %.029130, %83 ], [ %.029130, %96 ], [ %.029130, %parse_content_length.exit ], [ 1, %79 ]
   %97 = load i32, ptr %21, align 8, !tbaa !30
   %.not43 = icmp eq i32 %97, 0
-  br i1 %.not43, label %45, label %split_tag_value.exit.thread110
+  br i1 %.not43, label %45, label %split_tag_value.exit.thread108
 
-split_tag_value.exit.thread110:                   ; preds = %split_tag_value.exit, %get_line.exit68.thread, %48, %50, %get_line.exit68.thread91, %64
-  %.029128 = phi i32 [ %.029132, %get_line.exit68.thread91 ], [ %.029132, %64 ], [ %.2, %split_tag_value.exit ], [ %.029132, %get_line.exit68.thread ], [ %.029132, %48 ], [ %.029132, %50 ]
-  %.029128.fr = freeze i32 %.029128
-  %.not48 = icmp eq i32 %.029128.fr, 0
-  br i1 %.not48, label %split_tag_value.exit.thread110.thread, label %get_line.exit.thread
+split_tag_value.exit.thread108:                   ; preds = %split_tag_value.exit, %get_line.exit68.thread, %48, %50, %get_line.exit68.thread89, %64
+  %.029126 = phi i32 [ %.029130, %get_line.exit68.thread89 ], [ %.029130, %64 ], [ %.2, %split_tag_value.exit ], [ %.029130, %get_line.exit68.thread ], [ %.029130, %48 ], [ %.029130, %50 ]
+  %.029126.fr = freeze i32 %.029126
+  %.not48 = icmp eq i32 %.029126.fr, 0
+  br i1 %.not48, label %split_tag_value.exit.thread108.thread, label %get_line.exit.thread
 
-split_tag_value.exit.thread110.thread:            ; preds = %.preheader, %split_tag_value.exit.thread110
+split_tag_value.exit.thread108.thread:            ; preds = %.preheader, %split_tag_value.exit.thread108
   br label %get_line.exit.thread
 
-get_line.exit.thread:                             ; preds = %27, %get_line.exit58, %split_tag_value.exit.thread110.thread, %split_tag_value.exit.thread110, %64, %81, %82, %get_line.exit68.thread91, %9, %42, %43, %get_line.exit
-  %.030 = phi i32 [ %8, %get_line.exit ], [ -1094995529, %43 ], [ -1094995529, %42 ], [ -541478725, %9 ], [ -1094995529, %64 ], [ -1094995529, %81 ], [ -1094995529, %82 ], [ %47, %get_line.exit68.thread91 ], [ -1094995529, %split_tag_value.exit.thread110.thread ], [ 0, %split_tag_value.exit.thread110 ], [ -541478725, %27 ], [ %.0.i50, %get_line.exit58 ]
+get_line.exit.thread:                             ; preds = %27, %get_line.exit58, %split_tag_value.exit.thread108.thread, %split_tag_value.exit.thread108, %64, %81, %82, %get_line.exit68.thread89, %9, %42, %43, %get_line.exit
+  %.030 = phi i32 [ %8, %get_line.exit ], [ -1094995529, %43 ], [ -1094995529, %42 ], [ -541478725, %9 ], [ -1094995529, %64 ], [ -1094995529, %81 ], [ -1094995529, %82 ], [ %47, %get_line.exit68.thread89 ], [ -1094995529, %split_tag_value.exit.thread108.thread ], [ 0, %split_tag_value.exit.thread108 ], [ -541478725, %27 ], [ %.0.i50, %get_line.exit58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.030
 }

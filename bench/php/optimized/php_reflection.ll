@@ -8405,7 +8405,7 @@ define hidden void @zim_ReflectionParameter_isDefaultValueConstant(ptr noundef r
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  br label %87
+  br label %84
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8425,11 +8425,11 @@ define hidden void @zim_ReflectionParameter_isDefaultValueConstant(ptr noundef r
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = load ptr, ptr @reflection_exception_ptr, align 8, !tbaa !36
   %19 = icmp eq ptr %17, %18
-  br i1 %19, label %87, label %20
+  br i1 %19, label %84, label %20
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10) #13
-  br label %87
+  br label %84
 
 21:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8525,51 +8525,50 @@ get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.
 get_parameter_default.exit.thread15:              ; preds = %get_parameter_default.exit.get_parameter_default.exit.thread15_crit_edge, %47, %58
   %67 = phi i8 [ %.pre, %get_parameter_default.exit.get_parameter_default.exit.thread15_crit_edge ], [ %57, %47 ], [ %57, %58 ]
   %68 = icmp eq i8 %67, 11
-  br i1 %68, label %69, label %76
+  br i1 %68, label %69, label %switch.edge
 
 69:                                               ; preds = %get_parameter_default.exit.thread15
   %70 = load ptr, ptr %3, align 8, !tbaa !26
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i16, ptr %71, align 8, !tbaa !179
   switch i16 %72, label %73 [
-    i16 65, label %76
-    i16 2, label %76
+    i16 65, label %switch.edge
+    i16 2, label %switch.edge
+    i16 517, label %switch.edge
   ]
 
 73:                                               ; preds = %69
-  %74 = icmp eq i16 %72, 517
-  %75 = select i1 %74, i32 3, i32 2
-  br label %76
+  br label %switch.edge
 
-76:                                               ; preds = %get_parameter_default.exit.thread15, %73, %69, %69
-  %.sink = phi i32 [ 3, %69 ], [ %75, %73 ], [ 3, %69 ], [ 2, %get_parameter_default.exit.thread15 ]
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.sink, ptr %77, align 8, !tbaa !26
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %79 = load i8, ptr %78, align 1, !tbaa !26
-  %.not.i = icmp eq i8 %79, 0
-  br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %80
+switch.edge:                                      ; preds = %get_parameter_default.exit.thread15, %73, %69, %69, %69
+  %.sink = phi i32 [ 3, %69 ], [ 2, %73 ], [ 3, %69 ], [ 3, %69 ], [ 2, %get_parameter_default.exit.thread15 ]
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.sink, ptr %74, align 8, !tbaa !26
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %76 = load i8, ptr %75, align 1, !tbaa !26
+  %.not.i = icmp eq i8 %76, 0
+  br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %77
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %3, align 8, !tbaa !26
-  %82 = load i32, ptr %81, align 4, !tbaa !35
-  %83 = icmp ne i32 %82, 0
-  call void @llvm.assume(i1 %83)
-  %84 = add i32 %82, -1
-  store i32 %84, ptr %81, align 4, !tbaa !35
-  %.not3.i = icmp eq i32 %84, 0
-  br i1 %.not3.i, label %85, label %zval_ptr_dtor_nogc.exit
+77:                                               ; preds = %switch.edge
+  %78 = load ptr, ptr %3, align 8, !tbaa !26
+  %79 = load i32, ptr %78, align 4, !tbaa !35
+  %80 = icmp ne i32 %79, 0
+  call void @llvm.assume(i1 %80)
+  %81 = add i32 %79, -1
+  store i32 %81, ptr %78, align 4, !tbaa !35
+  %.not3.i = icmp eq i32 %81, 0
+  br i1 %.not3.i, label %82, label %zval_ptr_dtor_nogc.exit
 
-85:                                               ; preds = %80
-  %86 = load ptr, ptr %3, align 8, !tbaa !26
-  call void @rc_dtor_func(ptr noundef %86) #13
+82:                                               ; preds = %77
+  %83 = load ptr, ptr %3, align 8, !tbaa !26
+  call void @rc_dtor_func(ptr noundef %83) #13
   br label %zval_ptr_dtor_nogc.exit
 
-zval_ptr_dtor_nogc.exit:                          ; preds = %85, %80, %76, %get_parameter_default.exit.thread
+zval_ptr_dtor_nogc.exit:                          ; preds = %82, %77, %switch.edge, %get_parameter_default.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %87
+  br label %84
 
-87:                                               ; preds = %15, %zval_ptr_dtor_nogc.exit, %20, %6
+84:                                               ; preds = %15, %zval_ptr_dtor_nogc.exit, %20, %6
   ret void
 }
 

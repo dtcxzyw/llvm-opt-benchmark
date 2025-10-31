@@ -24,6 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [9 x i8] c"DTLSv1.2\00", align 1
 @.str.13 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 @cbb_add_hex.hextable = internal unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 16
+@switch.table.SSL_get_error = private unnamed_addr constant [6 x i32] [i32 4, i32 9, i32 5, i32 5, i32 5, i32 13], align 4
 @switch.table.ssl3_is_version_enabled = private unnamed_addr constant [4 x i32] [i32 25, i32 26, i32 28, i32 27], align 4
 
 ; Function Attrs: nounwind uwtable
@@ -1491,24 +1492,21 @@ thread-pre-split:                                 ; preds = %42
 
 46:                                               ; preds = %thread-pre-split, %33
   %47 = phi i32 [ %.pr, %thread-pre-split ], [ %34, %33 ]
-  switch i32 %47, label %48 [
-    i32 4, label %50
-    i32 5, label %.fold.split46
-  ]
-
-48:                                               ; preds = %46
-  %49 = icmp eq i32 %47, 9
-  %.39 = select i1 %49, i32 13, i32 5
-  br label %50
+  %switch.tableidx = add i32 %47, -4
+  %48 = icmp ult i32 %switch.tableidx, 6
+  br i1 %48, label %switch.lookup, label %50
 
 .fold.split:                                      ; preds = %20
   br label %50
 
-.fold.split46:                                    ; preds = %46
+switch.lookup:                                    ; preds = %46
+  %49 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SSL_get_error, i64 %49
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %50
 
-50:                                               ; preds = %46, %.fold.split46, %20, %.fold.split, %44, %31, %48, %40, %36, %27, %23, %14, %6, %2, %19
-  %.0 = phi i32 [ 5, %19 ], [ 0, %2 ], [ %., %6 ], [ 6, %14 ], [ 11, %20 ], [ 2, %23 ], [ 3, %27 ], [ 3, %36 ], [ 2, %40 ], [ %47, %46 ], [ %.39, %48 ], [ %switch.select41, %31 ], [ %switch.select45, %44 ], [ 12, %.fold.split ], [ 9, %.fold.split46 ]
+50:                                               ; preds = %46, %switch.lookup, %20, %.fold.split, %44, %31, %40, %36, %27, %23, %14, %6, %2, %19
+  %.0 = phi i32 [ 5, %19 ], [ 0, %2 ], [ %., %6 ], [ 6, %14 ], [ 11, %20 ], [ 2, %23 ], [ 3, %27 ], [ 3, %36 ], [ 2, %40 ], [ %switch.select41, %31 ], [ %switch.select45, %44 ], [ 12, %.fold.split ], [ %switch.load, %switch.lookup ], [ 5, %46 ]
   ret i32 %.0
 }
 

@@ -43,118 +43,106 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hiddev_hid_e
 define dso_local void @hiddev_hid_event(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %6 = load i32, ptr %5, align 4
-  switch i32 %6, label %7 [
-    i32 0, label %11
-    i32 1, label %10
-  ]
+  %7 = icmp ult i32 %6, 3
+  %switch.offset = add nsw i32 %6, 1
+  %8 = select i1 %7, i32 %switch.offset, i32 0
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %12 = load i32, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %2 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = sdiv exact i64 %19, 24
+  %21 = trunc i64 %20 to i32
+  %22 = load i32, ptr %2, align 4
+  %23 = getelementptr i8, ptr %0, i64 7184
+  %.val = load ptr, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 96
+  %25 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %24) #13
+  %26 = getelementptr inbounds nuw i8, ptr %.val, i64 80
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, %26
+  br i1 %28, label %hiddev_send_event.exit, label %.preheader
 
-7:                                                ; preds = %4
-  %8 = icmp eq i32 %6, 2
-  %9 = select i1 %8, i32 3, i32 0
-  br label %11
+.preheader:                                       ; preds = %4
+  %29 = icmp eq i32 %14, -1
+  br i1 %29, label %.preheader.split.us, label %.preheader.split
 
-10:                                               ; preds = %4
-  br label %11
+.preheader.split.us:                              ; preds = %.preheader, %45
+  %30 = phi ptr [ %46, %45 ], [ %27, %.preheader ]
+  %31 = getelementptr i8, ptr %30, i64 -24
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %32, 2
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %45, label %35
 
-11:                                               ; preds = %10, %7, %4
-  %12 = phi i32 [ 1, %4 ], [ %9, %7 ], [ 2, %10 ]
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %2 to i64
-  %22 = ptrtoint ptr %20 to i64
-  %23 = sub i64 %21, %22
-  %24 = sdiv exact i64 %23, 24
-  %25 = trunc i64 %24 to i32
-  %26 = load i32, ptr %2, align 4
-  %27 = getelementptr i8, ptr %0, i64 7184
-  %.val = load ptr, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %.val, i64 96
-  %29 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %28) #13
-  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 80
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, %30
-  br i1 %32, label %hiddev_send_event.exit, label %.preheader
-
-.preheader:                                       ; preds = %11
-  %33 = icmp eq i32 %18, -1
-  br i1 %33, label %.preheader.split.us, label %.preheader.split
-
-.preheader.split.us:                              ; preds = %.preheader, %49
-  %34 = phi ptr [ %50, %49 ], [ %31, %.preheader ]
-  %35 = getelementptr i8, ptr %34, i64 -24
-  %36 = load i32, ptr %35, align 8
-  %37 = and i32 %36, 2
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %49, label %39
-
-39:                                               ; preds = %.preheader.split.us
-  %40 = getelementptr i8, ptr %34, i64 -49184
-  %41 = getelementptr i8, ptr %34, i64 -32
-  %42 = load i32, ptr %41, align 8
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr %struct.hiddev_usage_ref, ptr %40, i64 %43
-  store i32 %12, ptr %44, align 8
-  %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i32 %16, ptr %.sroa.5.0..sroa_idx.us, align 4
-  %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %44, i64 8
+35:                                               ; preds = %.preheader.split.us
+  %36 = getelementptr i8, ptr %30, i64 -49184
+  %37 = getelementptr i8, ptr %30, i64 -32
+  %38 = load i32, ptr %37, align 8
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr %struct.hiddev_usage_ref, ptr %36, i64 %39
+  store i32 %8, ptr %40, align 8
+  %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %40, i64 4
+  store i32 %12, ptr %.sroa.5.0..sroa_idx.us, align 4
+  %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 -1, ptr %.sroa.6.0..sroa_idx.us, align 8
-  %.sroa.8.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %44, i64 12
-  store i32 %25, ptr %.sroa.8.0..sroa_idx.us, align 4
-  %.sroa.9.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i32 %26, ptr %.sroa.9.0..sroa_idx.us, align 8
-  %.sroa.10.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %44, i64 20
+  %.sroa.8.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %40, i64 12
+  store i32 %21, ptr %.sroa.8.0..sroa_idx.us, align 4
+  %.sroa.9.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store i32 %22, ptr %.sroa.9.0..sroa_idx.us, align 8
+  %.sroa.10.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i32 %3, ptr %.sroa.10.0..sroa_idx.us, align 4
-  %45 = load i32, ptr %41, align 8
-  %46 = add i32 %45, 1
-  %47 = and i32 %46, 2047
-  store i32 %47, ptr %41, align 8
-  %48 = getelementptr i8, ptr %34, i64 -16
-  tail call void @kill_fasync(ptr noundef %48, i32 noundef 29, i32 noundef 1) #13
-  br label %49
+  %41 = load i32, ptr %37, align 8
+  %42 = add i32 %41, 1
+  %43 = and i32 %42, 2047
+  store i32 %43, ptr %37, align 8
+  %44 = getelementptr i8, ptr %30, i64 -16
+  tail call void @kill_fasync(ptr noundef %44, i32 noundef 29, i32 noundef 1) #13
+  br label %45
 
-49:                                               ; preds = %39, %.preheader.split.us
-  %50 = load ptr, ptr %34, align 8
-  %51 = icmp eq ptr %50, %30
-  br i1 %51, label %hiddev_send_event.exit, label %.preheader.split.us, !llvm.loop !6
+45:                                               ; preds = %35, %.preheader.split.us
+  %46 = load ptr, ptr %30, align 8
+  %47 = icmp eq ptr %46, %26
+  br i1 %47, label %hiddev_send_event.exit, label %.preheader.split.us, !llvm.loop !6
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
-  %52 = phi ptr [ %62, %.preheader.split ], [ %31, %.preheader ]
-  %53 = getelementptr i8, ptr %52, i64 -49184
-  %54 = getelementptr i8, ptr %52, i64 -32
-  %55 = load i32, ptr %54, align 8
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr %struct.hiddev_usage_ref, ptr %53, i64 %56
-  store i32 %12, ptr %57, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 %16, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 %18, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 12
-  store i32 %25, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i32 %26, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 20
+  %48 = phi ptr [ %58, %.preheader.split ], [ %27, %.preheader ]
+  %49 = getelementptr i8, ptr %48, i64 -49184
+  %50 = getelementptr i8, ptr %48, i64 -32
+  %51 = load i32, ptr %50, align 8
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr %struct.hiddev_usage_ref, ptr %49, i64 %52
+  store i32 %8, ptr %53, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i32 %12, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i32 %14, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 12
+  store i32 %21, ptr %.sroa.8.0..sroa_idx, align 4
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store i32 %22, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 20
   store i32 %3, ptr %.sroa.10.0..sroa_idx, align 4
-  %58 = load i32, ptr %54, align 8
-  %59 = add i32 %58, 1
-  %60 = and i32 %59, 2047
-  store i32 %60, ptr %54, align 8
-  %61 = getelementptr i8, ptr %52, i64 -16
-  tail call void @kill_fasync(ptr noundef %61, i32 noundef 29, i32 noundef 1) #13
-  %62 = load ptr, ptr %52, align 8
-  %63 = icmp eq ptr %62, %30
-  br i1 %63, label %hiddev_send_event.exit, label %.preheader.split, !llvm.loop !6
+  %54 = load i32, ptr %50, align 8
+  %55 = add i32 %54, 1
+  %56 = and i32 %55, 2047
+  store i32 %56, ptr %50, align 8
+  %57 = getelementptr i8, ptr %48, i64 -16
+  tail call void @kill_fasync(ptr noundef %57, i32 noundef 29, i32 noundef 1) #13
+  %58 = load ptr, ptr %48, align 8
+  %59 = icmp eq ptr %58, %26
+  br i1 %59, label %hiddev_send_event.exit, label %.preheader.split, !llvm.loop !6
 
-hiddev_send_event.exit:                           ; preds = %.preheader.split, %49, %11
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %28, i64 noundef %29) #13
-  %64 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  %65 = tail call i32 @__wake_up(ptr noundef nonnull %64, i32 noundef 1, i32 noundef 1, ptr noundef null) #13
+hiddev_send_event.exit:                           ; preds = %.preheader.split, %45, %4
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %24, i64 noundef %25) #13
+  %60 = getelementptr inbounds nuw i8, ptr %.val, i64 48
+  %61 = tail call i32 @__wake_up(ptr noundef nonnull %60, i32 noundef 1, i32 noundef 1, ptr noundef null) #13
   ret void
 }
 
@@ -165,70 +153,58 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local void @hiddev_report_event(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %5 [
-    i32 0, label %9
-    i32 1, label %8
-  ]
+  %5 = icmp ult i32 %4, 3
+  %switch.offset = add nsw i32 %4, 1
+  %6 = select i1 %5, i32 %switch.offset, i32 0
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr i8, ptr %0, i64 7184
+  %.val = load ptr, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 96
+  %11 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %10) #13
+  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 80
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, %12
+  br i1 %14, label %hiddev_send_event.exit, label %.preheader
 
-5:                                                ; preds = %2
-  %6 = icmp eq i32 %4, 2
-  %7 = select i1 %6, i32 3, i32 0
-  br label %9
+.preheader:                                       ; preds = %2, %30
+  %15 = phi ptr [ %31, %30 ], [ %13, %2 ]
+  %16 = getelementptr i8, ptr %15, i64 -24
+  %17 = load i32, ptr %16, align 8
+  %18 = and i32 %17, 2
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %30, label %20
 
-8:                                                ; preds = %2
-  br label %9
-
-9:                                                ; preds = %8, %5, %2
-  %10 = phi i32 [ 1, %2 ], [ %7, %5 ], [ 2, %8 ]
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = load i32, ptr %11, align 8
-  %13 = getelementptr i8, ptr %0, i64 7184
-  %.val = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 96
-  %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %14) #13
-  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 80
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %16
-  br i1 %18, label %hiddev_send_event.exit, label %.preheader
-
-.preheader:                                       ; preds = %9, %34
-  %19 = phi ptr [ %35, %34 ], [ %17, %9 ]
-  %20 = getelementptr i8, ptr %19, i64 -24
-  %21 = load i32, ptr %20, align 8
-  %22 = and i32 %21, 2
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %34, label %24
-
-24:                                               ; preds = %.preheader
-  %25 = getelementptr i8, ptr %19, i64 -49184
-  %26 = getelementptr i8, ptr %19, i64 -32
-  %27 = load i32, ptr %26, align 8
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr %struct.hiddev_usage_ref, ptr %25, i64 %28
-  store i32 %10, ptr %29, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i32 %12, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
+20:                                               ; preds = %.preheader
+  %21 = getelementptr i8, ptr %15, i64 -49184
+  %22 = getelementptr i8, ptr %15, i64 -32
+  %23 = load i32, ptr %22, align 8
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr %struct.hiddev_usage_ref, ptr %21, i64 %24
+  store i32 %6, ptr %25, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store i32 %8, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 -1, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 12
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.8.0..sroa_idx, i8 0, i64 12, i1 false)
-  %30 = load i32, ptr %26, align 8
-  %31 = add i32 %30, 1
-  %32 = and i32 %31, 2047
-  store i32 %32, ptr %26, align 8
-  %33 = getelementptr i8, ptr %19, i64 -16
-  tail call void @kill_fasync(ptr noundef %33, i32 noundef 29, i32 noundef 1) #13
-  br label %34
+  %26 = load i32, ptr %22, align 8
+  %27 = add i32 %26, 1
+  %28 = and i32 %27, 2047
+  store i32 %28, ptr %22, align 8
+  %29 = getelementptr i8, ptr %15, i64 -16
+  tail call void @kill_fasync(ptr noundef %29, i32 noundef 29, i32 noundef 1) #13
+  br label %30
 
-34:                                               ; preds = %24, %.preheader
-  %35 = load ptr, ptr %19, align 8
-  %36 = icmp eq ptr %35, %16
-  br i1 %36, label %hiddev_send_event.exit, label %.preheader, !llvm.loop !6
+30:                                               ; preds = %20, %.preheader
+  %31 = load ptr, ptr %15, align 8
+  %32 = icmp eq ptr %31, %12
+  br i1 %32, label %hiddev_send_event.exit, label %.preheader, !llvm.loop !6
 
-hiddev_send_event.exit:                           ; preds = %34, %9
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %14, i64 noundef %15) #13
-  %37 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  %38 = tail call i32 @__wake_up(ptr noundef nonnull %37, i32 noundef 1, i32 noundef 1, ptr noundef null) #13
+hiddev_send_event.exit:                           ; preds = %30, %2
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %10, i64 noundef %11) #13
+  %33 = getelementptr inbounds nuw i8, ptr %.val, i64 48
+  %34 = tail call i32 @__wake_up(ptr noundef nonnull %33, i32 noundef 1, i32 noundef 1, ptr noundef null) #13
   ret void
 }
 

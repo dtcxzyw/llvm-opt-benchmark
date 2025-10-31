@@ -344,7 +344,7 @@ define internal fastcc void @earlycon_init(ptr noundef %0) unnamed_addr #0 secti
 define internal fastcc void @earlycon_print_info() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @early_console_dev, align 8
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 202), align 2
-  switch i8 %2, label %14 [
+  switch i8 %2, label %12 [
     i8 2, label %3
     i8 7, label %3
     i8 3, label %3
@@ -356,32 +356,34 @@ define internal fastcc void @earlycon_print_info() unnamed_addr #0 section ".ini
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
   switch i8 %2, label %7 [
-    i8 2, label %11
-    i8 7, label %10
+    i8 2, label %9
+    i8 7, label %8
+    i8 3, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %3
+  br label %9
+
 7:                                                ; preds = %3
-  %8 = icmp eq i8 %2, 3
-  %9 = select i1 %8, ptr @.str.6, ptr @.str.7
-  br label %11
+  br label %9
 
-10:                                               ; preds = %3
-  br label %11
+8:                                                ; preds = %3
+  br label %9
 
-11:                                               ; preds = %10, %7, %3
-  %12 = phi ptr [ @.str.4, %3 ], [ %9, %7 ], [ @.str.5, %10 ]
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %6, ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 336), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 536)) #8
-  br label %20
+9:                                                ; preds = %switch.edge, %3, %8, %7
+  %10 = phi ptr [ @.str.4, %3 ], [ @.str.7, %7 ], [ @.str.5, %8 ], [ @.str.6, %switch.edge ]
+  %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %6, ptr noundef nonnull %10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 336), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 536)) #8
+  br label %18
 
-14:                                               ; preds = %0
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i32
-  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 16), align 8
-  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %17, i64 noundef %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 536)) #8
-  br label %20
+12:                                               ; preds = %0
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 74
+  %14 = load i16, ptr %13, align 2
+  %15 = sext i16 %14 to i32
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 16), align 8
+  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %15, i64 noundef %16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 536)) #8
+  br label %18
 
-20:                                               ; preds = %14, %11
+18:                                               ; preds = %12, %9
   ret void
 }
 

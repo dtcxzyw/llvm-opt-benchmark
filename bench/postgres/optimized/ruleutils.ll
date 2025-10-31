@@ -18530,7 +18530,7 @@ define internal fastcc void @get_json_format(ptr noundef readonly captures(none)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %16, label %6
+  br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %4, 2
@@ -18539,21 +18539,23 @@ define internal fastcc void @get_json_format(ptr noundef readonly captures(none)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %11 [
-    i32 0, label %16
-    i32 2, label %14
+    i32 0, label %14
+    i32 2, label %12
+    i32 3, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %6
+  br label %12
+
 11:                                               ; preds = %6
-  %12 = icmp eq i32 %10, 3
-  %13 = select i1 %12, ptr @.str.270, ptr @.str.271
+  br label %12
+
+12:                                               ; preds = %switch.edge, %6, %11
+  %13 = phi ptr [ @.str.271, %11 ], [ @.str.269, %6 ], [ @.str.270, %switch.edge ]
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1, ptr noundef nonnull @.str.272, ptr noundef nonnull %13) #10
   br label %14
 
-14:                                               ; preds = %6, %11
-  %15 = phi ptr [ %13, %11 ], [ @.str.269, %6 ]
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1, ptr noundef nonnull @.str.272, ptr noundef nonnull %15) #10
-  br label %16
-
-16:                                               ; preds = %6, %2, %14
+14:                                               ; preds = %6, %2, %12
   ret void
 }
 
@@ -18731,20 +18733,22 @@ define internal fastcc void @get_json_returning(ptr noundef readonly captures(no
   %23 = load i32, ptr %22, align 4
   switch i32 %23, label %24 [
     i32 0, label %get_json_format.exit
-    i32 2, label %27
+    i32 2, label %25
+    i32 3, label %switch.edge.i
   ]
 
-24:                                               ; preds = %19
-  %25 = icmp eq i32 %23, 3
-  %26 = select i1 %25, ptr @.str.270, ptr @.str.271
-  br label %27
+switch.edge.i:                                    ; preds = %19
+  br label %25
 
-27:                                               ; preds = %24, %19
-  %28 = phi ptr [ %26, %24 ], [ @.str.269, %19 ]
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1, ptr noundef nonnull @.str.272, ptr noundef nonnull %28) #10
+24:                                               ; preds = %19
+  br label %25
+
+25:                                               ; preds = %24, %switch.edge.i, %19
+  %26 = phi ptr [ @.str.271, %24 ], [ @.str.269, %19 ], [ @.str.270, %switch.edge.i ]
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1, ptr noundef nonnull @.str.272, ptr noundef nonnull %26) #10
   br label %get_json_format.exit
 
-get_json_format.exit:                             ; preds = %27, %19, %._crit_edge, %3, %14
+get_json_format.exit:                             ; preds = %25, %19, %._crit_edge, %3, %14
   ret void
 }
 
@@ -20648,20 +20652,22 @@ define internal fastcc void @get_json_constructor_options(ptr noundef nonnull re
   %39 = load i32, ptr %38, align 4
   switch i32 %39, label %40 [
     i32 0, label %get_json_returning.exit
-    i32 2, label %43
+    i32 2, label %41
+    i32 3, label %switch.edge.i.i
   ]
 
-40:                                               ; preds = %35
-  %41 = icmp eq i32 %39, 3
-  %42 = select i1 %41, ptr @.str.270, ptr @.str.271
-  br label %43
+switch.edge.i.i:                                  ; preds = %35
+  br label %41
 
-43:                                               ; preds = %40, %35
-  %44 = phi ptr [ %42, %40 ], [ @.str.269, %35 ]
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1, ptr noundef nonnull @.str.272, ptr noundef nonnull %44) #10
+40:                                               ; preds = %35
+  br label %41
+
+41:                                               ; preds = %40, %switch.edge.i.i, %35
+  %42 = phi ptr [ @.str.271, %40 ], [ @.str.269, %35 ], [ @.str.270, %switch.edge.i.i ]
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1, ptr noundef nonnull @.str.272, ptr noundef nonnull %42) #10
   br label %get_json_returning.exit
 
-get_json_returning.exit:                          ; preds = %43, %35, %23, %18, %15
+get_json_returning.exit:                          ; preds = %41, %35, %23, %18, %15
   ret void
 }
 

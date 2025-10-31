@@ -4493,251 +4493,253 @@ _ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit: ; p
   switch i8 %.fr, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118 [
     i8 98, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
     i8 111, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread.fold.split
+    i8 120, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit
+  br label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
+
 _ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118: ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit
-  %13 = icmp eq i8 %.fr, 120
-  %spec.select = select i1 %13, i32 16, i32 10
   br label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
 
 _ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread.fold.split: ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit
   br label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
 
-_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread: ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread.fold.split, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118, %8, %6, %4
-  %.0103 = phi i32 [ %3, %4 ], [ 2, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit ], [ 10, %6 ], [ 10, %8 ], [ %spec.select, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118 ], [ 8, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread.fold.split ]
-  %14 = add i32 %.0103, -2
-  %15 = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 31)
-  switch i32 %15, label %.loopexit [
-    i32 4, label %16
-    i32 0, label %30
-    i32 3, label %54
-    i32 7, label %78
+_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread: ; preds = %switch.edge, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread.fold.split, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118, %8, %6, %4
+  %.0103 = phi i32 [ %3, %4 ], [ 2, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit ], [ 10, %6 ], [ 10, %8 ], [ 10, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118 ], [ 8, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread.fold.split ], [ 16, %switch.edge ]
+  %13 = add i32 %.0103, -2
+  %14 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 31)
+  switch i32 %14, label %.loopexit [
+    i32 4, label %15
+    i32 0, label %29
+    i32 3, label %53
+    i32 7, label %77
   ]
 
-16:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
-  %17 = icmp eq i64 %0, 0
-  br i1 %17, label %.loopexit, label %.lr.ph218.preheader
+15:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
+  %16 = icmp eq i64 %0, 0
+  br i1 %16, label %.loopexit, label %.lr.ph218.preheader
 
-.lr.ph218.preheader:                              ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 %0
+.lr.ph218.preheader:                              ; preds = %15
+  %17 = getelementptr inbounds i8, ptr %1, i64 %0
   br label %.lr.ph218
 
-19:                                               ; preds = %24
-  %20 = getelementptr inbounds nuw i8, ptr %.0104217, i64 1
-  %.not114 = icmp eq ptr %20, %18
+18:                                               ; preds = %23
+  %19 = getelementptr inbounds nuw i8, ptr %.0104217, i64 1
+  %.not114 = icmp eq ptr %19, %17
   br i1 %.not114, label %.loopexit, label %.lr.ph218
 
-.lr.ph218:                                        ; preds = %.lr.ph218.preheader, %19
-  %21 = phi i64 [ %28, %19 ], [ 0, %.lr.ph218.preheader ]
-  %.0104217 = phi ptr [ %20, %19 ], [ %1, %.lr.ph218.preheader ]
-  %22 = load i8, ptr %.0104217, align 1
-  %23 = add i8 %22, -48
-  %or.cond = icmp ult i8 %23, 10
-  br i1 %or.cond, label %24, label %.loopexit
+.lr.ph218:                                        ; preds = %.lr.ph218.preheader, %18
+  %20 = phi i64 [ %27, %18 ], [ 0, %.lr.ph218.preheader ]
+  %.0104217 = phi ptr [ %19, %18 ], [ %1, %.lr.ph218.preheader ]
+  %21 = load i8, ptr %.0104217, align 1
+  %22 = add i8 %21, -48
+  %or.cond = icmp ult i8 %22, 10
+  br i1 %or.cond, label %23, label %.loopexit
 
-24:                                               ; preds = %.lr.ph218
-  %25 = mul nsw i64 %21, 10
-  %26 = and i8 %22, 15
-  %27 = zext nneg i8 %26 to i64
-  %28 = add nsw i64 %25, %27
-  store i64 %28, ptr %2, align 8
-  %29 = icmp slt i64 %28, %21
-  br i1 %29, label %.loopexit, label %19
+23:                                               ; preds = %.lr.ph218
+  %24 = mul nsw i64 %20, 10
+  %25 = and i8 %21, 15
+  %26 = zext nneg i8 %25 to i64
+  %27 = add nsw i64 %24, %26
+  store i64 %27, ptr %2, align 8
+  %28 = icmp slt i64 %27, %20
+  br i1 %28, label %.loopexit, label %18
 
-30:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
-  %31 = icmp ult i64 %0, 2
-  br i1 %31, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread, label %32
+29:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
+  %30 = icmp ult i64 %0, 2
+  br i1 %30, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread, label %31
 
-32:                                               ; preds = %30
-  %33 = load i8, ptr %1, align 1
-  %34 = icmp eq i8 %33, 48
-  br i1 %34, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120, label %.lr.ph210.preheader
+31:                                               ; preds = %29
+  %32 = load i8, ptr %1, align 1
+  %33 = icmp eq i8 %32, 48
+  br i1 %33, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120, label %.lr.ph210.preheader
 
-_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120: ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp eq i8 %36, 98
-  br i1 %37, label %38, label %.lr.ph210.preheader
+_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120: ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 98
+  br i1 %36, label %37, label %.lr.ph210.preheader
 
-38:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %40 = add i64 %0, -2
+37:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %39 = add i64 %0, -2
   br label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread
 
-_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread: ; preds = %30, %38
-  %.sroa.21.0 = phi ptr [ %39, %38 ], [ %1, %30 ]
-  %.sroa.0.0 = phi i64 [ %40, %38 ], [ %0, %30 ]
-  %41 = icmp eq i64 %.sroa.0.0, 0
-  br i1 %41, label %.loopexit, label %.lr.ph210.preheader
+_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread: ; preds = %29, %37
+  %.sroa.21.0 = phi ptr [ %38, %37 ], [ %1, %29 ]
+  %.sroa.0.0 = phi i64 [ %39, %37 ], [ %0, %29 ]
+  %40 = icmp eq i64 %.sroa.0.0, 0
+  br i1 %40, label %.loopexit, label %.lr.ph210.preheader
 
-.lr.ph210.preheader:                              ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120, %32
-  %.sroa.0.0164 = phi i64 [ %.sroa.0.0, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread ], [ %0, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120 ], [ %0, %32 ]
-  %.sroa.21.0163 = phi ptr [ %.sroa.21.0, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread ], [ %1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120 ], [ %1, %32 ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.21.0163, i64 %.sroa.0.0164
+.lr.ph210.preheader:                              ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120, %31
+  %.sroa.0.0164 = phi i64 [ %.sroa.0.0, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread ], [ %0, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120 ], [ %0, %31 ]
+  %.sroa.21.0163 = phi ptr [ %.sroa.21.0, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread ], [ %1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120 ], [ %1, %31 ]
+  %41 = getelementptr inbounds i8, ptr %.sroa.21.0163, i64 %.sroa.0.0164
   br label %.lr.ph210
 
-43:                                               ; preds = %48
-  %44 = getelementptr inbounds nuw i8, ptr %.0106209, i64 1
-  %.not113 = icmp eq ptr %44, %42
+42:                                               ; preds = %47
+  %43 = getelementptr inbounds nuw i8, ptr %.0106209, i64 1
+  %.not113 = icmp eq ptr %43, %41
   br i1 %.not113, label %.loopexit, label %.lr.ph210
 
-.lr.ph210:                                        ; preds = %.lr.ph210.preheader, %43
-  %45 = phi i64 [ %52, %43 ], [ 0, %.lr.ph210.preheader ]
-  %.0106209 = phi ptr [ %44, %43 ], [ %.sroa.21.0163, %.lr.ph210.preheader ]
-  %46 = load i8, ptr %.0106209, align 1
-  %47 = and i8 %46, -2
-  %or.cond5 = icmp eq i8 %47, 48
-  br i1 %or.cond5, label %48, label %.loopexit
+.lr.ph210:                                        ; preds = %.lr.ph210.preheader, %42
+  %44 = phi i64 [ %51, %42 ], [ 0, %.lr.ph210.preheader ]
+  %.0106209 = phi ptr [ %43, %42 ], [ %.sroa.21.0163, %.lr.ph210.preheader ]
+  %45 = load i8, ptr %.0106209, align 1
+  %46 = and i8 %45, -2
+  %or.cond5 = icmp eq i8 %46, 48
+  br i1 %or.cond5, label %47, label %.loopexit
 
-48:                                               ; preds = %.lr.ph210
-  %49 = shl i64 %45, 1
-  %50 = and i8 %46, 1
-  %51 = zext nneg i8 %50 to i64
-  %52 = or disjoint i64 %49, %51
-  store i64 %52, ptr %2, align 8
-  %53 = icmp slt i64 %52, %45
-  br i1 %53, label %.loopexit, label %43
+47:                                               ; preds = %.lr.ph210
+  %48 = shl i64 %44, 1
+  %49 = and i8 %45, 1
+  %50 = zext nneg i8 %49 to i64
+  %51 = or disjoint i64 %48, %50
+  store i64 %51, ptr %2, align 8
+  %52 = icmp slt i64 %51, %44
+  br i1 %52, label %.loopexit, label %42
 
-54:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
-  %55 = icmp ult i64 %0, 2
-  br i1 %55, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread, label %56
+53:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
+  %54 = icmp ult i64 %0, 2
+  br i1 %54, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread, label %55
 
-56:                                               ; preds = %54
-  %57 = load i8, ptr %1, align 1
-  %58 = icmp eq i8 %57, 48
-  br i1 %58, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122, label %.lr.ph202.preheader
+55:                                               ; preds = %53
+  %56 = load i8, ptr %1, align 1
+  %57 = icmp eq i8 %56, 48
+  br i1 %57, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122, label %.lr.ph202.preheader
 
-_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122: ; preds = %56
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %60 = load i8, ptr %59, align 1
-  %61 = icmp eq i8 %60, 111
-  br i1 %61, label %62, label %.lr.ph202.preheader
+_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122: ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %59 = load i8, ptr %58, align 1
+  %60 = icmp eq i8 %59, 111
+  br i1 %60, label %61, label %.lr.ph202.preheader
 
-62:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %64 = add i64 %0, -2
+61:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %63 = add i64 %0, -2
   br label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread
 
-_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread: ; preds = %54, %62
-  %.sroa.21.1 = phi ptr [ %63, %62 ], [ %1, %54 ]
-  %.sroa.0.1 = phi i64 [ %64, %62 ], [ %0, %54 ]
-  %65 = icmp eq i64 %.sroa.0.1, 0
-  br i1 %65, label %.loopexit, label %.lr.ph202.preheader
+_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread: ; preds = %53, %61
+  %.sroa.21.1 = phi ptr [ %62, %61 ], [ %1, %53 ]
+  %.sroa.0.1 = phi i64 [ %63, %61 ], [ %0, %53 ]
+  %64 = icmp eq i64 %.sroa.0.1, 0
+  br i1 %64, label %.loopexit, label %.lr.ph202.preheader
 
-.lr.ph202.preheader:                              ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122, %56
-  %.sroa.0.1170 = phi i64 [ %.sroa.0.1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread ], [ %0, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122 ], [ %0, %56 ]
-  %.sroa.21.1169 = phi ptr [ %.sroa.21.1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread ], [ %1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122 ], [ %1, %56 ]
-  %66 = getelementptr inbounds i8, ptr %.sroa.21.1169, i64 %.sroa.0.1170
+.lr.ph202.preheader:                              ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122, %55
+  %.sroa.0.1170 = phi i64 [ %.sroa.0.1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread ], [ %0, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122 ], [ %0, %55 ]
+  %.sroa.21.1169 = phi ptr [ %.sroa.21.1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread ], [ %1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122 ], [ %1, %55 ]
+  %65 = getelementptr inbounds i8, ptr %.sroa.21.1169, i64 %.sroa.0.1170
   br label %.lr.ph202
 
-67:                                               ; preds = %72
-  %68 = getelementptr inbounds nuw i8, ptr %.0107201, i64 1
-  %.not112 = icmp eq ptr %68, %66
+66:                                               ; preds = %71
+  %67 = getelementptr inbounds nuw i8, ptr %.0107201, i64 1
+  %.not112 = icmp eq ptr %67, %65
   br i1 %.not112, label %.loopexit, label %.lr.ph202
 
-.lr.ph202:                                        ; preds = %.lr.ph202.preheader, %67
-  %69 = phi i64 [ %76, %67 ], [ 0, %.lr.ph202.preheader ]
-  %.0107201 = phi ptr [ %68, %67 ], [ %.sroa.21.1169, %.lr.ph202.preheader ]
-  %70 = load i8, ptr %.0107201, align 1
-  %71 = and i8 %70, -8
-  %or.cond8 = icmp eq i8 %71, 48
-  br i1 %or.cond8, label %72, label %.loopexit
+.lr.ph202:                                        ; preds = %.lr.ph202.preheader, %66
+  %68 = phi i64 [ %75, %66 ], [ 0, %.lr.ph202.preheader ]
+  %.0107201 = phi ptr [ %67, %66 ], [ %.sroa.21.1169, %.lr.ph202.preheader ]
+  %69 = load i8, ptr %.0107201, align 1
+  %70 = and i8 %69, -8
+  %or.cond8 = icmp eq i8 %70, 48
+  br i1 %or.cond8, label %71, label %.loopexit
 
-72:                                               ; preds = %.lr.ph202
-  %73 = shl i64 %69, 3
-  %74 = and i8 %70, 7
-  %75 = zext nneg i8 %74 to i64
-  %76 = or disjoint i64 %73, %75
-  store i64 %76, ptr %2, align 8
-  %77 = icmp slt i64 %76, %69
-  br i1 %77, label %.loopexit, label %67
+71:                                               ; preds = %.lr.ph202
+  %72 = shl i64 %68, 3
+  %73 = and i8 %69, 7
+  %74 = zext nneg i8 %73 to i64
+  %75 = or disjoint i64 %72, %74
+  store i64 %75, ptr %2, align 8
+  %76 = icmp slt i64 %75, %68
+  br i1 %76, label %.loopexit, label %66
 
-78:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
-  %79 = icmp ult i64 %0, 2
-  br i1 %79, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread, label %80
+77:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
+  %78 = icmp ult i64 %0, 2
+  br i1 %78, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread, label %79
 
-80:                                               ; preds = %78
-  %81 = load i8, ptr %1, align 1
-  %82 = icmp eq i8 %81, 48
-  br i1 %82, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124, label %.lr.ph
+79:                                               ; preds = %77
+  %80 = load i8, ptr %1, align 1
+  %81 = icmp eq i8 %80, 48
+  br i1 %81, label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124, label %.lr.ph
 
-_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124: ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %84 = load i8, ptr %83, align 1
-  %85 = icmp eq i8 %84, 120
-  br i1 %85, label %86, label %.lr.ph
+_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124: ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %83 = load i8, ptr %82, align 1
+  %84 = icmp eq i8 %83, 120
+  br i1 %84, label %85, label %.lr.ph
 
-86:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %88 = add i64 %0, -2
+85:                                               ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %87 = add i64 %0, -2
   br label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread
 
-_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread: ; preds = %78, %86
-  %.sroa.21.2 = phi ptr [ %87, %86 ], [ %1, %78 ]
-  %.sroa.0.2 = phi i64 [ %88, %86 ], [ %0, %78 ]
-  %89 = icmp eq i64 %.sroa.0.2, 0
-  br i1 %89, label %.loopexit, label %.lr.ph
+_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread: ; preds = %77, %85
+  %.sroa.21.2 = phi ptr [ %86, %85 ], [ %1, %77 ]
+  %.sroa.0.2 = phi i64 [ %87, %85 ], [ %0, %77 ]
+  %88 = icmp eq i64 %.sroa.0.2, 0
+  br i1 %88, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124, %80
-  %.sroa.0.2176 = phi i64 [ %.sroa.0.2, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread ], [ %0, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124 ], [ %0, %80 ]
-  %.sroa.21.2175 = phi ptr [ %.sroa.21.2, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread ], [ %1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124 ], [ %1, %80 ]
-  %90 = getelementptr inbounds i8, ptr %.sroa.21.2175, i64 %.sroa.0.2176
-  br label %91
+.lr.ph:                                           ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124, %79
+  %.sroa.0.2176 = phi i64 [ %.sroa.0.2, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread ], [ %0, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124 ], [ %0, %79 ]
+  %.sroa.21.2175 = phi ptr [ %.sroa.21.2, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread ], [ %1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124 ], [ %1, %79 ]
+  %89 = getelementptr inbounds i8, ptr %.sroa.21.2175, i64 %.sroa.0.2176
+  br label %90
 
-91:                                               ; preds = %.lr.ph, %118
-  %92 = phi i64 [ 0, %.lr.ph ], [ %119, %118 ]
-  %.0105191 = phi ptr [ %.sroa.21.2175, %.lr.ph ], [ %120, %118 ]
-  %93 = load i8, ptr %.0105191, align 1
-  %94 = sext i8 %93 to i32
-  %95 = add i8 %93, -48
-  %or.cond11 = icmp ult i8 %95, 10
-  br i1 %or.cond11, label %96, label %102
+90:                                               ; preds = %.lr.ph, %117
+  %91 = phi i64 [ 0, %.lr.ph ], [ %118, %117 ]
+  %.0105191 = phi ptr [ %.sroa.21.2175, %.lr.ph ], [ %119, %117 ]
+  %92 = load i8, ptr %.0105191, align 1
+  %93 = sext i8 %92 to i32
+  %94 = add i8 %92, -48
+  %or.cond11 = icmp ult i8 %94, 10
+  br i1 %or.cond11, label %95, label %101
 
-96:                                               ; preds = %91
-  %97 = shl i64 %92, 4
-  %98 = add nsw i32 %94, -48
-  %99 = zext nneg i32 %98 to i64
-  %100 = or disjoint i64 %97, %99
-  store i64 %100, ptr %2, align 8
-  %101 = icmp slt i64 %100, %92
-  br i1 %101, label %.loopexit, label %118
+95:                                               ; preds = %90
+  %96 = shl i64 %91, 4
+  %97 = add nsw i32 %93, -48
+  %98 = zext nneg i32 %97 to i64
+  %99 = or disjoint i64 %96, %98
+  store i64 %99, ptr %2, align 8
+  %100 = icmp slt i64 %99, %91
+  br i1 %100, label %.loopexit, label %117
 
-102:                                              ; preds = %91
-  %103 = add i8 %93, -97
-  %or.cond14 = icmp ult i8 %103, 6
-  br i1 %or.cond14, label %104, label %110
+101:                                              ; preds = %90
+  %102 = add i8 %92, -97
+  %or.cond14 = icmp ult i8 %102, 6
+  br i1 %or.cond14, label %103, label %109
 
-104:                                              ; preds = %102
-  %105 = shl i64 %92, 4
-  %106 = add nsw i32 %94, -87
-  %107 = zext nneg i32 %106 to i64
-  %108 = or i64 %105, %107
-  store i64 %108, ptr %2, align 8
-  %109 = icmp slt i64 %108, %92
-  br i1 %109, label %.loopexit, label %118
+103:                                              ; preds = %101
+  %104 = shl i64 %91, 4
+  %105 = add nsw i32 %93, -87
+  %106 = zext nneg i32 %105 to i64
+  %107 = or i64 %104, %106
+  store i64 %107, ptr %2, align 8
+  %108 = icmp slt i64 %107, %91
+  br i1 %108, label %.loopexit, label %117
 
-110:                                              ; preds = %102
-  %111 = add i8 %93, -65
-  %or.cond17 = icmp ult i8 %111, 6
-  br i1 %or.cond17, label %112, label %.loopexit
+109:                                              ; preds = %101
+  %110 = add i8 %92, -65
+  %or.cond17 = icmp ult i8 %110, 6
+  br i1 %or.cond17, label %111, label %.loopexit
 
-112:                                              ; preds = %110
-  %113 = shl i64 %92, 4
-  %114 = add nsw i32 %94, -55
-  %115 = zext nneg i32 %114 to i64
-  %116 = or i64 %113, %115
-  store i64 %116, ptr %2, align 8
-  %117 = icmp slt i64 %116, %92
-  br i1 %117, label %.loopexit, label %118
+111:                                              ; preds = %109
+  %112 = shl i64 %91, 4
+  %113 = add nsw i32 %93, -55
+  %114 = zext nneg i32 %113 to i64
+  %115 = or i64 %112, %114
+  store i64 %115, ptr %2, align 8
+  %116 = icmp slt i64 %115, %91
+  br i1 %116, label %.loopexit, label %117
 
-118:                                              ; preds = %96, %112, %104
-  %119 = phi i64 [ %100, %96 ], [ %116, %112 ], [ %108, %104 ]
-  %120 = getelementptr inbounds nuw i8, ptr %.0105191, i64 1
-  %.not = icmp eq ptr %120, %90
-  br i1 %.not, label %.loopexit, label %91
+117:                                              ; preds = %95, %111, %103
+  %118 = phi i64 [ %99, %95 ], [ %115, %111 ], [ %107, %103 ]
+  %119 = getelementptr inbounds nuw i8, ptr %.0105191, i64 1
+  %.not = icmp eq ptr %119, %89
+  br i1 %.not, label %.loopexit, label %90
 
-.loopexit:                                        ; preds = %96, %104, %112, %110, %118, %72, %.lr.ph202, %67, %48, %.lr.ph210, %43, %24, %.lr.ph218, %19, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread ], [ 1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread ], [ 1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread ], [ 1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread ], [ 2, %24 ], [ 1, %.lr.ph218 ], [ 0, %19 ], [ 2, %48 ], [ 1, %.lr.ph210 ], [ 0, %43 ], [ 2, %72 ], [ 1, %.lr.ph202 ], [ 0, %67 ], [ 2, %96 ], [ 2, %104 ], [ 2, %112 ], [ 1, %110 ], [ 0, %118 ]
+.loopexit:                                        ; preds = %95, %103, %111, %109, %117, %71, %.lr.ph202, %66, %47, %.lr.ph210, %42, %23, %.lr.ph218, %18, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread, %15
+  %.0 = phi i32 [ 1, %15 ], [ 1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit120.thread ], [ 1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit122.thread ], [ 1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.thread ], [ 1, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread ], [ 2, %23 ], [ 1, %.lr.ph218 ], [ 0, %18 ], [ 2, %47 ], [ 1, %.lr.ph210 ], [ 0, %42 ], [ 2, %71 ], [ 1, %.lr.ph202 ], [ 0, %66 ], [ 2, %95 ], [ 2, %103 ], [ 2, %111 ], [ 1, %109 ], [ 0, %117 ]
   ret i32 %.0
 }
 

@@ -137,6 +137,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.101 = private unnamed_addr constant [14 x i8] c"Section size:\00", align 1
 @__func__.H5HF_sects_debug_cb = private unnamed_addr constant [20 x i8] c"H5HF_sects_debug_cb\00", align 1
 @.str.102 = private unnamed_addr constant [36 x i8] c"can't dump section's debugging info\00", align 1
+@switch.table.H5HF_sects_debug_cb = private unnamed_addr constant [3 x ptr] [ptr @.str.96, ptr @.str.97, ptr @.str.98], align 8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF_id_print(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1281,7 +1282,7 @@ define internal range(i32 -1, 1) i32 @H5HF_sects_debug_cb(ptr noundef %0, ptr no
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %47, !prof !9
+  br i1 %8, label %9, label %46, !prof !9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1292,52 +1293,48 @@ define internal range(i32 -1, 1) i32 @H5HF_sects_debug_cb(ptr noundef %0, ptr no
   %15 = load i32, ptr %14, align 4, !tbaa !128
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !129
-  switch i32 %17, label %18 [
-    i32 0, label %21
-    i32 1, label %.fold.split
-  ]
+  %18 = icmp ult i32 %17, 3
+  br i1 %18, label %switch.lookup, label %20
 
-18:                                               ; preds = %9
-  %19 = icmp eq i32 %17, 2
-  %20 = select i1 %19, ptr @.str.98, ptr @.str.99
-  br label %21
+switch.lookup:                                    ; preds = %9
+  %19 = zext nneg i32 %17 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.H5HF_sects_debug_cb, i64 %19
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %20
 
-.fold.split:                                      ; preds = %9
-  br label %21
+20:                                               ; preds = %9, %switch.lookup
+  %21 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.99, %9 ]
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.9, i32 noundef %13, ptr noundef nonnull @.str.6, i32 noundef %15, ptr noundef nonnull @.str.95, ptr noundef nonnull %21) #9
+  %23 = load ptr, ptr %10, align 8, !tbaa !126
+  %24 = load i32, ptr %12, align 8, !tbaa !127
+  %25 = load i32, ptr %14, align 4, !tbaa !128
+  %26 = load i64, ptr %0, align 8, !tbaa !118
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.24, i32 noundef %24, ptr noundef nonnull @.str.6, i32 noundef %25, ptr noundef nonnull @.str.100, i64 noundef %26) #9
+  %28 = load ptr, ptr %10, align 8, !tbaa !126
+  %29 = load i32, ptr %12, align 8, !tbaa !127
+  %30 = load i32, ptr %14, align 4, !tbaa !128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load i64, ptr %31, align 8, !tbaa !121
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.24, i32 noundef %29, ptr noundef nonnull @.str.6, i32 noundef %30, ptr noundef nonnull @.str.101, i64 noundef %32) #9
+  %34 = load ptr, ptr %1, align 8, !tbaa !124
+  %35 = load ptr, ptr %10, align 8, !tbaa !126
+  %36 = load i32, ptr %12, align 8, !tbaa !127
+  %37 = add nsw i32 %36, 3
+  %38 = load i32, ptr %14, align 4, !tbaa !128
+  %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 3)
+  %spec.select = add nsw i32 %39, -3
+  %40 = tail call i32 @H5FS_sect_debug(ptr noundef %34, ptr noundef nonnull %0, ptr noundef %35, i32 noundef %37, i32 noundef %spec.select) #9
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %42, label %46
 
-21:                                               ; preds = %9, %.fold.split, %18
-  %22 = phi ptr [ @.str.96, %9 ], [ %20, %18 ], [ @.str.97, %.fold.split ]
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.9, i32 noundef %13, ptr noundef nonnull @.str.6, i32 noundef %15, ptr noundef nonnull @.str.95, ptr noundef nonnull %22) #9
-  %24 = load ptr, ptr %10, align 8, !tbaa !126
-  %25 = load i32, ptr %12, align 8, !tbaa !127
-  %26 = load i32, ptr %14, align 4, !tbaa !128
-  %27 = load i64, ptr %0, align 8, !tbaa !118
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.24, i32 noundef %25, ptr noundef nonnull @.str.6, i32 noundef %26, ptr noundef nonnull @.str.100, i64 noundef %27) #9
-  %29 = load ptr, ptr %10, align 8, !tbaa !126
-  %30 = load i32, ptr %12, align 8, !tbaa !127
-  %31 = load i32, ptr %14, align 4, !tbaa !128
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !121
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.24, i32 noundef %30, ptr noundef nonnull @.str.6, i32 noundef %31, ptr noundef nonnull @.str.101, i64 noundef %33) #9
-  %35 = load ptr, ptr %1, align 8, !tbaa !124
-  %36 = load ptr, ptr %10, align 8, !tbaa !126
-  %37 = load i32, ptr %12, align 8, !tbaa !127
-  %38 = add nsw i32 %37, 3
-  %39 = load i32, ptr %14, align 4, !tbaa !128
-  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 3)
-  %spec.select = add nsw i32 %40, -3
-  %41 = tail call i32 @H5FS_sect_debug(ptr noundef %35, ptr noundef nonnull %0, ptr noundef %36, i32 noundef %38, i32 noundef %spec.select) #9
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %47
+42:                                               ; preds = %20
+  %43 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !11
+  %44 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
+  %45 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_sects_debug_cb, i32 noundef 742, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.102) #9
+  br label %46
 
-43:                                               ; preds = %21
-  %44 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !11
-  %45 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !11
-  %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_sects_debug_cb, i32 noundef 742, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.102) #9
-  br label %47
-
-47:                                               ; preds = %43, %21, %2
-  %.0 = phi i32 [ -1, %43 ], [ 0, %21 ], [ 0, %2 ]
+46:                                               ; preds = %42, %20, %2
+  %.0 = phi i32 [ -1, %42 ], [ 0, %20 ], [ 0, %2 ]
   ret i32 %.0
 }
 

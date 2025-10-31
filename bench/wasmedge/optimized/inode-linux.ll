@@ -3161,36 +3161,25 @@ declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockShutdownE16__wasi_sdflags_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  switch i8 %1, label %4 [
-    i8 1, label %6
-    i8 2, label %3
-  ]
+  %switch.selectcmp = icmp eq i8 %1, 2
+  %switch.select = zext i1 %switch.selectcmp to i32
+  %switch.selectcmp8 = icmp eq i8 %1, 3
+  %switch.select9 = select i1 %switch.selectcmp8, i32 2, i32 %switch.select
+  %3 = load i32, ptr %0, align 8
+  %4 = tail call i32 @shutdown(i32 noundef %3, i32 noundef %switch.select9) #25
+  %5 = icmp slt i32 %4, 0
+  br i1 %5, label %6, label %12
 
-3:                                                ; preds = %2
-  br label %6
+6:                                                ; preds = %2
+  %7 = tail call ptr @__errno_location() #26
+  %8 = load i32, ptr %7, align 4
+  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #25
+  %10 = zext i16 %9 to i32
+  %11 = shl nuw i32 %10, 16
+  br label %12
 
-4:                                                ; preds = %2
-  %5 = icmp eq i8 %1, 3
-  %spec.select = select i1 %5, i32 2, i32 0
-  br label %6
-
-6:                                                ; preds = %4, %2, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %2 ], [ %spec.select, %4 ]
-  %7 = load i32, ptr %0, align 8
-  %8 = tail call i32 @shutdown(i32 noundef %7, i32 noundef %.0) #25
-  %9 = icmp slt i32 %8, 0
-  br i1 %9, label %10, label %16
-
-10:                                               ; preds = %6
-  %11 = tail call ptr @__errno_location() #26
-  %12 = load i32, ptr %11, align 4
-  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #25
-  %14 = zext i16 %13 to i32
-  %15 = shl nuw i32 %14, 16
-  br label %16
-
-16:                                               ; preds = %6, %10
-  %.sroa.06.0.insert.insert = phi i32 [ %15, %10 ], [ 1, %6 ]
+12:                                               ; preds = %2, %6
+  %.sroa.06.0.insert.insert = phi i32 [ %11, %6 ], [ 1, %2 ]
   ret i32 %.sroa.06.0.insert.insert
 }
 

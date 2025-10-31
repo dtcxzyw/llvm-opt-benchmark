@@ -4969,115 +4969,113 @@ define internal fastcc void @set_ue_keys(ptr noundef captures(none) initializes(
   %22 = load i32, ptr %21, align 4
   %.off = add i32 %22, -1
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %23, label %69
+  br i1 %switch, label %switch.lookup, label %68
 
-23:                                               ; preds = %1
-  %switch.selectcmp = icmp eq i32 %22, 2
-  %switch.select = select i1 %switch.selectcmp, i32 24, i32 32
-  %switch.selectcmp73 = icmp eq i32 %22, 1
-  %switch.select74 = select i1 %switch.selectcmp73, i32 16, i32 %switch.select
-  br label %24
+switch.lookup:                                    ; preds = %1
+  %switch.tableidx = shl nuw nsw i32 %22, 3
+  %switch.offset = add nuw nsw i32 %switch.tableidx, 8
+  br label %23
 
-24:                                               ; preds = %24, %23
-  %.065 = phi i32 [ %7, %23 ], [ %26, %24 ]
-  %25 = icmp ult i32 %.065, %switch.select74
-  %26 = add i32 %.065, %7
-  br i1 %25, label %24, label %27, !llvm.loop !25
+23:                                               ; preds = %23, %switch.lookup
+  %.065 = phi i32 [ %7, %switch.lookup ], [ %25, %23 ]
+  %24 = icmp ult i32 %.065, %switch.offset
+  %25 = add i32 %.065, %7
+  br i1 %24, label %23, label %26, !llvm.loop !25
 
-27:                                               ; preds = %24
-  %28 = zext i32 %.065 to i64
-  %29 = tail call noalias ptr @g_malloc(i64 noundef %28) #14
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %switch.select74, ptr %31, align 8
-  %32 = load i32, ptr %3, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %36 = load i32, ptr %35, align 8
-  %37 = load ptr, ptr %17, align 8
-  %38 = load i32, ptr %19, align 8
-  tail call fastcc void @snmp_usm_password_to_key(i32 noundef %32, ptr noundef %34, i32 noundef %36, ptr noundef %37, i32 noundef %38, ptr noundef %29)
-  %.not7075 = icmp ult i32 %7, %switch.select74
-  br i1 %.not7075, label %.lr.ph, label %.critedge72
+26:                                               ; preds = %23
+  %27 = zext i32 %.065 to i64
+  %28 = tail call noalias ptr @g_malloc(i64 noundef %27) #14
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %28, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %switch.offset, ptr %30, align 8
+  %31 = load i32, ptr %3, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %35 = load i32, ptr %34, align 8
+  %36 = load ptr, ptr %17, align 8
+  %37 = load i32, ptr %19, align 8
+  tail call fastcc void @snmp_usm_password_to_key(i32 noundef %31, ptr noundef %33, i32 noundef %35, ptr noundef %36, i32 noundef %37, ptr noundef %28)
+  %.not7073 = icmp ult i32 %7, %switch.offset
+  br i1 %.not7073, label %.lr.ph, label %.critedge72
 
-.lr.ph:                                           ; preds = %27
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br label %40
+.lr.ph:                                           ; preds = %26
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  br label %39
 
-40:                                               ; preds = %.lr.ph, %67
-  %.16676 = phi i32 [ %7, %.lr.ph ], [ %68, %67 ]
-  %41 = load i32, ptr %39, align 8
-  switch i32 %41, label %67 [
-    i32 0, label %42
-    i32 1, label %52
+39:                                               ; preds = %.lr.ph, %66
+  %.16674 = phi i32 [ %7, %.lr.ph ], [ %67, %66 ]
+  %40 = load i32, ptr %38, align 8
+  switch i32 %40, label %66 [
+    i32 0, label %41
+    i32 1, label %51
   ]
 
-42:                                               ; preds = %40
-  %43 = load i32, ptr %3, align 8
-  %44 = load ptr, ptr %30, align 8
-  %45 = sub nsw i32 %.16676, %7
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr i8, ptr %44, i64 %46
-  %48 = load ptr, ptr %17, align 8
-  %49 = load i32, ptr %19, align 8
-  %50 = zext nneg i32 %.16676 to i64
-  %51 = getelementptr i8, ptr %44, i64 %50
-  call fastcc void @snmp_usm_password_to_key(i32 noundef %43, ptr noundef %47, i32 noundef %7, ptr noundef %48, i32 noundef %49, ptr noundef %51)
-  br label %67
+41:                                               ; preds = %39
+  %42 = load i32, ptr %3, align 8
+  %43 = load ptr, ptr %29, align 8
+  %44 = sub nsw i32 %.16674, %7
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr i8, ptr %43, i64 %45
+  %47 = load ptr, ptr %17, align 8
+  %48 = load i32, ptr %19, align 8
+  %49 = zext nneg i32 %.16674 to i64
+  %50 = getelementptr i8, ptr %43, i64 %49
+  call fastcc void @snmp_usm_password_to_key(i32 noundef %42, ptr noundef %46, i32 noundef %7, ptr noundef %47, i32 noundef %48, ptr noundef %50)
+  br label %66
 
-52:                                               ; preds = %40
+51:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %53 = load i32, ptr %3, align 8
-  %54 = zext i32 %53 to i64
-  %55 = getelementptr i32, ptr @auth_hash_algo, i64 %54
-  %56 = load i32, ptr %55, align 4
-  %57 = call i32 @gcry_md_open(ptr noundef nonnull %2, i32 noundef %56, i32 noundef 0)
-  %.not = icmp eq i32 %57, 0
-  br i1 %.not, label %58, label %.critedge
+  %52 = load i32, ptr %3, align 8
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr i32, ptr @auth_hash_algo, i64 %53
+  %55 = load i32, ptr %54, align 4
+  %56 = call i32 @gcry_md_open(ptr noundef nonnull %2, i32 noundef %55, i32 noundef 0)
+  %.not = icmp eq i32 %56, 0
+  br i1 %.not, label %57, label %.critedge
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr %2, align 8
-  %60 = load ptr, ptr %30, align 8
-  %61 = zext nneg i32 %.16676 to i64
-  call void @gcry_md_write(ptr noundef %59, ptr noundef %60, i64 noundef %61)
-  %62 = load ptr, ptr %30, align 8
-  %63 = getelementptr i8, ptr %62, i64 %61
-  %64 = load ptr, ptr %2, align 8
-  %65 = call ptr @gcry_md_read(ptr noundef %64, i32 noundef 0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %63, ptr noundef align 1 %65, i64 noundef range(i64 0, 4294967296) %8, i1 noundef false) #15
-  %66 = load ptr, ptr %2, align 8
-  call void @gcry_md_close(ptr noundef %66)
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %2, align 8
+  %59 = load ptr, ptr %29, align 8
+  %60 = zext nneg i32 %.16674 to i64
+  call void @gcry_md_write(ptr noundef %58, ptr noundef %59, i64 noundef %60)
+  %61 = load ptr, ptr %29, align 8
+  %62 = getelementptr i8, ptr %61, i64 %60
+  %63 = load ptr, ptr %2, align 8
+  %64 = call ptr @gcry_md_read(ptr noundef %63, i32 noundef 0)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %62, ptr noundef align 1 %64, i64 noundef range(i64 0, 4294967296) %8, i1 noundef false) #15
+  %65 = load ptr, ptr %2, align 8
+  call void @gcry_md_close(ptr noundef %65)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %67
+  br label %66
 
-67:                                               ; preds = %58, %40, %42
-  %68 = add nuw nsw i32 %.16676, %7
-  %.not70 = icmp ult i32 %68, %switch.select74
-  br i1 %.not70, label %40, label %.critedge72, !llvm.loop !26
+66:                                               ; preds = %57, %39, %41
+  %67 = add nuw nsw i32 %.16674, %7
+  %.not70 = icmp ult i32 %67, %switch.offset
+  br i1 %.not70, label %39, label %.critedge72, !llvm.loop !26
 
-.critedge:                                        ; preds = %52
+.critedge:                                        ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge72
 
-69:                                               ; preds = %1
-  %70 = tail call noalias ptr @g_malloc(i64 noundef %8) #14
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %70, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %7, ptr %72, align 8
-  %73 = load i32, ptr %3, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %77 = load i32, ptr %76, align 8
-  %78 = load ptr, ptr %17, align 8
-  %79 = load i32, ptr %19, align 8
-  tail call fastcc void @snmp_usm_password_to_key(i32 noundef %73, ptr noundef %75, i32 noundef %77, ptr noundef %78, i32 noundef %79, ptr noundef %70)
+68:                                               ; preds = %1
+  %69 = tail call noalias ptr @g_malloc(i64 noundef %8) #14
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %69, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %7, ptr %71, align 8
+  %72 = load i32, ptr %3, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %76 = load i32, ptr %75, align 8
+  %77 = load ptr, ptr %17, align 8
+  %78 = load i32, ptr %19, align 8
+  tail call fastcc void @snmp_usm_password_to_key(i32 noundef %72, ptr noundef %74, i32 noundef %76, ptr noundef %77, i32 noundef %78, ptr noundef %69)
   br label %.critedge72
 
-.critedge72:                                      ; preds = %67, %27, %.critedge, %69
+.critedge72:                                      ; preds = %66, %26, %.critedge, %68
   ret void
 }
 

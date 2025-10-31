@@ -342,7 +342,7 @@ define ptr @ossl_ecx_key_op(ptr noundef %0, ptr noundef readonly captures(addres
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 181, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 102, ptr noundef null) #4
-  br label %79
+  br label %76
 
 28:                                               ; preds = %21, %7
   %.060 = phi i32 [ %.161, %21 ], [ %3, %7 ]
@@ -352,109 +352,108 @@ define ptr @ossl_ecx_key_op(ptr noundef %0, ptr noundef readonly captures(addres
   switch i32 %.060, label %33 [
     i32 1087, label %31
     i32 1034, label %31
+    i32 1035, label %switch.edge
   ]
 
 31:                                               ; preds = %28, %28
   %32 = select i1 %29, i32 0, i32 2
-  br label %36
+  br label %switch.edge
 
 33:                                               ; preds = %28
-  %34 = icmp eq i32 %.060, 1035
-  %35 = select i1 %34, i32 1, i32 3
-  br label %36
+  br label %switch.edge
 
-36:                                               ; preds = %33, %31
-  %37 = phi i32 [ %32, %31 ], [ %35, %33 ]
-  %38 = call ptr @ossl_ecx_key_new(ptr noundef %5, i32 noundef %37, i32 noundef 1, ptr noundef %6) #4
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %41
+switch.edge:                                      ; preds = %28, %33, %31
+  %34 = phi i32 [ %32, %31 ], [ 3, %33 ], [ 1, %28 ]
+  %35 = call ptr @ossl_ecx_key_new(ptr noundef %5, i32 noundef %34, i32 noundef 1, ptr noundef %6) #4
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %38
 
-40:                                               ; preds = %36
+37:                                               ; preds = %switch.edge
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 188, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524304, ptr noundef null) #4
-  br label %79
+  br label %76
 
-41:                                               ; preds = %36
-  %42 = icmp eq i32 %4, 0
-  br i1 %42, label %43, label %46
+38:                                               ; preds = %switch.edge
+  %39 = icmp eq i32 %4, 0
+  br i1 %39, label %40, label %43
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 17
-  %45 = sext i32 %2 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %1, i64 %45, i1 false)
-  br label %79
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 17
+  %42 = sext i32 %2 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %1, i64 %42, i1 false)
+  br label %76
 
-46:                                               ; preds = %41
-  %47 = call ptr @ossl_ecx_key_allocate_privkey(ptr noundef nonnull %38) #4
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %.sink.split, label %49
+43:                                               ; preds = %38
+  %44 = call ptr @ossl_ecx_key_allocate_privkey(ptr noundef nonnull %35) #4
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.sink.split, label %46
 
-49:                                               ; preds = %46
-  br i1 %.not, label %50, label %72
+46:                                               ; preds = %43
+  br i1 %.not, label %47, label %69
 
-50:                                               ; preds = %49
+47:                                               ; preds = %46
   %.not71 = icmp eq i32 %.060, 0
-  br i1 %.not71, label %76, label %51
+  br i1 %.not71, label %73, label %48
 
-51:                                               ; preds = %50
-  %52 = icmp eq i32 %.060, 1035
-  %53 = select i1 %52, i64 56, i64 57
-  %54 = select i1 %or.cond5, i64 32, i64 %53
-  %55 = call i32 @RAND_priv_bytes_ex(ptr noundef %5, ptr noundef nonnull %47, i64 noundef %54, i32 noundef 0) #4
-  %56 = icmp slt i32 %55, 1
-  br i1 %56, label %78, label %57
+48:                                               ; preds = %47
+  %49 = icmp eq i32 %.060, 1035
+  %50 = select i1 %49, i64 56, i64 57
+  %51 = select i1 %or.cond5, i64 32, i64 %50
+  %52 = call i32 @RAND_priv_bytes_ex(ptr noundef %5, ptr noundef nonnull %44, i64 noundef %51, i32 noundef 0) #4
+  %53 = icmp slt i32 %52, 1
+  br i1 %53, label %75, label %54
 
-57:                                               ; preds = %51
-  br i1 %29, label %58, label %65
+54:                                               ; preds = %48
+  br i1 %29, label %55, label %62
 
-58:                                               ; preds = %57
-  %59 = load i8, ptr %47, align 1, !tbaa !25
-  %60 = and i8 %59, -8
-  store i8 %60, ptr %47, align 1, !tbaa !25
-  %61 = getelementptr inbounds nuw i8, ptr %47, i64 31
-  %62 = load i8, ptr %61, align 1, !tbaa !25
-  %63 = and i8 %62, 63
-  %64 = or disjoint i8 %63, 64
-  store i8 %64, ptr %61, align 1, !tbaa !25
-  br label %76
+55:                                               ; preds = %54
+  %56 = load i8, ptr %44, align 1, !tbaa !25
+  %57 = and i8 %56, -8
+  store i8 %57, ptr %44, align 1, !tbaa !25
+  %58 = getelementptr inbounds nuw i8, ptr %44, i64 31
+  %59 = load i8, ptr %58, align 1, !tbaa !25
+  %60 = and i8 %59, 63
+  %61 = or disjoint i8 %60, 64
+  store i8 %61, ptr %58, align 1, !tbaa !25
+  br label %73
 
-65:                                               ; preds = %57
-  br i1 %52, label %66, label %76
+62:                                               ; preds = %54
+  br i1 %49, label %63, label %73
 
-66:                                               ; preds = %65
-  %67 = load i8, ptr %47, align 1, !tbaa !25
-  %68 = and i8 %67, -4
-  store i8 %68, ptr %47, align 1, !tbaa !25
-  %69 = getelementptr inbounds nuw i8, ptr %47, i64 55
-  %70 = load i8, ptr %69, align 1, !tbaa !25
-  %71 = or i8 %70, -128
-  store i8 %71, ptr %69, align 1, !tbaa !25
-  br label %76
+63:                                               ; preds = %62
+  %64 = load i8, ptr %44, align 1, !tbaa !25
+  %65 = and i8 %64, -4
+  store i8 %65, ptr %44, align 1, !tbaa !25
+  %66 = getelementptr inbounds nuw i8, ptr %44, i64 55
+  %67 = load i8, ptr %66, align 1, !tbaa !25
+  %68 = or i8 %67, -128
+  store i8 %68, ptr %66, align 1, !tbaa !25
+  br label %73
 
-72:                                               ; preds = %49
-  %73 = icmp eq i32 %.060, 1035
-  %74 = select i1 %73, i64 56, i64 57
-  %75 = select i1 %or.cond5, i64 32, i64 %74
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %75, i1 false)
-  br label %76
+69:                                               ; preds = %46
+  %70 = icmp eq i32 %.060, 1035
+  %71 = select i1 %70, i64 56, i64 57
+  %72 = select i1 %or.cond5, i64 32, i64 %71
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %72, i1 false)
+  br label %73
 
-76:                                               ; preds = %50, %65, %66, %58, %72
-  %77 = call i32 @ossl_ecx_public_from_private(ptr noundef nonnull %38)
-  %.not72 = icmp eq i32 %77, 0
-  br i1 %.not72, label %.sink.split, label %79
+73:                                               ; preds = %47, %62, %63, %55, %69
+  %74 = call i32 @ossl_ecx_public_from_private(ptr noundef nonnull %35)
+  %.not72 = icmp eq i32 %74, 0
+  br i1 %.not72, label %.sink.split, label %76
 
-.sink.split:                                      ; preds = %76, %46
-  %.sink76 = phi i32 [ 198, %46 ], [ 218, %76 ]
-  %.sink = phi i32 [ 524304, %46 ], [ 166, %76 ]
+.sink.split:                                      ; preds = %73, %43
+  %.sink76 = phi i32 [ 198, %43 ], [ 218, %73 ]
+  %.sink = phi i32 [ 524304, %43 ], [ 166, %73 ]
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink76, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #4
-  br label %78
+  br label %75
 
-78:                                               ; preds = %.sink.split, %51
-  call void @ossl_ecx_key_free(ptr noundef nonnull %38) #4
-  br label %79
+75:                                               ; preds = %.sink.split, %48
+  call void @ossl_ecx_key_free(ptr noundef nonnull %35) #4
+  br label %76
 
 .critedge:                                        ; preds = %16, %10
   %.sink77 = phi i32 [ 169, %10 ], [ 175, %16 ]
@@ -462,10 +461,10 @@ define ptr @ossl_ecx_key_op(ptr noundef %0, ptr noundef readonly captures(addres
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink77, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 102, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %79
+  br label %76
 
-79:                                               ; preds = %43, %76, %.critedge, %78, %40, %27
-  %.1 = phi ptr [ null, %27 ], [ null, %40 ], [ null, %78 ], [ null, %.critedge ], [ %38, %76 ], [ %38, %43 ]
+76:                                               ; preds = %40, %73, %.critedge, %75, %37, %27
+  %.1 = phi ptr [ null, %27 ], [ null, %37 ], [ null, %75 ], [ null, %.critedge ], [ %35, %73 ], [ %35, %40 ]
   ret ptr %.1
 }
 

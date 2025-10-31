@@ -1162,6 +1162,7 @@ $_ZTIZN11CmdRegistryC1EvEUlvE2_ = comdat any
 @_ZN3nix15RegisterCommand8commandsB5cxx11E = external local_unnamed_addr global ptr, align 8
 @llvm.global_ctors = appending global [3 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init, ptr @_ZN5boost4noneE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.5, ptr @_ZN3nix5noPosE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_registry.cc, ptr null }]
 @llvm.used = appending global [2 x ptr] [ptr @_ZN3nix5noPosE, ptr @_ZN5boost4noneE], section "llvm.metadata"
+@switch.table._ZN15CmdRegistryList3runEN3nix3refINS0_5StoreEEE = private unnamed_addr constant [3 x ptr] [ptr @.str.16, ptr @.str.17, ptr @.str.18], align 8
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" comdat($_ZN5boost4noneE) personality ptr @__gxx_personality_v0 {
@@ -3902,21 +3903,17 @@ _ZN3nix3refINS_5StoreEED2Ev.exit:                 ; preds = %31, %49, %62, %_ZNS
   %113 = load ptr, ptr @_ZN3nix6loggerE, align 8
   %114 = load ptr, ptr %.sroa.0124.0190, align 8
   %115 = load i32, ptr %114, align 8
-  switch i32 %115, label %116 [
-    i32 0, label %118
-    i32 1, label %.fold.split
-  ]
+  %116 = icmp ult i32 %115, 3
+  br i1 %116, label %switch.lookup, label %118
 
-116:                                              ; preds = %.lr.ph
-  %117 = icmp eq i32 %115, 2
-  %.str.18..str.19 = select i1 %117, ptr @.str.18, ptr @.str.19
+switch.lookup:                                    ; preds = %.lr.ph
+  %117 = zext nneg i32 %115 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15CmdRegistryList3runEN3nix3refINS0_5StoreEEE, i64 %117
+  %switch.load = load ptr, ptr %switch.gep, align 8
   br label %118
 
-.fold.split:                                      ; preds = %.lr.ph
-  br label %118
-
-118:                                              ; preds = %.lr.ph, %.fold.split, %116
-  %119 = phi ptr [ @.str.16, %.lr.ph ], [ %.str.18..str.19, %116 ], [ @.str.17, %.fold.split ]
+118:                                              ; preds = %.lr.ph, %switch.lookup
+  %119 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.19, %.lr.ph ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store ptr %71, ptr %73, align 8
   store ptr %71, ptr %74, align 8

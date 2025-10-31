@@ -173,7 +173,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.153 = private unnamed_addr constant [4 x i8] c"int\00", align 1
 @.str.154 = private unnamed_addr constant [22 x i8] c"dt_iop_lut3d_params_t\00", align 1
 @introspection_linear = internal global <{ { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i8, i8, i8, [5 x i8] }, [16 x i8] }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, i32, [4 x i8], ptr } }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, ptr, i32, [4 x i8] } }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, ptr, i32, [4 x i8] } }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i32, i32, i32, [4 x i8] }, [8 x i8] }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i8, i8, i8, [5 x i8] }, [16 x i8] }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, i32, [4 x i8], ptr } }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i8, i8, i8, [5 x i8] }, [16 x i8] }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, i32, [4 x i8], ptr } }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, ptr }, [8 x i8] }, { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, [24 x i8] } }> <{ { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i8, i8, i8, [5 x i8] }, [16 x i8] } { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i8, i8, i8, [5 x i8] } { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.148, ptr @.str.118, ptr @.str.118, ptr @.str.68, i64 1, i64 0, ptr null }, i8 -128, i8 127, i8 0, [5 x i8] zeroinitializer }, [16 x i8] zeroinitializer }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, i32, [4 x i8], ptr } } { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, i32, [4 x i8], ptr } { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.149, ptr @.str.119, ptr @.str.119, ptr @.str.68, i64 512, i64 0, ptr null }, i64 512, i32 5, [4 x i8] zeroinitializer, ptr @introspection_linear } }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, ptr, i32, [4 x i8] } } { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, ptr, i32, [4 x i8] } { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.150, ptr @.str.92, ptr @.str.92, ptr @.str.151, i64 4, i64 512, ptr null }, i64 6, ptr null, i32 0, [4 x i8] zeroinitializer } }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, ptr, i32, [4 x i8] } } { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, ptr, i32, [4 x i8] } { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.152, ptr @.str.94, ptr @.str.94, ptr @.str.68, i64 4, i64 516, ptr null }, i64 3, ptr null, i32 0, [4 x i8] zeroinitializer } }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i32, i32, i32, [4 x i8] }, [8 x i8] } { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i32, i32, i32, [4 x i8] } { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.153, ptr @.str.120, ptr @.str.120, ptr @.str.68, i64 4, i64 520, ptr null }, i32 -2147483648, i32 2147483647, i32 0, [4 x i8] zeroinitializer }, [8 x i8] zeroinitializer }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i8, i8, i8, [5 x i8] }, [16 x i8] } { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i8, i8, i8, [5 x i8] } { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.148, ptr @.str.121, ptr @.str.121, ptr @.str.68, i64 1, i64 524, ptr null }, i8 -128, i8 127, i8 0, [5 x i8] zeroinitializer }, [16 x i8] zeroinitializer }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, i32, [4 x i8], ptr } } { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, i32, [4 x i8], ptr } { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.149, ptr @.str.122, ptr @.str.122, ptr @.str.68, i64 12288, i64 524, ptr null }, i64 12288, i32 5, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @introspection_linear, i64 440) } }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i8, i8, i8, [5 x i8] }, [16 x i8] } { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i8, i8, i8, [5 x i8] } { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.148, ptr @.str.123, ptr @.str.123, ptr @.str.68, i64 1, i64 12812, ptr null }, i8 -128, i8 127, i8 0, [5 x i8] zeroinitializer }, [16 x i8] zeroinitializer }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, i32, [4 x i8], ptr } } { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, i32, [4 x i8], ptr } { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.149, ptr @.str.88, ptr @.str.88, ptr @.str.68, i64 128, i64 12812, ptr null }, i64 128, i32 5, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @introspection_linear, i64 616) } }, { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, ptr }, [8 x i8] } { { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, i64, ptr } { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.154, ptr @.str.68, ptr @.str.68, ptr @.str.68, i64 12940, i64 0, ptr null }, i64 6, ptr null }, [8 x i8] zeroinitializer }, { { i32, [4 x i8], ptr, ptr, ptr, ptr, i64, i64, ptr }, [24 x i8] } zeroinitializer }>, align 16
-@switch.table.process = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 20, i32 poison, i32 poison, i32 21], align 4
+@switch.table.process = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 20, i32 3, i32 4, i32 21], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @dt_module_dt_version() local_unnamed_addr #0 {
@@ -2594,98 +2594,89 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %22 = load i32, ptr %21, align 8, !tbaa !96
   %23 = icmp ult i32 %22, 6
-  %switch.maskindex = trunc i32 %22 to i8
-  %switch.shifted = lshr i8 39, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %24
-
-24:                                               ; preds = %6
-  %25 = icmp eq i32 %22, 3
-  %26 = select i1 %25, i32 3, i32 4
-  br label %28
+  br i1 %23, label %switch.lookup, label %25
 
 switch.lookup:                                    ; preds = %6
-  %27 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.process, i64 %27
+  %24 = zext nneg i32 %22 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.process, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %28
+  br label %25
 
-28:                                               ; preds = %switch.lookup, %24
-  %29 = phi i32 [ %26, %24 ], [ %switch.load, %switch.lookup ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %31 = load ptr, ptr %30, align 8, !tbaa !97
-  %32 = tail call ptr @dt_ioppr_add_profile_info_to_list(ptr noundef %31, i32 noundef %29, ptr noundef nonnull @.str.68, i32 noundef 0) #25
-  %33 = load ptr, ptr %30, align 8, !tbaa !97
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 2056
-  %35 = load ptr, ptr %34, align 8, !tbaa !107
-  %36 = tail call ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef %0, ptr noundef %35) #25
+25:                                               ; preds = %6, %switch.lookup
+  %26 = phi i32 [ %switch.load, %switch.lookup ], [ 4, %6 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %28 = load ptr, ptr %27, align 8, !tbaa !97
+  %29 = tail call ptr @dt_ioppr_add_profile_info_to_list(ptr noundef %28, i32 noundef %26, ptr noundef nonnull @.str.68, i32 noundef 0) #25
+  %30 = load ptr, ptr %27, align 8, !tbaa !97
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 2056
+  %32 = load ptr, ptr %31, align 8, !tbaa !107
+  %33 = tail call ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef %0, ptr noundef %32) #25
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %56, label %37
+  br i1 %.not, label %53, label %34
 
-37:                                               ; preds = %28
-  %38 = icmp ne ptr %36, null
-  %39 = icmp ne ptr %32, null
-  %40 = select i1 %38, i1 %39, i1 false
-  br i1 %40, label %41, label %49
+34:                                               ; preds = %25
+  %35 = icmp ne ptr %33, null
+  %36 = icmp ne ptr %29, null
+  %37 = select i1 %35, i1 %36, i1 false
+  br i1 %37, label %38, label %46
 
-41:                                               ; preds = %37
-  tail call void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %12, ptr noundef nonnull %36, ptr noundef nonnull %32, ptr noundef nonnull @.str.69) #25
-  %42 = sext i32 %10 to i64
-  %43 = sext i32 %12 to i64
-  %44 = mul nsw i64 %43, %42
-  switch i32 %20, label %47 [
-    i32 0, label %45
-    i32 1, label %46
+38:                                               ; preds = %34
+  tail call void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef %2, ptr noundef %3, i32 noundef %10, i32 noundef %12, ptr noundef nonnull %33, ptr noundef nonnull %29, ptr noundef nonnull @.str.69) #25
+  %39 = sext i32 %10 to i64
+  %40 = sext i32 %12 to i64
+  %41 = mul nsw i64 %40, %39
+  switch i32 %20, label %44 [
+    i32 0, label %42
+    i32 1, label %43
   ]
 
-45:                                               ; preds = %41
-  tail call void @correct_pixel_tetrahedral(ptr noundef %3, ptr noundef %3, i64 noundef %44, ptr noundef nonnull %16, i16 noundef zeroext %18)
-  br label %48
+42:                                               ; preds = %38
+  tail call void @correct_pixel_tetrahedral(ptr noundef %3, ptr noundef %3, i64 noundef %41, ptr noundef nonnull %16, i16 noundef zeroext %18)
+  br label %45
 
-46:                                               ; preds = %41
-  tail call void @correct_pixel_trilinear(ptr noundef %3, ptr noundef %3, i64 noundef %44, ptr noundef nonnull %16, i16 noundef zeroext %18)
-  br label %48
+43:                                               ; preds = %38
+  tail call void @correct_pixel_trilinear(ptr noundef %3, ptr noundef %3, i64 noundef %41, ptr noundef nonnull %16, i16 noundef zeroext %18)
+  br label %45
 
-47:                                               ; preds = %41
-  tail call void @correct_pixel_pyramid(ptr noundef %3, ptr noundef %3, i64 noundef %44, ptr noundef nonnull %16, i16 noundef zeroext %18)
-  br label %48
+44:                                               ; preds = %38
+  tail call void @correct_pixel_pyramid(ptr noundef %3, ptr noundef %3, i64 noundef %41, ptr noundef nonnull %16, i16 noundef zeroext %18)
+  br label %45
 
-48:                                               ; preds = %46, %47, %45
-  tail call void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef %3, ptr noundef %3, i32 noundef %10, i32 noundef %12, ptr noundef nonnull %32, ptr noundef nonnull %36, ptr noundef nonnull @.str.70) #25
-  br label %62
+45:                                               ; preds = %43, %44, %42
+  tail call void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef %3, ptr noundef %3, i32 noundef %10, i32 noundef %12, ptr noundef nonnull %29, ptr noundef nonnull %33, ptr noundef nonnull @.str.70) #25
+  br label %59
 
-49:                                               ; preds = %37
-  %50 = sext i32 %10 to i64
-  %51 = sext i32 %12 to i64
-  %52 = mul nsw i64 %51, %50
-  switch i32 %20, label %55 [
-    i32 0, label %53
-    i32 1, label %54
+46:                                               ; preds = %34
+  %47 = sext i32 %10 to i64
+  %48 = sext i32 %12 to i64
+  %49 = mul nsw i64 %48, %47
+  switch i32 %20, label %52 [
+    i32 0, label %50
+    i32 1, label %51
   ]
 
-53:                                               ; preds = %49
-  tail call void @correct_pixel_tetrahedral(ptr noundef %2, ptr noundef %3, i64 noundef %52, ptr noundef nonnull %16, i16 noundef zeroext %18)
-  br label %62
+50:                                               ; preds = %46
+  tail call void @correct_pixel_tetrahedral(ptr noundef %2, ptr noundef %3, i64 noundef %49, ptr noundef nonnull %16, i16 noundef zeroext %18)
+  br label %59
 
-54:                                               ; preds = %49
-  tail call void @correct_pixel_trilinear(ptr noundef %2, ptr noundef %3, i64 noundef %52, ptr noundef nonnull %16, i16 noundef zeroext %18)
-  br label %62
+51:                                               ; preds = %46
+  tail call void @correct_pixel_trilinear(ptr noundef %2, ptr noundef %3, i64 noundef %49, ptr noundef nonnull %16, i16 noundef zeroext %18)
+  br label %59
 
-55:                                               ; preds = %49
-  tail call void @correct_pixel_pyramid(ptr noundef %2, ptr noundef %3, i64 noundef %52, ptr noundef nonnull %16, i16 noundef zeroext %18)
-  br label %62
+52:                                               ; preds = %46
+  tail call void @correct_pixel_pyramid(ptr noundef %2, ptr noundef %3, i64 noundef %49, ptr noundef nonnull %16, i16 noundef zeroext %18)
+  br label %59
 
-56:                                               ; preds = %28
-  %57 = sext i32 %10 to i64
-  %58 = sext i32 %12 to i64
-  %59 = sext i32 %14 to i64
-  %60 = mul nsw i64 %58, %57
-  %61 = mul i64 %60, %59
-  tail call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %61) #25
-  br label %62
+53:                                               ; preds = %25
+  %54 = sext i32 %10 to i64
+  %55 = sext i32 %12 to i64
+  %56 = sext i32 %14 to i64
+  %57 = mul nsw i64 %55, %54
+  %58 = mul i64 %57, %56
+  tail call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %58) #25
+  br label %59
 
-62:                                               ; preds = %48, %54, %55, %53, %56
+59:                                               ; preds = %45, %51, %52, %50, %53
   ret void
 }
 

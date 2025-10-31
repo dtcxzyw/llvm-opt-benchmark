@@ -22091,7 +22091,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %93, %99
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define signext range(i8 103, 101) i8 @JVM_ConstantPoolGetTagAt(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define signext range(i8 107, 104) i8 @JVM_ConstantPoolGetTagAt(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %class.constantPoolHandle, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -22245,11 +22245,13 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
     i8 102, label %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split
     i8 105, label %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19
     i8 104, label %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20
+    i8 106, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %70
+  br label %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread
+
 77:                                               ; preds = %70
-  %78 = icmp eq i8 %76, 106
-  %spec.select = select i1 %78, i8 17, i8 %76
   br label %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread
 
 _ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split: ; preds = %70
@@ -22261,40 +22263,40 @@ _ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19: ; preds = %
 _ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20: ; preds = %70
   br label %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread
 
-_ZNK11constantTag21is_klass_or_referenceEv.exit.thread: ; preds = %70, %70, %70, %70, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split, %77, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
-  %.011 = phi i8 [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ %spec.select, %77 ], [ 7, %70 ], [ 7, %70 ], [ 8, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split ], [ 16, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19 ], [ 15, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20 ], [ 7, %70 ], [ 7, %70 ]
+_ZNK11constantTag21is_klass_or_referenceEv.exit.thread: ; preds = %70, %70, %70, %70, %switch.edge, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split, %77, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
+  %.011 = phi i8 [ 0, %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit ], [ %76, %77 ], [ 7, %70 ], [ 7, %70 ], [ 8, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split ], [ 16, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split19 ], [ 15, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread.fold.split20 ], [ 17, %switch.edge ], [ 7, %70 ], [ 7, %70 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  %79 = getelementptr inbounds nuw i8, ptr %8, i64 408
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 408
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %82, align 8
-  %.not.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %84
+  %.not.i.i = icmp eq ptr %82, null
+  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %83
 
-84:                                               ; preds = %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread
-  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %80) #16
-  %.pre.i.i = load ptr, ptr %81, align 8
+83:                                               ; preds = %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread
+  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %79) #16
+  %.pre.i.i = load ptr, ptr %80, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread, %84
-  %85 = phi ptr [ %82, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread ], [ %.pre.i.i, %84 ]
-  %86 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store ptr %85, ptr %88, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %86, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  store ptr %90, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %94 = load ptr, ptr %93, align 8
-  %95 = load ptr, ptr %86, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
-  store ptr %94, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %8, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %97) #16
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread, %83
+  %84 = phi ptr [ %81, %_ZNK11constantTag21is_klass_or_referenceEv.exit.thread ], [ %.pre.i.i, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  store ptr %84, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %85, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  store ptr %89, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %85, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  store ptr %93, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 928
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %96) #16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   store volatile i32 4, ptr %16, align 4
   ret i8 %.011

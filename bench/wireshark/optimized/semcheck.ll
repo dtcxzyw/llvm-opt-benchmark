@@ -784,7 +784,7 @@ define hidden i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 @stnode_type_id(ptr noundef %1)
-  switch i32 %5, label %51 [
+  switch i32 %5, label %49 [
     i32 8, label %6
     i32 4, label %6
     i32 2, label %8
@@ -796,11 +796,11 @@ define hidden i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1) local_unnam
     i32 14, label %33
     i32 1, label %33
     i32 10, label %42
-    i32 12, label %48
-    i32 0, label %48
-    i32 15, label %48
-    i32 9, label %48
-    i32 13, label %48
+    i32 12, label %46
+    i32 0, label %46
+    i32 15, label %46
+    i32 9, label %46
+    i32 13, label %46
   ]
 
 6:                                                ; preds = %2, %2
@@ -899,25 +899,24 @@ resolve_unparsed.exit:                            ; preds = %19, %26, %27
     i32 28, label %get_function_ftype.exit
     i32 27, label %get_function_ftype.exit
     i32 26, label %get_function_ftype.exit
+    i32 39, label %get_function_ftype.exit
   ]
 
 45:                                               ; preds = %42
-  %46 = icmp eq i32 %44, 39
-  %47 = select i1 %46, i32 26, i32 30
   br label %get_function_ftype.exit
 
-48:                                               ; preds = %2, %2, %2, %2, %2
-  %49 = tail call i32 @stnode_type_id(ptr noundef %1)
-  %50 = tail call ptr @sttype_name(i32 noundef %49)
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 838, ptr noundef nonnull @__func__.get_logical_ftype, ptr noundef nonnull @.str.6, ptr noundef %50) #7
+46:                                               ; preds = %2, %2, %2, %2, %2
+  %47 = tail call i32 @stnode_type_id(ptr noundef %1)
+  %48 = tail call ptr @sttype_name(i32 noundef %47)
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 838, ptr noundef nonnull @__func__.get_logical_ftype, ptr noundef nonnull @.str.6, ptr noundef %48) #7
   unreachable
 
-51:                                               ; preds = %2
+49:                                               ; preds = %2
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 841, ptr noundef nonnull @__func__.get_logical_ftype, ptr noundef nonnull @.str.3) #7
   unreachable
 
-get_function_ftype.exit:                          ; preds = %resolve_unparsed.exit, %30, %45, %42, %42, %42, %42, %42, %16, %10, %39, %35, %2, %2, %2, %2, %41, %8, %6
-  %.0 = phi i32 [ %7, %6 ], [ %9, %8 ], [ 0, %41 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ %36, %35 ], [ %40, %39 ], [ %15, %10 ], [ 0, %16 ], [ 26, %42 ], [ %47, %45 ], [ 26, %42 ], [ 26, %42 ], [ 26, %42 ], [ 26, %42 ], [ %29, %resolve_unparsed.exit ], [ 0, %30 ]
+get_function_ftype.exit:                          ; preds = %resolve_unparsed.exit, %30, %45, %42, %42, %42, %42, %42, %42, %16, %10, %39, %35, %2, %2, %2, %2, %41, %8, %6
+  %.0 = phi i32 [ %7, %6 ], [ %9, %8 ], [ 0, %41 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ %36, %35 ], [ %40, %39 ], [ %15, %10 ], [ 0, %16 ], [ 26, %42 ], [ 30, %45 ], [ 26, %42 ], [ 26, %42 ], [ 26, %42 ], [ 26, %42 ], [ 26, %42 ], [ %29, %resolve_unparsed.exit ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -937,7 +936,7 @@ define hidden range(i32 26, 31) i32 @check_slice(ptr noundef %0, ptr noundef %1,
   %4 = tail call ptr @sttype_slice_entity(ptr noundef %1)
   tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %4, i1 noundef zeroext true)
   %5 = tail call i32 @stnode_type_id(ptr noundef %4)
-  switch i32 %5, label %.thread46 [
+  switch i32 %5, label %.thread [
     i32 8, label %6
     i32 4, label %10
     i32 11, label %21
@@ -1012,20 +1011,20 @@ define hidden range(i32 26, 31) i32 @check_slice(ptr noundef %0, ptr noundef %1,
 
 39:                                               ; preds = %21, %10, %30
   %.0 = phi i32 [ %12, %10 ], [ %22, %21 ], [ %31, %30 ]
-  switch i32 %.0, label %.thread46.fold.split [
-    i32 45, label %.thread46
-    i32 43, label %.thread46
-    i32 28, label %.thread46
-    i32 27, label %.thread46
-    i32 26, label %.thread46
-    i32 39, label %.thread46
+  switch i32 %.0, label %.thread [
+    i32 45, label %switch.edge
+    i32 43, label %switch.edge
+    i32 28, label %switch.edge
+    i32 27, label %switch.edge
+    i32 26, label %switch.edge
+    i32 39, label %switch.edge
   ]
 
-.thread46.fold.split:                             ; preds = %39
-  br label %.thread46
+.thread:                                          ; preds = %3, %39
+  br label %switch.edge
 
-.thread46:                                        ; preds = %39, %39, %39, %39, %39, %39, %.thread46.fold.split, %3
-  %40 = phi i32 [ 26, %39 ], [ 26, %39 ], [ 26, %39 ], [ 26, %39 ], [ 26, %39 ], [ 30, %3 ], [ 30, %.thread46.fold.split ], [ 26, %39 ]
+switch.edge:                                      ; preds = %39, %39, %39, %39, %39, %39, %.thread
+  %40 = phi i32 [ 26, %39 ], [ 30, %.thread ], [ 26, %39 ], [ 26, %39 ], [ 26, %39 ], [ 26, %39 ], [ 26, %39 ]
   ret i32 %40
 }
 

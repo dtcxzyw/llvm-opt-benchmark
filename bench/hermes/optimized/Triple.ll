@@ -2168,11 +2168,13 @@ lor.lhs.false.i:                                  ; preds = %sw.bb
     i32 27, label %return
     i32 7, label %return
     i32 28, label %return
+    i32 15, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %lor.lhs.false.i
+  br label %return
+
 if.else:                                          ; preds = %lor.lhs.false.i
-  %cmp.i = icmp eq i32 %T.44.val, 15
-  %. = select i1 %cmp.i, i32 1, i32 2
   br label %return
 
 sw.bb6:                                           ; preds = %entry, %entry
@@ -2196,8 +2198,8 @@ sw.bb10:                                          ; preds = %entry, %entry
 sw.epilog:                                        ; preds = %entry
   unreachable
 
-return:                                           ; preds = %sw.bb, %lor.lhs.false.i, %lor.lhs.false.i, %lor.lhs.false.i, %2, %lor.lhs.false.i7, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %if.else, %sw.bb10
-  %retval.0 = phi i32 [ 4, %sw.bb10 ], [ %., %if.else ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 3, %2 ], [ 2, %lor.lhs.false.i7 ], [ 3, %lor.lhs.false.i ], [ 3, %lor.lhs.false.i ], [ 3, %lor.lhs.false.i ], [ 3, %sw.bb ]
+return:                                           ; preds = %switch.edge, %lor.lhs.false.i, %lor.lhs.false.i, %lor.lhs.false.i, %sw.bb, %2, %lor.lhs.false.i7, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %if.else, %sw.bb10
+  %retval.0 = phi i32 [ 4, %sw.bb10 ], [ 2, %if.else ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 2, %entry ], [ 3, %2 ], [ 2, %lor.lhs.false.i7 ], [ 3, %lor.lhs.false.i ], [ 3, %lor.lhs.false.i ], [ 3, %lor.lhs.false.i ], [ 3, %sw.bb ], [ 1, %switch.edge ]
   ret i32 %retval.0
 }
 

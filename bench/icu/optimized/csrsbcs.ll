@@ -158,6 +158,7 @@ $_ZTSN6icu_777UMemoryE = comdat any
 @.str.36 = private unnamed_addr constant [3 x i8] c"hu\00", align 1
 @.str.37 = private unnamed_addr constant [3 x i8] c"pl\00", align 1
 @.str.38 = private unnamed_addr constant [3 x i8] c"ro\00", align 1
+@switch.table._ZN6icu_7718NGramParser_IBM4209isLamAlefEi = private unnamed_addr constant [7 x i32] [i32 71, i32 0, i32 73, i32 0, i32 0, i32 0, i32 86], align 4
 
 @_ZN6icu_7711NGramParserC1EPKiPKh = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7711NGramParserC2EPKiPKh
 @_ZN6icu_7711NGramParserD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7711NGramParserD2Ev
@@ -699,21 +700,18 @@ define void @_ZN6icu_7718NGramParser_IBM420D0Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 0, 87) i32 @_ZN6icu_7718NGramParser_IBM4209isLamAlefEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(52) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = and i32 %1, -2
-  switch i32 %3, label %4 [
-    i32 178, label %5
-    i32 180, label %.fold.split
-  ]
+  %switch.tableidx = add i32 %3, -178
+  %4 = icmp ult i32 %switch.tableidx, 7
+  br i1 %4, label %switch.lookup, label %6
 
-4:                                                ; preds = %2
-  %or.cond5 = icmp eq i32 %3, 184
-  %. = select i1 %or.cond5, i32 86, i32 0
-  br label %5
+switch.lookup:                                    ; preds = %2
+  %5 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7718NGramParser_IBM4209isLamAlefEi, i64 %5
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %6
 
-.fold.split:                                      ; preds = %2
-  br label %5
-
-5:                                                ; preds = %2, %.fold.split, %4
-  %.0 = phi i32 [ 71, %2 ], [ %., %4 ], [ 73, %.fold.split ]
+6:                                                ; preds = %2, %switch.lookup
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -739,17 +737,17 @@ define noundef range(i32 -1, 256) i32 @_ZN6icu_7718NGramParser_IBM4208nextByteEP
   switch i8 %14, label %16 [
     i8 -78, label %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread
     i8 -76, label %.fold.split.i
-    i8 -72, label %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split
+    i8 -72, label %switch.edge.i
   ]
+
+switch.edge.i:                                    ; preds = %13
+  br label %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread
 
 .fold.split.i:                                    ; preds = %13
   br label %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread
 
-_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split: ; preds = %13
-  br label %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread
-
-_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread: ; preds = %13, %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split, %.fold.split.i
-  %.0.i.ph = phi i32 [ 73, %.fold.split.i ], [ 71, %13 ], [ 86, %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split ]
+_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread: ; preds = %13, %.fold.split.i, %switch.edge.i
+  %.0.i.ph = phi i32 [ 86, %switch.edge.i ], [ 73, %.fold.split.i ], [ 71, %13 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %.0.i.ph, ptr %15, align 8, !tbaa !26
   br label %23
