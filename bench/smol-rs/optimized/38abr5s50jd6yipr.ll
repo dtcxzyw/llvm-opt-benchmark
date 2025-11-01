@@ -159,30 +159,30 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
 define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h4c5efc12cb945857E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 16)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %7, label %3
+  br i1 %.not.i, label %8, label %3
 
 3:                                                ; preds = %2
   %4 = load i64, ptr %1, align 8, !range !11, !alias.scope !48, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !48
   store i64 0, ptr %1, align 8, !alias.scope !48
-  %.not9.i = icmp eq i64 %4, 0
-  br i1 %.not9.i, label %7, label %"_ZN8fastrand10global_rng3RNG7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h99198f219c1468f6E.llvm.4631799374070668439.exit"
+  %7 = icmp eq i64 %4, 0
+  br i1 %7, label %8, label %"_ZN8fastrand10global_rng3RNG7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h99198f219c1468f6E.llvm.4631799374070668439.exit"
 
-7:                                                ; preds = %3, %2
-  %8 = tail call { i64, i64 } @_ZN8fastrand10global_rng11random_seed17h7b07fa0b62f23c5cE(), !noalias !48
-  %.fca.0.extract.i = extractvalue { i64, i64 } %8, 0
-  %9 = icmp eq i64 %.fca.0.extract.i, 0
-  %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  %.0.i = select i1 %9, i64 1078321422319462234, i64 %.fca.1.extract.i
+8:                                                ; preds = %3, %2
+  %9 = tail call { i64, i64 } @_ZN8fastrand10global_rng11random_seed17h7b07fa0b62f23c5cE(), !noalias !48
+  %.fca.0.extract.i = extractvalue { i64, i64 } %9, 0
+  %10 = icmp eq i64 %.fca.0.extract.i, 0
+  %.fca.1.extract.i = extractvalue { i64, i64 } %9, 1
+  %.0.i = select i1 %10, i64 1078321422319462234, i64 %.fca.1.extract.i
   br label %"_ZN8fastrand10global_rng3RNG7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h99198f219c1468f6E.llvm.4631799374070668439.exit"
 
-"_ZN8fastrand10global_rng3RNG7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h99198f219c1468f6E.llvm.4631799374070668439.exit": ; preds = %3, %7
-  %.08.i = phi i64 [ %.0.i, %7 ], [ %6, %3 ]
+"_ZN8fastrand10global_rng3RNG7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h99198f219c1468f6E.llvm.4631799374070668439.exit": ; preds = %3, %8
+  %.08.i = phi i64 [ %.0.i, %8 ], [ %6, %3 ]
   store i64 1, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.08.i, ptr %10, align 8
-  ret ptr %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.08.i, ptr %11, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -756,26 +756,26 @@ define hidden void @"_ZN8async_io6driver8block_on5CACHE7__getit28_$u7b$$u7b$clos
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef i64 @"_ZN8fastrand10global_rng3RNG7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h99198f219c1468f6E.llvm.4631799374070668439"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(16) %0) unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %6, label %2
+  br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
   %3 = load i64, ptr %0, align 8, !range !11, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   store i64 0, ptr %0, align 8
-  %.not9 = icmp eq i64 %3, 0
-  br i1 %.not9, label %6, label %9
+  %6 = icmp eq i64 %3, 0
+  br i1 %6, label %7, label %10
 
-6:                                                ; preds = %2, %1
-  %7 = tail call { i64, i64 } @_ZN8fastrand10global_rng11random_seed17h7b07fa0b62f23c5cE()
-  %.fca.0.extract = extractvalue { i64, i64 } %7, 0
-  %8 = icmp eq i64 %.fca.0.extract, 0
-  %.fca.1.extract = extractvalue { i64, i64 } %7, 1
-  %.0 = select i1 %8, i64 1078321422319462234, i64 %.fca.1.extract
-  br label %9
+7:                                                ; preds = %2, %1
+  %8 = tail call { i64, i64 } @_ZN8fastrand10global_rng11random_seed17h7b07fa0b62f23c5cE()
+  %.fca.0.extract = extractvalue { i64, i64 } %8, 0
+  %9 = icmp eq i64 %.fca.0.extract, 0
+  %.fca.1.extract = extractvalue { i64, i64 } %8, 1
+  %.0 = select i1 %9, i64 1078321422319462234, i64 %.fca.1.extract
+  br label %10
 
-9:                                                ; preds = %2, %6
-  %.08 = phi i64 [ %.0, %6 ], [ %5, %2 ]
+10:                                               ; preds = %2, %7
+  %.08 = phi i64 [ %.0, %7 ], [ %5, %2 ]
   ret i64 %.08
 }
 

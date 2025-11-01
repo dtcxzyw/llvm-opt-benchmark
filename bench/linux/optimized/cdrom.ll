@@ -4369,7 +4369,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_data(ptr noundef %0, ptr nounde
   %32 = zext i8 %26 to i32
   %33 = add nsw i32 %32, -150
   %34 = add nsw i32 %33, %31
-  %35 = icmp slt i32 %34, 0
+  %35 = icmp ugt i32 %34, -151
   br i1 %35, label %125, label %36
 
 36:                                               ; preds = %21
@@ -4561,7 +4561,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !46
   %12 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 16) #17
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %130
+  br i1 %13, label %14, label %126
 
 14:                                               ; preds = %11
   %15 = load i32, ptr %4, align 4
@@ -4637,124 +4637,122 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr nound
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %92, label %62
+  br i1 %61, label %88, label %62
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %65 = icmp samesign ugt i32 %.fr7, 1
-  br i1 %65, label %.split, label %.split.us
+  %.not = icmp eq i32 %.fr7, 1
+  br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %62
-  %66 = load ptr, ptr %63, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 80
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 156
-  %70 = load i32, ptr %69, align 4
-  %71 = shl i32 %70, 9
-  %72 = udiv i32 %71, 2352
+  %65 = load ptr, ptr %63, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 156
+  %69 = load i32, ptr %68, align 4
+  %70 = shl i32 %69, 9
+  %71 = udiv i32 %70, 2352
   store i8 0, ptr %64, align 8
+  %72 = call i32 @llvm.smin.i32(i32 %71, i32 1)
   br label %73
 
-73:                                               ; preds = %85, %.split.us
-  %74 = phi ptr [ %90, %85 ], [ %58, %.split.us ]
-  %75 = phi i32 [ %87, %85 ], [ %49, %.split.us ]
-  %76 = phi i32 [ %86, %85 ], [ 1, %.split.us ]
-  %77 = load i32, ptr %59, align 4
-  %78 = icmp eq i32 %77, 1
-  %79 = call i32 @llvm.smin.i32(i32 %76, i32 %72)
-  %80 = select i1 %78, i32 1, i32 %79
-  %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 96
-  %83 = load ptr, ptr %82, align 8
-  %84 = call i32 %83(ptr noundef %0, ptr noundef %74, i32 noundef %75, i32 noundef %80, ptr noundef nonnull %64) #17
-  switch i32 %84, label %.thread [
-    i32 0, label %85
+73:                                               ; preds = %83, %.split.us
+  %74 = phi ptr [ %87, %83 ], [ %58, %.split.us ]
+  %75 = phi i32 [ %84, %83 ], [ %49, %.split.us ]
+  %76 = load i32, ptr %59, align 4
+  %77 = icmp eq i32 %76, 1
+  %78 = select i1 %77, i32 1, i32 %72
+  %79 = load ptr, ptr %0, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 96
+  %81 = load ptr, ptr %80, align 8
+  %82 = call i32 %81(ptr noundef %0, ptr noundef %74, i32 noundef %75, i32 noundef %78, ptr noundef nonnull %64) #17
+  switch i32 %82, label %.thread [
+    i32 0, label %83
     i32 -5, label %.split6.us
   ]
 
-85:                                               ; preds = %73
-  %86 = sub i32 %76, %80
-  %87 = add i32 %80, %75
-  %88 = mul i32 %80, 2352
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr i8, ptr %74, i64 %89
-  %91 = icmp eq i32 %86, 0
-  br i1 %91, label %.thread, label %73, !llvm.loop !51
+83:                                               ; preds = %73
+  %84 = add nuw nsw i32 %78, %75
+  %85 = mul nuw nsw i32 %78, 2352
+  %86 = zext nneg i32 %85 to i64
+  %87 = getelementptr i8, ptr %74, i64 %86
+  %.not13 = icmp eq i32 %78, 0
+  br i1 %.not13, label %73, label %.thread, !llvm.loop !51
 
-92:                                               ; preds = %56
-  %93 = call fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %58, i32 noundef %49, i32 noundef %.fr7)
+88:                                               ; preds = %56
+  %89 = call fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %58, i32 noundef %49, i32 noundef %.fr7)
   br label %.thread
 
-.split:                                           ; preds = %62, %123
-  %94 = load ptr, ptr %63, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 80
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 156
-  %98 = load i32, ptr %97, align 4
-  %99 = shl i32 %98, 9
-  %100 = udiv i32 %99, 2352
+.split:                                           ; preds = %62, %119
+  %90 = load ptr, ptr %63, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 80
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 156
+  %94 = load i32, ptr %93, align 4
+  %95 = shl i32 %94, 9
+  %96 = udiv i32 %95, 2352
   store i8 0, ptr %64, align 8
-  br label %101
+  br label %97
 
-101:                                              ; preds = %.split, %113
-  %102 = phi ptr [ %118, %113 ], [ %58, %.split ]
-  %103 = phi i32 [ %115, %113 ], [ %49, %.split ]
-  %104 = phi i32 [ %114, %113 ], [ %.fr7, %.split ]
-  %105 = load i32, ptr %59, align 4
-  %106 = icmp eq i32 %105, 1
-  %107 = call i32 @llvm.smin.i32(i32 %104, i32 %100)
-  %108 = select i1 %106, i32 1, i32 %107
-  %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
-  %111 = load ptr, ptr %110, align 8
-  %112 = call i32 %111(ptr noundef %0, ptr noundef %102, i32 noundef %103, i32 noundef %108, ptr noundef nonnull %64) #17
-  switch i32 %112, label %.thread [
-    i32 0, label %113
-    i32 -5, label %120
+97:                                               ; preds = %.split, %109
+  %98 = phi ptr [ %114, %109 ], [ %58, %.split ]
+  %99 = phi i32 [ %111, %109 ], [ %49, %.split ]
+  %100 = phi i32 [ %110, %109 ], [ %.fr7, %.split ]
+  %101 = load i32, ptr %59, align 4
+  %102 = icmp eq i32 %101, 1
+  %103 = call i32 @llvm.smin.i32(i32 %100, i32 %96)
+  %104 = select i1 %102, i32 1, i32 %103
+  %105 = load ptr, ptr %0, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 96
+  %107 = load ptr, ptr %106, align 8
+  %108 = call i32 %107(ptr noundef %0, ptr noundef %98, i32 noundef %99, i32 noundef %104, ptr noundef nonnull %64) #17
+  switch i32 %108, label %.thread [
+    i32 0, label %109
+    i32 -5, label %116
   ]
 
-113:                                              ; preds = %101
-  %114 = sub i32 %104, %108
-  %115 = add i32 %108, %103
-  %116 = mul i32 %108, 2352
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr i8, ptr %102, i64 %117
-  %119 = icmp eq i32 %114, 0
-  br i1 %119, label %.thread, label %101, !llvm.loop !51
+109:                                              ; preds = %97
+  %110 = sub i32 %100, %104
+  %111 = add i32 %104, %99
+  %112 = mul i32 %104, 2352
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr i8, ptr %98, i64 %113
+  %115 = icmp eq i32 %110, 0
+  br i1 %115, label %.thread, label %97, !llvm.loop !51
 
-120:                                              ; preds = %101
-  %121 = load i32, ptr %59, align 4
-  %122 = icmp eq i32 %121, 2
-  br i1 %122, label %123, label %.split6.us
+116:                                              ; preds = %97
+  %117 = load i32, ptr %59, align 4
+  %118 = icmp eq i32 %117, 2
+  br i1 %118, label %119, label %.split6.us
 
-123:                                              ; preds = %120
-  %124 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #16
+119:                                              ; preds = %116
+  %120 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #16
   store i32 1, ptr %59, align 4
   br label %.split
 
-.split6.us:                                       ; preds = %73, %120
-  %125 = load i8, ptr %64, align 8
-  switch i8 %125, label %.thread [
-    i8 4, label %126
-    i8 11, label %126
+.split6.us:                                       ; preds = %116, %73
+  %121 = load i8, ptr %64, align 8
+  switch i8 %121, label %.thread [
+    i8 4, label %122
+    i8 11, label %122
   ]
 
-126:                                              ; preds = %.split6.us, %.split6.us
-  %127 = zext nneg i8 %125 to i32
-  %128 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %127) #16
+122:                                              ; preds = %.split6.us, %.split6.us
+  %123 = zext nneg i8 %121 to i32
+  %124 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %123) #16
   store i32 0, ptr %59, align 4
-  %129 = call fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %58, i32 noundef %49, i32 noundef %.fr7)
+  %125 = call fastcc i32 @cdrom_read_cdda_old(ptr noundef %0, ptr noundef %58, i32 noundef %49, i32 noundef %.fr7)
   br label %.thread
 
-130:                                              ; preds = %11
+126:                                              ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread:                                          ; preds = %85, %73, %113, %101, %130, %126, %.split6.us, %92, %48, %30, %27
-  %131 = phi i32 [ -14, %130 ], [ -14, %27 ], [ -22, %30 ], [ -22, %48 ], [ %93, %92 ], [ %129, %126 ], [ -5, %.split6.us ], [ %112, %101 ], [ 0, %113 ], [ %84, %73 ], [ 0, %85 ]
+.thread:                                          ; preds = %109, %97, %83, %73, %126, %122, %.split6.us, %88, %48, %30, %27
+  %127 = phi i32 [ -14, %126 ], [ -14, %27 ], [ -22, %30 ], [ -22, %48 ], [ %89, %88 ], [ %125, %122 ], [ -5, %.split6.us ], [ %82, %73 ], [ 0, %83 ], [ %108, %97 ], [ 0, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %131
+  ret i32 %127
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -67,11 +67,11 @@ define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %storemerge = phi i32 [ %6, %4 ], [ 0, %0 ]
   store i32 %storemerge, ptr @bad_cred_test, align 4
   %8 = tail call zeroext i1 @slurm_running_in_slurmstepd() #13
-  br i1 %8, label %38, label %9
+  br i1 %8, label %39, label %9
 
 9:                                                ; preds = %7
   %10 = tail call zeroext i1 @slurm_running_in_daemon() #13
-  br i1 %10, label %11, label %38
+  br i1 %10, label %11, label %39
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -83,78 +83,78 @@ define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 144), align 8
   %17 = tail call ptr @auth_p_create(ptr noundef %16, i32 noundef %15, ptr noundef null, i32 noundef 0)
   %.not8 = icmp eq ptr %17, null
-  br i1 %.not8, label %22, label %18
+  br i1 %.not8, label %23, label %18
 
 18:                                               ; preds = %11
   %19 = tail call fastcc i32 @_decode_cred(ptr noundef %17, ptr noundef %13, i1 noundef zeroext true)
-  %.not9 = icmp eq i32 %19, 0
-  br i1 %.not9, label %20, label %24
+  %20 = icmp eq i32 %19, -1
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %18
-  %21 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.2) #13
-  br label %24
+21:                                               ; preds = %18
+  %22 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.2) #13
+  br label %25
 
-22:                                               ; preds = %11
-  %23 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1) #13
+23:                                               ; preds = %11
+  %24 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1) #13
   call void @slurm_xfree(ptr noundef nonnull %2) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br label %auth_p_destroy.exit
 
-24:                                               ; preds = %18, %20
-  %.0.ph = phi i32 [ -1, %20 ], [ 0, %18 ]
+25:                                               ; preds = %18, %21
+  %.0.ph = phi i32 [ -1, %21 ], [ 0, %18 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %17, ptr %1, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %26 = load i8, ptr %25, align 8, !range !8, !noundef !9
-  %27 = trunc nuw i8 %26 to i1
-  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br i1 %27, label %29, label %30
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %27 = load i8, ptr %26, align 8, !range !8, !noundef !9
+  %28 = trunc nuw i8 %27 to i1
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  br i1 %28, label %30, label %31
 
-29:                                               ; preds = %24
-  call void @slurm_xfree(ptr noundef nonnull %28) #13
-  br label %33
+30:                                               ; preds = %25
+  call void @slurm_xfree(ptr noundef nonnull %29) #13
+  br label %34
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %28, align 8
-  %.not3.i = icmp eq ptr %31, null
-  br i1 %.not3.i, label %33, label %32
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %29, align 8
+  %.not3.i = icmp eq ptr %32, null
+  br i1 %.not3.i, label %34, label %33
 
-32:                                               ; preds = %30
-  call void @free(ptr noundef nonnull %31) #13
-  br label %33
+33:                                               ; preds = %31
+  call void @free(ptr noundef nonnull %32) #13
+  br label %34
 
-33:                                               ; preds = %32, %30, %29
-  %34 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %35 = load ptr, ptr %34, align 8
-  %.not4.i = icmp eq ptr %35, null
-  br i1 %.not4.i, label %37, label %36
+34:                                               ; preds = %33, %31, %30
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %36 = load ptr, ptr %35, align 8
+  %.not4.i = icmp eq ptr %36, null
+  br i1 %.not4.i, label %38, label %37
 
-36:                                               ; preds = %33
-  call void @free(ptr noundef nonnull %35) #13
-  br label %37
+37:                                               ; preds = %34
+  call void @free(ptr noundef nonnull %36) #13
+  br label %38
 
-37:                                               ; preds = %36, %33
+38:                                               ; preds = %37, %34
   call void @slurm_xfree(ptr noundef nonnull %1) #13
   br label %auth_p_destroy.exit
 
-auth_p_destroy.exit:                              ; preds = %22, %37
-  %.012 = phi i32 [ -1, %22 ], [ %.0.ph, %37 ]
+auth_p_destroy.exit:                              ; preds = %23, %38
+  %.011 = phi i32 [ -1, %23 ], [ %.0.ph, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %38
+  br label %39
 
-38:                                               ; preds = %auth_p_destroy.exit, %9, %7
-  %.1 = phi i32 [ 0, %7 ], [ %.012, %auth_p_destroy.exit ], [ 0, %9 ]
-  %39 = call i32 @slurm_get_log_level() #13
-  %40 = icmp sgt i32 %39, 4
-  br i1 %40, label %41, label %42
+39:                                               ; preds = %auth_p_destroy.exit, %9, %7
+  %.1 = phi i32 [ 0, %7 ], [ %.011, %auth_p_destroy.exit ], [ 0, %9 ]
+  %40 = call i32 @slurm_get_log_level() #13
+  %41 = icmp sgt i32 %40, 4
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.init) #13
-  br label %42
+  br label %43
 
-42:                                               ; preds = %41, %38
+43:                                               ; preds = %42, %39
   ret i32 %.1
 }
 
@@ -611,23 +611,25 @@ define dso_local range(i32 -1, 1) i32 @auth_p_verify(ptr noundef %0, ptr noundef
 4:                                                ; preds = %2
   %5 = tail call ptr @__errno_location() #14
   store i32 6004, ptr %5, align 4
-  br label %13
+  br label %14
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8, !range !8, !noundef !9
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %13, label %10
+  br i1 %9, label %14, label %10
 
 10:                                               ; preds = %6
   %11 = tail call ptr @slurm_auth_opts_to_socket(ptr noundef %1) #13
   store ptr %11, ptr %3, align 8
   %12 = tail call fastcc i32 @_decode_cred(ptr noundef %0, ptr noundef %11, i1 noundef zeroext false)
   call void @slurm_xfree(ptr noundef nonnull %3) #13
-  br label %13
+  %13 = icmp eq i32 %12, -1
+  %. = sext i1 %13 to i32
+  br label %14
 
-13:                                               ; preds = %10, %6, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %6 ], [ %12, %10 ]
+14:                                               ; preds = %10, %6, %4
+  %.0 = phi i32 [ -1, %4 ], [ 0, %6 ], [ %., %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -677,7 +679,7 @@ define dso_local ptr @auth_p_get_host(ptr noundef readonly captures(address_is_n
 7:                                                ; preds = %3, %1
   %8 = tail call ptr @__errno_location() #14
   store i32 6004, ptr %8, align 4
-  br label %26
+  br label %27
 
 9:                                                ; preds = %3
   store i16 2, ptr %2, align 8
@@ -687,7 +689,7 @@ define dso_local ptr @auth_p_get_host(ptr noundef readonly captures(address_is_n
   store i32 %11, ptr %12, align 4
   %.mask = and i32 %11, 255
   %13 = icmp eq i32 %.mask, 127
-  br i1 %13, label %26, label %14
+  br i1 %13, label %27, label %14
 
 14:                                               ; preds = %9
   %.not19 = icmp eq i32 %11, 0
@@ -701,26 +703,26 @@ define dso_local ptr @auth_p_get_host(ptr noundef readonly captures(address_is_n
 17:                                               ; preds = %15
   %18 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 46) #15
   %.not21 = icmp eq ptr %18, null
-  br i1 %.not21, label %26, label %19
+  br i1 %.not21, label %27, label %19
 
 19:                                               ; preds = %17
   store i8 0, ptr %18, align 1
-  br label %26
+  br label %27
 
 20:                                               ; preds = %15, %14
   %21 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.8, i32 noundef 391, ptr noundef nonnull @__func__.auth_p_get_host) #13
   call void @slurm_get_ip_str(ptr noundef nonnull %2, ptr noundef %21, i32 noundef 16) #13
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 268), align 4
   %23 = and i32 %22, 128
-  %.not23 = icmp eq i32 %23, 0
-  br i1 %.not23, label %24, label %26
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %20
-  %25 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.auth_p_get_host, ptr noundef %21) #13
-  br label %26
+25:                                               ; preds = %20
+  %26 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.auth_p_get_host, ptr noundef %21) #13
+  br label %27
 
-26:                                               ; preds = %19, %17, %24, %20, %9, %7
-  %.014 = phi ptr [ null, %7 ], [ null, %9 ], [ %21, %20 ], [ %21, %24 ], [ %16, %19 ], [ %16, %17 ]
+27:                                               ; preds = %19, %17, %25, %20, %9, %7
+  %.014 = phi ptr [ null, %7 ], [ null, %9 ], [ %21, %20 ], [ %21, %25 ], [ %16, %19 ], [ %16, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.014
 }

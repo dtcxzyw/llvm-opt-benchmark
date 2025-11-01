@@ -104,8 +104,8 @@ define void @_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8f
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.010
   store i8 %10, ptr %11, align 1
   %12 = add nuw nsw i64 %.010, 1
-  %exitcond12.not = icmp eq i64 %12, 64
-  br i1 %exitcond12.not, label %5, label %6
+  %.not = icmp eq i64 %12, 64
+  br i1 %.not, label %5, label %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
@@ -156,8 +156,8 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit: ; pre
 
 19:                                               ; preds = %.backedge
   %20 = add nuw nsw i64 %.01926, 1
-  %exitcond30.not = icmp eq i64 %20, 64
-  br i1 %exitcond30.not, label %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit, label %.preheader22
+  %.not33 = icmp eq i64 %20, 64
+  br i1 %.not33, label %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit, label %.preheader22
 
 .preheader:                                       ; preds = %14, %.backedge
   %.025 = phi i64 [ %.0.be, %.backedge ], [ 0, %14 ]
@@ -166,8 +166,8 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit: ; pre
 
 .backedge:                                        ; preds = %22, %.preheader
   %.0.be = add nuw nsw i64 %.025, 1
-  %exitcond.not = icmp eq i64 %.0.be, 64
-  br i1 %exitcond.not, label %19, label %.preheader
+  %.not32 = icmp eq i64 %.0.be, 64
+  br i1 %.not32, label %19, label %.preheader
 
 22:                                               ; preds = %.preheader
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.025
@@ -257,34 +257,34 @@ _ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i: ; p
 
 18:                                               ; preds = %.backedge.i
   %19 = add nuw nsw i64 %.01926.i, 1
-  %exitcond30.not.i = icmp eq i64 %19, 64
-  br i1 %exitcond30.not.i, label %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i, label %.preheader22.i
+  %20 = icmp eq i64 %19, 64
+  br i1 %20, label %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i, label %.preheader22.i
 
 .preheader.i:                                     ; preds = %13, %.backedge.i
   %.025.i = phi i64 [ %.0.be.i, %.backedge.i ], [ 0, %13 ]
-  %20 = icmp eq i64 %.025.i, %.01926.i
-  br i1 %20, label %.backedge.i, label %21
+  %21 = icmp eq i64 %.025.i, %.01926.i
+  br i1 %21, label %.backedge.i, label %23
 
-.backedge.i:                                      ; preds = %21, %.preheader.i
+.backedge.i:                                      ; preds = %23, %.preheader.i
   %.0.be.i = add nuw nsw i64 %.025.i, 1
-  %exitcond.not.i = icmp eq i64 %.0.be.i, 64
-  br i1 %exitcond.not.i, label %18, label %.preheader.i
+  %22 = icmp eq i64 %.0.be.i, 64
+  br i1 %22, label %18, label %.preheader.i
 
-21:                                               ; preds = %.preheader.i
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.025.i
-  %23 = load i8, ptr %22, align 1, !alias.scope !14, !noalias !11, !noundef !4
-  %24 = icmp eq i8 %8, %23
-  br i1 %24, label %25, label %.backedge.i
+23:                                               ; preds = %.preheader.i
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.025.i
+  %25 = load i8, ptr %24, align 1, !alias.scope !14, !noalias !11, !noundef !4
+  %26 = icmp eq i8 %8, %25
+  br i1 %26, label %27, label %.backedge.i
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %26, align 1, !alias.scope !11, !noalias !14
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %8, ptr %27, align 1, !alias.scope !11, !noalias !14
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %28, align 1, !alias.scope !11, !noalias !14
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %8, ptr %29, align 1, !alias.scope !11, !noalias !14
   br label %_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE.exit
 
-_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE.exit: ; preds = %4, %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i, %10, %15, %25
-  %.sink = phi i8 [ 1, %4 ], [ 0, %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i ], [ 1, %10 ], [ 1, %15 ], [ 1, %25 ]
+_ZN6base648alphabet8Alphabet3new17h146b96448e6c844eE.exit: ; preds = %4, %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i, %10, %15, %27
+  %.sink = phi i8 [ 1, %4 ], [ 0, %_ZN6base648alphabet8Alphabet18from_str_unchecked17h2e156887b9fb6d8fE.exit.i ], [ 1, %10 ], [ 1, %15 ], [ 1, %27 ]
   store i8 %.sink, ptr %0, align 1, !alias.scope !11, !noalias !14
   ret void
 }

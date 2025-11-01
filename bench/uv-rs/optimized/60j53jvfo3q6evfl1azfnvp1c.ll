@@ -1124,10 +1124,9 @@ common.resume:                                    ; preds = %97, %87, %67, %.bod
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.237.152..sroa_idx, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.632)
   %62 = load i64, ptr %25, align 8, !range !130, !alias.scope !147, !noundef !3
-  %63 = add i64 %62, 9223372036854775800
-  %64 = icmp ugt i64 %63, 2
-  %cond4.i = icmp eq i64 %63, 1
-  %cond.i = or i1 %64, %cond4.i
+  %63 = icmp ult i64 %62, -9223372036854775800
+  %64 = icmp eq i64 %62, -9223372036854775799
+  %cond.i = or i1 %63, %64
   br i1 %cond.i, label %66, label %.invoke.i
 
 .invoke.i:                                        ; preds = %61
@@ -1192,10 +1191,9 @@ common.resume:                                    ; preds = %97, %87, %67, %.bod
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.632)
   %82 = load i64, ptr %25, align 8, !range !130, !alias.scope !155, !noundef !3
-  %83 = add i64 %82, 9223372036854775800
-  %84 = icmp ugt i64 %83, 2
-  %cond4.i66 = icmp eq i64 %83, 1
-  %cond.i67 = or i1 %84, %cond4.i66
+  %83 = icmp ult i64 %82, -9223372036854775800
+  %84 = icmp eq i64 %82, -9223372036854775799
+  %cond.i67 = or i1 %83, %84
   br i1 %cond.i67, label %86, label %.invoke.i68
 
 .invoke.i68:                                      ; preds = %80

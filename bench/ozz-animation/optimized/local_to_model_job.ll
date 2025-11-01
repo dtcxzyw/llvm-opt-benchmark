@@ -87,21 +87,21 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %36 = add nsw i32 %32, %35
   %37 = tail call noundef i32 @llvm.smax.i32(i32 %36, i32 0)
   %38 = icmp slt i32 %37, %30
-  br i1 %38, label %39, label %._crit_edge64
+  br i1 %38, label %39, label %._crit_edge63
 
 39:                                               ; preds = %17
   %40 = trunc nuw i8 %34 to i1
-  br i1 %40, label %41, label %.lr.ph63
+  br i1 %40, label %41, label %.lr.ph62
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %37 to i64
   %43 = getelementptr inbounds nuw i16, ptr %19, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !33
   %45 = sext i16 %44 to i32
-  %.not65 = icmp sgt i32 %32, %45
-  br i1 %.not65, label %._crit_edge64, label %.lr.ph63
+  %.not64 = icmp sgt i32 %32, %45
+  br i1 %.not64, label %._crit_edge63, label %.lr.ph62
 
-.lr.ph63:                                         ; preds = %39, %41
+.lr.ph62:                                         ; preds = %39, %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -122,7 +122,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %63 = zext nneg i32 %30 to i64
   br label %.outer
 
-._crit_edge64:                                    ; preds = %._crit_edge.loopexit, %._crit_edge.loopexit.thread, %17, %41
+._crit_edge63:                                    ; preds = %._crit_edge.loopexit, %._crit_edge.loopexit.thread, %17, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit.thread
 
@@ -147,18 +147,18 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   br i1 %158, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %64
-  %65 = zext nneg i32 %.02761.ph to i64
+  %65 = zext nneg i32 %.02760.ph to i64
   %66 = zext nneg i32 %157 to i64
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %225
   %67 = trunc nuw nsw i64 %indvars.iv.next to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %230, label %.outer, label %._crit_edge64, !llvm.loop !35
+  br i1 %230, label %.outer, label %._crit_edge63, !llvm.loop !35
 
-.outer:                                           ; preds = %._crit_edge.loopexit, %.lr.ph63
-  %.02761.ph = phi i32 [ %67, %._crit_edge.loopexit ], [ %37, %.lr.ph63 ]
-  %68 = lshr i32 %.02761.ph, 2
+.outer:                                           ; preds = %._crit_edge.loopexit, %.lr.ph62
+  %.02760.ph = phi i32 [ %67, %._crit_edge.loopexit ], [ %37, %.lr.ph62 ]
+  %68 = lshr i32 %.02760.ph, 2
   %69 = zext nneg i32 %68 to i64
   %70 = load ptr, ptr %46, align 8, !tbaa !37
   %71 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %70, i64 %69
@@ -246,9 +246,9 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %153 = shufflevector <4 x float> %121, <4 x float> <float poison, float poison, float 1.000000e+00, float 1.000000e+00>, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %154 = shufflevector <4 x float> %152, <4 x float> %153, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %155 = shufflevector <4 x float> %152, <4 x float> %153, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  %156 = and i32 %.02761.ph, -4
+  %156 = and i32 %.02760.ph, -4
   %157 = add nuw nsw i32 %156, 4
-  %158 = icmp slt i32 %.02761.ph, %157
+  %158 = icmp slt i32 %.02760.ph, %157
   br label %64
 
 ._crit_edge:                                      ; preds = %64
@@ -271,14 +271,14 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %170 = load <4 x float>, ptr %165, align 16, !tbaa !23, !noalias !41
   %171 = fmul <4 x float> %169, %170
   %172 = shufflevector <4 x float> %168, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %.sroa.sel73.v.sroa.sel.v = select i1 %161, ptr %spec.select, ptr %164
-  %.sroa.sel73.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel73.v.sroa.sel.v, i64 32
-  %173 = load <4 x float>, ptr %.sroa.sel73.v.sroa.sel, align 16, !tbaa !23, !noalias !41
+  %.sroa.sel72.v.sroa.sel.v = select i1 %161, ptr %spec.select, ptr %164
+  %.sroa.sel72.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel72.v.sroa.sel.v, i64 32
+  %173 = load <4 x float>, ptr %.sroa.sel72.v.sroa.sel, align 16, !tbaa !23, !noalias !41
   %174 = fmul <4 x float> %172, %173
   %175 = shufflevector <4 x float> %168, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %.sroa.sel70.v.sroa.sel.v = select i1 %161, ptr %spec.select, ptr %164
-  %.sroa.sel70.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel70.v.sroa.sel.v, i64 16
-  %176 = load <4 x float>, ptr %.sroa.sel70.v.sroa.sel, align 16, !tbaa !23, !noalias !41
+  %.sroa.sel69.v.sroa.sel.v = select i1 %161, ptr %spec.select, ptr %164
+  %.sroa.sel69.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel69.v.sroa.sel.v, i64 16
+  %176 = load <4 x float>, ptr %.sroa.sel69.v.sroa.sel, align 16, !tbaa !23, !noalias !41
   %177 = fmul <4 x float> %175, %176
   %178 = fadd <4 x float> %171, %177
   %179 = shufflevector <4 x float> %168, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
@@ -341,7 +341,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
 
 ._crit_edge.loopexit.thread:                      ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %._crit_edge64
+  br label %._crit_edge63
 
 225:                                              ; preds = %.lr.ph
   %226 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv.next
@@ -353,8 +353,8 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %232 = select i1 %231, i1 %230, i1 false
   br i1 %232, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !44
 
-_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit.thread: ; preds = %1, %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit, %._crit_edge64
-  %.0.i57 = phi i1 [ false, %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit ], [ true, %._crit_edge64 ], [ false, %1 ]
+_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit.thread: ; preds = %1, %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit, %._crit_edge63
+  %.0.i57 = phi i1 [ false, %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit ], [ true, %._crit_edge63 ], [ false, %1 ]
   ret i1 %.0.i57
 }
 

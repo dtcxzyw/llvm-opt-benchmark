@@ -157,31 +157,30 @@ define dso_local zeroext i1 @gdb_got_immediate_ack() local_unnamed_addr #0 {
 12:                                               ; preds = %11, %7
   %13 = phi i32 [ %.pr.i, %11 ], [ %9, %7 ]
   %.not.i = icmp eq i32 %13, 4
-  br i1 %.not.i, label %2, label %gdb_get_char.exit.thread
+  br i1 %.not.i, label %2, label %gdb_get_char.exit
 
 14:                                               ; preds = %2
   %15 = icmp eq i32 %5, 0
-  br i1 %15, label %16, label %gdb_get_char.exit
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
   %17 = load i32, ptr @gdbserver_user_state, align 8
   %18 = call i32 @close(i32 noundef %17) #16
   store i32 -1, ptr @gdbserver_user_state, align 8
-  br label %gdb_get_char.exit.thread
+  br label %gdb_get_char.exit
 
-gdb_get_char.exit.thread:                         ; preds = %12, %16
+19:                                               ; preds = %14
+  %20 = load i8, ptr %1, align 1
+  %21 = zext i8 %20 to i32
+  br label %gdb_get_char.exit
+
+gdb_get_char.exit:                                ; preds = %12, %16, %19
+  %.0.i = phi i32 [ -1, %16 ], [ %21, %19 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %21
-
-gdb_get_char.exit:                                ; preds = %14
-  %19 = load i8, ptr %1, align 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %20 = icmp eq i8 %19, 43
-  br label %21
-
-21:                                               ; preds = %gdb_get_char.exit.thread, %gdb_get_char.exit
-  %.0 = phi i1 [ %20, %gdb_get_char.exit ], [ true, %gdb_get_char.exit.thread ]
-  ret i1 %.0
+  %22 = icmp eq i32 %.0.i, -1
+  %23 = icmp eq i32 %.0.i, 43
+  %switch.selectcmp = or i1 %22, %23
+  ret i1 %switch.selectcmp
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -230,7 +229,7 @@ define dso_local void @gdb_exit(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i8, ptr @gdbserver_state, align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %38
+  br i1 %5, label %6, label %39
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 8), align 8
@@ -244,7 +243,7 @@ define dso_local void @gdb_exit(i32 noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %8, %6
   %11 = load i32, ptr @gdbserver_user_state, align 8
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %38, label %13
+  br i1 %12, label %39, label %13
 
 13:                                               ; preds = %10
   store i32 0, ptr %3, align 4, !annotation !4
@@ -260,45 +259,45 @@ define dso_local void @gdb_exit(i32 noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %15
   %18 = load i32, ptr @qemu_loglevel, align 4
   %19 = and i32 %18, 32768
-  %.not3.i.i = icmp eq i32 %19, 0
-  br i1 %.not3.i.i, label %trace_gdbstub_op_exiting.exit, label %20
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %trace_gdbstub_op_exiting.exit, label %21
 
-20:                                               ; preds = %17
-  %21 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %30
+21:                                               ; preds = %17
+  %22 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %31
 
-23:                                               ; preds = %20
+24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
-  %24 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #16
-  %25 = tail call i32 @qemu_get_thread_id() #16
-  %26 = load i64, ptr %2, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = load i64, ptr %27, align 8
-  %29 = and i32 %0, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %25, i64 noundef %26, i64 noundef %28, i32 noundef %29) #16
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #16
+  %26 = tail call i32 @qemu_get_thread_id() #16
+  %27 = load i64, ptr %2, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = and i32 %0, 255
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %26, i64 noundef %27, i64 noundef %29, i32 noundef %30) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %trace_gdbstub_op_exiting.exit
 
-30:                                               ; preds = %20
-  %31 = and i32 %0, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %31) #16
+31:                                               ; preds = %21
+  %32 = and i32 %0, 255
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %32) #16
   br label %trace_gdbstub_op_exiting.exit
 
-trace_gdbstub_op_exiting.exit:                    ; preds = %13, %15, %17, %23, %30
-  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !7, !noundef !8
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %38
+trace_gdbstub_op_exiting.exit:                    ; preds = %13, %15, %17, %24, %31
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !7, !noundef !8
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %trace_gdbstub_op_exiting.exit
-  %35 = and i32 %0, 255
-  %36 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %3, i64 noundef 4, i32 noundef 1, i64 noundef 4, ptr noundef nonnull @.str, i32 noundef %35) #16
-  %37 = call i32 @gdb_put_packet(ptr noundef nonnull %3) #16
+35:                                               ; preds = %trace_gdbstub_op_exiting.exit
+  %36 = and i32 %0, 255
+  %37 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %3, i64 noundef 4, i32 noundef 1, i64 noundef 4, ptr noundef nonnull @.str, i32 noundef %36) #16
+  %38 = call i32 @gdb_put_packet(ptr noundef nonnull %3) #16
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %trace_gdbstub_op_exiting.exit, %34, %10, %1
+39:                                               ; preds = %trace_gdbstub_op_exiting.exit, %35, %10, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1285,31 +1284,31 @@ define dso_local void @gdb_continue() local_unnamed_addr #0 {
 5:                                                ; preds = %3
   %6 = load i32, ptr @qemu_loglevel, align 4
   %7 = and i32 %6, 32768
-  %.not2.i.i = icmp eq i32 %7, 0
-  br i1 %.not2.i.i, label %trace_gdbstub_op_continue.exit, label %8
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %trace_gdbstub_op_continue.exit, label %9
 
-8:                                                ; preds = %5
-  %9 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %17
+9:                                                ; preds = %5
+  %10 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %12, label %18
 
-11:                                               ; preds = %8
+12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false), !annotation !4
-  %12 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #16
-  %13 = tail call i32 @qemu_get_thread_id() #16
-  %14 = load i64, ptr %1, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i64, ptr %15, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %13, i64 noundef %14, i64 noundef %16) #16
+  %13 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #16
+  %14 = tail call i32 @qemu_get_thread_id() #16
+  %15 = load i64, ptr %1, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = load i64, ptr %16, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %14, i64 noundef %15, i64 noundef %17) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %trace_gdbstub_op_continue.exit
 
-17:                                               ; preds = %8
+18:                                               ; preds = %9
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38) #16
   br label %trace_gdbstub_op_continue.exit
 
-trace_gdbstub_op_continue.exit:                   ; preds = %0, %3, %5, %11, %17
+trace_gdbstub_op_continue.exit:                   ; preds = %0, %3, %5, %12, %18
   ret void
 }
 
@@ -1325,8 +1324,8 @@ define dso_local noundef i32 @gdb_continue_partial(ptr noundef readonly captures
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %5
 
-5:                                                ; preds = %.lr.ph, %29
-  %.012.in = phi i64 [ %3, %.lr.ph ], [ %31, %29 ]
+5:                                                ; preds = %.lr.ph, %30
+  %.012.in = phi i64 [ %3, %.lr.ph ], [ %32, %30 ]
   %.012 = inttoptr i64 %.012.in to ptr
   %6 = getelementptr inbounds nuw i8, ptr %.012, i64 704
   %7 = load i32, ptr %6, align 16
@@ -1334,7 +1333,7 @@ define dso_local noundef i32 @gdb_continue_partial(ptr noundef readonly captures
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 115
-  br i1 %11, label %12, label %29
+  br i1 %11, label %12, label %30
 
 12:                                               ; preds = %5
   %13 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1349,42 +1348,42 @@ define dso_local noundef i32 @gdb_continue_partial(ptr noundef readonly captures
 16:                                               ; preds = %14
   %17 = load i32, ptr @qemu_loglevel, align 4
   %18 = and i32 %17, 32768
-  %.not3.i.i = icmp eq i32 %18, 0
-  br i1 %.not3.i.i, label %trace_gdbstub_op_stepping.exit, label %19
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %trace_gdbstub_op_stepping.exit, label %20
 
-19:                                               ; preds = %16
-  %20 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %27
+20:                                               ; preds = %16
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %28
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
-  %23 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #16
-  %24 = tail call i32 @qemu_get_thread_id() #16
-  %25 = load i64, ptr %2, align 8
-  %26 = load i64, ptr %4, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %24, i64 noundef %25, i64 noundef %26, i32 noundef %7) #16
+  %24 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #16
+  %25 = tail call i32 @qemu_get_thread_id() #16
+  %26 = load i64, ptr %2, align 8
+  %27 = load i64, ptr %4, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %25, i64 noundef %26, i64 noundef %27, i32 noundef %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %trace_gdbstub_op_stepping.exit
 
-27:                                               ; preds = %19
+28:                                               ; preds = %20
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %7) #16
   br label %trace_gdbstub_op_stepping.exit
 
-trace_gdbstub_op_stepping.exit:                   ; preds = %12, %14, %16, %22, %27
-  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4192), align 8
-  tail call void @cpu_single_step(ptr noundef nonnull %.012, i32 noundef %28) #16
-  br label %29
+trace_gdbstub_op_stepping.exit:                   ; preds = %12, %14, %16, %23, %28
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4192), align 8
+  tail call void @cpu_single_step(ptr noundef nonnull %.012, i32 noundef %29) #16
+  br label %30
 
-29:                                               ; preds = %5, %trace_gdbstub_op_stepping.exit
-  %30 = getelementptr inbounds nuw i8, ptr %.012, i64 560
-  %31 = load atomic i64, ptr %30 monotonic, align 16
+30:                                               ; preds = %5, %trace_gdbstub_op_stepping.exit
+  %31 = getelementptr inbounds nuw i8, ptr %.012, i64 560
+  %32 = load atomic i64, ptr %31 monotonic, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
-  %.not = icmp eq i64 %31, 0
+  %.not = icmp eq i64 %32, 0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %29, %1
+._crit_edge:                                      ; preds = %30, %1
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 16), align 8
   ret i32 0
 }
@@ -1549,14 +1548,14 @@ should_catch_syscall.exit:                        ; preds = %5
   %10 = and i64 %6, 63
   %11 = shl nuw i64 1, %10
   %12 = and i64 %9, %11
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %should_catch_syscall.exit.thread3, label %should_catch_syscall.exit.thread
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %should_catch_syscall.exit.thread3, label %should_catch_syscall.exit.thread
 
 should_catch_syscall.exit.thread:                 ; preds = %2, %should_catch_syscall.exit
-  %13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.21, i32 noundef %1) #16
-  %14 = tail call i32 @gdb_target_sigtrap() #16
-  %15 = tail call i32 @gdb_handlesig(ptr noundef %0, i32 noundef %14, ptr noundef %13, ptr noundef null, i32 noundef 0)
-  tail call void @g_free(ptr noundef %13) #16
+  %14 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.21, i32 noundef %1) #16
+  %15 = tail call i32 @gdb_target_sigtrap() #16
+  %16 = tail call i32 @gdb_handlesig(ptr noundef %0, i32 noundef %15, ptr noundef %14, ptr noundef null, i32 noundef 0)
+  tail call void @g_free(ptr noundef %14) #16
   br label %should_catch_syscall.exit.thread3
 
 should_catch_syscall.exit.thread3:                ; preds = %5, %should_catch_syscall.exit.thread, %should_catch_syscall.exit
@@ -1583,14 +1582,14 @@ should_catch_syscall.exit:                        ; preds = %5
   %10 = and i64 %6, 63
   %11 = shl nuw i64 1, %10
   %12 = and i64 %9, %11
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %should_catch_syscall.exit.thread3, label %should_catch_syscall.exit.thread
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %should_catch_syscall.exit.thread3, label %should_catch_syscall.exit.thread
 
 should_catch_syscall.exit.thread:                 ; preds = %2, %should_catch_syscall.exit
-  %13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, i32 noundef %1) #16
-  %14 = tail call i32 @gdb_target_sigtrap() #16
-  %15 = tail call i32 @gdb_handlesig(ptr noundef %0, i32 noundef %14, ptr noundef %13, ptr noundef null, i32 noundef 0)
-  tail call void @g_free(ptr noundef %13) #16
+  %14 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, i32 noundef %1) #16
+  %15 = tail call i32 @gdb_target_sigtrap() #16
+  %16 = tail call i32 @gdb_handlesig(ptr noundef %0, i32 noundef %15, ptr noundef %14, ptr noundef null, i32 noundef 0)
+  tail call void @g_free(ptr noundef %14) #16
   br label %should_catch_syscall.exit.thread3
 
 should_catch_syscall.exit.thread3:                ; preds = %5, %should_catch_syscall.exit.thread, %should_catch_syscall.exit

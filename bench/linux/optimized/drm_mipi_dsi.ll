@@ -1532,7 +1532,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_power_mode(ptr noundef readonly c
 .thread3:                                         ; preds = %2, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %34
+  br label %32
 
 28:                                               ; preds = %22, %27
   %29 = call i64 %20(ptr noundef %14, ptr noundef nonnull %4) #14
@@ -1540,17 +1540,16 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_power_mode(ptr noundef readonly c
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = icmp eq i64 %.fr, 0
-  br i1 %30, label %34, label %31
+  br i1 %30, label %32, label %31
 
 31:                                               ; preds = %28
-  %32 = icmp slt i64 %.fr, 1
-  %33 = trunc i64 %.fr to i32
-  %spec.select = select i1 %32, i32 %33, i32 0
-  br label %34
+  %spec.select7 = call i64 @llvm.smin.i64(i64 %.fr, i64 0)
+  %spec.select = trunc i64 %spec.select7 to i32
+  br label %32
 
-34:                                               ; preds = %31, %.thread3, %28
-  %35 = phi i32 [ -38, %.thread3 ], [ -61, %28 ], [ %spec.select, %31 ]
-  ret i32 %35
+32:                                               ; preds = %31, %.thread3, %28
+  %33 = phi i32 [ -38, %.thread3 ], [ -61, %28 ], [ %spec.select, %31 ]
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1602,7 +1601,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_pixel_format(ptr noundef readonly
 .thread3:                                         ; preds = %2, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %34
+  br label %32
 
 28:                                               ; preds = %22, %27
   %29 = call i64 %20(ptr noundef %14, ptr noundef nonnull %4) #14
@@ -1610,17 +1609,16 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_pixel_format(ptr noundef readonly
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = icmp eq i64 %.fr, 0
-  br i1 %30, label %34, label %31
+  br i1 %30, label %32, label %31
 
 31:                                               ; preds = %28
-  %32 = icmp slt i64 %.fr, 1
-  %33 = trunc i64 %.fr to i32
-  %spec.select = select i1 %32, i32 %33, i32 0
-  br label %34
+  %spec.select7 = call i64 @llvm.smin.i64(i64 %.fr, i64 0)
+  %spec.select = trunc i64 %spec.select7 to i32
+  br label %32
 
-34:                                               ; preds = %31, %.thread3, %28
-  %35 = phi i32 [ -38, %.thread3 ], [ -61, %28 ], [ %spec.select, %31 ]
-  ret i32 %35
+32:                                               ; preds = %31, %.thread3, %28
+  %33 = phi i32 [ -38, %.thread3 ], [ -61, %28 ], [ %spec.select, %31 ]
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2352,7 +2350,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness(ptr noundef re
 .thread3:                                         ; preds = %2, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %34
+  br label %32
 
 28:                                               ; preds = %22, %27
   %29 = call i64 %20(ptr noundef %14, ptr noundef nonnull %4) #14
@@ -2360,17 +2358,16 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness(ptr noundef re
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = icmp eq i64 %.fr, 0
-  br i1 %30, label %34, label %31
+  br i1 %30, label %32, label %31
 
 31:                                               ; preds = %28
-  %32 = icmp slt i64 %.fr, 1
-  %33 = trunc i64 %.fr to i32
-  %spec.select = select i1 %32, i32 %33, i32 0
-  br label %34
+  %spec.select7 = call i64 @llvm.smin.i64(i64 %.fr, i64 0)
+  %spec.select = trunc i64 %spec.select7 to i32
+  br label %32
 
-34:                                               ; preds = %31, %.thread3, %28
-  %35 = phi i32 [ -38, %.thread3 ], [ -61, %28 ], [ %spec.select, %31 ]
-  ret i32 %35
+32:                                               ; preds = %31, %.thread3, %28
+  %33 = phi i32 [ -38, %.thread3 ], [ -61, %28 ], [ %spec.select, %31 ]
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

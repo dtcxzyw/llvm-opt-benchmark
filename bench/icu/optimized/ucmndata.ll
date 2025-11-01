@@ -178,7 +178,7 @@ define internal noundef ptr @_ZL17offsetTOCLookupFnPK11UDataMemoryPKcPiP10UError
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %83, label %7
+  br i1 %.not, label %86, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %6, align 4, !tbaa !25
@@ -241,14 +241,14 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i:          ; preds = %31
   %40 = icmp sgt i32 %8, 2
   br i1 %40, label %.lr.ph.i, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %65
-  %.02669.i = phi i32 [ %.228.i, %65 ], [ 1, %.preheader.i ]
-  %.03068.i = phi i32 [ %.232.i, %65 ], [ %25, %.preheader.i ]
-  %.05167.i = phi i32 [ %.152.i, %65 ], [ %.018.i35.i, %.preheader.i ]
-  %.05366.i = phi i32 [ %.154.i, %65 ], [ %.018.i.i, %.preheader.i ]
-  %41 = add nuw nsw i32 %.03068.i, %.02669.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %68
+  %.02668.i = phi i32 [ %.228.i, %68 ], [ 1, %.preheader.i ]
+  %.03067.i = phi i32 [ %.232.i, %68 ], [ %25, %.preheader.i ]
+  %.05166.i = phi i32 [ %.152.i, %68 ], [ %.018.i35.i, %.preheader.i ]
+  %.05365.i = phi i32 [ %.154.i, %68 ], [ %.018.i.i, %.preheader.i ]
+  %41 = add nuw nsw i32 %.03067.i, %.02668.i
   %42 = lshr i32 %41, 1
-  %43 = tail call i32 @llvm.smin.i32(i32 %.05366.i, i32 %.05167.i)
+  %43 = tail call i32 @llvm.smin.i32(i32 %.05365.i, i32 %.05166.i)
   %44 = zext nneg i32 %42 to i64
   %45 = getelementptr inbounds nuw %struct.UDataOffsetTOCEntry, ptr %9, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !27
@@ -274,61 +274,64 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i:          ; preds = %31
   br i1 %or.cond.i43.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i, label %52
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i:          ; preds = %52
-  %60 = icmp ult i8 %54, %56
-  br i1 %60, label %65, label %61
+  %60 = zext i8 %54 to i32
+  %61 = zext i8 %56 to i32
+  %62 = sub nsw i32 %60, %61
+  %63 = icmp ugt i32 %62, -256
+  br i1 %63, label %68, label %64
 
-61:                                               ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i
-  %62 = icmp eq i8 %54, %56
-  br i1 %62, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24, label %63
+64:                                               ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i
+  %65 = icmp eq i8 %54, %56
+  br i1 %65, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24, label %66
 
-63:                                               ; preds = %61
-  %64 = add nuw nsw i32 %42, 1
-  br label %65
+66:                                               ; preds = %64
+  %67 = add nuw nsw i32 %42, 1
+  br label %68
 
-65:                                               ; preds = %63, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i
-  %.154.i = phi i32 [ %.018.i40.i, %63 ], [ %.05366.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i ]
-  %.152.i = phi i32 [ %.05167.i, %63 ], [ %.018.i40.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i ]
-  %.232.i = phi i32 [ %.03068.i, %63 ], [ %42, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i ]
-  %.228.i = phi i32 [ %64, %63 ], [ %.02669.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i ]
-  %66 = icmp slt i32 %.228.i, %.232.i
-  br i1 %66, label %.lr.ph.i, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread, !llvm.loop !29
+68:                                               ; preds = %66, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i
+  %.154.i = phi i32 [ %.018.i40.i, %66 ], [ %.05365.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i ]
+  %.152.i = phi i32 [ %.05166.i, %66 ], [ %.018.i40.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i ]
+  %.232.i = phi i32 [ %.03067.i, %66 ], [ %42, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i ]
+  %.228.i = phi i32 [ %67, %66 ], [ %.02668.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i ]
+  %69 = icmp slt i32 %.228.i, %.232.i
+  br i1 %69, label %.lr.ph.i, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread, !llvm.loop !29
 
 _ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit: ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i
-  %67 = icmp sgt i32 %8, 0
-  br i1 %67, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread
+  %70 = icmp sgt i32 %8, 0
+  br i1 %70, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread
 
-_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24: ; preds = %61, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit
-  %.0.i26 = phi i32 [ %25, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %42, %61 ]
-  %68 = zext nneg i32 %.0.i26 to i64
-  %69 = getelementptr inbounds nuw %struct.UDataOffsetTOCEntry, ptr %9, i64 %68
-  %70 = add nuw nsw i32 %.0.i26, 1
-  %71 = icmp slt i32 %70, %8
-  br i1 %71, label %72, label %78
+_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24: ; preds = %64, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit
+  %.0.i26 = phi i32 [ %25, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %42, %64 ]
+  %71 = zext nneg i32 %.0.i26 to i64
+  %72 = getelementptr inbounds nuw %struct.UDataOffsetTOCEntry, ptr %9, i64 %71
+  %73 = add nuw nsw i32 %.0.i26, 1
+  %74 = icmp slt i32 %73, %8
+  br i1 %74, label %75, label %81
 
-72:                                               ; preds = %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 12
-  %74 = load i32, ptr %73, align 4, !tbaa !31
-  %75 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !31
-  %77 = sub i32 %74, %76
-  br label %78
+75:                                               ; preds = %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 12
+  %77 = load i32, ptr %76, align 4, !tbaa !31
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %79 = load i32, ptr %78, align 4, !tbaa !31
+  %80 = sub i32 %77, %79
+  br label %81
 
-78:                                               ; preds = %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24, %72
-  %storemerge = phi i32 [ %77, %72 ], [ -1, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24 ]
+81:                                               ; preds = %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24, %75
+  %storemerge = phi i32 [ %80, %75 ], [ -1, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24 ]
   store i32 %storemerge, ptr %2, align 4, !tbaa !32
-  %79 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !31
-  %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw i8, ptr %6, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  %83 = load i32, ptr %82, align 4, !tbaa !31
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 %84
   br label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread
 
-83:                                               ; preds = %4
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !15
+86:                                               ; preds = %4
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %88 = load ptr, ptr %87, align 8, !tbaa !15
   br label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread
 
-_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread: ; preds = %65, %.preheader.i, %7, %78, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit, %83
-  %.1 = phi ptr [ %85, %83 ], [ %82, %78 ], [ null, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit ], [ null, %7 ], [ null, %.preheader.i ], [ null, %65 ]
+_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread: ; preds = %68, %.preheader.i, %7, %81, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit, %86
+  %.1 = phi ptr [ %88, %86 ], [ %85, %81 ], [ null, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit ], [ null, %7 ], [ null, %.preheader.i ], [ null, %68 ]
   ret ptr %.1
 }
 
@@ -353,7 +356,7 @@ define internal noundef ptr @_ZL18pointerTOCLookupFnPK11UDataMemoryPKcPiP10UErro
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %67, label %7
+  br i1 %.not, label %70, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %6, align 8, !tbaa !33
@@ -412,14 +415,14 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit36.i:          ; preds = %27
   %36 = icmp sgt i32 %8, 2
   br i1 %36, label %.lr.ph.i, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %59
-  %.02366.i = phi i32 [ %.225.i, %59 ], [ 1, %.preheader.i ]
-  %.02765.i = phi i32 [ %.229.i, %59 ], [ %23, %.preheader.i ]
-  %.04864.i = phi i32 [ %.149.i, %59 ], [ %.018.i32.i, %.preheader.i ]
-  %.05063.i = phi i32 [ %.151.i, %59 ], [ %.018.i.i, %.preheader.i ]
-  %37 = add nuw nsw i32 %.02765.i, %.02366.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %62
+  %.02365.i = phi i32 [ %.225.i, %62 ], [ 1, %.preheader.i ]
+  %.02764.i = phi i32 [ %.229.i, %62 ], [ %23, %.preheader.i ]
+  %.04863.i = phi i32 [ %.149.i, %62 ], [ %.018.i32.i, %.preheader.i ]
+  %.05062.i = phi i32 [ %.151.i, %62 ], [ %.018.i.i, %.preheader.i ]
+  %37 = add nuw nsw i32 %.02764.i, %.02365.i
   %38 = lshr i32 %37, 1
-  %39 = tail call i32 @llvm.smin.i32(i32 %.05063.i, i32 %.04864.i)
+  %39 = tail call i32 @llvm.smin.i32(i32 %.05062.i, i32 %.04863.i)
   %40 = zext nneg i32 %38 to i64
   %41 = getelementptr inbounds nuw %struct.PointerTOCEntry, ptr %9, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !35
@@ -443,46 +446,49 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit36.i:          ; preds = %27
   br i1 %or.cond.i40.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i, label %46
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i:          ; preds = %46
-  %54 = icmp ult i8 %48, %50
-  br i1 %54, label %59, label %55
+  %54 = zext i8 %48 to i32
+  %55 = zext i8 %50 to i32
+  %56 = sub nsw i32 %54, %55
+  %57 = icmp ugt i32 %56, -256
+  br i1 %57, label %62, label %58
 
-55:                                               ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i
-  %56 = icmp eq i8 %48, %50
-  br i1 %56, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15, label %57
+58:                                               ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i
+  %59 = icmp eq i8 %48, %50
+  br i1 %59, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15, label %60
 
-57:                                               ; preds = %55
-  %58 = add nuw nsw i32 %38, 1
-  br label %59
+60:                                               ; preds = %58
+  %61 = add nuw nsw i32 %38, 1
+  br label %62
 
-59:                                               ; preds = %57, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i
-  %.151.i = phi i32 [ %.018.i37.i, %57 ], [ %.05063.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i ]
-  %.149.i = phi i32 [ %.04864.i, %57 ], [ %.018.i37.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i ]
-  %.229.i = phi i32 [ %.02765.i, %57 ], [ %38, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i ]
-  %.225.i = phi i32 [ %58, %57 ], [ %.02366.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i ]
-  %60 = icmp slt i32 %.225.i, %.229.i
-  br i1 %60, label %.lr.ph.i, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread, !llvm.loop !38
+62:                                               ; preds = %60, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i
+  %.151.i = phi i32 [ %.018.i37.i, %60 ], [ %.05062.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i ]
+  %.149.i = phi i32 [ %.04863.i, %60 ], [ %.018.i37.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i ]
+  %.229.i = phi i32 [ %.02764.i, %60 ], [ %38, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i ]
+  %.225.i = phi i32 [ %61, %60 ], [ %.02365.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i ]
+  %63 = icmp slt i32 %.225.i, %.229.i
+  br i1 %63, label %.lr.ph.i, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread, !llvm.loop !38
 
 _ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit: ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit36.i
-  %61 = icmp sgt i32 %8, 0
-  br i1 %61, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread
+  %64 = icmp sgt i32 %8, 0
+  br i1 %64, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread
 
-_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15: ; preds = %55, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit
-  %.0.i17 = phi i32 [ %23, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %38, %55 ]
+_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15: ; preds = %58, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit
+  %.0.i17 = phi i32 [ %23, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %38, %58 ]
   store i32 -1, ptr %2, align 4, !tbaa !32
-  %62 = zext nneg i32 %.0.i17 to i64
-  %63 = getelementptr inbounds nuw %struct.PointerTOCEntry, ptr %9, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !39
-  %66 = tail call ptr @UDataMemory_normalizeDataPointer_77(ptr noundef %65)
+  %65 = zext nneg i32 %.0.i17 to i64
+  %66 = getelementptr inbounds nuw %struct.PointerTOCEntry, ptr %9, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !39
+  %69 = tail call ptr @UDataMemory_normalizeDataPointer_77(ptr noundef %68)
   br label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread
 
-67:                                               ; preds = %4
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !15
+70:                                               ; preds = %4
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !15
   br label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread
 
-_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread: ; preds = %59, %.preheader.i, %7, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit, %67
-  %.1 = phi ptr [ %69, %67 ], [ %66, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15 ], [ null, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ null, %7 ], [ null, %.preheader.i ], [ null, %59 ]
+_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread: ; preds = %62, %.preheader.i, %7, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit, %70
+  %.1 = phi ptr [ %72, %70 ], [ %69, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15 ], [ null, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ null, %7 ], [ null, %.preheader.i ], [ null, %62 ]
   ret ptr %.1
 }
 

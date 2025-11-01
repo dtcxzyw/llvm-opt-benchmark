@@ -28,20 +28,21 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %.sroa.04.0 = phi ptr [ %15, %6 ], [ %1, %4 ]
   %.sroa.0.0 = phi ptr [ %12, %6 ], [ %0, %4 ]
   %20 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.0.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.04.0)
-  %21 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.0.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.08.0)
-  %22 = xor i8 %21, %20
-  %23 = icmp slt i8 %22, 0
-  br i1 %23, label %_ZN4core5slice4sort6shared5pivot7median317h99a06ce0501573b8E.exit, label %24
+  %21 = icmp eq i8 %20, -1
+  %22 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.0.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.08.0)
+  %23 = icmp eq i8 %22, -1
+  %24 = xor i1 %21, %23
+  br i1 %24, label %_ZN4core5slice4sort6shared5pivot7median317h99a06ce0501573b8E.exit, label %25
 
-24:                                               ; preds = %19
-  %25 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.04.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.08.0)
-  %26 = xor i8 %25, %20
-  %27 = icmp slt i8 %26, 0
-  %..i = select i1 %27, ptr %.sroa.08.0, ptr %.sroa.04.0
+25:                                               ; preds = %19
+  %26 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.04.0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.08.0)
+  %27 = icmp eq i8 %26, -1
+  %28 = xor i1 %21, %27
+  %..i = select i1 %28, ptr %.sroa.08.0, ptr %.sroa.04.0
   br label %_ZN4core5slice4sort6shared5pivot7median317h99a06ce0501573b8E.exit
 
-_ZN4core5slice4sort6shared5pivot7median317h99a06ce0501573b8E.exit: ; preds = %19, %24
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0, %19 ], [ %..i, %24 ]
+_ZN4core5slice4sort6shared5pivot7median317h99a06ce0501573b8E.exit: ; preds = %19, %25
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.0, %19 ], [ %..i, %25 ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -69,24 +70,25 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4core5slice4sort
 
 13:                                               ; preds = %5
   %14 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7)
-  %15 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8)
-  %16 = xor i8 %15, %14
-  %17 = icmp slt i8 %16, 0
-  br i1 %17, label %_ZN4core5slice4sort6shared5pivot7median317h99a06ce0501573b8E.exit, label %18
+  %15 = icmp eq i8 %14, -1
+  %16 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8)
+  %17 = icmp eq i8 %16, -1
+  %18 = xor i1 %15, %17
+  br i1 %18, label %_ZN4core5slice4sort6shared5pivot7median317h99a06ce0501573b8E.exit, label %19
 
-18:                                               ; preds = %13
-  %19 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8)
-  %20 = xor i8 %19, %14
-  %21 = icmp slt i8 %20, 0
-  %..i = select i1 %21, ptr %8, ptr %7
+19:                                               ; preds = %13
+  %20 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8)
+  %21 = icmp eq i8 %20, -1
+  %22 = xor i1 %15, %21
+  %..i = select i1 %22, ptr %8, ptr %7
   br label %_ZN4core5slice4sort6shared5pivot7median317h99a06ce0501573b8E.exit
 
-_ZN4core5slice4sort6shared5pivot7median317h99a06ce0501573b8E.exit: ; preds = %18, %13, %11
-  %.sroa.0.0.i.sink = phi ptr [ %12, %11 ], [ %0, %13 ], [ %..i, %18 ]
-  %22 = ptrtoint ptr %.sroa.0.0.i.sink to i64
-  %23 = ptrtoint ptr %0 to i64
-  %24 = sub nuw i64 %22, %23
-  %.sroa.0.0 = lshr exact i64 %24, 3
+_ZN4core5slice4sort6shared5pivot7median317h99a06ce0501573b8E.exit: ; preds = %19, %13, %11
+  %.sroa.0.0.i.sink = phi ptr [ %12, %11 ], [ %0, %13 ], [ %..i, %19 ]
+  %23 = ptrtoint ptr %.sroa.0.0.i.sink to i64
+  %24 = ptrtoint ptr %0 to i64
+  %25 = sub nuw i64 %23, %24
+  %.sroa.0.0 = lshr exact i64 %25, 3
   ret i64 %.sroa.0.0
 }
 

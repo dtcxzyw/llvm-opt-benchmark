@@ -10,60 +10,60 @@ target triple = "x86_64-unknown-linux-gnu"
 define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17h026474110b2d97c8E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, i64 noundef range(i64 1, -9223372036854775807) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %22, label %7
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %23, label %8
 
-7:                                                ; preds = %4
-  %8 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = icmp eq i64 %6, %1
-  tail call void @llvm.assume(i1 %11)
-  %12 = icmp eq i64 %10, 0
-  br i1 %12, label %13, label %19
+8:                                                ; preds = %4
+  %9 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8, !noundef !4
+  %12 = icmp eq i64 %6, %1
+  tail call void @llvm.assume(i1 %12)
+  %13 = icmp eq i64 %11, 0
+  br i1 %13, label %14, label %20
 
-13:                                               ; preds = %7
-  %14 = icmp eq i64 %2, 0
-  br i1 %14, label %15, label %17
+14:                                               ; preds = %8
+  %15 = icmp eq i64 %2, 0
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %13
-  %16 = getelementptr i8, ptr null, i64 %1
+16:                                               ; preds = %14
+  %17 = getelementptr i8, ptr null, i64 %1
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit"
 
-17:                                               ; preds = %13
+18:                                               ; preds = %14
   tail call void @_RNvCs73fAdSrgOJL_7___rustc35___rust_no_alloc_shim_is_unstable_v2() #15
-  %18 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc12___rust_alloc(i64 noundef %2, i64 noundef range(i64 1, -9223372036854775807) %1) #15
+  %19 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc12___rust_alloc(i64 noundef %2, i64 noundef range(i64 1, -9223372036854775807) %1) #15
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit"
 
-19:                                               ; preds = %7
-  %20 = icmp uge i64 %2, %10
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %8, i64 noundef %10, i64 noundef range(i64 1, -9223372036854775807) %1, i64 noundef %2) #15
+20:                                               ; preds = %8
+  %21 = icmp uge i64 %2, %11
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %9, i64 noundef %11, i64 noundef range(i64 1, -9223372036854775807) %1, i64 noundef %2) #15
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit"
 
-22:                                               ; preds = %4
-  %23 = icmp eq i64 %2, 0
-  br i1 %23, label %24, label %26
+23:                                               ; preds = %4
+  %24 = icmp eq i64 %2, 0
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %22
-  %25 = getelementptr i8, ptr null, i64 %1
+25:                                               ; preds = %23
+  %26 = getelementptr i8, ptr null, i64 %1
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit"
 
-26:                                               ; preds = %22
+27:                                               ; preds = %23
   tail call void @_RNvCs73fAdSrgOJL_7___rustc35___rust_no_alloc_shim_is_unstable_v2() #15
-  %27 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc12___rust_alloc(i64 noundef %2, i64 noundef range(i64 1, -9223372036854775807) %1) #15
+  %28 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc12___rust_alloc(i64 noundef %2, i64 noundef range(i64 1, -9223372036854775807) %1) #15
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit": ; preds = %26, %24, %19, %17, %15
-  %.sroa.012.0.i.i.pn = phi ptr [ %21, %19 ], [ %16, %15 ], [ %18, %17 ], [ %25, %24 ], [ %27, %26 ]
-  %28 = icmp eq ptr %.sroa.012.0.i.i.pn, null
-  %29 = inttoptr i64 %1 to ptr
-  %spec.select = select i1 %28, ptr %29, ptr %.sroa.012.0.i.i.pn
-  %spec.select6 = zext i1 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %spec.select, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %31, align 8
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit": ; preds = %27, %25, %20, %18, %16
+  %.sroa.012.0.i.i.pn = phi ptr [ %22, %20 ], [ %17, %16 ], [ %19, %18 ], [ %26, %25 ], [ %28, %27 ]
+  %29 = icmp eq ptr %.sroa.012.0.i.i.pn, null
+  %30 = inttoptr i64 %1 to ptr
+  %spec.select = select i1 %29, ptr %30, ptr %.sroa.012.0.i.i.pn
+  %spec.select6 = zext i1 %29 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %spec.select, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %2, ptr %32, align 8
   store i64 %spec.select6, ptr %0, align 8
   ret void
 }
@@ -123,8 +123,6 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   %24 = load ptr, ptr %17, align 8, !noalias !6, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6
   store ptr %24, ptr %10, align 8, !alias.scope !6
-  %25 = icmp sgt i64 %7, -1
-  tail call void @llvm.assume(i1 %25)
   store i64 %7, ptr %0, align 8, !alias.scope !6
   ret void
 }
@@ -296,7 +294,7 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %12
   %42 = load ptr, ptr %35, align 8, !noalias !13, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !13
   store ptr %42, ptr %28, align 8, !alias.scope !13
-  %43 = icmp sgt i64 %.sroa.0.0.sroa.speculated.i40.i, -1
+  %43 = icmp sgt i64 %.sroa.0.0.sroa.speculated.i40.i, 0
   tail call void @llvm.assume(i1 %43)
   store i64 %.sroa.0.0.sroa.speculated.i40.i, ptr %0, align 8, !alias.scope !13
   ret void

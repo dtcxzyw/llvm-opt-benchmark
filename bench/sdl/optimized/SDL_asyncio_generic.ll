@@ -70,87 +70,88 @@ define hidden noundef zeroext i1 @SDL_SYS_CreateAsyncIOQueue_Generic(ptr noundef
 define internal fastcc noundef zeroext i1 @PrepareThreadpool() unnamed_addr #0 {
   %1 = alloca [32 x i8], align 16
   %2 = tail call zeroext i1 @SDL_ShouldInit_REAL(ptr noundef nonnull @threadpool_init) #8
-  br i1 %2, label %3, label %31
+  br i1 %2, label %3, label %32
 
 3:                                                ; preds = %0
   %4 = tail call i32 @SDL_GetNumLogicalCPUCores_REAL() #8
   %5 = shl nsw i32 %4, 1
   %6 = or disjoint i32 %5, 1
-  %7 = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 8)
-  store i32 %8, ptr @max_threadpool_threads, align 4
-  %9 = tail call ptr @SDL_CreateMutex_REAL() #8
-  store ptr %9, ptr @threadpool_lock, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.critedge.thread11, label %10
+  %7 = icmp slt i32 %4, 0
+  %8 = tail call i32 @llvm.smin.i32(i32 %6, i32 8)
+  %9 = select i1 %7, i32 1, i32 %8
+  store i32 %9, ptr @max_threadpool_threads, align 4
+  %10 = tail call ptr @SDL_CreateMutex_REAL() #8
+  store ptr %10, ptr @threadpool_lock, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %.critedge.thread11, label %11
 
-10:                                               ; preds = %3
-  %11 = tail call ptr @SDL_CreateCondition_REAL() #8
-  store ptr %11, ptr @threadpool_condition, align 8
-  %.not14 = icmp eq ptr %11, null
-  br i1 %.not14, label %.critedge.thread11.thread, label %12
+11:                                               ; preds = %3
+  %12 = tail call ptr @SDL_CreateCondition_REAL() #8
+  store ptr %12, ptr @threadpool_condition, align 8
+  %.not14 = icmp eq ptr %12, null
+  br i1 %.not14, label %.critedge.thread11.thread, label %13
 
-12:                                               ; preds = %10
-  %13 = load i32, ptr @idle_threadpool_threads, align 4
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %.critedge.thread
+13:                                               ; preds = %11
+  %14 = load i32, ptr @idle_threadpool_threads, align 4
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %.critedge.thread
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr @running_threadpool_threads, align 4
-  %17 = load i32, ptr @max_threadpool_threads, align 4
-  %18 = icmp slt i32 %16, %17
-  br i1 %18, label %19, label %.critedge.thread
+16:                                               ; preds = %13
+  %17 = load i32, ptr @running_threadpool_threads, align 4
+  %18 = load i32, ptr @max_threadpool_threads, align 4
+  %19 = icmp slt i32 %17, %18
+  br i1 %19, label %20, label %.critedge.thread
 
-19:                                               ; preds = %15
+20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %20 = load i32, ptr @threadpool_threads_spun, align 4
-  %21 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %1, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %20) #8
-  %22 = call ptr @SDL_CreateThreadRuntime_REAL(ptr noundef nonnull @AsyncIOThreadpoolWorker, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null) #8
-  %.not15 = icmp eq ptr %22, null
+  %21 = load i32, ptr @threadpool_threads_spun, align 4
+  %22 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %1, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %21) #8
+  %23 = call ptr @SDL_CreateThreadRuntime_REAL(ptr noundef nonnull @AsyncIOThreadpoolWorker, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %.not15 = icmp eq ptr %23, null
   br i1 %.not15, label %.critedge, label %.critedge.thread12
 
-.critedge.thread12:                               ; preds = %19
-  call void @SDL_DetachThread_REAL(ptr noundef nonnull %22) #8
-  %23 = load i32, ptr @running_threadpool_threads, align 4
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr @running_threadpool_threads, align 4
-  %25 = load i32, ptr @threadpool_threads_spun, align 4
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr @threadpool_threads_spun, align 4
+.critedge.thread12:                               ; preds = %20
+  call void @SDL_DetachThread_REAL(ptr noundef nonnull %23) #8
+  %24 = load i32, ptr @running_threadpool_threads, align 4
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr @running_threadpool_threads, align 4
+  %26 = load i32, ptr @threadpool_threads_spun, align 4
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr @threadpool_threads_spun, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.critedge.thread
 
-.critedge:                                        ; preds = %19
+.critedge:                                        ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.critedge.thread11
 
 .critedge.thread11:                               ; preds = %3, %.critedge
   %.pr = load ptr, ptr @threadpool_condition, align 8
   %.not8 = icmp eq ptr %.pr, null
-  br i1 %.not8, label %.critedge.thread11.thread, label %27
+  br i1 %.not8, label %.critedge.thread11.thread, label %28
 
-27:                                               ; preds = %.critedge.thread11
+28:                                               ; preds = %.critedge.thread11
   call void @SDL_DestroyCondition_REAL(ptr noundef nonnull %.pr) #8
   store ptr null, ptr @threadpool_condition, align 8
   br label %.critedge.thread11.thread
 
-.critedge.thread11.thread:                        ; preds = %10, %27, %.critedge.thread11
-  %28 = load ptr, ptr @threadpool_lock, align 8
-  %.not9 = icmp eq ptr %28, null
-  br i1 %.not9, label %.critedge.thread, label %29
+.critedge.thread11.thread:                        ; preds = %11, %28, %.critedge.thread11
+  %29 = load ptr, ptr @threadpool_lock, align 8
+  %.not9 = icmp eq ptr %29, null
+  br i1 %.not9, label %.critedge.thread, label %30
 
-29:                                               ; preds = %.critedge.thread11.thread
-  call void @SDL_DestroyMutex_REAL(ptr noundef nonnull %28) #8
+30:                                               ; preds = %.critedge.thread11.thread
+  call void @SDL_DestroyMutex_REAL(ptr noundef nonnull %29) #8
   store ptr null, ptr @threadpool_lock, align 8
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %12, %15, %.critedge.thread12, %.critedge.thread11.thread, %29
-  %30 = phi i1 [ false, %.critedge.thread11.thread ], [ false, %29 ], [ true, %.critedge.thread12 ], [ true, %15 ], [ true, %12 ]
-  call void @SDL_SetInitialized_REAL(ptr noundef nonnull @threadpool_init, i1 noundef zeroext %30) #8
-  br label %31
+.critedge.thread:                                 ; preds = %13, %16, %.critedge.thread12, %.critedge.thread11.thread, %30
+  %31 = phi i1 [ false, %.critedge.thread11.thread ], [ false, %30 ], [ true, %.critedge.thread12 ], [ true, %16 ], [ true, %13 ]
+  call void @SDL_SetInitialized_REAL(ptr noundef nonnull @threadpool_init, i1 noundef zeroext %31) #8
+  br label %32
 
-31:                                               ; preds = %.critedge.thread, %0
-  %.0 = phi i1 [ %30, %.critedge.thread ], [ true, %0 ]
+32:                                               ; preds = %.critedge.thread, %0
+  %.0 = phi i1 [ %31, %.critedge.thread ], [ true, %0 ]
   ret i1 %.0
 }
 
@@ -867,13 +868,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

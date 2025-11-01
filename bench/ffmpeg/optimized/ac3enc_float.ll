@@ -872,9 +872,10 @@ calc_cpl_coord.exit335.us.us.i:                   ; preds = %219, %.critedge.us.
   %343 = load i8, ptr %342, align 1, !tbaa !43
   %344 = zext i8 %343 to i32
   %345 = sub nsw i32 %344, %339
-  %346 = call i32 @llvm.smax.i32(i32 %345, i32 0)
-  %347 = call i32 @llvm.umin.i32(i32 %346, i32 15)
-  %348 = trunc nuw nsw i32 %347 to i8
+  %346 = icmp ugt i32 %345, -241
+  %..i.i = call i32 @llvm.smin.i32(i32 %345, i32 15)
+  %347 = trunc nuw nsw i32 %..i.i to i8
+  %348 = select i1 %346, i8 0, i8 %347
   store i8 %348, ptr %342, align 1, !tbaa !43
   %indvars.iv.next620.i = add nuw nsw i64 %indvars.iv619.i, 1
   %349 = load i32, ptr %173, align 4, !tbaa !71

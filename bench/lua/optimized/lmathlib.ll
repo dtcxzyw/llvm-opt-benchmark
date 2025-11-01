@@ -73,17 +73,17 @@ define dso_local noundef i32 @luaopen_math(ptr noundef %0) local_unnamed_addr #0
   %15 = xor i64 %10, %14
   %16 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 45)
   %17 = add nuw nsw i32 %.018.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %17, 16
-  br i1 %exitcond.not.i.i, label %setrandfunc.exit, label %5
+  %18 = icmp eq i32 %17, 16
+  br i1 %18, label %setrandfunc.exit, label %5
 
 setrandfunc.exit:                                 ; preds = %5
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %12, ptr %2, align 8, !tbaa !4
-  store i64 %13, ptr %18, align 8, !tbaa !4
-  store i64 %15, ptr %19, align 8, !tbaa !4
-  store i64 %16, ptr %20, align 8, !tbaa !4
+  store i64 %13, ptr %19, align 8, !tbaa !4
+  store i64 %15, ptr %20, align 8, !tbaa !4
+  store i64 %16, ptr %21, align 8, !tbaa !4
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %4) #6
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef 0) #6
   tail call void @lua_settop(ptr noundef %0, i32 noundef -3) #6
@@ -775,17 +775,17 @@ define internal noundef i32 @math_randomseed(ptr noundef %0) #0 {
   %29 = xor i64 %24, %28
   %30 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 45)
   %31 = add nuw nsw i32 %.018.i, 1
-  %exitcond.not.i = icmp eq i32 %31, 16
-  br i1 %exitcond.not.i, label %setseed.exit, label %19
+  %32 = icmp eq i32 %31, 16
+  br i1 %32, label %setseed.exit, label %19
 
 setseed.exit:                                     ; preds = %19
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %26, ptr %2, align 8, !tbaa !4
-  store i64 %27, ptr %32, align 8, !tbaa !4
-  store i64 %29, ptr %33, align 8, !tbaa !4
-  store i64 %30, ptr %34, align 8, !tbaa !4
+  store i64 %27, ptr %33, align 8, !tbaa !4
+  store i64 %29, ptr %34, align 8, !tbaa !4
+  store i64 %30, ptr %35, align 8, !tbaa !4
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.09) #6
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.0) #6
   ret i32 2

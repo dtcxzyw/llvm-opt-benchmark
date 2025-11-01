@@ -116,7 +116,7 @@ init_pattern_from_file.exit:                      ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
   store i8 0, ptr %36, align 1, !tbaa !30
   %37 = tail call fastcc i32 @init_pattern_from_string(ptr noundef nonnull %0)
-  %38 = icmp slt i32 %37, 0
+  %38 = icmp ugt i32 %37, -23
   br i1 %38, label %.critedge, label %.loopexit
 
 39:                                               ; preds = %14
@@ -124,7 +124,7 @@ init_pattern_from_file.exit:                      ; preds = %29
 
 40:                                               ; preds = %39
   %41 = tail call fastcc i32 @init_pattern_from_string(ptr noundef nonnull %0)
-  %42 = icmp slt i32 %41, 0
+  %42 = icmp ugt i32 %41, -23
   br i1 %42, label %.critedge, label %.loopexit
 
 43:                                               ; preds = %39
@@ -802,7 +802,7 @@ define internal fastcc range(i32 -22, 1) i32 @init_pattern_from_string(ptr nound
 
 31:                                               ; preds = %36, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ %30, %25 ]
-  %.031 = phi ptr [ %38, %36 ], [ %26, %25 ]
+  %.031 = phi ptr [ %37, %36 ], [ %26, %25 ]
   %32 = load i8, ptr %.031, align 1, !tbaa !30
   %33 = icmp eq i8 %32, 10
   %narrow = select i1 %33, i8 78, i8 %32
@@ -816,14 +816,13 @@ define internal fastcc range(i32 -22, 1) i32 @init_pattern_from_string(ptr nound
   ]
 
 36:                                               ; preds = %31
-  %37 = sext i8 %35 to i32
-  %38 = getelementptr inbounds nuw i8, ptr %.031, i64 1
-  %39 = add nsw i32 %37, -33
-  %40 = icmp ult i32 %39, 94
-  %41 = zext i1 %40 to i8
-  %42 = load ptr, ptr %24, align 8, !tbaa !32
-  %43 = getelementptr inbounds i8, ptr %42, i64 %indvars.iv
-  store i8 %41, ptr %43, align 1, !tbaa !30
+  %37 = getelementptr inbounds nuw i8, ptr %.031, i64 1
+  %38 = add i8 %35, -33
+  %39 = icmp ult i8 %38, 94
+  %40 = zext i1 %39 to i8
+  %41 = load ptr, ptr %24, align 8, !tbaa !32
+  %42 = getelementptr inbounds i8, ptr %41, i64 %indvars.iv
+  store i8 %40, ptr %42, align 1, !tbaa !30
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br label %31
 

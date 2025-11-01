@@ -75,8 +75,8 @@ define noundef zeroext i1 @_ZN8QuantLib3ASX9isASXdateERKNS_4DateEb(ptr noundef n
 entry:
   %0 = load i64, ptr %date, align 8, !tbaa !3
   %rem.i = srem i64 %0, 7
-  %cmp.not4 = icmp eq i64 %rem.i, 6
-  br i1 %cmp.not4, label %if.end, label %return
+  %1 = icmp eq i64 %rem.i, 6
+  br i1 %1, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call.i.i = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %date)
@@ -88,15 +88,15 @@ if.end:                                           ; preds = %entry
   %call4.i = tail call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call3.i)
   %call5.i = tail call noundef i32 @_ZN8QuantLib4Date11monthOffsetENS_5MonthEb(i32 noundef %call2.i, i1 noundef zeroext %call4.i)
   %sub.i = add i32 %conv.i.i, -8
-  %1 = sub i32 %sub.i, %call5.i
-  %or.cond = icmp ult i32 %1, 7
+  %2 = sub i32 %sub.i, %call5.i
+  %or.cond = icmp ult i32 %2, 7
   %brmerge.not = and i1 %mainCycle, %or.cond
   br i1 %brmerge.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
   %call8 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %date)
-  %2 = icmp ult i32 %call8, 13
-  br i1 %2, label %switch.lookup, label %return
+  %3 = icmp ult i32 %call8, 13
+  br i1 %3, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %if.end7
   %switch.cast = trunc nuw i32 %call8 to i13
@@ -166,8 +166,8 @@ entry:
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i64, ptr %date, align 8, !tbaa !3
   %rem.i.i = srem i64 %0, 7
-  %cmp.not4.i = icmp eq i64 %rem.i.i, 6
-  br i1 %cmp.not4.i, label %_ZN8QuantLib3ASX9isASXdateERKNS_4DateEb.exit, label %if.then
+  %1 = icmp eq i64 %rem.i.i, 6
+  br i1 %1, label %_ZN8QuantLib3ASX9isASXdateERKNS_4DateEb.exit, label %if.then
 
 _ZN8QuantLib3ASX9isASXdateERKNS_4DateEb.exit:     ; preds = %entry
   %call.i.i.i = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %date)
@@ -179,8 +179,8 @@ _ZN8QuantLib3ASX9isASXdateERKNS_4DateEb.exit:     ; preds = %entry
   %call4.i.i = tail call noundef zeroext i1 @_ZN8QuantLib4Date6isLeapEi(i32 noundef %call3.i.i)
   %call5.i.i = tail call noundef i32 @_ZN8QuantLib4Date11monthOffsetENS_5MonthEb(i32 noundef %call2.i.i, i1 noundef zeroext %call4.i.i)
   %sub.i.i = add i32 %conv.i.i.i, -8
-  %1 = sub i32 %sub.i.i, %call5.i.i
-  %or.cond.i = icmp ult i32 %1, 7
+  %2 = sub i32 %sub.i.i, %call5.i.i
+  %or.cond.i = icmp ult i32 %2, 7
   br i1 %or.cond.i, label %invoke.cont34, label %if.then
 
 if.then:                                          ; preds = %entry, %_ZN8QuantLib3ASX9isASXdateERKNS_4DateEb.exit
@@ -220,72 +220,72 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %unreachable unwind label %lpad14
 
 lpad:                                             ; preds = %invoke.cont, %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
 
 ehcleanup21.thread:                               ; preds = %invoke.cont2
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action.sink.split
 
 lpad12:                                           ; preds = %invoke.cont10
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad14:                                           ; preds = %invoke.cont15, %invoke.cont13
   %cleanup.isactive.0 = phi i1 [ false, %invoke.cont15 ], [ true, %invoke.cont13 ]
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %ref.tmp11, align 8, !tbaa !12
-  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
-  %cmp.i.i.i = icmp eq ptr %6, %7
+  %7 = load ptr, ptr %ref.tmp11, align 8, !tbaa !12
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
+  %cmp.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i, label %ehcleanup, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad14
-  %8 = load i64, ptr %7, align 8, !tbaa !13
-  %add.i.i.i = add i64 %8, 1
-  call void @_ZdlPvm(ptr noundef %6, i64 noundef %add.i.i.i) #20
+  %9 = load i64, ptr %8, align 8, !tbaa !13
+  %add.i.i.i = add i64 %9, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %add.i.i.i) #20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad14, %if.then.i.i, %lpad12
   %cleanup.isactive.3 = phi i1 [ true, %lpad12 ], [ %cleanup.isactive.0, %if.then.i.i ], [ %cleanup.isactive.0, %lpad14 ]
-  %.pn = phi { ptr, i32 } [ %4, %lpad12 ], [ %5, %if.then.i.i ], [ %5, %lpad14 ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad12 ], [ %6, %if.then.i.i ], [ %6, %lpad14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11)
-  %9 = load ptr, ptr %ref.tmp7, align 8, !tbaa !12
-  %10 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 16
-  %cmp.i.i.i12 = icmp eq ptr %9, %10
+  %10 = load ptr, ptr %ref.tmp7, align 8, !tbaa !12
+  %11 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 16
+  %cmp.i.i.i12 = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i12, label %ehcleanup17, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %ehcleanup
-  %11 = load i64, ptr %10, align 8, !tbaa !13
-  %add.i.i.i14 = add i64 %11, 1
-  call void @_ZdlPvm(ptr noundef %9, i64 noundef %add.i.i.i14) #20
+  %12 = load i64, ptr %11, align 8, !tbaa !13
+  %add.i.i.i14 = add i64 %12, 1
+  call void @_ZdlPvm(ptr noundef %10, i64 noundef %add.i.i.i14) #20
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %ehcleanup, %if.then.i.i13
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp8)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7)
-  %12 = load ptr, ptr %ref.tmp, align 8, !tbaa !12
-  %13 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i19 = icmp eq ptr %12, %13
+  %13 = load ptr, ptr %ref.tmp, align 8, !tbaa !12
+  %14 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i19 = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, label %ehcleanup21
 
 ehcleanup17.thread:                               ; preds = %invoke.cont6
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp8)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7)
-  %15 = load ptr, ptr %ref.tmp, align 8, !tbaa !12
-  %16 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i1932 = icmp eq ptr %15, %16
+  %16 = load ptr, ptr %ref.tmp, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i1932 = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i1932, label %cleanup.action.sink.split, label %ehcleanup21.thread41
 
 ehcleanup21.thread41:                             ; preds = %ehcleanup17.thread
-  %17 = load i64, ptr %16, align 8, !tbaa !13
-  %add.i.i.i2144 = add i64 %17, 1
-  call void @_ZdlPvm(ptr noundef %15, i64 noundef %add.i.i.i2144) #20
+  %18 = load i64, ptr %17, align 8, !tbaa !13
+  %add.i.i.i2144 = add i64 %18, 1
+  call void @_ZdlPvm(ptr noundef %16, i64 noundef %add.i.i.i2144) #20
   br label %cleanup.action.sink.split
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22: ; preds = %ehcleanup17
@@ -294,15 +294,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup25
 
 ehcleanup21:                                      ; preds = %ehcleanup17
-  %18 = load i64, ptr %13, align 8, !tbaa !13
-  %add.i.i.i21 = add i64 %18, 1
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef %add.i.i.i21) #20
+  %19 = load i64, ptr %14, align 8, !tbaa !13
+  %add.i.i.i21 = add i64 %19, 1
+  call void @_ZdlPvm(ptr noundef %13, i64 noundef %add.i.i.i21) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup25
 
 cleanup.action.sink.split:                        ; preds = %ehcleanup17.thread, %ehcleanup21.thread, %ehcleanup21.thread41
-  %.pn.pn.pn29.ph = phi { ptr, i32 } [ %14, %ehcleanup21.thread41 ], [ %3, %ehcleanup21.thread ], [ %14, %ehcleanup17.thread ]
+  %.pn.pn.pn29.ph = phi { ptr, i32 } [ %15, %ehcleanup21.thread41 ], [ %4, %ehcleanup21.thread ], [ %15, %ehcleanup17.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
@@ -313,24 +313,24 @@ cleanup.action:                                   ; preds = %cleanup.action.sink
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, %ehcleanup21, %cleanup.action, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn29, %cleanup.action ], [ %.pn, %ehcleanup21 ], [ %2, %lpad ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn29, %cleanup.action ], [ %.pn, %ehcleanup21 ], [ %3, %lpad ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream)
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 invoke.cont34:                                    ; preds = %_ZN8QuantLib3ASX9isASXdateERKNS_4DateEb.exit
   %call27 = tail call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %date)
-  %19 = sext i32 %call27 to i64
-  %20 = getelementptr i8, ptr @.str.7, i64 %19
-  %arrayidx.i = getelementptr i8, ptr %20, i64 -1
-  %21 = load i8, ptr %arrayidx.i, align 1, !tbaa !13
+  %20 = sext i32 %call27 to i64
+  %21 = getelementptr i8, ptr @.str.7, i64 %20
+  %arrayidx.i = getelementptr i8, ptr %21, i64 -1
+  %22 = load i8, ptr %arrayidx.i, align 1, !tbaa !13
   %call29 = tail call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %date)
   %rem = srem i32 %call29, 10
-  %22 = trunc nsw i32 %rem to i8
-  %conv30 = add nsw i8 %22, 48
-  %23 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %23, ptr %agg.result, align 8, !tbaa !14
-  store i8 %21, ptr %23, align 8
+  %23 = trunc nsw i32 %rem to i8
+  %conv30 = add nsw i8 %23, 48
+  %24 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store ptr %24, ptr %agg.result, align 8, !tbaa !14
+  store i8 %22, ptr %24, align 8
   %ref.tmp31.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
   store i8 %conv30, ptr %ref.tmp31.sroa.5.0..sroa_idx, align 1
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -903,8 +903,11 @@ do.end79:                                         ; preds = %cond.end
   %conv80 = add i32 %60, 1
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %32, i64 1
   %61 = load i8, ptr %arrayidx.i, align 1, !tbaa !13
-  %62 = add i8 %61, -48
-  %or.cond = icmp ult i8 %62, 10
+  %conv82 = sext i8 %61 to i32
+  %sub = add nsw i32 %conv82, -48
+  %62 = icmp ult i32 %sub, 80
+  %cmp85 = icmp slt i8 %61, 58
+  %or.cond = and i1 %cmp85, %62
   br i1 %or.cond, label %do.end129, label %if.then86
 
 if.then86:                                        ; preds = %do.end79
@@ -1079,10 +1082,8 @@ ehcleanup125:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %ehcleanup154
 
 do.end129:                                        ; preds = %do.end79
-  %conv82 = zext nneg i8 %61 to i32
-  %sub = add nsw i32 %conv82, -48
-  %cmp130 = icmp eq i32 %sub, 0
-  br i1 %cmp130, label %land.lhs.true131, label %if.end136
+  %89 = icmp eq i32 %sub, 0
+  br i1 %89, label %land.lhs.true131, label %if.end136
 
 land.lhs.true131:                                 ; preds = %do.end129
   %call132 = call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %referenceDate)
@@ -1101,8 +1102,8 @@ if.end136:                                        ; preds = %land.lhs.true131, %
   call void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp141, i32 noundef 1, i32 noundef %conv80, i32 noundef %add140)
   %call142 = call i64 @_ZN8QuantLib3ASX8nextDateERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp141, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp141)
-  %89 = load i64, ptr %referenceDate, align 8, !tbaa !3
-  %cmp.i143.not = icmp slt i64 %call142, %89
+  %90 = load i64, ptr %referenceDate, align 8, !tbaa !3
+  %cmp.i143.not = icmp slt i64 %call142, %90
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp147)
   br i1 %cmp.i143.not, label %cond.false146, label %cond.end151
 
@@ -1258,14 +1259,14 @@ cond.end:                                         ; preds = %entry, %if.then.i, 
   %rem17 = urem i32 %call5, %rem.rhs.trunc
   %rem.zext = zext nneg i32 %rem17 to i64
   %sub = sub nsw i64 %conv, %rem.zext
-  %cmp.not = icmp eq i32 %rem17, 0
-  br i1 %cmp.not, label %lor.lhs.false, label %if.then
+  %8 = icmp eq i32 %rem17, 0
+  br i1 %8, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %cond.end
-  %8 = load i64, ptr %refDate, align 8, !tbaa !3
+  %9 = load i64, ptr %refDate, align 8, !tbaa !3
   %call.i.i = call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %refDate)
   %call2.i.i = call noundef i64 @_ZN8QuantLib4Date10yearOffsetEi(i32 noundef %call.i.i)
-  %sub.i.i = sub nsw i64 %8, %call2.i.i
+  %sub.i.i = sub nsw i64 %9, %call2.i.i
   %conv.i.i = trunc i64 %sub.i.i to i32
   %call2.i = call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %refDate)
   %call3.i14 = call noundef i32 @_ZNK8QuantLib4Date4yearEv(ptr noundef nonnull align 8 dereferenceable(8) %refDate)
@@ -1277,9 +1278,9 @@ lor.lhs.false:                                    ; preds = %cond.end
 
 if.then:                                          ; preds = %lor.lhs.false, %cond.end
   %add = add nsw i64 %sub, %conv6
-  %cmp10 = icmp ult i64 %add, 13
+  %10 = icmp ult i64 %add, 13
   %conv12 = trunc i64 %add to i32
-  br i1 %cmp10, label %if.end16, label %if.else
+  br i1 %10, label %if.end16, label %if.else
 
 if.else:                                          ; preds = %if.then
   %conv14 = add i32 %conv12, -12
@@ -1290,8 +1291,8 @@ if.end16:                                         ; preds = %if.then, %if.else, 
   %m.0 = phi i32 [ %conv14, %if.else ], [ %call5, %lor.lhs.false ], [ %conv12, %if.then ]
   %y.0 = phi i32 [ %add15, %if.else ], [ %call4, %lor.lhs.false ], [ %call4, %if.then ]
   %call17 = call i64 @_ZN8QuantLib4Date10nthWeekdayEmNS_7WeekdayENS_5MonthEi(i64 noundef 2, i32 noundef 6, i32 noundef %m.0, i32 noundef %y.0)
-  %9 = load i64, ptr %refDate, align 8, !tbaa !3
-  %cmp.i15.not = icmp sgt i64 %call17, %9
+  %11 = load i64, ptr %refDate, align 8, !tbaa !3
+  %cmp.i15.not = icmp sgt i64 %call17, %11
   br i1 %cmp.i15.not, label %if.end26, label %if.then20
 
 if.then20:                                        ; preds = %if.end16

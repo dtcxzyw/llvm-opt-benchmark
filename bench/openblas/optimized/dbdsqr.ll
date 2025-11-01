@@ -415,8 +415,9 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %211 = getelementptr inbounds nuw double, ptr %33, i64 %209
   %212 = add nuw i32 %.0850.ph1222, 1
   %213 = zext nneg i32 %.0850.ph1222 to i64
+  %smax = call i32 @llvm.smax.i32(i32 %.0850.ph1222, i32 2)
   %214 = zext nneg i32 %208 to i64
-  %wide.trip.count1381 = zext nneg i32 %.0850.ph1222 to i64
+  %wide.trip.count1381 = zext nneg i32 %smax to i64
   br label %.lr.ph1194
 
 .lr.ph1194:                                       ; preds = %.lr.ph1194.backedge, %.lr.ph1194.lr.ph
@@ -576,7 +577,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .outer.backedge:                                  ; preds = %249, %290
   %.0850.ph.be = phi i32 [ %291, %290 ], [ %208, %249 ]
-  %292 = icmp slt i32 %.0850.ph.be, 2
+  %292 = icmp ult i32 %.0850.ph.be, 2
   br i1 %292, label %.loopexit976, label %.lr.ph1194.lr.ph
 
 293:                                              ; preds = %253
@@ -1749,6 +1750,9 @@ declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }

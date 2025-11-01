@@ -675,11 +675,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %17 = icmp eq i32 %11, -1
-  %or.cond = icmp ugt i32 %11, 6
+  %17 = add i32 %11, -7
+  %or.cond = icmp ult i32 %17, -8
   %. = select i1 %or.cond, i32 -2, i32 %11
-  %.09 = select i1 %17, i32 -1, i32 %.
-  ret i32 %.09
+  ret i32 %.
 
 18:                                               ; preds = %.noexc.i
   %19 = landingpad { ptr, i32 }

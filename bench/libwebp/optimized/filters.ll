@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8FiltersInit() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8FiltersInit.VP8FiltersInit_body_lock) #9
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8FiltersInit.VP8FiltersInit_body_lock) #8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %11
 
@@ -38,18 +38,18 @@ define hidden void @VP8FiltersInit() local_unnamed_addr #0 {
   br i1 %.not.i, label %VP8FiltersInit_body.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 %4(i32 noundef 0) #9
+  %7 = tail call i32 %4(i32 noundef 0) #8
   %.not1.i = icmp eq i32 %7, 0
   br i1 %.not1.i, label %VP8FiltersInit_body.exit, label %8
 
 8:                                                ; preds = %6
-  tail call void @VP8FiltersInitSSE2() #9
+  tail call void @VP8FiltersInitSSE2() #8
   br label %VP8FiltersInit_body.exit
 
 VP8FiltersInit_body.exit:                         ; preds = %8, %6, %5, %2
   %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !3
   store volatile ptr %9, ptr @VP8FiltersInit.VP8FiltersInit_body_last_cpuinfo_used, align 8, !tbaa !3
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8FiltersInit.VP8FiltersInit_body_lock) #9
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8FiltersInit.VP8FiltersInit_body_lock) #8
   br label %11
 
 11:                                               ; preds = %0, %VP8FiltersInit_body.exit
@@ -194,7 +194,7 @@ define internal void @GradientUnfilter_C(ptr noundef readonly captures(address_i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02025 = phi i8 [ %13, %.lr.ph.preheader ], [ %26, %.lr.ph ]
+  %.02025 = phi i8 [ %13, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.02124 = phi i8 [ %13, %.lr.ph.preheader ], [ %15, %.lr.ph ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1, !tbaa !7
@@ -205,12 +205,14 @@ define internal void @GradientUnfilter_C(ptr noundef readonly captures(address_i
   %20 = zext i8 %.02124 to i32
   %21 = sub nsw i32 %18, %20
   %22 = add nsw i32 %21, %19
-  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
-  %24 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %23, i32 255)
-  %25 = trunc nuw i32 %24 to i8
-  %26 = add i8 %17, %25
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  store i8 %26, ptr %27, align 1, !tbaa !7
+  %23 = icmp ult i32 %22, 256
+  %24 = icmp ugt i32 %22, -256
+  %25 = select i1 %24, i32 -256, i32 255
+  %26 = select i1 %23, i32 %22, i32 %25
+  %27 = trunc i32 %26 to i8
+  %28 = add i8 %17, %27
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  store i8 %28, ptr %29, align 1, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %HorizontalUnfilter_C.exit, label %.lr.ph, !llvm.loop !11
@@ -452,7 +454,7 @@ PredictLine_C.exit.thread.i:                      ; preds = %5
   %21 = phi i8 [ %22, %PredictLine_C.exit50._crit_edge.us.i ], [ %6, %.lr.ph57.i ]
   %.04456.us.pn.i = phi ptr [ %.04456.us.i, %PredictLine_C.exit50._crit_edge.us.i ], [ %4, %.lr.ph57.i ]
   %.055.us.pn.i = phi ptr [ %.055.us.i, %PredictLine_C.exit50._crit_edge.us.i ], [ %0, %.lr.ph57.i ]
-  %.04254.us.i = phi i32 [ %42, %PredictLine_C.exit50._crit_edge.us.i ], [ 1, %.lr.ph57.i ]
+  %.04254.us.i = phi i32 [ %44, %PredictLine_C.exit50._crit_edge.us.i ], [ 1, %.lr.ph57.i ]
   %.055.us.i = getelementptr i8, ptr %.055.us.pn.i, i64 %17
   %.04456.us.i = getelementptr inbounds i8, ptr %.04456.us.pn.i, i64 %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
@@ -476,36 +478,38 @@ PredictLine_C.exit50.us.i:                        ; preds = %PredictLine_C.exit5
   %33 = add nuw nsw i32 %32, %31
   %34 = zext i8 %30 to i32
   %35 = sub nsw i32 %33, %34
-  %36 = tail call i32 @llvm.smax.i32(i32 %35, i32 0)
-  %37 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %36, i32 255)
-  %38 = load i8, ptr %24, align 1, !tbaa !7, !alias.scope !87, !noalias !90
-  %39 = trunc nuw i32 %37 to i8
-  %40 = sub i8 %38, %39
-  %41 = getelementptr inbounds nuw i8, ptr %.04456.us.i, i64 %indvars.iv.i
-  store i8 %40, ptr %41, align 1, !tbaa !7, !alias.scope !90, !noalias !87
+  %36 = icmp ult i32 %35, 256
+  %37 = icmp ugt i32 %35, -256
+  %38 = select i1 %37, i32 -256, i32 255
+  %39 = select i1 %36, i32 %35, i32 %38
+  %40 = load i8, ptr %24, align 1, !tbaa !7, !alias.scope !87, !noalias !90
+  %41 = trunc i32 %39 to i8
+  %42 = sub i8 %40, %41
+  %43 = getelementptr inbounds nuw i8, ptr %.04456.us.i, i64 %indvars.iv.i
+  store i8 %42, ptr %43, align 1, !tbaa !7, !alias.scope !90, !noalias !87
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond60.not.i, label %PredictLine_C.exit50._crit_edge.us.i, label %PredictLine_C.exit50.us.i, !llvm.loop !115
 
 PredictLine_C.exit50._crit_edge.us.i:             ; preds = %PredictLine_C.exit50.us.i
-  %42 = add nuw nsw i32 %.04254.us.i, 1
-  %exitcond61.not.i = icmp eq i32 %42, %2
+  %44 = add nuw nsw i32 %.04254.us.i, 1
+  %exitcond61.not.i = icmp eq i32 %44, %2
   br i1 %exitcond61.not.i, label %DoGradientFilter_C.exit, label %.lr.ph57.split.us.i, !llvm.loop !116
 
 .lr.ph57.split.i:                                 ; preds = %.lr.ph57.split.i, %.lr.ph57.thread.i
-  %43 = phi i8 [ %44, %.lr.ph57.split.i ], [ %6, %.lr.ph57.thread.i ]
+  %45 = phi i8 [ %46, %.lr.ph57.split.i ], [ %6, %.lr.ph57.thread.i ]
   %.04456.i.pn = phi ptr [ %.04456.i, %.lr.ph57.split.i ], [ %4, %.lr.ph57.thread.i ]
   %.055.i.pn = phi ptr [ %.055.i, %.lr.ph57.split.i ], [ %0, %.lr.ph57.thread.i ]
-  %.04254.i = phi i32 [ %46, %.lr.ph57.split.i ], [ 1, %.lr.ph57.thread.i ]
+  %.04254.i = phi i32 [ %48, %.lr.ph57.split.i ], [ 1, %.lr.ph57.thread.i ]
   %.055.i = getelementptr i8, ptr %.055.i.pn, i64 %20
   %.04456.i = getelementptr inbounds i8, ptr %.04456.i.pn, i64 %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  %44 = load i8, ptr %.055.i, align 1, !tbaa !7, !alias.scope !110, !noalias !111
-  %45 = sub i8 %44, %43
-  store i8 %45, ptr %.04456.i, align 1, !tbaa !7, !alias.scope !113, !noalias !114
-  %46 = add nuw nsw i32 %.04254.i, 1
-  %exitcond.not.i = icmp eq i32 %46, %2
+  %46 = load i8, ptr %.055.i, align 1, !tbaa !7, !alias.scope !110, !noalias !111
+  %47 = sub i8 %46, %45
+  store i8 %47, ptr %.04456.i, align 1, !tbaa !7, !alias.scope !113, !noalias !114
+  %48 = add nuw nsw i32 %.04254.i, 1
+  %exitcond.not.i = icmp eq i32 %48, %2
   br i1 %exitcond.not.i, label %DoGradientFilter_C.exit, label %.lr.ph57.split.i, !llvm.loop !116
 
 DoGradientFilter_C.exit:                          ; preds = %.lr.ph57.split.i, %PredictLine_C.exit50._crit_edge.us.i, %PredictLine_C.exit.i, %PredictLine_C.exit.thread.i
@@ -517,14 +521,8 @@ declare void @VP8FiltersInitSSE2() local_unnamed_addr #5
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #8
+declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -533,9 +531,8 @@ attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #9 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

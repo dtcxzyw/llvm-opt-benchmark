@@ -301,42 +301,44 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
   %49 = getelementptr inbounds nuw i8, ptr %.pre48, i64 96
   %50 = load ptr, ptr %49, align 8, !tbaa !41
   %wide.trip.count = zext nneg i32 %20 to i64
-  br label %54
+  br label %55
 
-.lr.ph41:                                         ; preds = %54
-  %51 = tail call i32 @llvm.umin.i32(i32 %20, i32 8)
-  %52 = getelementptr inbounds nuw i8, ptr %.pre48, i64 96
-  %53 = load ptr, ptr %52, align 8, !tbaa !41
-  %wide.trip.count46 = zext nneg i32 %51 to i64
-  br label %58
+.lr.ph41:                                         ; preds = %55
+  %51 = getelementptr inbounds nuw i8, ptr %.pre48, i64 96
+  %52 = load ptr, ptr %51, align 8, !tbaa !41
+  %53 = add nsw i32 %20, -1
+  %umin = tail call i32 @llvm.umin.i32(i32 %53, i32 7)
+  %54 = add nuw nsw i32 %umin, 1
+  %wide.trip.count46 = zext nneg i32 %54 to i64
+  br label %59
 
-54:                                               ; preds = %.lr.ph, %54
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
-  %56 = load ptr, ptr %55, align 8, !tbaa !42
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.0
-  store ptr %57, ptr %55, align 8, !tbaa !42
+55:                                               ; preds = %.lr.ph, %55
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
+  %56 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %57 = load ptr, ptr %56, align 8, !tbaa !42
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.0
+  store ptr %58, ptr %56, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph41, label %54, !llvm.loop !44
+  br i1 %exitcond.not, label %.lr.ph41, label %55, !llvm.loop !44
 
-58:                                               ; preds = %.lr.ph41, %58
-  %indvars.iv43 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next44, %58 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv43
-  %60 = load ptr, ptr %59, align 8, !tbaa !42
-  %61 = getelementptr inbounds nuw ptr, ptr %.pre48, i64 %indvars.iv43
-  store ptr %60, ptr %61, align 8, !tbaa !42
+59:                                               ; preds = %.lr.ph41, %59
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next44, %59 ]
+  %60 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv43
+  %61 = load ptr, ptr %60, align 8, !tbaa !42
+  %62 = getelementptr inbounds nuw ptr, ptr %.pre48, i64 %indvars.iv43
+  store ptr %61, ptr %62, align 8, !tbaa !42
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge, label %58, !llvm.loop !45
+  br i1 %exitcond47.not, label %._crit_edge, label %59, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %58, %39
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %63 = load i64, ptr %62, align 8, !tbaa !29
-  %64 = add i64 %63, %1
-  store i64 %64, ptr %62, align 8, !tbaa !29
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 1, ptr %65, align 8, !tbaa !30
+._crit_edge:                                      ; preds = %59, %39
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %64 = load i64, ptr %63, align 8, !tbaa !29
+  %65 = add i64 %64, %1
+  store i64 %65, ptr %63, align 8, !tbaa !29
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 1, ptr %66, align 8, !tbaa !30
   ret void
 }
 

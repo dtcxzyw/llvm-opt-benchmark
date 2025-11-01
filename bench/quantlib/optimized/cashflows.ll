@@ -7143,8 +7143,9 @@ _ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit19: ; preds = %if.then, %co
   %..i22 = select i1 %cmp1.i21, i32 1, i32 -1
   %retval.0.i23 = select i1 %cmp.i20, i32 0, i32 %..i22
   %mul = mul nsw i32 %retval.0.i23, %lastSign.062
-  %14 = lshr i32 %mul, 31
-  %spec.select = add nsw i32 %14, %signChanges.061
+  %14 = icmp eq i32 %mul, -1
+  %inc = zext i1 %14 to i32
+  %spec.select = add nsw i32 %signChanges.061, %inc
   %lastSign.2 = select i1 %cmp.i20, i32 %lastSign.062, i32 %..i22
   br label %if.end22
 

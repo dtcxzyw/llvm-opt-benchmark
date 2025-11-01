@@ -26,30 +26,30 @@ define internal range(i32 -22, 1) i32 @encode_init(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = and i32 %8, 1
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %11, label %10
-
-10:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #5
-  br label %19
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %1
-  %12 = tail call i32 @av_get_bits_per_pixel(ptr noundef %6) #5
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store i32 %12, ptr %13, align 8, !tbaa !29
-  %14 = tail call i64 @ff_guess_coded_bitrate(ptr noundef nonnull %0) #5
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %14, ptr %15, align 8, !tbaa !30
-  %16 = load i32, ptr %4, align 8, !tbaa !27
-  %17 = icmp eq i32 %16, 64
-  br i1 %17, label %18, label %19
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #5
+  br label %20
 
-18:                                               ; preds = %11
+12:                                               ; preds = %1
+  %13 = tail call i32 @av_get_bits_per_pixel(ptr noundef %6) #5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  store i32 %13, ptr %14, align 8, !tbaa !29
+  %15 = tail call i64 @ff_guess_coded_bitrate(ptr noundef nonnull %0) #5
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %15, ptr %16, align 8, !tbaa !30
+  %17 = load i32, ptr %4, align 8, !tbaa !27
+  %18 = icmp eq i32 %17, 64
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %12
   store ptr @encode_yuv422p10, ptr %3, align 8, !tbaa !31
-  br label %19
+  br label %20
 
-19:                                               ; preds = %11, %18, %10
-  %.0 = phi i32 [ -22, %10 ], [ 0, %18 ], [ -22, %11 ]
+20:                                               ; preds = %12, %19, %11
+  %.0 = phi i32 [ -22, %11 ], [ 0, %19 ], [ -22, %12 ]
   ret i32 %.0
 }
 
@@ -101,9 +101,9 @@ define internal range(i32 -2147483648, 1) i32 @encode_yuv422p10(ptr noundef %0, 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !35
-  %20 = icmp slt i32 %11, -7
+  %20 = icmp ugt i32 %12, -268435457
   %spec.select.i = select i1 %20, ptr null, ptr %19
-  %spec.select11.i = tail call i32 @llvm.smax.i32(i32 range(i32 -268435456, 268435456) %12, i32 0)
+  %spec.select11.i = select i1 %20, i32 0, i32 %12
   %21 = zext nneg i32 %spec.select11.i to i64
   %22 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %21
   %23 = load i32, ptr %4, align 4, !tbaa !34
@@ -366,9 +366,6 @@ declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #4

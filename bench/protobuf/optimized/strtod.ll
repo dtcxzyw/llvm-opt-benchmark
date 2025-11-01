@@ -287,22 +287,22 @@ if.end14.i:                                       ; preds = %if.else8.i
   store i32 0, ptr %call.i.i, align 4
   %call1.i.i = call float @strtof(ptr noundef nonnull %buffer, ptr noundef nonnull %endptr.i.i) #13
   %3 = load i8, ptr %buffer, align 16
-  %cmp.not.i.i = icmp eq i8 %3, 0
-  br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.thread.i, label %land.lhs.true.i.i
+  %.not.i.i = icmp eq i8 %3, 0
+  br i1 %.not.i.i, label %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.thread.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end14.i
   %4 = load ptr, ptr %endptr.i.i, align 8
   %5 = load i8, ptr %4, align 1
-  %cmp3.i.i = icmp eq i8 %5, 0
-  br i1 %cmp3.i.i, label %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.i, label %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.thread.i
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.i, label %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.thread.i
 
 _ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.thread.i: ; preds = %land.lhs.true.i.i, %if.end14.i
   call void @llvm.lifetime.end.p0(ptr nonnull %endptr.i.i)
   br label %if.then20.i
 
 _ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.i: ; preds = %land.lhs.true.i.i
-  %6 = load i32, ptr %call.i.i, align 4
-  %cmp5.i.i = icmp ne i32 %6, 0
+  %7 = load i32, ptr %call.i.i, align 4
+  %cmp5.i.i = icmp ne i32 %7, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %endptr.i.i)
   %cmp19.i = fcmp une float %call1.i.i, %value
   %or.cond.i = select i1 %cmp5.i.i, i1 true, i1 %cmp19.i
@@ -341,7 +341,7 @@ call.i.noexc:                                     ; preds = %_ZN6google8protobuf
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   br label %lpad.body
@@ -351,12 +351,12 @@ invoke.cont:                                      ; preds = %.noexc
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %_ZN6google8protobuf2io12_GLOBAL__N_113FloatToBufferEfPc.exit
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %7, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad ], [ %8, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -393,10 +393,10 @@ if.end4:                                          ; preds = %switch.early.test.i
   %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %buffer.addr.0, i64 1
   %2 = load i8, ptr %incdec.ptr5, align 1
   %3 = add i8 %2, -48
-  %or.cond.i14 = icmp ult i8 %3, 10
-  br i1 %or.cond.i14, label %if.end15, label %switch.early.test.i15
+  %or.cond.i15 = icmp ult i8 %3, 10
+  br i1 %or.cond.i15, label %if.end15, label %switch.early.test.i16
 
-switch.early.test.i15:                            ; preds = %if.end4
+switch.early.test.i16:                            ; preds = %if.end4
   switch i8 %2, label %do.body [
     i8 101, label %if.end15
     i8 69, label %if.end15
@@ -405,15 +405,15 @@ switch.early.test.i15:                            ; preds = %if.end4
     i8 0, label %if.end15
   ]
 
-do.body:                                          ; preds = %switch.early.test.i15, %switch.early.test.i19
-  %buffer.addr.1 = phi ptr [ %incdec.ptr10, %switch.early.test.i19 ], [ %incdec.ptr5, %switch.early.test.i15 ]
+do.body:                                          ; preds = %switch.early.test.i16, %switch.early.test.i20
+  %buffer.addr.1 = phi ptr [ %incdec.ptr10, %switch.early.test.i20 ], [ %incdec.ptr5, %switch.early.test.i16 ]
   %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %buffer.addr.1, i64 1
   %4 = load i8, ptr %incdec.ptr10, align 1
   %5 = add i8 %4, -48
-  %or.cond.i18 = icmp ult i8 %5, 10
-  br i1 %or.cond.i18, label %do.end, label %switch.early.test.i19
+  %or.cond.i19 = icmp ult i8 %5, 10
+  br i1 %or.cond.i19, label %do.end, label %switch.early.test.i20
 
-switch.early.test.i19:                            ; preds = %do.body
+switch.early.test.i20:                            ; preds = %do.body
   switch i8 %4, label %do.body [
     i8 101, label %do.end
     i8 69, label %do.end
@@ -422,13 +422,13 @@ switch.early.test.i19:                            ; preds = %do.body
     i8 0, label %do.end
   ]
 
-do.end:                                           ; preds = %switch.early.test.i19, %switch.early.test.i19, %switch.early.test.i19, %switch.early.test.i19, %switch.early.test.i19, %do.body
+do.end:                                           ; preds = %switch.early.test.i20, %switch.early.test.i20, %switch.early.test.i20, %switch.early.test.i20, %switch.early.test.i20, %do.body
   %call14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr10) #15
   %add = add i64 %call14, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %incdec.ptr5, ptr nonnull align 1 %incdec.ptr10, i64 %add, i1 false)
   br label %if.end15
 
-if.end15:                                         ; preds = %switch.early.test.i, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %switch.early.test.i15, %if.end4, %entry, %do.end
+if.end15:                                         ; preds = %switch.early.test.i, %switch.early.test.i16, %switch.early.test.i16, %switch.early.test.i16, %switch.early.test.i16, %switch.early.test.i16, %if.end4, %entry, %do.end
   ret void
 }
 

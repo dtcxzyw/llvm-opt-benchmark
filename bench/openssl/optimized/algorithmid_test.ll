@@ -115,8 +115,9 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 5:                                                ; preds = %1
   %6 = add nuw nsw i32 %.0, %.022
-  switch i32 %6, label %10 [
+  switch i32 %6, label %default.unreachable [
     i32 0, label %7
+    i32 2, label %10
     i32 1, label %13
   ]
 
@@ -136,67 +137,78 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %16 = icmp ne i32 %.0, 0
   %17 = icmp eq i32 %15, 1
   %or.cond = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond, label %.sink.split, label %18
+  br i1 %or.cond, label %18, label %20
 
 18:                                               ; preds = %13
-  %19 = icmp ne i32 %.022, 0
-  %20 = icmp eq i32 %15, 2
-  %or.cond3 = select i1 %19, i1 %20, i1 false
-  br i1 %or.cond3, label %21, label %24
+  %19 = tail call ptr @test_get_argument(i64 noundef 0) #6
+  store ptr %19, ptr @pubkey_filename, align 8, !tbaa !11
+  br label %23
 
-21:                                               ; preds = %18
-  %22 = tail call ptr @test_get_argument(i64 noundef 0) #6
-  store ptr %22, ptr @eecert_filename, align 8, !tbaa !11
-  br label %.sink.split
+20:                                               ; preds = %13
+  %21 = icmp ne i32 %.022, 0
+  %22 = icmp eq i32 %15, 2
+  %or.cond3 = select i1 %21, i1 %22, i1 false
+  br i1 %or.cond3, label %.thread, label %._crit_edge
 
-.sink.split:                                      ; preds = %13, %21
-  %.sink37 = phi i64 [ 1, %21 ], [ 0, %13 ]
-  %cacert_filename.sink = phi ptr [ @cacert_filename, %21 ], [ @pubkey_filename, %13 ]
-  %23 = tail call ptr @test_get_argument(i64 noundef %.sink37) #6
-  store ptr %23, ptr %cacert_filename.sink, align 8, !tbaa !11
-  br label %24
+._crit_edge:                                      ; preds = %20
+  %.pre = load ptr, ptr @pubkey_filename, align 8
+  br label %23
 
-24:                                               ; preds = %.sink.split, %18
-  %25 = load ptr, ptr @pubkey_filename, align 8
-  %26 = icmp eq ptr %25, null
-  %or.cond5 = select i1 %16, i1 %26, i1 false
-  br i1 %or.cond5, label %27, label %30
+23:                                               ; preds = %._crit_edge, %18
+  %24 = phi ptr [ %.pre, %._crit_edge ], [ %19, %18 ]
+  %25 = icmp eq ptr %24, null
+  %or.cond5 = select i1 %16, i1 %25, i1 false
+  br i1 %or.cond5, label %28, label %31
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr @bio_err, align 8, !tbaa !6
-  %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.21) #6
+.thread:                                          ; preds = %20
+  %26 = tail call ptr @test_get_argument(i64 noundef 0) #6
+  store ptr %26, ptr @eecert_filename, align 8, !tbaa !11
+  %27 = tail call ptr @test_get_argument(i64 noundef 1) #6
+  store ptr %27, ptr @cacert_filename, align 8, !tbaa !11
+  br label %.thread29
+
+28:                                               ; preds = %23
+  %29 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %29, ptr noundef nonnull @.str.21) #6
   br label %.loopexit
 
-30:                                               ; preds = %24
-  %.not29 = icmp eq i32 %.022, 0
-  br i1 %.not29, label %.critedge, label %31
+31:                                               ; preds = %23
+  %.not = icmp eq i32 %.022, 0
+  br i1 %.not, label %.critedge, label %..thread29_crit_edge
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
-  %33 = icmp eq ptr %32, null
-  %34 = load ptr, ptr @cacert_filename, align 8
-  %35 = icmp eq ptr %34, null
-  %or.cond7 = select i1 %33, i1 true, i1 %35
+..thread29_crit_edge:                             ; preds = %31
+  %.pre34 = load ptr, ptr @cacert_filename, align 8
+  br label %.thread29
+
+.thread29:                                        ; preds = %.thread, %..thread29_crit_edge
+  %32 = phi ptr [ %.pre34, %..thread29_crit_edge ], [ %27, %.thread ]
+  %33 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
+  %34 = icmp eq ptr %33, null
+  %35 = icmp eq ptr %32, null
+  %or.cond7 = select i1 %34, i1 true, i1 %35
   br i1 %or.cond7, label %36, label %39
 
-36:                                               ; preds = %31
+36:                                               ; preds = %.thread29
   %37 = load ptr, ptr @bio_err, align 8, !tbaa !6
   %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.22) #6
   br label %.loopexit
 
-39:                                               ; preds = %31
+39:                                               ; preds = %.thread29
   tail call void @add_test(ptr noundef nonnull @.str.23, ptr noundef nonnull @test_x509_files) #6
   br label %.critedge
 
-.critedge:                                        ; preds = %30, %39
+.critedge:                                        ; preds = %31, %39
   br i1 %16, label %40, label %.loopexit
 
 40:                                               ; preds = %.critedge
   tail call void @add_test(ptr noundef nonnull @.str.24, ptr noundef nonnull @test_spki_file) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %1, %7, %10, %.critedge, %40, %36, %27
-  %.024 = phi i32 [ 0, %27 ], [ 0, %36 ], [ 1, %40 ], [ 1, %.critedge ], [ 0, %10 ], [ 0, %7 ], [ 0, %1 ]
+default.unreachable:                              ; preds = %5
+  unreachable
+
+.loopexit:                                        ; preds = %1, %7, %10, %.critedge, %40, %36, %28
+  %.024 = phi i32 [ 0, %28 ], [ 0, %36 ], [ 1, %40 ], [ 1, %.critedge ], [ 0, %10 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.024
 }
 

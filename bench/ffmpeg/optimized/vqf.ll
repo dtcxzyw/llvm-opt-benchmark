@@ -134,7 +134,7 @@ define internal range(i32 -2147483648, 1) i32 @vqf_read_header(ptr noundef %0) #
   %28 = load ptr, ptr %8, align 8, !tbaa !27
   %29 = call i32 @avio_rb32(ptr noundef %28) #8
   %30 = icmp ugt i32 %29, 1073741823
-  %31 = icmp slt i32 %.087, 8
+  %31 = icmp ult i32 %.087, 8
   %or.cond = or i1 %31, %30
   br i1 %or.cond, label %32, label %33
 
@@ -202,7 +202,7 @@ define internal range(i32 -2147483648, 1) i32 @vqf_read_header(ptr noundef %0) #
 
 67:                                               ; preds = %33, %33, %33, %33, %33, %33
   %68 = load ptr, ptr %8, align 8, !tbaa !27
-  %69 = call i32 @llvm.umin.i32(i32 %29, i32 %34)
+  %69 = call i32 @llvm.smin.i32(i32 %29, i32 %34)
   %70 = zext nneg i32 %69 to i64
   %71 = call i64 @avio_skip(ptr noundef %68, i64 noundef %70) #8
   br label %86
@@ -246,7 +246,7 @@ add_metadata.exit:                                ; preds = %77
   %.291 = phi i32 [ %.089, %add_metadata.exit ], [ %57, %56 ], [ %.089, %62 ], [ %.089, %67 ]
   %.286 = phi i32 [ %.084, %add_metadata.exit ], [ %58, %56 ], [ %.084, %62 ], [ %.084, %67 ]
   %87 = sub nsw i32 %34, %29
-  %88 = icmp sgt i32 %87, -1
+  %88 = icmp ult i32 %87, 2147483640
   br i1 %88, label %89, label %.critedge
 
 89:                                               ; preds = %86
@@ -537,6 +537,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #7

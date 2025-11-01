@@ -430,48 +430,50 @@ define hidden { ptr, i64 } @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$11
 define hidden { ptr, ptr } @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$5cause17h3a0fb851c60f504eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
   %3 = load i8, ptr %2, align 1, !range !10, !alias.scope !14, !noundef !3
-  %4 = add nsw i8 %3, -3
-  %5 = icmp ugt i8 %4, 2
-  %6 = icmp eq i8 %4, 1
-  %7 = or i1 %5, %6
-  br i1 %7, label %8, label %_ZN4core5error5Error5cause17h08cc55bf3a145667E.exit
+  switch i8 %3, label %_ZN4core5error5Error5cause17h08cc55bf3a145667E.exit [
+    i8 4, label %4
+    i8 2, label %4
+    i8 1, label %4
+    i8 0, label %4
+  ]
 
-8:                                                ; preds = %1
-  %9 = tail call { ptr, ptr } @_ZN4core5error5Error6source17hc227998c4e87c528E.llvm.9460548185435379796(ptr noundef nonnull readonly align 1 dereferenceable(1) %2)
-  %10 = extractvalue { ptr, ptr } %9, 0
-  %11 = extractvalue { ptr, ptr } %9, 1
+4:                                                ; preds = %1, %1, %1, %1
+  %5 = tail call { ptr, ptr } @_ZN4core5error5Error6source17hc227998c4e87c528E.llvm.9460548185435379796(ptr noundef nonnull readonly align 1 dereferenceable(1) %2)
+  %6 = extractvalue { ptr, ptr } %5, 0
+  %7 = extractvalue { ptr, ptr } %5, 1
   br label %_ZN4core5error5Error5cause17h08cc55bf3a145667E.exit
 
-_ZN4core5error5Error5cause17h08cc55bf3a145667E.exit: ; preds = %1, %8
-  %.sroa.4.0.i.i = phi ptr [ %11, %8 ], [ undef, %1 ]
-  %.sroa.0.0.i.i = phi ptr [ %10, %8 ], [ null, %1 ]
-  %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.i, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.4.0.i.i, 1
-  ret { ptr, ptr } %13
+_ZN4core5error5Error5cause17h08cc55bf3a145667E.exit: ; preds = %1, %4
+  %.sroa.4.0.i.i = phi ptr [ %7, %4 ], [ undef, %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %6, %4 ], [ null, %1 ]
+  %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.i, 0
+  %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.4.0.i.i, 1
+  ret { ptr, ptr } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$6source17h6c96b82e15576d02E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
   %3 = load i8, ptr %2, align 1, !range !10, !alias.scope !19, !noundef !3
-  %4 = add nsw i8 %3, -3
-  %5 = icmp ugt i8 %4, 2
-  %6 = icmp eq i8 %4, 1
-  %7 = or i1 %5, %6
-  br i1 %7, label %8, label %"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit"
+  switch i8 %3, label %"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit" [
+    i8 4, label %4
+    i8 2, label %4
+    i8 1, label %4
+    i8 0, label %4
+  ]
 
-8:                                                ; preds = %1
-  %9 = tail call { ptr, ptr } @_ZN4core5error5Error6source17hc227998c4e87c528E.llvm.9460548185435379796(ptr noundef nonnull readonly align 1 dereferenceable(1) %2)
-  %10 = extractvalue { ptr, ptr } %9, 0
-  %11 = extractvalue { ptr, ptr } %9, 1
+4:                                                ; preds = %1, %1, %1, %1
+  %5 = tail call { ptr, ptr } @_ZN4core5error5Error6source17hc227998c4e87c528E.llvm.9460548185435379796(ptr noundef nonnull readonly align 1 dereferenceable(1) %2)
+  %6 = extractvalue { ptr, ptr } %5, 0
+  %7 = extractvalue { ptr, ptr } %5, 1
   br label %"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit"
 
-"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit": ; preds = %1, %8
-  %.sroa.4.0.i = phi ptr [ %11, %8 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %10, %8 ], [ null, %1 ]
-  %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.4.0.i, 1
-  ret { ptr, ptr } %13
+"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit": ; preds = %1, %4
+  %.sroa.4.0.i = phi ptr [ %7, %4 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %6, %4 ], [ null, %1 ]
+  %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.4.0.i, 1
+  ret { ptr, ptr } %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -837,24 +839,25 @@ define internal { ptr, i64 } @_ZN4core5error5Error11description17hc5588fdb99178b
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h08cc55bf3a145667E(ptr noalias noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #4 {
   %2 = load i8, ptr %0, align 1, !range !10, !alias.scope !92, !noundef !3
-  %3 = add nsw i8 %2, -3
-  %4 = icmp ugt i8 %3, 2
-  %5 = icmp eq i8 %3, 1
-  %6 = or i1 %4, %5
-  br i1 %6, label %7, label %"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit"
+  switch i8 %2, label %"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit" [
+    i8 4, label %3
+    i8 2, label %3
+    i8 1, label %3
+    i8 0, label %3
+  ]
 
-7:                                                ; preds = %1
-  %8 = tail call { ptr, ptr } @_ZN4core5error5Error6source17hc227998c4e87c528E.llvm.9460548185435379796(ptr noundef nonnull readonly align 1 dereferenceable(1) %0)
-  %9 = extractvalue { ptr, ptr } %8, 0
-  %10 = extractvalue { ptr, ptr } %8, 1
+3:                                                ; preds = %1, %1, %1, %1
+  %4 = tail call { ptr, ptr } @_ZN4core5error5Error6source17hc227998c4e87c528E.llvm.9460548185435379796(ptr noundef nonnull readonly align 1 dereferenceable(1) %0)
+  %5 = extractvalue { ptr, ptr } %4, 0
+  %6 = extractvalue { ptr, ptr } %4, 1
   br label %"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit"
 
-"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit": ; preds = %1, %7
-  %.sroa.4.0.i = phi ptr [ %10, %7 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %9, %7 ], [ null, %1 ]
-  %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.4.0.i, 1
-  ret { ptr, ptr } %12
+"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit": ; preds = %1, %3
+  %.sroa.4.0.i = phi ptr [ %6, %3 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %5, %3 ], [ null, %1 ]
+  %7 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %8 = insertvalue { ptr, ptr } %7, ptr %.sroa.4.0.i, 1
+  ret { ptr, ptr } %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

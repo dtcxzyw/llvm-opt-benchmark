@@ -2135,7 +2135,7 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecTNtNtCseG2FYMysgNb_3wa
 ; Function Attrs: nonlazybind uwtable
 define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtBJ_5TokenEE14extend_trustedINtNtCs1LoaDTb72WA_4core6option8IntoIterBG_EEBL_(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val = load i64, ptr %1, align 8, !range !54, !noundef !4
-  %3 = icmp ne i64 %.val, 2
+  %3 = icmp samesign ult i64 %.val, 2
   %4 = zext i1 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
@@ -6206,7 +6206,7 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc3vec11spec_extendINtB6_3VecTNtNtCseG
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1489)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1492)
   %.val.i = load i64, ptr %1, align 8, !range !54, !alias.scope !1492, !noalias !1489, !noundef !4
-  %3 = icmp ne i64 %.val.i, 2
+  %3 = icmp samesign ult i64 %.val.i, 2
   %4 = zext i1 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1489, !noalias !1492, !noundef !4
@@ -7665,7 +7665,7 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB6_3Ve
   %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.val = load i64, ptr %1, align 8, !range !54, !noundef !4
-  %5 = icmp ne i64 %.val, 2
+  %5 = icmp samesign ult i64 %.val, 2
   %6 = zext i1 %5 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtBP_5TokenEE15try_allocate_inBR_(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %6, i1 noundef zeroext false)
@@ -7674,7 +7674,7 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB6_3Ve
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !range !173, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %trunc2, label %23, label %11
+  br i1 %trunc2, label %25, label %11
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
@@ -7685,61 +7685,63 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB6_3Ve
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = icmp samesign ult i64 %9, %6
-  br i1 %15, label %22, label %16
+  %15 = icmp samesign ult i64 %.val, 2
+  %16 = icmp eq i64 %9, 0
+  %17 = and i1 %16, %15
+  br i1 %17, label %24, label %18
 
-16:                                               ; preds = %.noexc, %11
-  %17 = phi i64 [ %.pre.i.i, %.noexc ], [ 0, %11 ]
-  %18 = icmp eq i64 %.val, 2
-  br i1 %18, label %32, label %.lr.ph.split.us.i.i.i.i
+18:                                               ; preds = %11
+  %19 = icmp eq i64 %.val, 2
+  br i1 %19, label %34, label %.lr.ph.split.us.i.i.i.i
 
-.lr.ph.split.us.i.i.i.i:                          ; preds = %16
-  %19 = load ptr, ptr %13, align 8, !alias.scope !1817, !noalias !1822, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds { { i64, [2 x i64] }, ptr }, ptr %19, i64 %17
-  store i64 %.val, ptr %20, align 8, !noalias !1825
-  %.sroa.4.0..sroa_idx.us.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
+.lr.ph.split.us.i.i.i.i:                          ; preds = %.thread, %18
+  %20 = phi i64 [ %.pre.i.i, %.thread ], [ 0, %18 ]
+  %21 = load ptr, ptr %13, align 8, !alias.scope !1817, !noalias !1822, !nonnull !4, !noundef !4
+  %22 = getelementptr inbounds { { i64, [2 x i64] }, ptr }, ptr %21, i64 %20
+  store i64 %.val, ptr %22, align 8, !noalias !1825
+  %.sroa.4.0..sroa_idx.us.i.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.us.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, i64 24, i1 false)
-  %21 = add i64 %17, 1
-  br label %32
+  %23 = add i64 %20, 1
+  br label %34
 
-22:                                               ; preds = %11
+24:                                               ; preds = %11
   invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1q_5TokenENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef 1)
-          to label %.noexc unwind label %25
+          to label %.thread unwind label %27
 
-.noexc:                                           ; preds = %22
+.thread:                                          ; preds = %24
   %.pre.i.i = load i64, ptr %14, align 8, !alias.scope !1817, !noalias !1822
-  br label %16
+  br label %.lr.ph.split.us.i.i.i.i
 
-23:                                               ; preds = %2
-  %24 = load i64, ptr %10, align 8
-  tail call void @_ZN5alloc7raw_vec12handle_error17had94eb94ada9491aE(i64 noundef %9, i64 %24) #22
+25:                                               ; preds = %2
+  %26 = load i64, ptr %10, align 8
+  tail call void @_ZN5alloc7raw_vec12handle_error17had94eb94ada9491aE(i64 noundef %9, i64 %26) #22
   unreachable
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !1836)
   call void @llvm.experimental.noalias.scope.decl(metadata !1839)
   call void @llvm.experimental.noalias.scope.decl(metadata !1842)
-  %27 = load i64, ptr %4, align 8, !alias.scope !1845, !noalias !1848, !noundef !4
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1g_5TokenEEEB1i_.exit, label %29
+  %29 = load i64, ptr %4, align 8, !alias.scope !1845, !noalias !1848, !noundef !4
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1g_5TokenEEEB1i_.exit, label %31
 
-29:                                               ; preds = %25
-  %30 = shl nuw i64 %27, 5
-  %31 = load ptr, ptr %13, align 8, !alias.scope !1845, !noalias !1848, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %30, i64 noundef 8) #23, !noalias !1850
+31:                                               ; preds = %27
+  %32 = shl nuw i64 %29, 5
+  %33 = load ptr, ptr %13, align 8, !alias.scope !1845, !noalias !1848, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %32, i64 noundef 8) #23, !noalias !1850
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1g_5TokenEEEB1i_.exit
 
-32:                                               ; preds = %.lr.ph.split.us.i.i.i.i, %16
-  %.val3.i.i.i.i = phi i64 [ %21, %.lr.ph.split.us.i.i.i.i ], [ %17, %16 ]
+34:                                               ; preds = %.lr.ph.split.us.i.i.i.i, %18
+  %.val3.i.i.i.i = phi i64 [ %23, %.lr.ph.split.us.i.i.i.i ], [ 0, %18 ]
   store i64 %.val3.i.i.i.i, ptr %14, align 8, !alias.scope !1817, !noalias !1851
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1g_5TokenEEEB1i_.exit: ; preds = %29, %25
-  resume { ptr, i32 } %26
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1g_5TokenEEEB1i_.exit: ; preds = %31, %27
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: nonlazybind uwtable

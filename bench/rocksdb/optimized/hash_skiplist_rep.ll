@@ -1737,31 +1737,30 @@ define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_115HashSkipListRep8
   br i1 %or.cond.i.i, label %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.i, label %54
 
 54:                                               ; preds = %.thread.i.i
-  %55 = icmp sgt i32 %51, -1
-  %56 = sext i1 %55 to i32
-  %.226.i.i = add nsw i32 %.024.i.i, %56
-  %.223.i.i = select i1 %55, ptr %.0.i.i.i.i.i, ptr %.021.i.i
-  %.2.i.i = select i1 %55, ptr %.019.i.i, ptr %.0.i.i.i.i.i
+  %55 = sext i1 %52 to i32
+  %.226.i.i = add nsw i32 %.024.i.i, %55
+  %.223.i.i = select i1 %52, ptr %.0.i.i.i.i.i, ptr %.021.i.i
+  %.2.i.i = select i1 %52, ptr %.019.i.i, ptr %.0.i.i.i.i.i
   br label %36, !llvm.loop !109
 
 _ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.i: ; preds = %.thread.i.i
-  br i1 %41, label %64, label %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.thread.i
+  br i1 %41, label %63, label %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.thread.i
 
 _ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.thread.i: ; preds = %43, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.i
-  %57 = load ptr, ptr %35, align 8, !tbaa !108
-  %58 = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !88
-  %59 = load ptr, ptr %57, align 8, !tbaa !49
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef %1, ptr noundef %58)
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8ContainsERKS2_.exit, label %64
+  %56 = load ptr, ptr %35, align 8, !tbaa !108
+  %57 = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !88
+  %58 = load ptr, ptr %56, align 8, !tbaa !49
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %1, ptr noundef %57)
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8ContainsERKS2_.exit, label %63
 
-64:                                               ; preds = %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.thread.i, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.i
+63:                                               ; preds = %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.thread.i, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.i
   br label %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8ContainsERKS2_.exit
 
-_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8ContainsERKS2_.exit: ; preds = %64, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.thread.i, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %64 ], [ true, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.thread.i ]
+_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8ContainsERKS2_.exit: ; preds = %63, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.thread.i, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %63 ], [ true, %_ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualERKS2_.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -1854,11 +1853,10 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep3GetERKNS_9Looku
   br i1 %or.cond.i.i, label %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit, label %57
 
 57:                                               ; preds = %.thread.i.i
-  %58 = icmp sgt i32 %54, -1
-  %59 = sext i1 %58 to i32
-  %.226.i.i = add nsw i32 %.024.i.i, %59
-  %.223.i.i = select i1 %58, ptr %.0.i.i.i.i.i, ptr %.021.i.i
-  %.2.i.i = select i1 %58, ptr %.019.i.i, ptr %.0.i.i.i.i.i
+  %58 = sext i1 %55 to i32
+  %.226.i.i = add nsw i32 %.024.i.i, %58
+  %.223.i.i = select i1 %55, ptr %.0.i.i.i.i.i, ptr %.021.i.i
+  %.2.i.i = select i1 %55, ptr %.019.i.i, ptr %.0.i.i.i.i.i
   br label %39, !llvm.loop !109
 
 _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit: ; preds = %.thread.i.i
@@ -1867,20 +1865,20 @@ _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.
 .lr.ph.preheader:                                 ; preds = %46, %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
-  %.sroa.412.019 = phi ptr [ %.0.i.i.i.i10, %62 ], [ %.0.i.i.i.i.i, %.lr.ph.preheader ]
-  %60 = load ptr, ptr %.sroa.412.019, align 8, !tbaa !88
-  %61 = call noundef zeroext i1 %3(ptr noundef %2, ptr noundef %60)
-  br i1 %61, label %62, label %.critedge
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
+  %.sroa.412.019 = phi ptr [ %.0.i.i.i.i10, %61 ], [ %.0.i.i.i.i.i, %.lr.ph.preheader ]
+  %59 = load ptr, ptr %.sroa.412.019, align 8, !tbaa !88
+  %60 = call noundef zeroext i1 %3(ptr noundef %2, ptr noundef %59)
+  br i1 %60, label %61, label %.critedge
 
-62:                                               ; preds = %.lr.ph
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.412.019, i64 8
-  %64 = load atomic i64, ptr %63 acquire, align 8
-  %.0.i.i.i.i10 = inttoptr i64 %64 to ptr
-  %.not17 = icmp eq i64 %64, 0
+61:                                               ; preds = %.lr.ph
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.412.019, i64 8
+  %63 = load atomic i64, ptr %62 acquire, align 8
+  %.0.i.i.i.i10 = inttoptr i64 %63 to ptr
+  %.not17 = icmp eq i64 %63, 0
   br i1 %.not17, label %.critedge, label %.lr.ph, !llvm.loop !114
 
-.critedge:                                        ; preds = %62, %.lr.ph, %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit, %4
+.critedge:                                        ; preds = %61, %.lr.ph, %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit, %4
   ret void
 }
 
@@ -2347,7 +2345,7 @@ _ZNK7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE12FindLessThanERKS2_
   %97 = and i64 %95, 2147483647
   %98 = add nuw nsw i64 %96, %97
   %99 = trunc nuw i64 %98 to i32
-  %100 = icmp slt i32 %99, 0
+  %100 = icmp slt i32 %99, -2147450035
   %101 = add i32 %99, -2147483647
   %spec.select.i.i = select i1 %100, i32 %101, i32 %99
   %102 = icmp ult i32 %spec.select.i.i, %92
@@ -2636,7 +2634,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator4SeekER
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !120
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %42, label %6
+  br i1 %.not, label %41, label %6
 
 6:                                                ; preds = %3
   %.not4 = icmp eq ptr %2, null
@@ -2691,19 +2689,18 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator4SeekER
   br i1 %or.cond.i.i, label %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit, label %38
 
 38:                                               ; preds = %.thread.i.i
-  %39 = icmp sgt i32 %35, -1
-  %40 = sext i1 %39 to i32
-  %.226.i.i = add nsw i32 %.024.i.i, %40
-  %.223.i.i = select i1 %39, ptr %.0.i.i.i.i.i, ptr %.021.i.i
-  %.2.i.i = select i1 %39, ptr %.019.i.i, ptr %.0.i.i.i.i.i
+  %39 = sext i1 %36 to i32
+  %.226.i.i = add nsw i32 %.024.i.i, %39
+  %.223.i.i = select i1 %36, ptr %.0.i.i.i.i.i, ptr %.021.i.i
+  %.2.i.i = select i1 %36, ptr %.019.i.i, ptr %.0.i.i.i.i.i
   br label %20, !llvm.loop !109
 
 _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit: ; preds = %27, %.thread.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i.i.i.i.i, ptr %41, align 8, !tbaa !134
-  br label %42
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.0.i.i.i.i.i, ptr %40, align 8, !tbaa !134
+  br label %41
 
-42:                                               ; preds = %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit, %3
+41:                                               ; preds = %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit, %3
   ret void
 }
 
@@ -3027,11 +3024,10 @@ _ZN7rocksdb12_GLOBAL__N_115HashSkipListRep8Iterator5ResetEPNS_8SkipListIPKcRKNS_
   br i1 %or.cond.i.i.i, label %_ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit.i, label %72
 
 72:                                               ; preds = %.thread.i.i.i
-  %73 = icmp sgt i32 %69, -1
-  %74 = sext i1 %73 to i32
-  %.226.i.i.i = add nsw i32 %.024.i.i.i, %74
-  %.223.i.i.i = select i1 %73, ptr %.0.i.i.i.i.i.i, ptr %.021.i.i.i
-  %.2.i.i.i = select i1 %73, ptr %.019.i.i.i, ptr %.0.i.i.i.i.i.i
+  %73 = sext i1 %70 to i32
+  %.226.i.i.i = add nsw i32 %.024.i.i.i, %73
+  %.223.i.i.i = select i1 %70, ptr %.0.i.i.i.i.i.i, ptr %.021.i.i.i
+  %.2.i.i.i = select i1 %70, ptr %.019.i.i.i, ptr %.0.i.i.i.i.i.i
   br label %54, !llvm.loop !109
 
 _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEE8Iterator4SeekERKS2_.exit.i: ; preds = %.thread.i.i.i, %61

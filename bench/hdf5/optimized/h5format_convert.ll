@@ -261,7 +261,7 @@ thread-pre-split.i:                               ; preds = %17, %15
 64:                                               ; preds = %60, %59
   %65 = load ptr, ptr @dname_g, align 8, !tbaa !8
   %66 = tail call fastcc i32 @convert(i64 noundef %49, ptr noundef %65)
-  %67 = icmp slt i32 %66, 0
+  %67 = icmp eq i32 %66, -1
   br i1 %67, label %parse_command_line.exit.thread, label %75
 
 68:                                               ; preds = %58
@@ -665,13 +665,13 @@ declare i32 @h5trav_visit(i64 noundef, ptr noundef, i1 noundef zeroext, i1 nound
 define internal range(i32 -1, 1) i32 @convert_dsets_cb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #3 {
   %5 = load i64, ptr %3, align 8, !tbaa !4
   %6 = icmp eq ptr %2, null
-  br i1 %6, label %7, label %17
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !19
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %17
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %7
   %.b = load i1, ptr @verbose_g, align 4
@@ -684,10 +684,12 @@ define internal range(i32 -1, 1) i32 @convert_dsets_cb(ptr noundef %0, ptr nound
 
 15:                                               ; preds = %12, %11
   %16 = tail call fastcc i32 @convert(i64 noundef %5, ptr noundef %0)
-  br label %17
+  %17 = icmp eq i32 %16, -1
+  %spec.select = sext i1 %17 to i32
+  br label %18
 
-17:                                               ; preds = %15, %4, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %16, %15 ]
+18:                                               ; preds = %15, %4, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %spec.select, %15 ]
   ret i32 %.0
 }
 
