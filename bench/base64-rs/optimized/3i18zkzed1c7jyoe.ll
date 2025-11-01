@@ -40,14 +40,14 @@ define void @_ZN6base646engine15general_purpose14GeneralPurpose3new17h640681ee2b
   %10 = trunc nuw nsw i64 %.06.i to i8
   store i8 %10, ptr %9, align 1, !alias.scope !4, !noalias !7
   %11 = add nuw nsw i64 %.06.i, 1
-  %12 = icmp eq i64 %11, 64
-  br i1 %12, label %_ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174E.exit, label %5
+  %exitcond.not.i = icmp eq i64 %11, 64
+  br i1 %exitcond.not.i, label %_ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174E.exit, label %5
 
 _ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174E.exit: ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %13, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %14, ptr noundef nonnull align 1 dereferenceable(256) %4, i64 256, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %12, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %13, ptr noundef nonnull align 1 dereferenceable(256) %4, i64 256, i1 false)
   store i24 %2, ptr %0, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -1270,8 +1270,8 @@ define void @_ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174
   %9 = trunc nuw nsw i64 %.06 to i8
   store i8 %9, ptr %8, align 1
   %10 = add nuw nsw i64 %.06, 1
-  %.not = icmp eq i64 %10, 64
-  br i1 %.not, label %3, label %4
+  %exitcond.not = icmp eq i64 %10, 64
+  br i1 %exitcond.not, label %3, label %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

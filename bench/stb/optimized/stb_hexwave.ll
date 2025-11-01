@@ -255,8 +255,8 @@ define void @hexwave_generate_linesegs(ptr noundef captures(none) initializes((0
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store float %31, ptr %32, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not113 = icmp eq i64 %indvars.iv.next, 8
-  br i1 %.not113, label %.loopexit83, label %.preheader84, !llvm.loop !34
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
+  br i1 %exitcond.not, label %.loopexit83, label %.preheader84, !llvm.loop !34
 
 .preheader82:                                     ; preds = %3, %.preheader82
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %.preheader82 ], [ 4, %3 ]
@@ -271,8 +271,8 @@ define void @hexwave_generate_linesegs(ptr noundef captures(none) initializes((0
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store float %39, ptr %40, align 4, !tbaa !29
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %.not114 = icmp eq i64 %indvars.iv.next94, 8
-  br i1 %.not114, label %.loopexit83.loopexit, label %.preheader82, !llvm.loop !35
+  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 8
+  br i1 %exitcond96.not, label %.loopexit83.loopexit, label %.preheader82, !llvm.loop !35
 
 .loopexit83.loopexit:                             ; preds = %.preheader82
   %.pre.pre = load float, ptr %0, align 4, !tbaa !27
@@ -302,8 +302,8 @@ define void @hexwave_generate_linesegs(ptr noundef captures(none) initializes((0
 
 50:                                               ; preds = %43, %49
   %51 = phi float [ %46, %43 ], [ %44, %49 ]
-  %.not115 = icmp eq i64 %indvars.iv.next98, 8
-  br i1 %.not115, label %52, label %43, !llvm.loop !36
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 8
+  br i1 %exitcond100.not, label %52, label %43, !llvm.loop !36
 
 52:                                               ; preds = %50
   %53 = load float, ptr %41, align 4, !tbaa !27
@@ -323,8 +323,8 @@ define void @hexwave_generate_linesegs(ptr noundef captures(none) initializes((0
 
 59:                                               ; preds = %.preheader, %58
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %.not116 = icmp eq i64 %indvars.iv.next102, 9
-  br i1 %.not116, label %.loopexit.preheader, label %.preheader, !llvm.loop !37
+  %exitcond104.not = icmp eq i64 %indvars.iv.next102, 9
+  br i1 %exitcond104.not, label %.loopexit.preheader, label %.preheader, !llvm.loop !37
 
 .loopexit.preheader:                              ; preds = %59, %52
   br label %.loopexit
@@ -353,8 +353,8 @@ define void @hexwave_generate_linesegs(ptr noundef captures(none) initializes((0
   %.sink = phi float [ %72, %65 ], [ 0.000000e+00, %.loopexit ]
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store float %.sink, ptr %74, align 4, !tbaa !38
-  %.not117 = icmp eq i64 %indvars.iv.next106, 8
-  br i1 %.not117, label %75, label %.loopexit, !llvm.loop !39
+  %exitcond108.not = icmp eq i64 %indvars.iv.next106, 8
+  br i1 %exitcond108.not, label %75, label %.loopexit, !llvm.loop !39
 
 75:                                               ; preds = %73
   store float 1.000000e+00, ptr %41, align 4, !tbaa !27
@@ -399,8 +399,8 @@ define void @hexwave_generate_samples(ptr noundef captures(none) %0, i32 noundef
 
 23:                                               ; preds = %.preheader180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not266 = icmp eq i64 %indvars.iv.next, 6
-  br i1 %.not266, label %24, label %.preheader180, !llvm.loop !41
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %24, label %.preheader180, !llvm.loop !41
 
 24:                                               ; preds = %.preheader180, %23
   %.0124.lcssa = phi i64 [ %indvars.iv, %.preheader180 ], [ 6, %23 ]
@@ -503,7 +503,7 @@ hex_blamp.exit:                                   ; preds = %.lr.ph.i.i, %30, %2
 .preheader205:                                    ; preds = %77, %80
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %80 ], [ 0, %77 ]
   %exitcond212.not = icmp eq i64 %indvars.iv209, 8
-  br i1 %exitcond212.not, label %.split.loop.exit279, label %80
+  br i1 %exitcond212.not, label %.split.loop.exit278, label %80
 
 80:                                               ; preds = %.preheader205
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
@@ -514,9 +514,9 @@ hex_blamp.exit:                                   ; preds = %.lr.ph.i.i, %30, %2
 
 .split.loop.exit:                                 ; preds = %80
   %84 = trunc nuw nsw i64 %indvars.iv209 to i32
-  br label %.split.loop.exit279
+  br label %.split.loop.exit278
 
-.split.loop.exit279:                              ; preds = %.preheader205, %.split.loop.exit
+.split.loop.exit278:                              ; preds = %.preheader205, %.split.loop.exit
   %.1125.lcssa = phi i32 [ %84, %.split.loop.exit ], [ 8, %.preheader205 ]
   %85 = load i32, ptr @hexblep, align 8
   %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hexblep, i64 4), align 4
@@ -528,7 +528,7 @@ hex_blamp.exit:                                   ; preds = %.lr.ph.i.i, %30, %2
   %invariant.gep = getelementptr float, ptr %.mux, i64 %76
   br label %hex_blamp.exit178
 
-hex_blamp.exit178:                                ; preds = %hex_blamp.exit178.backedge, %.split.loop.exit279
+hex_blamp.exit178:                                ; preds = %hex_blamp.exit178.backedge, %.split.loop.exit278
   %.2130 = phi float [ %.0128195, %.split.loop.exit279 ], [ %.2130.be, %hex_blamp.exit178.backedge ]
   %.2126 = phi i32 [ %.1125.lcssa, %.split.loop.exit279 ], [ %.2126.be, %hex_blamp.exit178.backedge ]
   %.0120 = phi i32 [ 0, %.split.loop.exit279 ], [ %.1.lcssa, %hex_blamp.exit178.backedge ]
@@ -608,9 +608,9 @@ hex_blamp.exit178:                                ; preds = %hex_blamp.exit178.b
   %136 = sitofp i32 %spec.select.i.i148 to float
   %137 = fneg float %136
   %138 = tail call float @llvm.fmuladd.f32(float %120, float %87, float %137)
-  br i1 %89, label %.lr.ph.i.i151, label %hex_blep.exit.thread272
+  br i1 %89, label %.lr.ph.i.i151, label %hex_blep.exit.thread271
 
-hex_blep.exit.thread272:                          ; preds = %117
+hex_blep.exit.thread271:                          ; preds = %117
   %139 = getelementptr inbounds float, ptr %.mux, i64 %116
   br label %hex_blamp.exit162
 
@@ -672,7 +672,7 @@ hex_blep.exit:                                    ; preds = %._crit_edge
   %168 = phi ptr [ %156, %hex_blep.exit.thread ], [ %165, %hex_blep.exit ]
   %.pn = phi float [ %154, %hex_blep.exit.thread ], [ %163, %hex_blep.exit ]
   %169 = phi ptr [ %149, %hex_blep.exit.thread ], [ %158, %hex_blep.exit ]
-  %.pre-phi251271 = phi float [ %138, %hex_blep.exit.thread ], [ %.pre250, %hex_blep.exit ]
+  %.pre-phi251270 = phi float [ %138, %hex_blep.exit.thread ], [ %.pre250, %hex_blep.exit ]
   %170 = fmul float %10, %.pn
   %171 = getelementptr inbounds float, ptr %.mux, i64 %116
   br label %.lr.ph.i.i158
@@ -684,7 +684,7 @@ hex_blep.exit:                                    ; preds = %._crit_edge
   %174 = getelementptr inbounds nuw float, ptr %167, i64 %indvars.iv.i.i159
   %175 = load float, ptr %174, align 4, !tbaa !16
   %176 = fsub float %175, %173
-  %177 = tail call float @llvm.fmuladd.f32(float %176, float %.pre-phi251271, float %173)
+  %177 = tail call float @llvm.fmuladd.f32(float %176, float %.pre-phi251270, float %173)
   %178 = getelementptr inbounds nuw float, ptr %171, i64 %indvars.iv.i.i159
   %179 = load float, ptr %178, align 4, !tbaa !16
   %180 = tail call float @llvm.fmuladd.f32(float %170, float %177, float %179)
@@ -693,7 +693,7 @@ hex_blep.exit:                                    ; preds = %._crit_edge
   %exitcond.not.i.i161 = icmp eq i64 %indvars.iv.next.i.i160, %wide.trip.count.i.i150
   br i1 %exitcond.not.i.i161, label %hex_blamp.exit162, label %.lr.ph.i.i158, !llvm.loop !23
 
-hex_blamp.exit162:                                ; preds = %.lr.ph.i.i158, %hex_blep.exit.thread272, %hex_blep.exit
+hex_blamp.exit162:                                ; preds = %.lr.ph.i.i158, %hex_blep.exit.thread271, %hex_blep.exit
   %181 = phi ptr [ %158, %hex_blep.exit ], [ %139, %hex_blep.exit.thread272 ], [ %169, %.lr.ph.i.i158 ]
   %182 = icmp eq i32 %90, 8
   br i1 %182, label %183, label %hex_blamp.exit178.backedge
@@ -812,17 +812,17 @@ hex_blamp.exit178.backedge:                       ; preds = %.lr.ph.i.i174, %218
   %247 = sub nsw i32 %1, %245
   %248 = sext i32 %247 to i64
   %wide.trip.count = zext nneg i32 %245 to i64
-  %invariant.gep281 = getelementptr float, ptr %0, i64 %248
+  %invariant.gep280 = getelementptr float, ptr %0, i64 %248
   br label %249
 
 249:                                              ; preds = %.lr.ph198, %249
   %indvars.iv216 = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next217, %249 ]
   %250 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv216
   %251 = load float, ptr %250, align 4, !tbaa !16
-  %gep282 = getelementptr float, ptr %invariant.gep281, i64 %indvars.iv216
-  %252 = load float, ptr %gep282, align 4, !tbaa !16
+  %gep281 = getelementptr float, ptr %invariant.gep280, i64 %indvars.iv216
+  %252 = load float, ptr %gep281, align 4, !tbaa !16
   %253 = fadd float %251, %252
-  store float %253, ptr %gep282, align 4, !tbaa !16
+  store float %253, ptr %gep281, align 4, !tbaa !16
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count
   br i1 %exitcond219.not, label %._crit_edge199, label %249, !llvm.loop !45
@@ -839,9 +839,9 @@ hex_blamp.exit178.backedge:                       ; preds = %.lr.ph.i.i174, %218
   br label %257
 
 257:                                              ; preds = %._crit_edge202, %._crit_edge199
-  %.sink285 = phi i64 [ %57, %._crit_edge202 ], [ %254, %._crit_edge199 ]
+  %.sink284 = phi i64 [ %57, %._crit_edge202 ], [ %254, %._crit_edge199 ]
   %.sink = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %258 = getelementptr inbounds float, ptr %6, i64 %.sink285
+  %258 = getelementptr inbounds float, ptr %6, i64 %.sink284
   %259 = sext i32 %9 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink, ptr nonnull align 4 %258, i64 %259, i1 false)
   store float %.1129, ptr %2, align 4, !tbaa !40
@@ -960,8 +960,8 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   %57 = fmul double %56, 6.250000e-02
   %58 = fadd double %.1120144.us, %57
   %59 = add nuw nsw i32 %.0121143.us, 1
-  %.not217 = icmp eq i32 %59, 16
-  br i1 %.not217, label %.split.us, label %.preheader142.split.us, !llvm.loop !46
+  %exitcond178.not = icmp eq i32 %59, 16
+  br i1 %exitcond178.not, label %.split.us, label %.preheader142.split.us, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %.split.us
   %60 = zext nneg i32 %8 to i64
@@ -994,8 +994,8 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   %79 = fmul double %78, 6.250000e-02
   %80 = fadd double %.1120144, %79
   %81 = add nuw nsw i32 %.0121143, 1
-  %.not216 = icmp eq i32 %81, 16
-  br i1 %.not216, label %.split.us, label %.preheader142.split, !llvm.loop !46
+  %exitcond.not = icmp eq i32 %81, 16
+  br i1 %exitcond.not, label %.split.us, label %.preheader142.split, !llvm.loop !46
 
 .split.us:                                        ; preds = %.preheader142.split, %.preheader142.split.us
   %.us-phi = phi double [ %58, %.preheader142.split.us ], [ %80, %.preheader142.split ]
@@ -1087,11 +1087,11 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   %118 = mul i32 %1, %117
   %119 = add i32 %128, %118
   %120 = sitofp i32 %119 to float
-  %gep224 = getelementptr float, ptr %invariant.gep223, i64 %indvars.iv202
-  %121 = load float, ptr %gep224, align 4, !tbaa !16
+  %gep222 = getelementptr float, ptr %invariant.gep221, i64 %indvars.iv202
+  %121 = load float, ptr %gep222, align 4, !tbaa !16
   %122 = fneg float %120
   %123 = tail call float @llvm.fmuladd.f32(float %122, float %113, float %121)
-  store float %123, ptr %gep224, align 4, !tbaa !16
+  store float %123, ptr %gep222, align 4, !tbaa !16
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %115
   br i1 %exitcond206.not, label %._crit_edge.us164, label %116, !llvm.loop !51
@@ -1109,7 +1109,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
 .preheader.us:                                    ; preds = %124
   %127 = trunc nuw nsw i64 %indvars.iv207 to i32
   %128 = sub i32 %127, %5
-  %invariant.gep223 = getelementptr float, ptr %.0117, i64 %129
+  %invariant.gep221 = getelementptr float, ptr %.0117, i64 %129
   br label %116
 
 .lr.ph158.us:                                     ; preds = %._crit_edge.us164, %.preheader137.us.preheader

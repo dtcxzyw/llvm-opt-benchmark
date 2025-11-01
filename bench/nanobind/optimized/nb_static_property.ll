@@ -134,11 +134,11 @@ define internal noundef i32 @_ZN8nanobind6detailL28nb_static_property_descr_setE
   %5 = getelementptr i8, ptr %.val, i64 168
   %.val.val = load i64, ptr %5, align 8
   %6 = and i64 %.val.val, 2147483648
-  %7 = icmp eq i64 %6, 0
-  %spec.select = select i1 %7, ptr %.val, ptr %1
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyProperty_Type, i64 280), align 8
-  %9 = tail call noundef i32 %8(ptr noundef %0, ptr noundef nonnull %spec.select, ptr noundef %2)
-  ret i32 %9
+  %.not6 = icmp eq i64 %6, 0
+  %spec.select = select i1 %.not6, ptr %.val, ptr %1
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyProperty_Type, i64 280), align 8
+  %8 = tail call noundef i32 %8(ptr noundef %0, ptr noundef nonnull %spec.select, ptr noundef %2)
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

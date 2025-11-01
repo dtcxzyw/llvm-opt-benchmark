@@ -42,14 +42,14 @@ define internal i32 @encode_init(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %11, ptr %12, align 8, !tbaa !35
   %.not30 = icmp eq ptr %11, null
-  br i1 %.not30, label %33, label %13
+  br i1 %.not30, label %36, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %15 = load i32, ptr %14, align 8, !tbaa !36
   %16 = icmp slt i32 %15, -1
-  %..i = tail call i32 @llvm.smin.i32(i32 %15, i32 9)
-  %.0.i = select i1 %16, i32 0, i32 %..i
+  %17 = tail call i32 @llvm.smin.i32(i32 %15, i32 9)
+  %.0.i = select i1 %16, i32 0, i32 %17
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %.0.i, ptr %17, align 4, !tbaa !37
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -59,30 +59,30 @@ define internal i32 @encode_init(ptr noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i32 24, ptr %20, align 8, !tbaa !40
   store i8 4, ptr %11, align 1, !tbaa !41
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i8 0, ptr %21, align 1, !tbaa !41
-  %22 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  store i8 0, ptr %22, align 1, !tbaa !41
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 3
-  store i8 0, ptr %23, align 1, !tbaa !41
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i8 2, ptr %24, align 1, !tbaa !41
-  %25 = trunc i32 %.0.i to i8
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 5
-  store i8 %25, ptr %26, align 1, !tbaa !41
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 6
-  store i8 0, ptr %27, align 1, !tbaa !41
-  %28 = getelementptr inbounds nuw i8, ptr %11, i64 7
-  store i8 3, ptr %28, align 1, !tbaa !41
-  %29 = load ptr, ptr %3, align 8, !tbaa !27
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  store i32 8, ptr %30, align 8, !tbaa !42
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %32 = tail call i32 @ff_deflate_init(ptr noundef nonnull %31, i32 noundef %.0.i, ptr noundef nonnull %0) #5
-  br label %33
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store i8 0, ptr %24, align 1, !tbaa !41
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  store i8 0, ptr %25, align 1, !tbaa !41
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 3
+  store i8 0, ptr %26, align 1, !tbaa !41
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i8 2, ptr %27, align 1, !tbaa !41
+  %28 = trunc i32 %.0.i to i8
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 5
+  store i8 %28, ptr %29, align 1, !tbaa !41
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 6
+  store i8 0, ptr %30, align 1, !tbaa !41
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 7
+  store i8 3, ptr %31, align 1, !tbaa !41
+  %32 = load ptr, ptr %3, align 8, !tbaa !27
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
+  store i32 8, ptr %33, align 8, !tbaa !42
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %35 = tail call i32 @ff_deflate_init(ptr noundef nonnull %34, i32 noundef %.0.i, ptr noundef nonnull %0) #5
+  br label %36
 
-33:                                               ; preds = %10, %13
-  %.0 = phi i32 [ %32, %13 ], [ -12, %10 ]
+36:                                               ; preds = %10, %13
+  %.0 = phi i32 [ %35, %13 ], [ -12, %10 ]
   ret i32 %.0
 }
 

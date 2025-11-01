@@ -154,18 +154,18 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   invoke void %4(ptr noundef %7)
-          to label %8 unwind label %11
+          to label %8 unwind label %10
 
 8:                                                ; preds = %.lr.ph
   %9 = add i64 %.04, -1
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  %.not = icmp eq i64 %9, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
-11:                                               ; preds = %.lr.ph
-  %12 = landingpad { ptr, i32 }
+10:                                               ; preds = %.lr.ph
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #9
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #9
   unreachable
 }
 

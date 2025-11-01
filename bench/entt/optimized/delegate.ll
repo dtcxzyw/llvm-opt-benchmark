@@ -3548,7 +3548,7 @@ _ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsI
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit93: ; preds = %158, %_ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IsSharedEv.exit.i.i91, %163, %168
-  br i1 %157, label %178, label %.thread127
+  br i1 %157, label %178, label %.thread129
 
 176:                                              ; preds = %156
   %177 = landingpad { ptr, i32 }
@@ -3749,7 +3749,7 @@ _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = load ptr, ptr %272, align 8
   call void %273(ptr noundef nonnull align 8 dereferenceable(8) %179) #27
-  br label %.thread127
+  br label %.thread129
 
 _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit105: ; preds = %261, %186
   %.pn58 = phi { ptr, i32 } [ %187, %186 ], [ %.pn56, %261 ]
@@ -3759,7 +3759,7 @@ _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit
   call void %276(ptr noundef nonnull align 8 dereferenceable(8) %179) #27
   br label %278
 
-.thread127:                                       ; preds = %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit102, %_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit93
+.thread129:                                       ; preds = %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit102, %_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit93
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %279
 
@@ -3772,7 +3772,7 @@ _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %298
 
-279:                                              ; preds = %.thread127, %154
+279:                                              ; preds = %.thread129, %154
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

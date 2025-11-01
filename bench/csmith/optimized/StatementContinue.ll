@@ -413,33 +413,33 @@ _ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %1
   %20 = icmp ult i64 %19, %18
   %21 = tail call i64 @llvm.umin.i64(i64 %19, i64 1152921504606846975)
   %22 = select i1 %20, i64 1152921504606846975, i64 %21
-  %23 = icmp ne i64 %22, 0
-  tail call void @llvm.assume(i1 %23)
-  %24 = shl nuw nsw i64 %22, 3
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %25, i64 %15
-  store ptr %4, ptr %26, align 8, !tbaa !47
-  %27 = icmp sgt i64 %15, 0
-  br i1 %27, label %28, label %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+  %.not.i.i.i.i = icmp ne i64 %22, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %23 = shl nuw nsw i64 %22, 3
+  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #16
+  %25 = getelementptr inbounds i8, ptr %24, i64 %15
+  store ptr %4, ptr %25, align 8, !tbaa !47
+  %26 = icmp sgt i64 %15, 0
+  br i1 %26, label %27, label %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
 
-28:                                               ; preds = %_ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %25, ptr align 8 %12, i64 %15, i1 false)
+27:                                               ; preds = %_ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %12, i64 %15, i1 false)
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
 
-_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds = %28, %_ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
+_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds = %27, %_ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.not.i17.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %30
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %29
 
-30:                                               ; preds = %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+29:                                               ; preds = %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #17
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  store ptr %25, ptr %1, align 8, !tbaa !82
-  store ptr %29, ptr %5, align 8, !tbaa !78
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %22
-  store ptr %31, ptr %7, align 8, !tbaa !81
+_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+  store ptr %24, ptr %1, align 8, !tbaa !82
+  store ptr %28, ptr %5, align 8, !tbaa !78
+  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  store ptr %30, ptr %7, align 8, !tbaa !81
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit: ; preds = %9, %_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i

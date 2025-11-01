@@ -114,8 +114,8 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
 
 17:                                               ; preds = %9, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not29 = icmp eq i64 %indvars.iv.next, 349
-  br i1 %.not29, label %.preheader, label %9
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 349
+  br i1 %exitcond.not, label %.preheader, label %9
 
 18:                                               ; preds = %.preheader, %24
   %indvars.iv25 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next26, %24 ]
@@ -131,8 +131,8 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
 
 24:                                               ; preds = %18, %22
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %.not30 = icmp eq i64 %indvars.iv.next26, 8
-  br i1 %.not30, label %.loopexit, label %18
+  %exitcond28.not = icmp eq i64 %indvars.iv.next26, 8
+  br i1 %exitcond28.not, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %24, %6
   ret void
@@ -959,52 +959,52 @@ define void @glfwSetWindowIcon(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
 
 5:                                                ; preds = %3
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #7
-  br label %20
+  br label %19
 
 6:                                                ; preds = %3
   %7 = icmp slt i32 %1, 0
-  br i1 %7, label %9, label %.preheader
+  br i1 %7, label %8, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %8 = icmp eq i32 %1, 0
-  br i1 %8, label %._crit_edge, label %.lr.ph.preheader
+  %.not13 = icmp eq i32 %1, 0
+  br i1 %.not13, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-9:                                                ; preds = %6
+8:                                                ; preds = %6
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.3) #7
-  br label %20
+  br label %19
 
-10:                                               ; preds = %14
+9:                                                ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.GLFWimage, ptr %2, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 8, !tbaa !224
-  %13 = icmp slt i32 %12, 1
-  br i1 %13, label %18, label %14
+  %10 = getelementptr inbounds nuw %struct.GLFWimage, ptr %2, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 8, !tbaa !224
+  %12 = icmp slt i32 %11, 1
+  br i1 %12, label %17, label %13
 
-14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !226
-  %17 = icmp slt i32 %16, 1
-  br i1 %17, label %18, label %10
+13:                                               ; preds = %.lr.ph
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %15 = load i32, ptr %14, align 4, !tbaa !226
+  %16 = icmp slt i32 %15, 1
+  br i1 %16, label %17, label %9
 
-18:                                               ; preds = %14, %.lr.ph
+17:                                               ; preds = %13, %.lr.ph
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.4) #7
-  br label %20
+  br label %19
 
-._crit_edge:                                      ; preds = %10, %.preheader
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 296), align 8, !tbaa !227
+._crit_edge:                                      ; preds = %9, %.preheader
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 296), align 8, !tbaa !227
   tail call void %19(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
-  br label %20
+  br label %19
 
-20:                                               ; preds = %._crit_edge, %18, %9, %5
+19:                                               ; preds = %._crit_edge, %17, %8, %5
   ret void
 }
 
@@ -1134,7 +1134,7 @@ define void @glfwSetWindowSizeLimits(ptr noundef %0, i32 noundef %1, i32 noundef
 
 7:                                                ; preds = %5
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65537, ptr noundef null) #7
-  br label %36
+  br label %33
 
 8:                                                ; preds = %5
   %9 = icmp ne i32 %1, -1
@@ -1142,13 +1142,13 @@ define void @glfwSetWindowSizeLimits(ptr noundef %0, i32 noundef %1, i32 noundef
   %or.cond = and i1 %9, %10
   br i1 %or.cond, label %11, label %15
 
-11:                                               ; preds = %8
+16:                                               ; preds = %8
   %12 = icmp slt i32 %1, -1
-  %13 = icmp slt i32 %2, -1
+  %or.cond7.not = icmp slt i32 %2, -1
   %or.cond3 = or i1 %12, %13
   br i1 %or.cond3, label %14, label %15
 
-14:                                               ; preds = %11
+20:                                               ; preds = %16
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.5, i32 noundef %1, i32 noundef %2) #7
   br label %36
 
@@ -1170,34 +1170,34 @@ define void @glfwSetWindowSizeLimits(ptr noundef %0, i32 noundef %1, i32 noundef
 
 23:                                               ; preds = %18
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65540, ptr noundef nonnull @.str.6, i32 noundef %3, i32 noundef %4) #7
-  br label %36
+  br label %33
 
-24:                                               ; preds = %18, %15
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %1, ptr %25, align 8, !tbaa !232
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %2, ptr %26, align 4, !tbaa !233
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %3, ptr %27, align 8, !tbaa !234
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %4, ptr %28, align 4, !tbaa !235
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %30 = load ptr, ptr %29, align 8, !tbaa !137
-  %.not41 = icmp eq ptr %30, null
-  br i1 %.not41, label %31, label %36
+21:                                               ; preds = %18, %15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %1, ptr %22, align 8, !tbaa !232
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %2, ptr %23, align 4, !tbaa !233
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 %3, ptr %24, align 8, !tbaa !234
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store i32 %4, ptr %25, align 4, !tbaa !235
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %27 = load ptr, ptr %26, align 8, !tbaa !137
+  %.not41 = icmp eq ptr %27, null
+  br i1 %.not41, label %28, label %33
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !163
-  %.not42 = icmp eq i32 %33, 0
-  br i1 %.not42, label %36, label %34
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load i32, ptr %29, align 8, !tbaa !163
+  %.not42 = icmp eq i32 %30, 0
+  br i1 %.not42, label %33, label %31
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 336), align 8, !tbaa !236
+31:                                               ; preds = %28
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 336), align 8, !tbaa !236
   tail call void %35(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #7
-  br label %36
+  br label %33
 
-36:                                               ; preds = %24, %31, %34, %23, %14, %7
+33:                                               ; preds = %21, %28, %31, %23, %14, %7
   ret void
 }
 

@@ -386,10 +386,10 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %3
   br i1 %or.cond28, label %33, label %20
 
 20:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit
-  %.not.i29 = icmp slt i32 %13, %9
-  br i1 %.not.i29, label %22, label %.thread39
+  %.not.i30 = icmp slt i32 %13, %9
+  br i1 %.not.i30, label %22, label %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit32
 
-.thread39:                                        ; preds = %20
+_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit32: ; preds = %20
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 1, ptr %21, align 1, !tbaa !11
   br label %32
@@ -410,7 +410,7 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %3
   %or.cond42 = or i1 %or.cond5, %31
   br i1 %or.cond42, label %33, label %32
 
-32:                                               ; preds = %22, %.thread39
+32:                                               ; preds = %22, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit32
   store i8 1, ptr %7, align 4, !tbaa !10
   br label %33
 
@@ -728,7 +728,7 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread: ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 1, ptr %10, align 1, !tbaa !11
   store i32 -1, ptr %1, align 4, !tbaa !3
-  br label %60
+  br label %56
 
 _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -741,7 +741,7 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %3
   %17 = zext i8 %16 to i32
   store i32 %17, ptr %1, align 4, !tbaa !3
   %18 = icmp ult i8 %16, -127
-  br i1 %18, label %60, label %19
+  br i1 %18, label %56, label %19
 
 19:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit
   %.not.i50 = icmp slt i32 %13, %9
@@ -768,15 +768,15 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit52: ; preds = %19
   %30 = phi i32 [ %28, %21 ], [ %17, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit52 ]
   %31 = phi i32 [ %22, %21 ], [ %13, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit52 ]
   %.0.i5161 = phi i32 [ %26, %21 ], [ -1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit52 ]
-  %32 = icmp eq i8 %16, -1
-  %33 = add nsw i32 %.0.i5161, -64
-  %or.cond3 = icmp ult i32 %33, 63
-  %or.cond = select i1 %32, i1 true, i1 %or.cond3
-  br i1 %or.cond, label %60, label %34
+  %.not = icmp eq i8 %16, -1
+  %32 = add nsw i32 %.0.i5161, -64
+  %or.cond = icmp ult i32 %32, 63
+  %or.cond67 = select i1 %.not, i1 true, i1 %or.cond
+  br i1 %or.cond67, label %56, label %33
 
-34:                                               ; preds = %29
+33:                                               ; preds = %29
   %35 = icmp sgt i32 %.0.i5161, 79
-  %36 = icmp ne i32 %.0.i5161, 255
+  %or.cond7 = icmp ne i32 %.0.i5161, 255
   %or.cond5 = and i1 %35, %36
   br i1 %or.cond5, label %60, label %37
 
@@ -790,49 +790,49 @@ _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit52: ; preds = %19
   br i1 %.not.i53, label %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit55, label %.sink.split
 
 _ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit55: ; preds = %39
-  %40 = add nsw i32 %31, 1
-  store i32 %40, ptr %4, align 4, !tbaa !9
-  %41 = sext i32 %31 to i64
-  %42 = getelementptr inbounds i8, ptr %12, i64 %41
-  %43 = load i8, ptr %42, align 1, !tbaa !18
-  %44 = zext i8 %43 to i32
-  %45 = add i8 %43, 127
-  %or.cond9 = icmp ult i8 %45, 126
-  br i1 %or.cond9, label %46, label %59
+  %36 = add nsw i32 %31, 1
+  store i32 %36, ptr %4, align 4, !tbaa !9
+  %37 = sext i32 %31 to i64
+  %38 = getelementptr inbounds i8, ptr %12, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !18
+  %40 = zext i8 %39 to i32
+  %41 = add i8 %39, 127
+  %or.cond9 = icmp ult i8 %41, 126
+  br i1 %or.cond9, label %42, label %55
 
-46:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit55
-  %.not.i56 = icmp slt i32 %40, %9
+42:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit55
+  %.not.i56 = icmp slt i32 %36, %9
   br i1 %.not.i56, label %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit58, label %.sink.split
 
-_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit58: ; preds = %46
-  %47 = add nsw i32 %31, 2
-  store i32 %47, ptr %4, align 4, !tbaa !9
-  %48 = sext i32 %40 to i64
-  %49 = getelementptr inbounds i8, ptr %12, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !18
-  %51 = add i8 %50, -48
-  %or.cond11 = icmp ult i8 %51, 10
-  br i1 %or.cond11, label %52, label %59
+_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit58: ; preds = %42
+  %43 = add nsw i32 %31, 2
+  store i32 %43, ptr %4, align 4, !tbaa !9
+  %44 = sext i32 %36 to i64
+  %45 = getelementptr inbounds i8, ptr %12, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !18
+  %47 = add i8 %46, -48
+  %or.cond11 = icmp ult i8 %47, 10
+  br i1 %or.cond11, label %48, label %55
 
-52:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit58
-  %53 = zext nneg i8 %50 to i32
-  %54 = shl nuw i32 %30, 16
-  %55 = shl nuw nsw i32 %44, 8
-  %56 = or disjoint i32 %55, %53
-  %57 = or disjoint i32 %56, %54
-  store i32 %57, ptr %1, align 4, !tbaa !3
-  br label %60
+48:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit58
+  %49 = zext nneg i8 %46 to i32
+  %50 = shl nuw i32 %30, 16
+  %51 = shl nuw nsw i32 %40, 8
+  %52 = or disjoint i32 %51, %49
+  %53 = or disjoint i32 %52, %50
+  store i32 %53, ptr %1, align 4, !tbaa !3
+  br label %56
 
-.sink.split:                                      ; preds = %46, %39
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  store i8 1, ptr %58, align 1, !tbaa !11
-  br label %59
+.sink.split:                                      ; preds = %42, %39
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 13
+  store i8 1, ptr %54, align 1, !tbaa !11
+  br label %55
 
-59:                                               ; preds = %.sink.split, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit55, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit58, %37
+55:                                               ; preds = %.sink.split, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit55, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit58, %37
   store i8 1, ptr %7, align 4, !tbaa !10
-  br label %60
+  br label %56
 
-60:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread, %29, %59, %34, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit, %52
+56:                                               ; preds = %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread, %29, %55, %34, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit, %48
   %.0 = phi i8 [ 1, %52 ], [ 1, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit ], [ 1, %34 ], [ 1, %59 ], [ 1, %29 ], [ 0, %_ZN6icu_7712IteratedChar8nextByteEPNS_9InputTextE.exit.thread ]
   ret i8 %.0
 }

@@ -14093,8 +14093,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %16, %18
   call void @_ZNK4i18n12phonenumbers11UnicodeText3endEv(ptr dead_on_unwind nonnull writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %9, ptr noundef nonnull align 8 dereferenceable(36) %0)
   %20 = load ptr, ptr %8, align 8, !tbaa !192
   %21 = load ptr, ptr %9, align 8, !tbaa !192
-  %.not3436 = icmp eq ptr %20, %21
-  br i1 %.not3436, label %._crit_edge.thread, label %.lr.ph
+  %.not3537 = icmp eq ptr %20, %21
+  br i1 %.not3537, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -14102,9 +14102,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %16, %18
   br label %65
 
 .lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %47
-  %.037 = phi i64 [ %49, %47 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ]
+  %.038 = phi i64 [ %49, %47 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ]
   %22 = call noundef i32 @_ZNK4i18n12phonenumbers11UnicodeText14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %.not = icmp eq i64 %.037, 0
+  %.not = icmp eq i64 %.038, 0
   br i1 %.not, label %35, label %23
 
 23:                                               ; preds = %.lr.ph
@@ -14129,8 +14129,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %16, %18
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %30, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %34 = icmp eq i64 %.037, 32
-  br i1 %34, label %.thread31, label %35
+  %34 = icmp eq i64 %.038, 32
+  br i1 %34, label %.thread32, label %35
 
 35:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19, %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -14152,7 +14152,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %30, %32
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 32)
   br label %47
 
-.thread31:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19
+.thread32:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19
   %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.146, i64 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14161,12 +14161,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %30, %32
 47:                                               ; preds = %44, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %22)
-  %49 = add i64 %.037, 1
+  %49 = add i64 %.038, 1
   %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11UnicodeText14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
   %51 = load ptr, ptr %8, align 8, !tbaa !192
   %52 = load ptr, ptr %9, align 8, !tbaa !192
-  %.not34 = icmp eq ptr %51, %52
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.not35 = icmp eq ptr %51, %52
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %47
   %53 = icmp eq i64 %49, 0
@@ -14174,7 +14174,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit19: ; preds = %30, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %53, label %65, label %54
 
-54:                                               ; preds = %.thread31, %._crit_edge
+54:                                               ; preds = %.thread32, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !13
   %55 = load ptr, ptr %1, align 8, !tbaa !26

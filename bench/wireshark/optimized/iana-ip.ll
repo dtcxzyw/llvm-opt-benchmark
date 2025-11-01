@@ -52,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @ws_iana_ipv4_special_block_lookup(i32 noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %16, %1
+.lr.ph.i:                                         ; preds = %15, %1
   %.01621.i = phi i64 [ %.1.i, %16 ], [ 0, %1 ]
   %.01720.i = phi i64 [ %.118.i, %16 ], [ 24, %1 ]
   %2 = add i64 %.01720.i, %.01621.i
@@ -65,23 +65,23 @@ define ptr @ws_iana_ipv4_special_block_lookup(i32 noundef %0) local_unnamed_addr
   %9 = and i32 %8, %0
   %10 = load i32, ptr %6, align 4
   %11 = icmp ult i32 %9, %10
-  br i1 %11, label %16, label %12
+  br i1 %11, label %15, label %12
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = icmp eq i32 %9, %10
-  br i1 %13, label %bsearch.exit, label %14
+  %.not.i = icmp eq i32 %9, %10
+  br i1 %.not.i, label %bsearch.exit, label %13
 
-14:                                               ; preds = %12
-  %15 = add nuw i64 %3, 1
-  br label %16
+13:                                               ; preds = %12
+  %14 = add nuw i64 %3, 1
+  br label %15
 
-16:                                               ; preds = %14, %.lr.ph.i
+15:                                               ; preds = %13, %.lr.ph.i
   %.118.i = phi i64 [ %.01720.i, %14 ], [ %3, %.lr.ph.i ]
-  %.1.i = phi i64 [ %15, %14 ], [ %.01621.i, %.lr.ph.i ]
-  %17 = icmp ult i64 %.1.i, %.118.i
-  br i1 %17, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !6
+  %.1.i = phi i64 [ %14, %14 ], [ %.01621.i, %.lr.ph.i ]
+  %16 = icmp ult i64 %.1.i, %.118.i
+  br i1 %16, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !6
 
-bsearch.exit:                                     ; preds = %12, %16
+bsearch.exit:                                     ; preds = %12, %15
   %.0.i = phi ptr [ null, %16 ], [ %5, %12 ]
   ret ptr %.0.i
 }
@@ -109,9 +109,9 @@ define ptr @ws_iana_ipv6_special_block_lookup(ptr noundef readonly captures(none
   %12 = add nuw nsw i32 %11, 1
   %13 = zext nneg i32 %11 to i64
   %14 = and i32 %8, 7
-  br label %.lr.ph.i1
+  br label %.lr.ph.i2
 
-.lr.ph.i1:                                        ; preds = %19, %.lr.ph.preheader.i
+.lr.ph.i2:                                        ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.lr.ph.preheader.i ]
   %15 = getelementptr i8, ptr %0, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1
@@ -120,10 +120,10 @@ define ptr @ws_iana_ipv6_special_block_lookup(ptr noundef readonly captures(none
   %.not31.i = icmp eq i8 %16, %18
   br i1 %.not31.i, label %19, label %compare_ipv6_block.exit
 
-19:                                               ; preds = %.lr.ph.i1
+19:                                               ; preds = %.lr.ph.i2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv, %13
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i1, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i2, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %19
   %20 = zext nneg i32 %12 to i64
@@ -132,8 +132,8 @@ define ptr @ws_iana_ipv6_special_block_lookup(ptr noundef readonly captures(none
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i
   %.024.lcssa.i = phi i32 [ %8, %.lr.ph.i ], [ %14, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i64 [ 0, %.lr.ph.i ], [ %20, %._crit_edge.loopexit.i ]
-  %.not.i = icmp eq i32 %.024.lcssa.i, 0
-  br i1 %.not.i, label %bsearch.exit, label %21
+  %.not.i1 = icmp eq i32 %.024.lcssa.i, 0
+  br i1 %.not.i1, label %bsearch.exit, label %21
 
 21:                                               ; preds = %._crit_edge.i
   %22 = getelementptr i8, ptr %0, i64 %.0.lcssa.i
@@ -147,9 +147,9 @@ define ptr @ws_iana_ipv6_special_block_lookup(ptr noundef readonly captures(none
   %.not30.i = icmp eq i8 %27, %29
   br i1 %.not30.i, label %bsearch.exit, label %compare_ipv6_block.exit
 
-compare_ipv6_block.exit:                          ; preds = %.lr.ph.i1, %21
+compare_ipv6_block.exit:                          ; preds = %.lr.ph.i2, %21
   %.lcssa.sink = phi i8 [ %29, %21 ], [ %18, %.lr.ph.i1 ]
-  %.lcssa19.sink = phi i8 [ %27, %21 ], [ %16, %.lr.ph.i1 ]
+  %.lcssa21.sink = phi i8 [ %27, %21 ], [ %16, %.lr.ph.i1 ]
   %30 = zext i8 %.lcssa.sink to i32
   %31 = zext i8 %.lcssa19.sink to i32
   %32 = sub nsw i32 %31, %30

@@ -1073,7 +1073,7 @@ define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range
 
 9:                                                ; preds = %2
   call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.31) #15
-  br label %61
+  br label %60
 
 10:                                               ; preds = %2
   %11 = load i32, ptr %3, align 8
@@ -1084,7 +1084,7 @@ define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range
 
 15:                                               ; preds = %10
   call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #15
-  br label %61
+  br label %60
 
 16:                                               ; preds = %10
   store ptr %13, ptr %6, align 8
@@ -1095,7 +1095,7 @@ define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range
 19:                                               ; preds = %16
   call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.31) #15
   call void @free(ptr noundef nonnull %13) #15
-  br label %61
+  br label %60
 
 20:                                               ; preds = %16
   %21 = load i32, ptr %3, align 8
@@ -1106,94 +1106,94 @@ define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range
   %22 = load ptr, ptr %6, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
-  %23 = phi i32 [ %54, %53 ], [ %21, %.lr.ph.preheader ]
-  %.0405 = phi i32 [ %55, %53 ], [ 0, %.lr.ph.preheader ]
-  %.0413 = phi ptr [ %56, %53 ], [ %22, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %52
+  %23 = phi i32 [ %53, %53 ], [ %21, %.lr.ph.preheader ]
+  %.0405 = phi i32 [ %54, %53 ], [ 0, %.lr.ph.preheader ]
+  %.0413 = phi ptr [ %55, %53 ], [ %22, %.lr.ph.preheader ]
   %.0422 = phi ptr [ %.1, %53 ], [ null, %.lr.ph.preheader ]
   %24 = getelementptr inbounds nuw i8, ptr %.0413, i64 16
   %25 = load i16, ptr %24, align 8
   %.not = icmp eq i16 %25, 2
-  br i1 %.not, label %26, label %53
+  br i1 %.not, label %26, label %52
 
 26:                                               ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   %27 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35091, ptr noundef nonnull %.0413) #15
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %37
+  br i1 %28, label %29, label %36
 
 29:                                               ; preds = %26
   %30 = load i16, ptr %24, align 8
   %31 = and i16 %30, 2
-  %32 = icmp eq i16 %31, 0
-  br i1 %32, label %37, label %33
+  %.not45 = icmp eq i16 %31, 0
+  br i1 %.not45, label %36, label %32
 
-33:                                               ; preds = %29
+32:                                               ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 2 dereferenceable(16) %4, i64 16, i1 false)
-  %34 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35097, ptr noundef nonnull %.0413) #15
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %37
+  %33 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35097, ptr noundef nonnull %.0413) #15
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
-  br label %37
+  br label %36
 
-37:                                               ; preds = %33, %36, %29, %26
+36:                                               ; preds = %32, %35, %29, %26
   %.039 = phi ptr [ %5, %36 ], [ null, %33 ], [ null, %29 ], [ null, %26 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 2 dereferenceable(16) %4, i64 16, i1 false)
-  %38 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35099, ptr noundef nonnull %.0413) #15
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %translateIPv4AddressToPrefix.exit
+  %37 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35099, ptr noundef nonnull %.0413) #15
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %translateIPv4AddressToPrefix.exit
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %.0413, i64 20
-  %42 = load i32, ptr %41, align 4
-  %43 = call i32 @ntohl(i32 noundef %42) #17
-  %.not9.i = icmp eq i32 %43, 0
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %.0413, i64 20
+  %41 = load i32, ptr %40, align 4
+  %42 = call i32 @ntohl(i32 noundef %41) #17
+  %.not9.i = icmp eq i32 %42, 0
   br i1 %.not9.i, label %translateIPv4AddressToPrefix.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %40
-  %44 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %43, i1 true)
-  %45 = trunc nuw nsw i32 %44 to i16
-  %46 = sub nuw nsw i16 32, %45
+.lr.ph.preheader.i:                               ; preds = %39
+  %43 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %42, i1 true)
+  %44 = trunc nuw nsw i32 %43 to i16
+  %45 = sub nuw nsw i16 32, %44
   br label %translateIPv4AddressToPrefix.exit
 
-translateIPv4AddressToPrefix.exit:                ; preds = %.lr.ph.preheader.i, %40, %37
-  %.0 = phi i16 [ 0, %37 ], [ 0, %40 ], [ %46, %.lr.ph.preheader.i ]
-  %47 = call fastcc ptr @addif(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %.0413, ptr noundef %.0422, ptr noundef %4, ptr noundef %.039, i32 noundef 2, i16 noundef signext %.0)
-  %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
-  %50 = load ptr, ptr %49, align 8
-  %51 = call ptr %50(ptr noundef nonnull %0) #15
-  %.not46 = icmp eq ptr %51, null
-  br i1 %.not46, label %translateIPv4AddressToPrefix.exit._crit_edge, label %52
+translateIPv4AddressToPrefix.exit:                ; preds = %.lr.ph.preheader.i, %39, %36
+  %.0 = phi i16 [ 0, %37 ], [ 0, %40 ], [ %45, %.lr.ph.preheader.i ]
+  %46 = call fastcc ptr @addif(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %.0413, ptr noundef %.0422, ptr noundef %4, ptr noundef %.039, i32 noundef 2, i16 noundef signext %.0)
+  %47 = load ptr, ptr %0, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 120
+  %49 = load ptr, ptr %48, align 8
+  %50 = call ptr %50(ptr noundef nonnull %0) #15
+  %.not46 = icmp eq ptr %50, null
+  br i1 %.not46, label %translateIPv4AddressToPrefix.exit._crit_edge, label %51
 
 translateIPv4AddressToPrefix.exit._crit_edge:     ; preds = %translateIPv4AddressToPrefix.exit
   %.pre = load i32, ptr %3, align 8
-  br label %53
+  br label %52
 
-52:                                               ; preds = %translateIPv4AddressToPrefix.exit
+51:                                               ; preds = %translateIPv4AddressToPrefix.exit
   call void @free(ptr noundef %13) #15
-  call fastcc void @freeif(ptr noundef %47)
-  br label %61
+  call fastcc void @freeif(ptr noundef %46)
+  br label %60
 
-53:                                               ; preds = %translateIPv4AddressToPrefix.exit._crit_edge, %.lr.ph
-  %54 = phi i32 [ %23, %.lr.ph ], [ %.pre, %translateIPv4AddressToPrefix.exit._crit_edge ]
-  %.1 = phi ptr [ %.0422, %.lr.ph ], [ %47, %translateIPv4AddressToPrefix.exit._crit_edge ]
-  %55 = add i32 %.0405, 1
-  %56 = getelementptr inbounds nuw i8, ptr %.0413, i64 40
-  %57 = zext i32 %55 to i64
-  %58 = sext i32 %54 to i64
-  %59 = udiv i64 %58, 40
-  %60 = icmp samesign ugt i64 %59, %57
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+52:                                               ; preds = %translateIPv4AddressToPrefix.exit._crit_edge, %.lr.ph
+  %53 = phi i32 [ %23, %.lr.ph ], [ %.pre, %translateIPv4AddressToPrefix.exit._crit_edge ]
+  %.1 = phi ptr [ %.0422, %.lr.ph ], [ %46, %translateIPv4AddressToPrefix.exit._crit_edge ]
+  %54 = add i32 %.0405, 1
+  %55 = getelementptr inbounds nuw i8, ptr %.0413, i64 40
+  %56 = zext i32 %54 to i64
+  %57 = sext i32 %53 to i64
+  %58 = udiv i64 %57, 40
+  %59 = icmp samesign ugt i64 %58, %56
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %53, %20
+._crit_edge:                                      ; preds = %52, %20
   %.042.lcssa = phi ptr [ null, %20 ], [ %.1, %53 ]
   call void @free(ptr noundef %13) #15
-  br label %61
+  br label %60
 
-61:                                               ; preds = %._crit_edge, %52, %19, %15, %9
+60:                                               ; preds = %._crit_edge, %51, %19, %15, %9
   %.043 = phi ptr [ null, %9 ], [ null, %15 ], [ null, %19 ], [ null, %52 ], [ %.042.lcssa, %._crit_edge ]
   ret ptr %.043
 }
@@ -1295,8 +1295,8 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
 
 41:                                               ; preds = %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %.not, label %.thread, label %42, !llvm.loop !19
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 16
+  br i1 %exitcond.not, label %.thread, label %42, !llvm.loop !19
 
 42:                                               ; preds = %.preheader, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.preheader ]
@@ -1728,8 +1728,8 @@ openSocketWithFallback.exit:                      ; preds = %7, %10
 
 23:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not7 = icmp eq i64 %indvars.iv.next, 6
-  br i1 %.not7, label %.loopexit, label %24, !llvm.loop !23
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !23
 
 24:                                               ; preds = %20, %23
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %23 ]

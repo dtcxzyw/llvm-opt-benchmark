@@ -69,13 +69,13 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
   %32 = icmp eq ptr %31, null
   %33 = icmp eq ptr %.pre, null
   %brmerge = select i1 %33, i1 true, i1 %32
-  br i1 %brmerge, label %.loopexit, label %.thread89
+  br i1 %brmerge, label %.loopexit, label %.thread90
 
 .thread:                                          ; preds = %25
   %34 = icmp eq ptr %26, null
-  br i1 %34, label %.loopexit, label %.thread89
+  br i1 %34, label %.loopexit, label %.thread90
 
-.thread89:                                        ; preds = %30, %.thread
+.thread90:                                        ; preds = %30, %.thread
   %35 = phi ptr [ %26, %.thread ], [ %.pre, %30 ]
   tail call void @BN_set_flags(ptr noundef nonnull %35, i32 noundef 4) #2
   %36 = load ptr, ptr %27, align 8, !tbaa !22
@@ -85,11 +85,11 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
   %.not75 = icmp eq i32 %38, 0
   br i1 %.not75, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.thread89
+.preheader:                                       ; preds = %.thread90
   %39 = load ptr, ptr %27, align 8, !tbaa !22
   %40 = tail call i32 @ossl_bn_rsa_fips186_4_gen_prob_primes(ptr noundef %39, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2
-  %.not7677 = icmp eq i32 %40, 0
-  br i1 %.not7677, label %.loopexit, label %.lr.ph
+  %.not7678 = icmp eq i32 %40, 0
+  br i1 %.not7678, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %41 = tail call i32 @ossl_rsa_check_pminusq_diff(ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %2) #2
@@ -124,23 +124,23 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
   store i32 %57, ptr %55, align 8, !tbaa !23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.backedge, %.lr.ph, %47, %30, %.thread, %.preheader, %.thread89, %12, %54
-  %58 = phi i1 [ true, %12 ], [ true, %30 ], [ false, %54 ], [ true, %.thread89 ], [ true, %.preheader ], [ true, %.thread ], [ true, %47 ], [ true, %.lr.ph ], [ true, %.backedge ]
+.loopexit:                                        ; preds = %.backedge, %.lr.ph, %47, %30, %.thread, %.preheader, %.thread90, %12, %54
+  %.not77 = phi i1 [ true, %12 ], [ true, %30 ], [ false, %54 ], [ true, %.thread89 ], [ true, %.preheader ], [ true, %.thread ], [ true, %47 ], [ true, %.lr.ph ], [ true, %.backedge ]
   %.067 = phi i32 [ 0, %12 ], [ 0, %30 ], [ 1, %54 ], [ 0, %.thread89 ], [ 0, %.preheader ], [ 0, %.thread ], [ 0, %47 ], [ 0, %.lr.ph ], [ 0, %.backedge ]
   tail call void @BN_clear(ptr noundef %14) #2
   tail call void @BN_clear(ptr noundef %15) #2
   tail call void @BN_clear(ptr noundef %13) #2
-  br i1 %58, label %59, label %64
+  br i1 %.not77, label %59, label %64
 
-59:                                               ; preds = %.loopexit
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %61 = load ptr, ptr %60, align 8, !tbaa !3
-  tail call void @BN_clear_free(ptr noundef %61) #2
-  store ptr null, ptr %60, align 8, !tbaa !3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %63 = load ptr, ptr %62, align 8, !tbaa !22
-  tail call void @BN_clear_free(ptr noundef %63) #2
-  store ptr null, ptr %62, align 8, !tbaa !22
+58:                                               ; preds = %.loopexit
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %60 = load ptr, ptr %59, align 8, !tbaa !3
+  tail call void @BN_clear_free(ptr noundef %60) #2
+  store ptr null, ptr %59, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %62 = load ptr, ptr %61, align 8, !tbaa !22
+  tail call void @BN_clear_free(ptr noundef %62) #2
+  store ptr null, ptr %61, align 8, !tbaa !22
   br label %64
 
 64:                                               ; preds = %59, %.loopexit
@@ -411,13 +411,13 @@ define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_generate_key(ptr noundef captures
   %7 = load ptr, ptr %6, align 8, !tbaa !30
   %8 = tail call ptr @RAND_get0_private(ptr noundef %7) #2
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %39, label %9
+  br i1 %.not, label %40, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %6, align 8, !tbaa !30
   %11 = tail call ptr @BN_CTX_new_ex(ptr noundef %10) #2
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %39, label %13
+  br i1 %12, label %40, label %13
 
 13:                                               ; preds = %9
   %14 = icmp eq ptr %2, null
@@ -441,51 +441,51 @@ define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_generate_key(ptr noundef captures
 
 23:                                               ; preds = %34, %20
   %24 = tail call i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef nonnull %0, ptr poison, i32 noundef %1, ptr noundef nonnull %.1, ptr noundef nonnull %11, ptr noundef %3)
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.loopexit, label %26
+  %.not44 = icmp eq i32 %24, 0
+  br i1 %.not44, label %.loopexit, label %25
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %21, align 8, !tbaa !3
-  %28 = load ptr, ptr %22, align 8, !tbaa !22
-  %29 = tail call i32 @BN_cmp(ptr noundef %27, ptr noundef %28) #2
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %34
+25:                                               ; preds = %23
+  %26 = load ptr, ptr %21, align 8, !tbaa !3
+  %27 = load ptr, ptr %22, align 8, !tbaa !22
+  %28 = tail call i32 @BN_cmp(ptr noundef %26, ptr noundef %27) #2
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %33
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %21, align 8, !tbaa !3
-  %33 = load ptr, ptr %22, align 8, !tbaa !22
-  store ptr %33, ptr %21, align 8, !tbaa !3
-  store ptr %32, ptr %22, align 8, !tbaa !22
-  br label %34
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %21, align 8, !tbaa !3
+  %32 = load ptr, ptr %22, align 8, !tbaa !22
+  store ptr %32, ptr %21, align 8, !tbaa !3
+  store ptr %31, ptr %22, align 8, !tbaa !22
+  br label %33
 
-34:                                               ; preds = %31, %26
-  %35 = tail call i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %.1, ptr noundef nonnull %11)
-  switch i32 %35, label %23 [
+33:                                               ; preds = %30, %25
+  %34 = tail call i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %.1, ptr noundef nonnull %11)
+  switch i32 %34, label %23 [
     i32 -1, label %.loopexit
     i32 1, label %36
   ]
 
-36:                                               ; preds = %34
+36:; preds = %34
   %37 = tail call i32 @ossl_rsa_sp800_56b_pairwise_test(ptr noundef nonnull %0, ptr noundef nonnull %11)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %23, %36
+.loopexit:                                        ; preds = %33, %23, %36
   %.035 = phi i32 [ %37, %36 ], [ 0, %23 ], [ 0, %34 ]
-  br i1 %14, label %.thread, label %38
+  br i1 %14, label %.thread, label %39
 
 .thread:                                          ; preds = %18, %15, %.loopexit
-  %.03549 = phi i32 [ %.035, %.loopexit ], [ 0, %15 ], [ 0, %18 ]
-  %.03647 = phi ptr [ %.1, %.loopexit ], [ null, %15 ], [ %16, %18 ]
-  tail call void @BN_free(ptr noundef %.03647) #2
-  br label %38
-
-38:                                               ; preds = %.thread, %.loopexit
-  %.03548 = phi i32 [ %.03549, %.thread ], [ %.035, %.loopexit ]
-  tail call void @BN_CTX_free(ptr noundef nonnull %11) #2
+  %.03550 = phi i32 [ %.035, %.loopexit ], [ 0, %15 ], [ 0, %18 ]
+  %.03648 = phi ptr [ %.1, %.loopexit ], [ null, %15 ], [ %16, %18 ]
+  tail call void @BN_free(ptr noundef %.03648) #2
   br label %39
 
-39:                                               ; preds = %9, %4, %38
-  %.0 = phi i32 [ %.03548, %38 ], [ 0, %4 ], [ 0, %9 ]
+39:                                               ; preds = %.thread, %.loopexit
+  %.03549 = phi i32 [ %.03550, %.thread ], [ %.035, %.loopexit ]
+  tail call void @BN_CTX_free(ptr noundef nonnull %11) #2
+  br label %40
+
+40:                                               ; preds = %9, %4, %39
+  %.0 = phi i32 [ %.03549, %38 ], [ 0, %4 ], [ 0, %9 ]
   ret i32 %.0
 }
 

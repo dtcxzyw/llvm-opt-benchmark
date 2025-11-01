@@ -182,7 +182,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
 13:                                               ; preds = %8
   %14 = load i32, ptr %2, align 4, !tbaa !4
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %59, label %15
+  br i1 %.not, label %57, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -211,59 +211,59 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   br i1 %35, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %15, %.split.us
-  %.125.us = phi ptr [ %38, %.split.us ], [ %26, %15 ]
-  %.0.us = phi i64 [ %37, %.split.us ], [ %34, %15 ]
+  %.125.us = phi ptr [ %36, %.split.us ], [ %26, %15 ]
+  %.0.us = phi i64 [ %35, %.split.us ], [ %34, %15 ]
   call void @lj_cconv_ct_tv(ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef nonnull %3, ptr noundef nonnull %.125.us, i32 noundef 0) #5
-  %36 = load i64, ptr %3, align 8, !tbaa !20
-  %37 = and i64 %36, %.0.us
-  %38 = getelementptr inbounds nuw i8, ptr %.125.us, i64 8
-  %39 = icmp ult ptr %38, %7
-  br i1 %39, label %.split.us, label %.split31.us, !llvm.loop !46
+  %34 = load i64, ptr %3, align 8, !tbaa !20
+  %35 = and i64 %34, %.0.us
+  %36 = getelementptr inbounds nuw i8, ptr %.125.us, i64 8
+  %37 = icmp ult ptr %36, %7
+  br i1 %37, label %.split.us, label %.split31.us, !llvm.loop !46
 
 .split:                                           ; preds = %15
-  %40 = icmp eq i8 %.fr38, 73
-  br i1 %40, label %.split.split.us, label %.split.split
+  %38 = icmp eq i8 %.fr38, 73
+  br i1 %38, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
-  %.125.us32 = phi ptr [ %43, %.split.split.us ], [ %26, %.split ]
-  %.0.us33 = phi i64 [ %42, %.split.split.us ], [ %34, %.split ]
+  %.125.us32 = phi ptr [ %41, %.split.split.us ], [ %26, %.split ]
+  %.0.us33 = phi i64 [ %40, %.split.split.us ], [ %34, %.split ]
   call void @lj_cconv_ct_tv(ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef nonnull %3, ptr noundef nonnull %.125.us32, i32 noundef 0) #5
-  %41 = load i64, ptr %3, align 8, !tbaa !20
-  %42 = or i64 %41, %.0.us33
-  %43 = getelementptr inbounds nuw i8, ptr %.125.us32, i64 8
-  %44 = icmp ult ptr %43, %7
-  br i1 %44, label %.split.split.us, label %.split31.us, !llvm.loop !46
+  %39 = load i64, ptr %3, align 8, !tbaa !20
+  %40 = or i64 %39, %.0.us33
+  %41 = getelementptr inbounds nuw i8, ptr %.125.us32, i64 8
+  %42 = icmp ult ptr %41, %7
+  br i1 %42, label %.split.split.us, label %.split31.us, !llvm.loop !46
 
 .split.split:                                     ; preds = %.split, %.split.split
-  %.125 = phi ptr [ %47, %.split.split ], [ %26, %.split ]
-  %.0 = phi i64 [ %46, %.split.split ], [ %34, %.split ]
+  %.125 = phi ptr [ %45, %.split.split ], [ %26, %.split ]
+  %.0 = phi i64 [ %44, %.split.split ], [ %34, %.split ]
   call void @lj_cconv_ct_tv(ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef nonnull %3, ptr noundef nonnull %.125, i32 noundef 0) #5
-  %45 = load i64, ptr %3, align 8, !tbaa !20
-  %46 = xor i64 %45, %.0
-  %47 = getelementptr inbounds nuw i8, ptr %.125, i64 8
-  %48 = icmp ult ptr %47, %7
-  br i1 %48, label %.split.split, label %.split31.us, !llvm.loop !46
+  %43 = load i64, ptr %3, align 8, !tbaa !20
+  %44 = xor i64 %43, %.0
+  %45 = getelementptr inbounds nuw i8, ptr %.125, i64 8
+  %46 = icmp ult ptr %45, %7
+  br i1 %46, label %.split.split, label %.split31.us, !llvm.loop !46
 
 .split31.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us
-  %.us-phi = phi i64 [ %37, %.split.us ], [ %42, %.split.split.us ], [ %46, %.split.split ]
-  %49 = load i32, ptr %2, align 4, !tbaa !4
-  %50 = call ptr @lj_mem_newgco(ptr noundef nonnull %0, i64 noundef 24) #5
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 9
-  store i8 10, ptr %51, align 1, !tbaa !16
-  %52 = trunc i32 %49 to i16
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 10
-  store i16 %52, ptr %53, align 2, !tbaa !19
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i64 %.us-phi, ptr %54, align 8, !tbaa !20
-  %55 = load ptr, ptr %4, align 8, !tbaa !8
-  %56 = getelementptr inbounds i8, ptr %55, i64 -16
-  %57 = ptrtoint ptr %50 to i64
-  %58 = or i64 %57, -1548112371908608
-  store i64 %58, ptr %56, align 8, !tbaa !15
+  %.us-phi = phi i64 [ %35, %.split.us ], [ %40, %.split.split.us ], [ %44, %.split.split ]
+  %47 = load i32, ptr %2, align 4, !tbaa !4
+  %48 = call ptr @lj_mem_newgco(ptr noundef nonnull %0, i64 noundef 24) #5
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 9
+  store i8 10, ptr %49, align 1, !tbaa !16
+  %50 = trunc i32 %47 to i16
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 10
+  store i16 %50, ptr %51, align 2, !tbaa !19
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store i64 %.us-phi, ptr %52, align 8, !tbaa !20
+  %53 = load ptr, ptr %4, align 8, !tbaa !8
+  %54 = getelementptr inbounds i8, ptr %53, i64 -16
+  %55 = ptrtoint ptr %48 to i64
+  %56 = or i64 %55, -1548112371908608
+  store i64 %56, ptr %54, align 8, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %59
+  br label %57
 
-59:                                               ; preds = %13, %.split31.us
+57:                                               ; preds = %13, %.split31.us
   %.023 = phi i32 [ 2, %.split31.us ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.023

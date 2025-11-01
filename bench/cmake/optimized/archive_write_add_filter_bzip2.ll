@@ -17,19 +17,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -30, 1) i32 @archive_write_set_compression_bzip2(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @__archive_write_filters_free(ptr noundef %0) #10
-  %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #10
-  %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #10
+  tail call void @__archive_write_filters_free(ptr noundef %0) #9
+  %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #9
+  %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #9
   %.not.i = icmp eq i32 %3, -30
   br i1 %.not.i, label %archive_write_add_filter_bzip2.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #11
+  %5 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #10
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #9
   br label %archive_write_add_filter_bzip2.exit
 
 8:                                                ; preds = %4
@@ -59,18 +59,18 @@ declare void @__archive_write_filters_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_bzip2(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #10
-  %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #10
+  %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #9
+  %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #9
   %.not = icmp eq i32 %3, -30
   br i1 %.not, label %16, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #11
+  %5 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #10
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #9
   br label %16
 
 8:                                                ; preds = %4
@@ -109,31 +109,31 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 define internal range(i32 -20, 1) i32 @archive_compressor_bzip2_options(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !13
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.3) #12
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.3) #11
   %7 = icmp ne i32 %6, 0
   %8 = icmp eq ptr %2, null
   %or.cond12 = or i1 %8, %7
-  br i1 %or.cond12, label %16, label %9
+  br i1 %or.cond12, label %17, label %9
 
 9:                                                ; preds = %3
   %10 = load i8, ptr %2, align 1, !tbaa !23
   %11 = add i8 %10, -48
   %or.cond = icmp ult i8 %11, 10
-  br i1 %or.cond, label %12, label %16
+  br i1 %or.cond, label %12, label %17
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !23
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %16
+  br i1 %.not, label %15, label %17
 
 15:                                               ; preds = %12
   %narrow13 = tail call i8 @llvm.umax.i8(i8 %11, i8 1)
   %spec.select = zext nneg i8 %narrow13 to i32
   store i32 %spec.select, ptr %5, align 8, !tbaa !4
-  br label %16
+  br label %17
 
-16:                                               ; preds = %3, %9, %12, %15
+17:                                               ; preds = %3, %9, %12, %15
   %.0 = phi i32 [ 0, %15 ], [ -20, %12 ], [ -20, %9 ], [ -20, %3 ]
   ret i32 %.0
 }
@@ -159,7 +159,7 @@ define internal i32 @archive_compressor_bzip2_close(ptr noundef readonly capture
   %13 = load ptr, ptr %6, align 8, !tbaa !25
   %14 = load ptr, ptr %7, align 8, !tbaa !26
   %15 = load i64, ptr %8, align 8, !tbaa !27
-  %16 = tail call i32 @__archive_write_filter(ptr noundef %13, ptr noundef %14, i64 noundef %15) #10
+  %16 = tail call i32 @__archive_write_filter(ptr noundef %13, ptr noundef %14, i64 noundef %15) #9
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %drive_compressor.exit.thread
 
@@ -172,7 +172,7 @@ define internal i32 @archive_compressor_bzip2_close(ptr noundef readonly capture
   br label %21
 
 21:                                               ; preds = %17, %.split.i
-  %22 = tail call i32 @BZ2_bzCompress(ptr noundef nonnull %4, i32 noundef 2) #10
+  %22 = tail call i32 @BZ2_bzCompress(ptr noundef nonnull %4, i32 noundef 2) #9
   switch i32 %22, label %.split20.us.i [
     i32 1, label %.split.i.backedge
     i32 3, label %.split.i.backedge
@@ -185,7 +185,7 @@ define internal i32 @archive_compressor_bzip2_close(ptr noundef readonly capture
 .split20.us.i:                                    ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %24, i32 noundef 22, ptr noundef nonnull @.str.9, i32 noundef %22) #10
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %24, i32 noundef 22, ptr noundef nonnull @.str.9, i32 noundef %22) #9
   br label %drive_compressor.exit.thread
 
 drive_compressor.exit:                            ; preds = %21
@@ -195,19 +195,19 @@ drive_compressor.exit:                            ; preds = %21
   %28 = load i32, ptr %5, align 8, !tbaa !24
   %29 = zext i32 %28 to i64
   %30 = sub i64 %27, %29
-  %31 = tail call i32 @__archive_write_filter(ptr noundef %25, ptr noundef %26, i64 noundef %30) #10
+  %31 = tail call i32 @__archive_write_filter(ptr noundef %25, ptr noundef %26, i64 noundef %30) #9
   br label %drive_compressor.exit.thread
 
 drive_compressor.exit.thread:                     ; preds = %12, %.split20.us.i, %drive_compressor.exit
   %.0 = phi i32 [ %31, %drive_compressor.exit ], [ -30, %.split20.us.i ], [ -30, %12 ]
-  %32 = tail call i32 @BZ2_bzCompressEnd(ptr noundef nonnull %4) #10
+  %32 = tail call i32 @BZ2_bzCompressEnd(ptr noundef nonnull %4) #9
   %cond = icmp eq i32 %32, 0
   br i1 %cond, label %36, label %33
 
 33:                                               ; preds = %drive_compressor.exit.thread
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %35, i32 noundef 22, ptr noundef nonnull @.str.10) #10
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %35, i32 noundef 22, ptr noundef nonnull @.str.10) #9
   br label %36
 
 36:                                               ; preds = %drive_compressor.exit.thread, %33
@@ -221,8 +221,8 @@ define internal noundef i32 @archive_compressor_bzip2_free(ptr noundef captures(
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !26
-  tail call void @free(ptr noundef %5) #10
-  tail call void @free(ptr noundef %3) #10
+  tail call void @free(ptr noundef %5) #9
+  tail call void @free(ptr noundef %3) #9
   store ptr null, ptr %2, align 8, !tbaa !13
   ret i32 0
 }
@@ -246,60 +246,60 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_open(ptr noundef
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = load i32, ptr %9, align 8, !tbaa !30
   %11 = icmp eq i32 %10, -1329217314
-  br i1 %11, label %12, label %21
+  br i1 %11, label %12, label %20
 
 12:                                               ; preds = %7
-  %13 = tail call i32 @archive_write_get_bytes_per_block(ptr noundef nonnull %9) #10
+  %13 = tail call i32 @archive_write_get_bytes_per_block(ptr noundef nonnull %9) #9
   %14 = sext i32 %13 to i64
   %15 = icmp ugt i32 %13, 65536
-  br i1 %15, label %21, label %16
+  br i1 %15, label %20, label %16
 
 16:                                               ; preds = %12
-  %17 = icmp eq i32 %13, 0
-  br i1 %17, label %21, label %18
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %20, label %17
 
-18:                                               ; preds = %16
-  %19 = urem i32 65536, %13
-  %narrow = sub nuw nsw i32 65536, %19
-  %20 = zext nneg i32 %narrow to i64
-  br label %21
+17:                                               ; preds = %16
+  %18 = urem i32 65536, %13
+  %narrow = sub nuw nsw i32 65536, %18
+  %19 = zext nneg i32 %narrow to i64
+  br label %20
 
-21:                                               ; preds = %12, %18, %16, %7
-  %.035 = phi i64 [ %20, %18 ], [ 65536, %16 ], [ 65536, %7 ], [ %14, %12 ]
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store i64 %.035, ptr %22, align 8, !tbaa !27
-  %23 = tail call noalias ptr @malloc(i64 noundef %.035) #13
-  store ptr %23, ptr %4, align 8, !tbaa !26
-  %.not39 = icmp eq ptr %23, null
-  br i1 %.not39, label %24, label %.critedge
+20:                                               ; preds = %12, %17, %16, %7
+  %.035 = phi i64 [ %19, %18 ], [ 65536, %16 ], [ 65536, %7 ], [ %14, %12 ]
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  store i64 %.035, ptr %21, align 8, !tbaa !27
+  %22 = tail call noalias ptr @malloc(i64 noundef %.035) #12
+  store ptr %22, ptr %4, align 8, !tbaa !26
+  %.not39 = icmp eq ptr %22, null
+  br i1 %.not39, label %23, label %.critedge
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %8, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %25, i32 noundef 12, ptr noundef nonnull @.str.4) #10
-  br label %46
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %8, align 8, !tbaa !29
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %24, i32 noundef 12, ptr noundef nonnull @.str.4) #9
+  br label %45
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %21
-  %26 = phi i64 [ %.035, %21 ], [ %.pre, %..critedge_crit_edge ]
-  %27 = phi ptr [ %23, %21 ], [ %5, %..critedge_crit_edge ]
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %28, i8 0, i64 80, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %27, ptr %29, align 8, !tbaa !28
-  %30 = trunc i64 %26 to i32
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %30, ptr %31, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr @archive_compressor_bzip2_write, ptr %32, align 8, !tbaa !35
-  %33 = load i32, ptr %3, align 8, !tbaa !4
-  %34 = tail call i32 @BZ2_bzCompressInit(ptr noundef nonnull %28, i32 noundef %33, i32 noundef 0, i32 noundef 30) #10
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %37
+.critedge:                                        ; preds = %..critedge_crit_edge, %20
+  %25 = phi i64 [ %.035, %21 ], [ %.pre, %..critedge_crit_edge ]
+  %26 = phi ptr [ %22, %21 ], [ %5, %..critedge_crit_edge ]
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %27, i8 0, i64 80, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %26, ptr %28, align 8, !tbaa !28
+  %29 = trunc i64 %25 to i32
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 %29, ptr %30, align 8, !tbaa !24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr @archive_compressor_bzip2_write, ptr %31, align 8, !tbaa !35
+  %32 = load i32, ptr %3, align 8, !tbaa !4
+  %33 = tail call i32 @BZ2_bzCompressInit(ptr noundef nonnull %27, i32 noundef %32, i32 noundef 0, i32 noundef 30) #9
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %36, label %37
 
 36:                                               ; preds = %.critedge
   store ptr %3, ptr %2, align 8, !tbaa !13
   br label %46
 
-37:                                               ; preds = %.critedge
+37:; preds = %.critedge
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !29
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %39, i32 noundef -1, ptr noundef nonnull @.str.5) #10
@@ -309,22 +309,22 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_open(ptr noundef
     i32 -9, label %44
   ]
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %38, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %41, i32 noundef -1, ptr noundef nonnull @.str.6) #10
-  br label %46
+39:                                               ; preds = %37
+  %40 = load ptr, ptr %38, align 8, !tbaa !29
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %40, i32 noundef -1, ptr noundef nonnull @.str.6) #9
+  br label %45
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %38, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %43, i32 noundef 12, ptr noundef nonnull @.str.7) #10
-  br label %46
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %38, align 8, !tbaa !29
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %42, i32 noundef 12, ptr noundef nonnull @.str.7) #9
+  br label %45
 
-44:                                               ; preds = %37
-  %45 = load ptr, ptr %38, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %45, i32 noundef -1, ptr noundef nonnull @.str.8) #10
-  br label %46
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %38, align 8, !tbaa !29
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %44, i32 noundef -1, ptr noundef nonnull @.str.8) #9
+  br label %45
 
-46:                                               ; preds = %24, %37, %40, %42, %44, %36
+45:                                               ; preds = %23, %37, %39, %41, %43, %36
   %.1 = phi i32 [ 0, %36 ], [ -30, %24 ], [ -30, %44 ], [ -30, %42 ], [ -30, %40 ], [ -30, %37 ]
   ret i32 %.1
 }
@@ -369,7 +369,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_write(ptr nounde
   %20 = load ptr, ptr %13, align 8, !tbaa !25
   %21 = load ptr, ptr %14, align 8, !tbaa !26
   %22 = load i64, ptr %15, align 8, !tbaa !27
-  %23 = tail call i32 @__archive_write_filter(ptr noundef %20, ptr noundef %21, i64 noundef %22) #10
+  %23 = tail call i32 @__archive_write_filter(ptr noundef %20, ptr noundef %21, i64 noundef %22) #9
   %.not.us.i = icmp eq i32 %23, 0
   br i1 %.not.us.i, label %24, label %drive_compressor.exit
 
@@ -387,7 +387,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_write(ptr nounde
   br i1 %30, label %drive_compressor.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @BZ2_bzCompress(ptr noundef nonnull %9, i32 noundef 0) #10
+  %32 = tail call i32 @BZ2_bzCompress(ptr noundef nonnull %9, i32 noundef 0) #9
   switch i32 %32, label %.split20.us.i [
     i32 1, label %33
     i32 3, label %.split.us.i.backedge
@@ -405,7 +405,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_write(ptr nounde
 .split20.us.i:                                    ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !29
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %37, i32 noundef 22, ptr noundef nonnull @.str.9, i32 noundef %32) #10
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %37, i32 noundef 22, ptr noundef nonnull @.str.9, i32 noundef %32) #9
   br label %drive_compressor.exit
 
 drive_compressor.exit:                            ; preds = %28, %33, %31, %19, %.split20.us.i

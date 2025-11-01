@@ -190,27 +190,27 @@ if.then:                                          ; preds = %entry
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load i32, ptr %_has_bits_.i, align 4
   %and.i = and i32 %4, 2
-  %5 = icmp eq i32 %and.i, 0
-  br i1 %5, label %if.else, label %if.then5
+  %cmp.i.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.then
   %java_outer_classname_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %6 = load ptr, ptr %java_outer_classname_.i.i, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %and.i.i.i = and i64 %7, -4
-  %8 = inttoptr i64 %and.i.i.i to ptr
-  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %5 = load ptr, ptr %java_outer_classname_.i.i, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %and.i.i.i = and i64 %6, -4
+  %7 = inttoptr i64 %and.i.i.i to ptr
+  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7)
   br label %if.end15
 
 if.else:                                          ; preds = %if.then
   call void @_ZN6google8protobuf8compiler4java17ClassNameResolver32GetFileDefaultImmutableClassNameB5cxx11EPKNS0_14FileDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull align 8 poison, ptr noundef nonnull %2)
   %call9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
-  %9 = load ptr, ptr %file.addr, align 8
+  %8 = load ptr, ptr %file.addr, align 8
   %call10 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i) #18
-  %10 = extractvalue { i64, ptr } %call10, 0
-  %11 = extractvalue { i64, ptr } %call10, 1
-  %call11 = call noundef zeroext i1 @_ZN6google8protobuf8compiler4java17ClassNameResolver23HasConflictingClassNameEPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEENS2_12NameEqualityE(ptr nonnull align 8 poison, ptr noundef %9, i64 %10, ptr %11, i32 noundef 1)
+  %9 = extractvalue { i64, ptr } %call10, 0
+  %10 = extractvalue { i64, ptr } %call10, 1
+  %call11 = call noundef zeroext i1 @_ZN6google8protobuf8compiler4java17ClassNameResolver23HasConflictingClassNameEPKNS0_14FileDescriptorESt17basic_string_viewIcSt11char_traitsIcEENS2_12NameEqualityE(ptr nonnull align 8 poison, ptr noundef %8, i64 %9, ptr %10, i32 noundef 1)
   br i1 %call11, label %if.then12, label %if.end15
 
 if.then12:                                        ; preds = %if.else
@@ -2093,13 +2093,13 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 for.inc.i:                                        ; preds = %for.body.i
   %sub.i.i = add nsw i32 %__begin0.sroa.0.027.i, -1
   %and.i10.i = and i32 %sub.i.i, %__begin0.sroa.0.027.i
-  %12 = icmp eq i32 %and.i10.i, 0
-  br i1 %12, label %for.end.i, label %for.body.i
+  %cmp.i.not.i = icmp eq i32 %and.i10.i, 0
+  br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %while.body.i
   %cmp.i.i11.i = icmp eq <16 x i8> %7, splat (i8 -128)
-  %13 = bitcast <16 x i1> %cmp.i.i11.i to i16
-  %cmp.i12.not.i = icmp eq i16 %13, 0
+  %12 = bitcast <16 x i1> %cmp.i.i11.i to i16
+  %cmp.i12.not.i = icmp eq i16 %12, 0
   br i1 %cmp.i12.not.i, label %if.end36.i, label %if.then
 
 if.end36.i:                                       ; preds = %for.end.i
@@ -2109,10 +2109,10 @@ if.end36.i:                                       ; preds = %for.end.i
 
 if.then:                                          ; preds = %for.end.i
   %call38.i = tail call noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf14FileDescriptorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SE_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  %14 = load ptr, ptr %slots_.i.i.i, align 8
-  %add.ptr.i3 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %14, i64 %call38.i
-  %15 = load ptr, ptr %k, align 8
-  store ptr %15, ptr %add.ptr.i3, align 8
+  %13 = load ptr, ptr %slots_.i.i.i, align 8
+  %add.ptr.i3 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %13, i64 %call38.i
+  %14 = load ptr, ptr %k, align 8
+  store ptr %14, ptr %add.ptr.i3, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i) #18
   %.pre = load ptr, ptr %this, align 8
@@ -2120,12 +2120,12 @@ if.then:                                          ; preds = %for.end.i
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then
-  %16 = phi ptr [ %.pre20, %if.then ], [ %6, %for.body.i ]
-  %17 = phi ptr [ %.pre, %if.then ], [ %0, %for.body.i ]
+  %15 = phi ptr [ %.pre20, %if.then ], [ %6, %for.body.i ]
+  %16 = phi ptr [ %.pre, %if.then ], [ %0, %for.body.i ]
   %retval.sroa.3.0.i16 = phi i8 [ 1, %if.then ], [ 0, %for.body.i ]
   %retval.sroa.0.0.i15 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
-  %add.ptr.i4 = getelementptr inbounds i8, ptr %17, i64 %retval.sroa.0.0.i15
-  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %16, i64 %retval.sroa.0.0.i15
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %16, i64 %retval.sroa.0.0.i15
+  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15
   store ptr %add.ptr.i4, ptr %agg.result, align 8
   %ref.tmp3.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i, ptr %ref.tmp3.sroa.2.0.agg.result.sroa_idx, align 8

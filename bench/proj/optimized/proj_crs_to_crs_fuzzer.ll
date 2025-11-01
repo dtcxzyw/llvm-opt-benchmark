@@ -118,58 +118,58 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef rea
   %. = sext i1 %6 to i32
   br label %34
 
-7:                                                ; preds = %2
+7:; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = tail call noalias ptr @fopen(ptr noundef %9, ptr noundef nonnull @.str.5)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %15
 
-11:                                               ; preds = %7
+11:; preds = %7
   %12 = load ptr, ptr @stderr, align 8, !tbaa !13
   %13 = load ptr, ptr %8, align 8, !tbaa !10
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.6, ptr noundef %13) #17
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-15:                                               ; preds = %7
-  %16 = tail call i32 @fseek(ptr noundef nonnull %10, i64 noundef 0, i32 noundef 2)
-  %17 = tail call i64 @ftell(ptr noundef nonnull %10)
-  %18 = tail call i32 @fseek(ptr noundef nonnull %10, i64 noundef 0, i32 noundef 0)
-  %sext = shl i64 %17, 32
-  %19 = ashr exact i64 %sext, 32
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #16
-  %.not25 = icmp eq ptr %20, null
-  br i1 %.not25, label %21, label %25
+14:                                               ; preds = %7
+  %15 = tail call i32 @fseek(ptr noundef nonnull %10, i64 noundef 0, i32 noundef 2)
+  %16 = tail call i64 @ftell(ptr noundef nonnull %10)
+  %17 = tail call i32 @fseek(ptr noundef nonnull %10, i64 noundef 0, i32 noundef 0)
+  %sext = shl i64 %16, 32
+  %18 = ashr exact i64 %sext, 32
+  %19 = tail call noalias ptr @malloc(i64 noundef %18) #16
+  %.not25 = icmp eq ptr %19, null
+  br i1 %.not25, label %20, label %24
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 15, i64 1, ptr %22) #15
-  %24 = tail call i32 @fclose(ptr noundef nonnull %10)
+20:                                               ; preds = %14
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 15, i64 1, ptr %21) #15
+  %23 = tail call i32 @fclose(ptr noundef nonnull %10)
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-25:                                               ; preds = %15
-  %26 = tail call i64 @fread(ptr noundef nonnull %20, i64 noundef %19, i64 noundef 1, ptr noundef nonnull %10)
-  %.not26 = icmp eq i64 %26, 1
-  br i1 %.not26, label %31, label %27
+24:                                               ; preds = %14
+  %25 = tail call i64 @fread(ptr noundef nonnull %19, i64 noundef %18, i64 noundef 1, ptr noundef nonnull %10)
+  %.not26 = icmp eq i64 %25, 1
+  br i1 %.not26, label %30, label %26
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 14, i64 1, ptr %28) #15
-  %30 = tail call i32 @fclose(ptr noundef nonnull %10)
-  tail call void @free(ptr noundef nonnull %20) #13
+26:                                               ; preds = %24
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 14, i64 1, ptr %27) #15
+  %29 = tail call i32 @fclose(ptr noundef nonnull %10)
+  tail call void @free(ptr noundef nonnull %19) #13
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-31:                                               ; preds = %25
-  %32 = tail call i32 @fclose(ptr noundef nonnull %10)
-  %33 = tail call i32 @LLVMFuzzerTestOneInput(ptr noundef nonnull %20, i64 noundef %19)
-  tail call void @free(ptr noundef nonnull %20) #13
-  br label %34
+30:                                               ; preds = %24
+  %31 = tail call i32 @fclose(ptr noundef nonnull %10)
+  %32 = tail call i32 @LLVMFuzzerTestOneInput(ptr noundef nonnull %19, i64 noundef %18)
+  tail call void @free(ptr noundef nonnull %19) #13
+  br label %33
 
-34:                                               ; preds = %31, %4
-  %.1 = phi i32 [ %., %4 ], [ %33, %31 ]
+33:                                               ; preds = %30, %4
+  %.1 = phi i32 [ %., %4 ], [ %32, %31 ]
   ret i32 %.1
 }
 

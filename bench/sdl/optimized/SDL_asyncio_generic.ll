@@ -70,7 +70,7 @@ define hidden noundef zeroext i1 @SDL_SYS_CreateAsyncIOQueue_Generic(ptr noundef
 define internal fastcc noundef zeroext i1 @PrepareThreadpool() unnamed_addr #0 {
   %1 = alloca [32 x i8], align 16
   %2 = tail call zeroext i1 @SDL_ShouldInit_REAL(ptr noundef nonnull @threadpool_init) #8
-  br i1 %2, label %3, label %32
+  br i1 %2, label %3, label %31
 
 3:                                                ; preds = %0
   %4 = tail call i32 @SDL_GetNumLogicalCPUCores_REAL() #8
@@ -85,18 +85,18 @@ define internal fastcc noundef zeroext i1 @PrepareThreadpool() unnamed_addr #0 {
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.critedge.thread11, label %11
 
-11:                                               ; preds = %3
+11:; preds = %3
   %12 = tail call ptr @SDL_CreateCondition_REAL() #8
   store ptr %12, ptr @threadpool_condition, align 8
   %.not14 = icmp eq ptr %12, null
   br i1 %.not14, label %.critedge.thread11.thread, label %13
 
-13:                                               ; preds = %11
+13:; preds = %11
   %14 = load i32, ptr @idle_threadpool_threads, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.critedge.thread
 
-16:                                               ; preds = %13
+16:; preds = %13
   %17 = load i32, ptr @running_threadpool_threads, align 4
   %18 = load i32, ptr @max_threadpool_threads, align 4
   %19 = icmp slt i32 %17, %18
@@ -104,20 +104,20 @@ define internal fastcc noundef zeroext i1 @PrepareThreadpool() unnamed_addr #0 {
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %21 = load i32, ptr @threadpool_threads_spun, align 4
-  %22 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %1, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %21) #8
-  %23 = call ptr @SDL_CreateThreadRuntime_REAL(ptr noundef nonnull @AsyncIOThreadpoolWorker, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null) #8
-  %.not15 = icmp eq ptr %23, null
+  %20 = load i32, ptr @threadpool_threads_spun, align 4
+  %21 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %1, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %20) #8
+  %22 = call ptr @SDL_CreateThreadRuntime_REAL(ptr noundef nonnull @AsyncIOThreadpoolWorker, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %.not15 = icmp eq ptr %22, null
   br i1 %.not15, label %.critedge, label %.critedge.thread12
 
 .critedge.thread12:                               ; preds = %20
-  call void @SDL_DetachThread_REAL(ptr noundef nonnull %23) #8
-  %24 = load i32, ptr @running_threadpool_threads, align 4
-  %25 = add nsw i32 %24, 1
-  store i32 %25, ptr @running_threadpool_threads, align 4
-  %26 = load i32, ptr @threadpool_threads_spun, align 4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr @threadpool_threads_spun, align 4
+  call void @SDL_DetachThread_REAL(ptr noundef nonnull %22) #8
+  %23 = load i32, ptr @running_threadpool_threads, align 4
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr @running_threadpool_threads, align 4
+  %25 = load i32, ptr @threadpool_threads_spun, align 4
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr @threadpool_threads_spun, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.critedge.thread
 
@@ -128,30 +128,30 @@ define internal fastcc noundef zeroext i1 @PrepareThreadpool() unnamed_addr #0 {
 .critedge.thread11:                               ; preds = %3, %.critedge
   %.pr = load ptr, ptr @threadpool_condition, align 8
   %.not8 = icmp eq ptr %.pr, null
-  br i1 %.not8, label %.critedge.thread11.thread, label %28
+  br i1 %.not8, label %.critedge.thread11.thread, label %27
 
-28:                                               ; preds = %.critedge.thread11
+27:                                               ; preds = %.critedge.thread11
   call void @SDL_DestroyCondition_REAL(ptr noundef nonnull %.pr) #8
   store ptr null, ptr @threadpool_condition, align 8
   br label %.critedge.thread11.thread
 
-.critedge.thread11.thread:                        ; preds = %11, %28, %.critedge.thread11
-  %29 = load ptr, ptr @threadpool_lock, align 8
-  %.not9 = icmp eq ptr %29, null
-  br i1 %.not9, label %.critedge.thread, label %30
+.critedge.thread11.thread:                        ; preds = %11, %27, %.critedge.thread11
+  %28 = load ptr, ptr @threadpool_lock, align 8
+  %.not9 = icmp eq ptr %28, null
+  br i1 %.not9, label %.critedge.thread, label %29
 
-30:                                               ; preds = %.critedge.thread11.thread
-  call void @SDL_DestroyMutex_REAL(ptr noundef nonnull %29) #8
+29:                                               ; preds = %.critedge.thread11.thread
+  call void @SDL_DestroyMutex_REAL(ptr noundef nonnull %28) #8
   store ptr null, ptr @threadpool_lock, align 8
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %13, %16, %.critedge.thread12, %.critedge.thread11.thread, %30
-  %31 = phi i1 [ false, %.critedge.thread11.thread ], [ false, %30 ], [ true, %.critedge.thread12 ], [ true, %16 ], [ true, %13 ]
-  call void @SDL_SetInitialized_REAL(ptr noundef nonnull @threadpool_init, i1 noundef zeroext %31) #8
-  br label %32
+.critedge.thread:                                 ; preds = %13, %16, %.critedge.thread12, %.critedge.thread11.thread, %29
+  %30 = phi i1 [ false, %.critedge.thread11.thread ], [ false, %30 ], [ true, %.critedge.thread12 ], [ true, %16 ], [ true, %13 ]
+  call void @SDL_SetInitialized_REAL(ptr noundef nonnull @threadpool_init, i1 noundef zeroext %30) #8
+  br label %31
 
-32:                                               ; preds = %.critedge.thread, %0
-  %.0 = phi i1 [ %31, %.critedge.thread ], [ true, %0 ]
+31:                                               ; preds = %.critedge.thread, %0
+  %.0 = phi i1 [ %30, %.critedge.thread ], [ true, %0 ]
   ret i1 %.0
 }
 

@@ -73,7 +73,7 @@ default.unreachable:                              ; preds = %_ZN4core4iter6trait
 
 10:                                               ; preds = %2
   %11 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_bstr17h2699c2a006170737E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1)
-  br i1 %11, label %73, label %"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit"
+  br i1 %11, label %72, label %"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit"
 
 12:                                               ; preds = %2
   br label %14
@@ -174,58 +174,58 @@ _ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.thread.i.i: ; preds = %
   %51 = sub nuw i64 %.sroa.3.025.i.i.i, %.sroa.6.1.i1621.i.i8.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.0626.i.i.i, i64 %.sroa.6.1.i1621.i.i8.i.i
   %53 = add i64 %.sroa.0.027.i.i.i, 1
-  %54 = icmp eq i64 %51, 0
-  br i1 %54, label %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.loopexit.i.i, label %.lr.ph.i.i.i
+  %.not.i.i.i.i.i = icmp eq i64 %51, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.loopexit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.loopexit.i.i: ; preds = %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.thread.i.i, %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.i.i.i.i
   %.sroa.0.0.lcssa.i.ph.i.i = phi i64 [ %.sroa.0.027.i.i.i, %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.i.i.i.i ], [ %53, %_ZN4bstr4utf86decode17h4a4f06fb9844d535E.exit.thread.i.i.thread.i.i ]
-  %55 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %.sroa.0.0.lcssa.i.ph.i.i)
+  %54 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %.sroa.0.0.lcssa.i.ph.i.i)
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.i.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.i.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.loopexit.i.i, %14
-  %.sroa.0.0.lcssa.i.i.i = phi i64 [ %19, %14 ], [ %55, %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.loopexit.i.i ]
-  %56 = select i1 %16, i64 0, i64 %.sroa.0.0.lcssa.i.i.i
+  %.sroa.0.0.lcssa.i.i.i = phi i64 [ %19, %14 ], [ %54, %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.loopexit.i.i ]
+  %55 = select i1 %16, i64 0, i64 %.sroa.0.0.lcssa.i.i.i
   switch i64 %.sroa.01.0.i.i, label %default.unreachable [
-    i64 0, label %57
-    i64 1, label %59
-    i64 2, label %61
+    i64 0, label %56
+    i64 1, label %58
+    i64 2, label %60
   ]
 
-57:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.i.i
-  %58 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_bstr17h2699c2a006170737E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1)
-  br i1 %58, label %73, label %65
+56:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.i.i
+  %57 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_bstr17h2699c2a006170737E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1)
+  br i1 %57, label %72, label %64
 
-59:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.i.i
-  %60 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_pads17h6757a6831ca30441E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %56), !noalias !8
-  br i1 %60, label %73, label %67
+58:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.i.i
+  %59 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_pads17h6757a6831ca30441E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %55), !noalias !8
+  br i1 %59, label %72, label %66
 
-61:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.i.i
-  %62 = lshr i64 %56, 1
-  %63 = and i64 %56, 1
-  %.sroa.03.0.i.i = add nuw nsw i64 %62, %63
-  %64 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_pads17h6757a6831ca30441E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %62), !noalias !8
-  br i1 %64, label %73, label %69
+60:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h07f6e0d6f8cc4866E.exit.i.i
+  %61 = lshr i64 %55, 1
+  %62 = and i64 %55, 1
+  %.sroa.03.0.i.i = add nuw nsw i64 %61, %62
+  %63 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_pads17h6757a6831ca30441E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %61), !noalias !8
+  br i1 %63, label %72, label %68
 
-65:                                               ; preds = %57
-  %66 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_pads17h6757a6831ca30441E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %56)
-  br i1 %66, label %73, label %"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit"
+64:                                               ; preds = %56
+  %65 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_pads17h6757a6831ca30441E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %55)
+  br i1 %65, label %72, label %"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit"
 
-67:                                               ; preds = %59
-  %68 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_bstr17h2699c2a006170737E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1)
-  br i1 %68, label %73, label %"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit"
+66:                                               ; preds = %58
+  %67 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_bstr17h2699c2a006170737E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1)
+  br i1 %67, label %72, label %"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit"
 
-69:                                               ; preds = %61
-  %70 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_bstr17h2699c2a006170737E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1)
-  br i1 %70, label %73, label %71
+68:                                               ; preds = %60
+  %69 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_bstr17h2699c2a006170737E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1)
+  br i1 %69, label %72, label %70
 
-71:                                               ; preds = %69
-  %72 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_pads17h6757a6831ca30441E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.03.0.i.i)
-  br i1 %72, label %73, label %"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit"
+70:                                               ; preds = %68
+  %71 = tail call noundef zeroext i1 @"_ZN4bstr5impls4bstr65_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstr..BStr$GT$3fmt10write_pads17h6757a6831ca30441E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.03.0.i.i)
+  br i1 %71, label %72, label %"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit"
 
-73:                                               ; preds = %71, %69, %67, %65, %61, %59, %57, %10
+72:                                               ; preds = %70, %68, %66, %64, %60, %58, %56, %10
   br label %"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit"
 
-"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit": ; preds = %10, %65, %67, %71, %73
+"_ZN4bstr5impls7bstring71_$LT$impl$u20$core..fmt..Display$u20$for$u20$bstr..bstring..BString$GT$3fmt17ha71a5d9c9df1b137E.exit": ; preds = %10, %64, %66, %70, %72
   %.sroa.0.2.i.i = phi i1 [ true, %73 ], [ false, %65 ], [ false, %67 ], [ false, %71 ], [ false, %10 ]
   ret i1 %.sroa.0.2.i.i
 }
@@ -750,60 +750,60 @@ _ZN4core5slice4sort6stable9quicksort16stable_partition17ha1d6c62e80ed3eb7E.exit:
 define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17h8954d1e43706f9f3E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, i64 noundef range(i64 1, -9223372036854775807) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8, !range !122, !noundef !3
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %23, label %8
+  %.not = icmp eq i64 %6, 0
+  br i1 %.not, label %22, label %7
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = icmp eq i64 %6, %1
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp eq i64 %11, 0
-  br i1 %13, label %14, label %20
+7:                                                ; preds = %4
+  %8 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = load i64, ptr %9, align 8, !noundef !3
+  %11 = icmp eq i64 %6, %1
+  tail call void @llvm.assume(i1 %11)
+  %12 = icmp eq i64 %10, 0
+  br i1 %12, label %13, label %19
 
-14:                                               ; preds = %8
-  %15 = icmp eq i64 %2, 0
-  br i1 %15, label %16, label %18
+13:                                               ; preds = %7
+  %14 = icmp eq i64 %2, 0
+  br i1 %14, label %15, label %17
 
-16:                                               ; preds = %14
-  %17 = getelementptr i8, ptr null, i64 %1
+15:                                               ; preds = %13
+  %16 = getelementptr i8, ptr null, i64 %1
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit"
 
-18:                                               ; preds = %14
+17:                                               ; preds = %13
   tail call void @_RNvCs73fAdSrgOJL_7___rustc35___rust_no_alloc_shim_is_unstable_v2() #21
-  %19 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc12___rust_alloc(i64 noundef %2, i64 noundef range(i64 1, -9223372036854775807) %1) #21
+  %18 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc12___rust_alloc(i64 noundef %2, i64 noundef range(i64 1, -9223372036854775807) %1) #21
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit"
 
-20:                                               ; preds = %8
-  %21 = icmp uge i64 %2, %11
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %9, i64 noundef %11, i64 noundef range(i64 1, -9223372036854775807) %1, i64 noundef %2) #21
+19:                                               ; preds = %7
+  %20 = icmp uge i64 %2, %10
+  tail call void @llvm.assume(i1 %20)
+  %21 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc14___rust_realloc(ptr noundef nonnull %8, i64 noundef %10, i64 noundef range(i64 1, -9223372036854775807) %1, i64 noundef %2) #21
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit"
 
-23:                                               ; preds = %4
-  %24 = icmp eq i64 %2, 0
-  br i1 %24, label %25, label %27
+22:                                               ; preds = %4
+  %23 = icmp eq i64 %2, 0
+  br i1 %23, label %24, label %26
 
-25:                                               ; preds = %23
-  %26 = getelementptr i8, ptr null, i64 %1
+24:                                               ; preds = %22
+  %25 = getelementptr i8, ptr null, i64 %1
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit"
 
-27:                                               ; preds = %23
+26:                                               ; preds = %22
   tail call void @_RNvCs73fAdSrgOJL_7___rustc35___rust_no_alloc_shim_is_unstable_v2() #21
-  %28 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc12___rust_alloc(i64 noundef %2, i64 noundef range(i64 1, -9223372036854775807) %1) #21
+  %27 = tail call noundef ptr @_RNvCs73fAdSrgOJL_7___rustc12___rust_alloc(i64 noundef %2, i64 noundef range(i64 1, -9223372036854775807) %1) #21
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit": ; preds = %27, %25, %20, %18, %16
-  %.sroa.012.0.i.i.pn = phi ptr [ %22, %20 ], [ %17, %16 ], [ %19, %18 ], [ %26, %25 ], [ %28, %27 ]
-  %29 = icmp eq ptr %.sroa.012.0.i.i.pn, null
-  %30 = inttoptr i64 %1 to ptr
-  %spec.select = select i1 %29, ptr %30, ptr %.sroa.012.0.i.i.pn
-  %spec.select6 = zext i1 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %spec.select, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %32, align 8
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h0d6360e438ffdf00E.exit": ; preds = %26, %24, %19, %17, %15
+  %.sroa.012.0.i.i.pn = phi ptr [ %21, %20 ], [ %16, %16 ], [ %18, %18 ], [ %25, %25 ], [ %27, %27 ]
+  %28 = icmp eq ptr %.sroa.012.0.i.i.pn, null
+  %29 = inttoptr i64 %1 to ptr
+  %spec.select = select i1 %28, ptr %29, ptr %.sroa.012.0.i.i.pn
+  %spec.select6 = zext i1 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %spec.select, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %2, ptr %31, align 8
   store i64 %spec.select6, ptr %0, align 8
   ret void
 }

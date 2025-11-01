@@ -15,17 +15,17 @@ define range(i32 -1, 1) i32 @pmix_vmem_find_hole(i32 noundef %0, ptr noundef wri
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call noalias ptr @fopen(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %use_hole.exit82, label %use_hole.exit
+  br i1 %.not, label %use_hole.exit84, label %use_hole.exit
 
-use_hole.exit:                                    ; preds = %3, %95
+use_hole.exit:                                    ; preds = %3, %92
   %.047 = phi i64 [ %.148, %95 ], [ 0, %3 ]
   %.043 = phi i64 [ %.144, %95 ], [ 0, %3 ]
-  %.041 = phi i64 [ %.092100, %95 ], [ 0, %3 ]
-  %.039 = phi i32 [ %.091102, %95 ], [ 4, %3 ]
+  %.041 = phi i64 [ %.094102, %95 ], [ 0, %3 ]
+  %.039 = phi i32 [ %.093104, %95 ], [ 4, %3 ]
   %.036 = phi i32 [ %.137, %95 ], [ 0, %3 ]
   %7 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 96, ptr noundef nonnull %6)
   %.not53 = icmp eq ptr %7, null
-  br i1 %.not53, label %use_hole.exit.thread111, label %8
+  br i1 %.not53, label %use_hole.exit.thread114, label %8
 
 8:                                                ; preds = %use_hole.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -82,36 +82,36 @@ use_hole.exit:                                    ; preds = %3, %95
   br label %33
 
 parse_map_line.exit:                              ; preds = %8, %12, %14, %19
-  %.092 = phi i64 [ 0, %8 ], [ 0, %14 ], [ %16, %19 ], [ 0, %12 ]
+  %.094 = phi i64 [ 0, %8 ], [ 0, %14 ], [ %16, %19 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %90
+  br label %87
 
 33:                                               ; preds = %32, %30, %28, %26, %24, %21
   %not. = phi i1 [ true, %24 ], [ true, %30 ], [ true, %32 ], [ false, %28 ], [ true, %26 ], [ true, %21 ]
   %34 = phi i1 [ false, %24 ], [ false, %30 ], [ false, %32 ], [ true, %28 ], [ false, %26 ], [ false, %21 ]
   %35 = phi i1 [ true, %24 ], [ true, %30 ], [ true, %32 ], [ true, %28 ], [ false, %26 ], [ true, %21 ]
-  %.091.ph = phi i32 [ 1, %24 ], [ 4, %30 ], [ 4, %32 ], [ 3, %28 ], [ 2, %26 ], [ 0, %21 ]
+  %.093.ph = phi i32 [ 1, %24 ], [ 4, %30 ], [ 4, %32 ], [ 3, %28 ], [ 2, %26 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   switch i32 %0, label %90 [
     i32 0, label %36
     i32 1, label %49
     i32 2, label %66
     i32 4, label %82
-    i32 3, label %87
+    i32 3, label %84
   ]
 
 36:                                               ; preds = %33
   %37 = call i32 @fclose(ptr noundef nonnull %6)
   %38 = lshr i64 %9, 1
   %39 = icmp ult i64 %9, %2
-  br i1 %39, label %use_hole.exit82, label %40
+  br i1 %39, label %use_hole.exit84, label %40
 
 40:                                               ; preds = %36
   %41 = and i64 %38, 9223372036787666944
   %42 = add nuw i64 %41, 67108864
   %43 = add i64 %42, %2
-  %.not.i58 = icmp ugt i64 %43, %9
-  br i1 %.not.i58, label %44, label %use_hole.exit82.sink.split
+  %.not.i60 = icmp ugt i64 %43, %9
+  br i1 %.not.i60, label %44, label %use_hole.exit84.sink.split
 
 44:                                               ; preds = %40
   %45 = and i64 %38, 9223372036852678656
@@ -120,12 +120,12 @@ parse_map_line.exit:                              ; preds = %8, %12, %14, %19
   %.not25.i = icmp ugt i64 %47, %9
   %48 = sub i64 %9, %2
   %spec.select.i = select i1 %.not25.i, i64 %48, i64 %46
-  br label %use_hole.exit82.sink.split
+  br label %use_hole.exit84.sink.split
 
 49:                                               ; preds = %33
   %50 = icmp eq i32 %.039, 2
   %or.cond = and i1 %50, %35
-  br i1 %or.cond, label %51, label %90
+  br i1 %or.cond, label %51, label %87
 
 51:                                               ; preds = %49
   %52 = call i32 @fclose(ptr noundef nonnull %6)
@@ -133,26 +133,26 @@ parse_map_line.exit:                              ; preds = %8, %12, %14, %19
   %54 = lshr i64 %53, 1
   %55 = add i64 %54, %.041
   %56 = icmp ult i64 %53, %2
-  br i1 %56, label %use_hole.exit82, label %57
+  br i1 %56, label %use_hole.exit84, label %57
 
 57:                                               ; preds = %51
   %58 = and i64 %55, -67108864
   %59 = add i64 %58, 67108864
   %60 = add i64 %59, %2
-  %.not.i62 = icmp ugt i64 %60, %9
-  br i1 %.not.i62, label %61, label %use_hole.exit82.sink.split
+  %.not.i64 = icmp ugt i64 %60, %9
+  br i1 %.not.i64, label %61, label %use_hole.exit84.sink.split
 
 61:                                               ; preds = %57
   %62 = and i64 %55, -2097152
   %63 = add i64 %62, 2097152
   %64 = add i64 %63, %2
-  %.not25.i66 = icmp ugt i64 %64, %9
+  %.not25.i68 = icmp ugt i64 %64, %9
   %65 = sub i64 %9, %2
-  %spec.select.i67 = select i1 %.not25.i66, i64 %65, i64 %63
-  br label %use_hole.exit82.sink.split
+  %spec.select.i69 = select i1 %.not25.i68, i64 %65, i64 %63
+  br label %use_hole.exit84.sink.split
 
 66:                                               ; preds = %33
-  br i1 %34, label %67, label %90
+  br i1 %34, label %67, label %87
 
 67:                                               ; preds = %66
   %68 = call i32 @fclose(ptr noundef nonnull %6)
@@ -160,98 +160,98 @@ parse_map_line.exit:                              ; preds = %8, %12, %14, %19
   %70 = lshr i64 %69, 1
   %71 = add i64 %70, %.041
   %72 = icmp ult i64 %69, %2
-  br i1 %72, label %use_hole.exit82, label %73
+  br i1 %72, label %use_hole.exit84, label %73
 
 73:                                               ; preds = %67
   %74 = and i64 %71, -67108864
   %75 = add i64 %74, 67108864
   %76 = add i64 %75, %2
-  %.not.i69 = icmp ugt i64 %76, %9
-  br i1 %.not.i69, label %77, label %use_hole.exit82.sink.split
+  %.not.i71 = icmp ugt i64 %76, %9
+  br i1 %.not.i71, label %77, label %use_hole.exit84.sink.split
 
 77:                                               ; preds = %73
   %78 = and i64 %71, -2097152
   %79 = add i64 %78, 2097152
   %80 = add i64 %79, %2
-  %.not25.i73 = icmp ugt i64 %80, %9
+  %.not25.i75 = icmp ugt i64 %80, %9
   %81 = sub i64 %9, %2
-  %spec.select.i74 = select i1 %.not25.i73, i64 %81, i64 %79
-  br label %use_hole.exit82.sink.split
+  %spec.select.i76 = select i1 %.not25.i75, i64 %81, i64 %79
+  br label %use_hole.exit84.sink.split
 
 82:                                               ; preds = %33
   %83 = icmp eq i32 %.039, 2
-  %84 = icmp eq i32 %.036, 1
-  %85 = select i1 %83, i1 true, i1 %84
-  %86 = select i1 %not., i1 %85, i1 false
-  br i1 %86, label %87, label %90
+  %.not55122123 = icmp eq i32 %.036, 1
+  %.not55122 = select i1 %83, i1 true, i1 %.not55122123
+  %.not55 = select i1 %not., i1 %.not55122, i1 false
+  br i1 %.not55, label %87, label %84
 
-87:                                               ; preds = %82, %33
+84:                                               ; preds = %82, %33
   %.238 = phi i32 [ 1, %82 ], [ %.036, %33 ]
-  %88 = sub i64 %9, %.041
-  %89 = icmp ugt i64 %88, %.043
-  %spec.select56 = select i1 %89, i64 %.041, i64 %.047
-  %spec.select57 = call i64 @llvm.umax.i64(i64 %88, i64 %.043)
-  br label %90
+  %85 = sub i64 %9, %.041
+  %86 = icmp ugt i64 %85, %.043
+  %spec.select58 = select i1 %86, i64 %.041, i64 %.047
+  %spec.select59 = call i64 @llvm.umax.i64(i64 %85, i64 %.043)
+  br label %87
 
-90:                                               ; preds = %parse_map_line.exit, %87, %49, %66, %82, %33
-  %.091102 = phi i32 [ 4, %parse_map_line.exit ], [ %.091.ph, %33 ], [ %.091.ph, %49 ], [ %.091.ph, %66 ], [ %.091.ph, %82 ], [ %.091.ph, %87 ]
-  %.092100 = phi i64 [ %.092, %parse_map_line.exit ], [ %16, %33 ], [ %16, %49 ], [ %16, %66 ], [ %16, %82 ], [ %16, %87 ]
-  %.148 = phi i64 [ %.047, %parse_map_line.exit ], [ %.047, %33 ], [ %.047, %49 ], [ %.047, %66 ], [ %.047, %82 ], [ %spec.select56, %87 ]
-  %.144 = phi i64 [ %.043, %parse_map_line.exit ], [ %.043, %33 ], [ %.043, %49 ], [ %.043, %66 ], [ %.043, %82 ], [ %spec.select57, %87 ]
+87:                                               ; preds = %parse_map_line.exit, %84, %49, %66, %82, %33
+  %.093104 = phi i32 [ 4, %parse_map_line.exit ], [ %.093.ph, %33 ], [ %.093.ph, %49 ], [ %.093.ph, %66 ], [ %.093.ph, %82 ], [ %.093.ph, %87 ]
+  %.094102 = phi i64 [ %.094, %parse_map_line.exit ], [ %16, %33 ], [ %16, %49 ], [ %16, %66 ], [ %16, %82 ], [ %16, %87 ]
+  %.148 = phi i64 [ %.047, %parse_map_line.exit ], [ %.047, %33 ], [ %.047, %49 ], [ %.047, %66 ], [ %.047, %82 ], [ %spec.select58, %87 ]
+  %.144 = phi i64 [ %.043, %parse_map_line.exit ], [ %.043, %33 ], [ %.043, %49 ], [ %.043, %66 ], [ %.043, %82 ], [ %spec.select59, %87 ]
   %.137 = phi i32 [ %.036, %parse_map_line.exit ], [ %.036, %33 ], [ %.036, %49 ], [ %.036, %66 ], [ 0, %82 ], [ %.238, %87 ]
-  br label %91
+  br label %88
 
-91:                                               ; preds = %93, %90
-  %92 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 10) #7
-  %.not54 = icmp eq ptr %92, null
-  br i1 %.not54, label %93, label %95
+88:                                               ; preds = %90, %87
+  %89 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 10) #7
+  %.not56 = icmp eq ptr %89, null
+  br i1 %.not56, label %90, label %92
 
-93:                                               ; preds = %91
-  %94 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 96, ptr noundef nonnull %6)
-  %.not55 = icmp eq ptr %94, null
-  br i1 %.not55, label %use_hole.exit.thread111, label %91, !llvm.loop !9
+90:                                               ; preds = %88
+  %91 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 96, ptr noundef nonnull %6)
+  %.not57 = icmp eq ptr %91, null
+  br i1 %.not57, label %use_hole.exit.thread114, label %88, !llvm.loop !9
 
-95:                                               ; preds = %91
-  %96 = icmp eq i32 %.091102, 3
-  br i1 %96, label %use_hole.exit.thread111, label %use_hole.exit
+92:                                               ; preds = %88
+  %93 = icmp eq i32 %.093104, 3
+  br i1 %93, label %use_hole.exit.thread114, label %use_hole.exit
 
-use_hole.exit.thread111:                          ; preds = %95, %use_hole.exit, %93
+use_hole.exit.thread114:                          ; preds = %92, %use_hole.exit, %90
   %.350 = phi i64 [ %.148, %93 ], [ %.148, %95 ], [ %.047, %use_hole.exit ]
   %.346 = phi i64 [ %.144, %93 ], [ %.144, %95 ], [ %.043, %use_hole.exit ]
-  %97 = call i32 @fclose(ptr noundef nonnull %6)
-  %98 = add i32 %0, -3
-  %or.cond3 = icmp ult i32 %98, 2
-  br i1 %or.cond3, label %99, label %use_hole.exit82
+  %94 = call i32 @fclose(ptr noundef nonnull %6)
+  %95 = add i32 %0, -3
+  %or.cond3 = icmp ult i32 %95, 2
+  br i1 %or.cond3, label %96, label %use_hole.exit84
 
-99:                                               ; preds = %use_hole.exit.thread111
-  %100 = lshr i64 %.346, 1
-  %101 = add i64 %100, %.350
-  %102 = icmp ult i64 %.346, %2
-  br i1 %102, label %use_hole.exit82, label %103
+96:                                               ; preds = %use_hole.exit.thread114
+  %97 = lshr i64 %.346, 1
+  %98 = add i64 %97, %.350
+  %99 = icmp ult i64 %.346, %2
+  br i1 %99, label %use_hole.exit84, label %100
 
-103:                                              ; preds = %99
-  %104 = and i64 %101, -67108864
-  %105 = add i64 %104, 67108864
-  %106 = add i64 %105, %2
-  %107 = add i64 %.346, %.350
-  %.not.i76 = icmp ugt i64 %106, %107
-  br i1 %.not.i76, label %108, label %use_hole.exit82.sink.split
+100:                                              ; preds = %96
+  %101 = and i64 %98, -67108864
+  %102 = add i64 %101, 67108864
+  %103 = add i64 %102, %2
+  %104 = add i64 %.346, %.350
+  %.not.i78 = icmp ugt i64 %103, %104
+  br i1 %.not.i78, label %105, label %use_hole.exit84.sink.split
 
-108:                                              ; preds = %103
-  %109 = and i64 %101, -2097152
-  %110 = add i64 %109, 2097152
-  %111 = add i64 %110, %2
-  %.not25.i80 = icmp ugt i64 %111, %107
-  %112 = sub i64 %107, %2
-  %spec.select.i81 = select i1 %.not25.i80, i64 %112, i64 %110
-  br label %use_hole.exit82.sink.split
+105:                                              ; preds = %100
+  %106 = and i64 %98, -2097152
+  %107 = add i64 %106, 2097152
+  %108 = add i64 %107, %2
+  %.not25.i82 = icmp ugt i64 %108, %104
+  %109 = sub i64 %104, %2
+  %spec.select.i83 = select i1 %.not25.i82, i64 %109, i64 %107
+  br label %use_hole.exit84.sink.split
 
-use_hole.exit82.sink.split:                       ; preds = %103, %108, %73, %77, %57, %61, %40, %44
-  %.sink.i71.sink = phi i64 [ %42, %40 ], [ %spec.select.i, %44 ], [ %59, %57 ], [ %spec.select.i67, %61 ], [ %75, %73 ], [ %spec.select.i74, %77 ], [ %105, %103 ], [ %spec.select.i81, %108 ]
-  store i64 %.sink.i71.sink, ptr %1, align 8, !tbaa !11
-  br label %use_hole.exit82
+use_hole.exit84.sink.split:                       ; preds = %100, %105, %73, %77, %57, %61, %40, %44
+  %.sink.i73.sink = phi i64 [ %42, %40 ], [ %spec.select.i, %44 ], [ %59, %57 ], [ %spec.select.i69, %61 ], [ %75, %73 ], [ %spec.select.i76, %77 ], [ %102, %103 ], [ %spec.select.i83, %108 ]
+  store i64 %.sink.i73.sink, ptr %1, align 8, !tbaa !11
+  br label %use_hole.exit84
 
-use_hole.exit82:                                  ; preds = %use_hole.exit82.sink.split, %67, %51, %36, %99, %use_hole.exit.thread111, %3
+use_hole.exit84:                                  ; preds = %use_hole.exit84.sink.split, %67, %51, %36, %96, %use_hole.exit.thread114, %3
   %.035 = phi i32 [ -1, %3 ], [ -1, %use_hole.exit.thread111 ], [ -1, %99 ], [ -1, %67 ], [ -1, %51 ], [ -1, %36 ], [ 0, %use_hole.exit82.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.035

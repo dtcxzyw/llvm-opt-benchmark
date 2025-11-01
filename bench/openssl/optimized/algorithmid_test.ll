@@ -148,19 +148,19 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %21 = icmp ne i32 %.022, 0
   %22 = icmp eq i32 %15, 2
   %or.cond3 = select i1 %21, i1 %22, i1 false
-  br i1 %or.cond3, label %.thread, label %._crit_edge
+  br i1 %or.cond3, label %.thread, label %.sink.split
 
-._crit_edge:                                      ; preds = %20
+.sink.split:                                      ; preds = %20
   %.pre = load ptr, ptr @pubkey_filename, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge, %18
+23:; preds = %.sink.split, %18
   %24 = phi ptr [ %.pre, %._crit_edge ], [ %19, %18 ]
   %25 = icmp eq ptr %24, null
   %or.cond5 = select i1 %16, i1 %25, i1 false
   br i1 %or.cond5, label %28, label %31
 
-.thread:                                          ; preds = %20
+.thread:; preds = %20
   %26 = tail call ptr @test_get_argument(i64 noundef 0) #6
   store ptr %26, ptr @eecert_filename, align 8, !tbaa !11
   %27 = tail call ptr @test_get_argument(i64 noundef 1) #6
@@ -172,16 +172,16 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %29, ptr noundef nonnull @.str.21) #6
   br label %.loopexit
 
-31:                                               ; preds = %23
-  %.not = icmp eq i32 %.022, 0
-  br i1 %.not, label %.critedge, label %..thread29_crit_edge
+30:                                               ; preds = %23
+  %.not29 = icmp eq i32 %.022, 0
+  br i1 %.not29, label %.critedge, label %31
 
-..thread29_crit_edge:                             ; preds = %31
-  %.pre34 = load ptr, ptr @cacert_filename, align 8
+31:                                               ; preds = %30
+  %32 = load ptr, ptr @cacert_filename, align 8
   br label %.thread29
 
-.thread29:                                        ; preds = %.thread, %..thread29_crit_edge
-  %32 = phi ptr [ %.pre34, %..thread29_crit_edge ], [ %27, %.thread ]
+.thread29:; preds = %.thread, %31
+  %32 = phi ptr [ %32, %..thread29_crit_edge ], [ %27, %.thread ]
   %33 = load ptr, ptr @eecert_filename, align 8, !tbaa !11
   %34 = icmp eq ptr %33, null
   %35 = icmp eq ptr %32, null
@@ -197,14 +197,14 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   tail call void @add_test(ptr noundef nonnull @.str.23, ptr noundef nonnull @test_x509_files) #6
   br label %.critedge
 
-.critedge:                                        ; preds = %31, %39
+.critedge:                                        ; preds = %30, %39
   br i1 %16, label %40, label %.loopexit
 
 40:                                               ; preds = %.critedge
   tail call void @add_test(ptr noundef nonnull @.str.24, ptr noundef nonnull @test_spki_file) #6
   br label %.loopexit
 
-default.unreachable:                              ; preds = %5
+.loopexit:                                        ; preds = %5
   unreachable
 
 .loopexit:                                        ; preds = %1, %7, %10, %.critedge, %40, %36, %28

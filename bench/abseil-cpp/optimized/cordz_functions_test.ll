@@ -6736,8 +6736,8 @@ _ZN4absl13cord_internal20cordz_should_profileEv.exit: ; preds = %20, %22
   %24 = phi i64 [ %21, %20 ], [ %.pre, %22 ]
   %25 = add nsw i64 %17, %24
   %26 = add nuw nsw i32 %.035, 1
-  %.not = icmp eq i32 %26, 10000
-  br i1 %.not, label %13, label %16, !llvm.loop !241
+  %exitcond.not = icmp eq i32 %26, 10000
+  br i1 %exitcond.not, label %13, label %16, !llvm.loop !241
 
 27:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

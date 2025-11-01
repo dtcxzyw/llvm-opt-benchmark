@@ -1192,7 +1192,7 @@ define internal fastcc void @mi_stat_print(ptr noundef readonly captures(none) %
   %5 = alloca [32 x i8], align 16
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef %1) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !13
+  %7 = load i64, ptr %6, align 8, !tbaa !12
   switch i64 %2, label %30 [
     i64 1, label %8
     i64 -1, label %19
@@ -1203,8 +1203,8 @@ define internal fastcc void @mi_stat_print(ptr noundef readonly captures(none) %
   %9 = load i64, ptr %0, align 8, !tbaa !14
   tail call fastcc void @mi_printf_amount(i64 noundef %9, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !15
-  tail call fastcc void @mi_printf_amount(i64 noundef %11, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null)
+  %10 = load i64, ptr %.not51, align 8, !tbaa !15
+  tail call fastcc void @mi_printf_amount(i64 noundef %10, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !11
   tail call fastcc void @mi_printf_amount(i64 noundef %13, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null)
@@ -1213,55 +1213,55 @@ define internal fastcc void @mi_stat_print(ptr noundef readonly captures(none) %
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.36, ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #10
-  %14 = load i64, ptr %0, align 8, !tbaa !14
-  %15 = load i64, ptr %10, align 8, !tbaa !15
-  %16 = icmp sgt i64 %14, %15
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %8
-  call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.32) #10
-  br label %34
+  %15 = load i64, ptr %0, align 8, !tbaa !14
+  %16 = load i64, ptr %10, align 8, !tbaa !15
+  %17 = icmp sgt i64 %15, %16
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %8
+  call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.32) #10
+  br label %39
+
+19:                                               ; preds = %8
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.33) #10
-  br label %34
+  br label %39
 
-19:                                               ; preds = %4
+24:                                               ; preds = %4
   tail call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null)
-  %20 = load i64, ptr %0, align 8, !tbaa !14
-  tail call fastcc void @mi_printf_amount(i64 noundef %20, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null)
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !15
-  tail call fastcc void @mi_printf_amount(i64 noundef %22, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null)
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !11
-  tail call fastcc void @mi_printf_amount(i64 noundef %24, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null)
-  tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #10
   %25 = load i64, ptr %0, align 8, !tbaa !14
-  %26 = load i64, ptr %21, align 8, !tbaa !15
-  %27 = icmp sgt i64 %25, %26
-  br i1 %27, label %28, label %29
+  tail call fastcc void @mi_printf_amount(i64 noundef %25, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null)
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !15
+  tail call fastcc void @mi_printf_amount(i64 noundef %27, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null)
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load i64, ptr %28, align 8, !tbaa !11
+  tail call fastcc void @mi_printf_amount(i64 noundef %29, i64 noundef -1, ptr noundef nonnull %3, ptr noundef null)
+  tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #10
+  %30 = load i64, ptr %0, align 8, !tbaa !14
+  %31 = load i64, ptr %26, align 8, !tbaa !15
+  %32 = icmp sgt i64 %30, %31
+  br i1 %32, label %33, label %34
 
-28:                                               ; preds = %19
+33:                                               ; preds = %24
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.32) #10
-  br label %34
+  br label %39
 
-29:                                               ; preds = %19
+34:                                               ; preds = %24
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.33) #10
-  br label %34
+  br label %39
 
-30:                                               ; preds = %4
+35:                                               ; preds = %4
   tail call fastcc void @mi_printf_amount(i64 noundef %7, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null)
-  %31 = load i64, ptr %0, align 8, !tbaa !14
-  tail call fastcc void @mi_printf_amount(i64 noundef %31, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null)
+  %36 = load i64, ptr %0, align 8, !tbaa !14
+  tail call fastcc void @mi_printf_amount(i64 noundef %36, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null)
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #10
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !11
-  tail call fastcc void @mi_printf_amount(i64 noundef %33, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %38 = load i64, ptr %37, align 8, !tbaa !11
+  tail call fastcc void @mi_printf_amount(i64 noundef %38, i64 noundef 1, ptr noundef nonnull %3, ptr noundef null)
   tail call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %3, ptr noundef nonnull @.str.22) #10
-  br label %34
+  br label %39
 
-34:                                               ; preds = %30, %29, %28, %17, %18
+39:                                               ; preds = %35, %34, %33, %18, %19
   ret void
 }
 
@@ -1275,53 +1275,53 @@ define internal fastcc void @mi_printf_amount(i64 noundef %0, i64 noundef range(
   store i8 0, ptr %5, align 16, !tbaa !38
   %7 = icmp eq i64 %1, 1
   %8 = select i1 %7, ptr @.str.39, ptr @.str.37
-  %9 = icmp eq i64 %1, 0
-  %10 = select i1 %9, i64 1000, i64 1024
-  %11 = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
-  %12 = icmp samesign ult i64 %11, %10
-  br i1 %12, label %13, label %20
+  %.not51 = icmp eq i64 %1, 0
+  %9 = select i1 %.not51, i64 1000, i64 1024
+  %10 = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
+  %11 = icmp samesign ult i64 %10, %9
+  br i1 %11, label %12, label %19
 
-13:                                               ; preds = %4
-  %.not53 = icmp eq i64 %0, 1
-  %14 = load i8, ptr %8, align 1
-  %.not54 = icmp eq i8 %14, 66
-  %or.cond = select i1 %.not53, i1 %.not54, i1 false
-  br i1 %or.cond, label %31, label %15
+12:                                               ; preds = %4
+  %.not52 = icmp eq i64 %0, 1
+  %13 = load i8, ptr %8, align 1
+  %.not53 = icmp eq i8 %13, 66
+  %or.cond = select i1 %.not52, i1 %.not53, i1 false
+  br i1 %or.cond, label %30, label %14
 
-15:                                               ; preds = %13
-  %16 = trunc i64 %0 to i32
-  %17 = icmp eq i64 %0, 0
-  %18 = select i1 %17, ptr @.str.35, ptr %8
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.40, i32 noundef %16, ptr noundef nonnull %18) #10
-  br label %31
+14:                                               ; preds = %12
+  %15 = trunc i64 %0 to i32
+  %16 = icmp eq i64 %0, 0
+  %17 = select i1 %16, ptr @.str.35, ptr %8
+  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.40, i32 noundef %15, ptr noundef nonnull %17) #10
+  br label %30
 
-20:                                               ; preds = %4
-  %21 = select i1 %9, i64 1000000, i64 1048576
-  %.not50 = icmp samesign ult i64 %11, %21
-  %spec.select = select i1 %.not50, ptr @.str.41, ptr @.str.42
-  %spec.select55 = select i1 %.not50, i64 %10, i64 %21
-  %22 = mul nuw nsw i64 %spec.select55, %10
-  %.not51 = icmp samesign ult i64 %11, %22
-  %.144 = select i1 %.not51, ptr %spec.select, ptr @.str.43
-  %.1 = select i1 %.not51, i64 %spec.select55, i64 %22
+19:                                               ; preds = %4
+  %20 = select i1 %.not51, i64 1000000, i64 1048576
+  %.not = icmp samesign ult i64 %10, %20
+  %spec.select = select i1 %.not, ptr @.str.41, ptr @.str.42
+  %spec.select54 = select i1 %.not, i64 %9, i64 %20
+  %21 = mul nuw nsw i64 %spec.select54, %9
+  %.not50 = icmp samesign ult i64 %10, %21
+  %.144 = select i1 %.not50, ptr %spec.select, ptr @.str.43
+  %.1 = select i1 %.not50, i64 %spec.select54, i64 %21
   %.lhs.trunc = trunc nuw nsw i64 %.1 to i32
-  %23 = udiv i32 %.lhs.trunc, 10
-  %.zext = zext nneg i32 %23 to i64
-  %24 = sdiv i64 %0, %.zext
-  %25 = sdiv i64 %24, 10
-  %26 = srem i64 %24, 10
+  %22 = udiv i32 %.lhs.trunc, 10
+  %.zext = zext nneg i32 %22 to i64
+  %23 = sdiv i64 %0, %.zext
+  %24 = sdiv i64 %23, 10
+  %25 = srem i64 %23, 10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %27 = select i1 %9, ptr @.str.35, ptr @.str.45
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 8, ptr noundef nonnull @.str.44, ptr noundef nonnull %.144, ptr noundef nonnull %27, ptr noundef nonnull %8) #10
-  %29 = tail call i64 @llvm.abs.i64(i64 %26, i1 true)
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.46, i64 noundef %25, i64 noundef %29, ptr noundef nonnull %6) #10
+  %26 = select i1 %.not51, ptr @.str.35, ptr @.str.45
+  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 8, ptr noundef nonnull @.str.44, ptr noundef nonnull %.144, ptr noundef nonnull %26, ptr noundef nonnull %8) #10
+  %28 = tail call i64 @llvm.abs.i64(i64 %25, i1 true)
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.46, i64 noundef %24, i64 noundef %28, ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %31
+  br label %30
 
-31:                                               ; preds = %13, %15, %20
-  %32 = icmp eq ptr %3, null
-  %33 = select i1 %32, ptr @.str.36, ptr %3
-  call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %2, ptr noundef nonnull %33, ptr noundef nonnull %5) #10
+30:                                               ; preds = %12, %14, %19
+  %31 = icmp eq ptr %3, null
+  %32 = select i1 %31, ptr @.str.36, ptr %3
+  call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %2, ptr noundef nonnull %32, ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

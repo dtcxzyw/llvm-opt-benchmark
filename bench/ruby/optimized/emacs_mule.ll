@@ -186,18 +186,18 @@ define internal range(i32 -400, 5) i32 @code_to_mbclen(i32 noundef %0, ptr readn
   %6 = icmp slt i32 %5, -16777215
   br i1 %6, label %13, label %7
 
-7:                                                ; preds = %4
+7:; preds = %4
   %8 = and i32 %0, 8388608
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %13
 
-10:                                               ; preds = %7
+10:; preds = %7
   %11 = and i32 %0, 32768
-  %12 = icmp eq i32 %11, 0
+  %12 = icmp eq i32 %.not27, 0
   %. = select i1 %12, i32 -400, i32 2
   br label %13
 
-13:                                               ; preds = %10, %7, %4, %2
+13:; preds = %10, %7, %4, %2
   %.0 = phi i32 [ 1, %2 ], [ 4, %4 ], [ 3, %7 ], [ %., %10 ]
   ret i32 %.0
 }
@@ -217,59 +217,59 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noundef %2)
 8:                                                ; preds = %4, %3
   %.0 = phi ptr [ %7, %4 ], [ %1, %3 ]
   %9 = and i32 %0, 16711680
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %15, label %11
+  %.not27 = icmp eq i32 %9, 0
+  br i1 %.not27, label %14, label %10
 
-11:                                               ; preds = %8
-  %12 = lshr i32 %0, 16
-  %13 = trunc i32 %12 to i8
-  %14 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  store i8 %13, ptr %.0, align 1, !tbaa !6
-  br label %15
+10:                                               ; preds = %8
+  %11 = lshr i32 %0, 16
+  %12 = trunc i32 %11 to i8
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  store i8 %12, ptr %.0, align 1, !tbaa !6
+  br label %14
 
-15:                                               ; preds = %11, %8
-  %.1 = phi ptr [ %14, %11 ], [ %.0, %8 ]
-  %16 = and i32 %0, 65280
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %22, label %18
+14:                                               ; preds = %10, %8
+  %.1 = phi ptr [ %13, %11 ], [ %.0, %8 ]
+  %15 = and i32 %0, 65280
+  %.not28 = icmp eq i32 %15, 0
+  br i1 %.not28, label %20, label %16
 
-18:                                               ; preds = %15
-  %19 = lshr i32 %0, 8
-  %20 = trunc i32 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  store i8 %20, ptr %.1, align 1, !tbaa !6
-  br label %22
+16:                                               ; preds = %14
+  %17 = lshr i32 %0, 8
+  %18 = trunc i32 %17 to i8
+  %19 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  store i8 %18, ptr %.1, align 1, !tbaa !6
+  br label %20
 
-22:                                               ; preds = %18, %15
-  %.2 = phi ptr [ %21, %18 ], [ %.1, %15 ]
-  %23 = trunc i32 %0 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  store i8 %23, ptr %.2, align 1, !tbaa !6
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !11
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %28 = load i32, ptr %27, align 4, !tbaa !15
-  %29 = icmp eq i32 %26, %28
-  br i1 %29, label %30, label %32
+20:                                               ; preds = %16, %14
+  %.2 = phi ptr [ %19, %18 ], [ %.1, %15 ]
+  %21 = trunc i32 %0 to i8
+  %22 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  store i8 %21, ptr %.2, align 1, !tbaa !6
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = load i32, ptr %23, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %26 = load i32, ptr %25, align 4, !tbaa !15
+  %27 = icmp eq i32 %24, %26
+  br i1 %27, label %28, label %30
 
-30:                                               ; preds = %22
-  %31 = icmp ult ptr %1, %24
-  %spec.select = select i1 %31, i32 %26, i32 0
-  br label %34
+28:                                               ; preds = %20
+  %29 = icmp ult ptr %1, %22
+  %spec.select = select i1 %29, i32 %24, i32 0
+  br label %32
 
-32:                                               ; preds = %22
-  %33 = tail call i32 @onigenc_mbclen(ptr noundef %1, ptr noundef nonnull %24, ptr noundef nonnull %2) #6
-  br label %34
+30:                                               ; preds = %20
+  %31 = tail call i32 @onigenc_mbclen(ptr noundef %1, ptr noundef nonnull %22, ptr noundef nonnull %2) #6
+  br label %32
 
-34:                                               ; preds = %30, %32
-  %35 = phi i32 [ %33, %32 ], [ %spec.select, %30 ]
-  %36 = sext i32 %35 to i64
-  %37 = ptrtoint ptr %24 to i64
-  %38 = ptrtoint ptr %1 to i64
-  %39 = sub i64 %37, %38
-  %.not29 = icmp eq i64 %39, %36
-  %40 = trunc nsw i64 %39 to i32
-  %.024 = select i1 %.not29, i32 %40, i32 -400
+32:                                               ; preds = %28, %30
+  %33 = phi i32 [ %31, %32 ], [ %spec.select, %30 ]
+  %34 = sext i32 %33 to i64
+  %35 = ptrtoint ptr %22 to i64
+  %36 = ptrtoint ptr %1 to i64
+  %37 = sub i64 %35, %36
+  %.not29 = icmp eq i64 %37, %34
+  %38 = trunc nsw i64 %37 to i32
+  %.024 = select i1 %.not29, i32 %38, i32 -400
   ret i32 %.024
 }
 

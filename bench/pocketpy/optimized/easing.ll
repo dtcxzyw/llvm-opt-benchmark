@@ -2908,40 +2908,40 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
   %28 = icmp ult i64 %27, %26
   %29 = tail call i64 @llvm.umin.i64(i64 %27, i64 1152921504606846975)
   %30 = select i1 %28, i64 1152921504606846975, i64 %29
-  %31 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %31)
-  %32 = shl nuw nsw i64 %30, 3
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #24
-  %34 = getelementptr inbounds i8, ptr %33, i64 %23
-  store ptr %4, ptr %34, align 8
-  %35 = icmp sgt i64 %23, 0
-  br i1 %35, label %36, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  %.not.i.i.i = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i)
+  %31 = shl nuw nsw i64 %30, 3
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #24
+  %33 = getelementptr inbounds i8, ptr %32, i64 %23
+  store ptr %4, ptr %33, align 8
+  %34 = icmp sgt i64 %23, 0
+  br i1 %34, label %35, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-36:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %20, i64 %23, i1 false)
+35:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %20, i64 %23, i1 false)
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %36, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %35, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.not.i17.i.i = icmp eq ptr %20, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %38
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %37
 
-38:                                               ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+37:                                               ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %23) #25
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %33, ptr %11, align 8
-  store ptr %37, ptr %12, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %33, i64 %30
-  store ptr %39, ptr %14, align 8
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %32, ptr %11, align 8
+  store ptr %36, ptr %12, align 8
+  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
+  store ptr %38, ptr %14, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %41 = load i32, ptr %40, align 4
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %40, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %40 = load i32, ptr %39, align 4
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %39, align 4
   ret ptr %4
 }
 

@@ -58,26 +58,26 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %15 = load i32, ptr %14, align 8, !tbaa !23
   %16 = icmp eq i32 %15, 2
-  br i1 %16, label %17, label %.thread120
+  br i1 %16, label %17, label %.thread121
 
 17:                                               ; preds = %13
   tail call void @ff_cbs_delete_unit(ptr noundef nonnull %2, i32 noundef 0) #3
-  br label %.thread120
+  br label %.thread121
 
 18:                                               ; preds = %8, %3
   %.not85 = icmp eq ptr %1, null
-  br i1 %.not85, label %.thread120, label %19
+  br i1 %.not85, label %.thread121, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %21 = load i32, ptr %20, align 8, !tbaa !23
   %22 = icmp eq i32 %21, 1
-  br i1 %22, label %23, label %.thread120
+  br i1 %22, label %23, label %.thread121
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %25 = icmp sgt i32 %7, 0
-  br i1 %25, label %.lr.ph, label %.thread113
+  br i1 %25, label %.lr.ph, label %.thread114
 
 .lr.ph:                                           ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -87,11 +87,11 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
 
 28:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %.059131 = phi ptr [ null, %.lr.ph ], [ %.160.ph, %54 ]
-  %.061130 = phi ptr [ null, %.lr.ph ], [ %.263.ph, %54 ]
-  %.066129 = phi i32 [ 0, %.lr.ph ], [ %.268.ph, %54 ]
-  %.070128 = phi i32 [ 8, %.lr.ph ], [ %.272.ph, %54 ]
-  %.077127 = phi i8 [ 0, %.lr.ph ], [ %.279.ph, %54 ]
+  %.059133 = phi ptr [ null, %.lr.ph ], [ %.160.ph, %54 ]
+  %.061132 = phi ptr [ null, %.lr.ph ], [ %.263.ph, %54 ]
+  %.066131 = phi i32 [ 0, %.lr.ph ], [ %.268.ph, %54 ]
+  %.070130 = phi i32 [ 8, %.lr.ph ], [ %.272.ph, %54 ]
+  %.077129 = phi i8 [ 0, %.lr.ph ], [ %.279.ph, %54 ]
   %29 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %27, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !30
@@ -103,7 +103,7 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
   %34 = load i8, ptr %33, align 1, !tbaa !31
   %35 = zext i8 %34 to i32
   %36 = add nsw i32 %35, -1
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.070128, i32 %36)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.070130, i32 %36)
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %38 = load i8, ptr %37, align 1, !tbaa !32
   switch i8 %38, label %54 [
@@ -127,10 +127,10 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 1345
   %44 = load i8, ptr %43, align 1, !tbaa !34
   %45 = icmp eq i8 %44, 0
-  %spec.store.select = select i1 %45, i32 2, i32 %.066129
+  %spec.store.select = select i1 %45, i32 2, i32 %.066131
   %46 = icmp eq i8 %44, 1
   %47 = icmp eq i32 %spec.store.select, 0
-  %or.cond4 = select i1 %46, i1 %47, i1 false
+  %spec.store.select5 = select i1 %46, i1 %47, i1 false
   %spec.store.select5 = select i1 %or.cond4, i32 1, i32 %spec.store.select
   %.not88 = icmp eq ptr %.059131, null
   br i1 %.not88, label %48, label %54
@@ -146,26 +146,26 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
   br label %54
 
 53:                                               ; preds = %48
-  %.not90 = icmp eq ptr %.061130, null
-  br i1 %.not90, label %.thread113, label %54
+  %.not90 = icmp eq ptr %.061132, null
+  br i1 %.not90, label %.thread114, label %54
 
 54:                                               ; preds = %32, %53, %28, %39, %51, %41
-  %.279.ph = phi i8 [ %42, %51 ], [ %42, %41 ], [ %.077127, %39 ], [ %.077127, %28 ], [ %42, %53 ], [ %.077127, %32 ]
-  %.272.ph = phi i32 [ %spec.select, %51 ], [ %spec.select, %41 ], [ %spec.select, %39 ], [ %.070128, %28 ], [ %spec.select, %53 ], [ %spec.select, %32 ]
-  %.268.ph = phi i32 [ %spec.store.select5, %51 ], [ %spec.store.select5, %41 ], [ %.066129, %39 ], [ %.066129, %28 ], [ %spec.store.select5, %53 ], [ %.066129, %32 ]
-  %.263.ph = phi ptr [ %52, %51 ], [ %.061130, %41 ], [ %40, %39 ], [ %.061130, %28 ], [ %.061130, %53 ], [ %.061130, %32 ]
-  %.160.ph = phi ptr [ %31, %51 ], [ %.059131, %41 ], [ %.059131, %39 ], [ %.059131, %28 ], [ %31, %53 ], [ %.059131, %32 ]
+  %.279.ph = phi i8 [ %42, %51 ], [ %42, %41 ], [ %.077129, %39 ], [ %.077129, %28 ], [ %42, %53 ], [ %.077129, %32 ]
+  %.272.ph = phi i32 [ %spec.select, %51 ], [ %spec.select, %41 ], [ %spec.select, %39 ], [ %.070130, %28 ], [ %spec.select, %53 ], [ %spec.select, %32 ]
+  %.268.ph = phi i32 [ %spec.store.select5, %51 ], [ %spec.store.select5, %41 ], [ %.066131, %39 ], [ %.066131, %28 ], [ %spec.store.select5, %53 ], [ %.066131, %32 ]
+  %.263.ph = phi ptr [ %52, %51 ], [ %.061132, %41 ], [ %40, %39 ], [ %.061132, %28 ], [ %.061132, %53 ], [ %.061132, %32 ]
+  %.160.ph = phi ptr [ %31, %51 ], [ %.059133, %41 ], [ %.059133, %39 ], [ %.059133, %28 ], [ %31, %53 ], [ %.059133, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %54
   %.not91 = icmp eq ptr %.263.ph, null
-  br i1 %.not91, label %.thread113, label %55
+  br i1 %.not91, label %.thread114, label %55
 
-.thread113:                                       ; preds = %53, %23, %._crit_edge
+.thread114:                                       ; preds = %53, %23, %._crit_edge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12) #3
-  br label %.thread120
+  br label %.thread121
 
 55:                                               ; preds = %._crit_edge
   %56 = trunc nuw nsw i32 %.268.ph to i8
@@ -185,13 +185,13 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
   store i8 %60, ptr %61, align 1, !tbaa !47
   %62 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 20, ptr noundef nonnull %24, ptr noundef null) #3
   %63 = icmp slt i32 %62, 0
-  br i1 %63, label %64, label %.thread120
+  br i1 %63, label %64, label %.thread121
 
 64:                                               ; preds = %55
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13) #3
-  br label %.thread120
+  br label %.thread121
 
-.thread120:                                       ; preds = %.thread113, %64, %17, %13, %19, %18, %55
+.thread121:                                       ; preds = %.thread114, %64, %17, %13, %19, %18, %55
   %.1 = phi i32 [ 0, %55 ], [ 0, %18 ], [ 0, %19 ], [ 0, %13 ], [ 0, %17 ], [ -1094995529, %.thread113 ], [ %62, %64 ]
   ret i32 %.1
 }

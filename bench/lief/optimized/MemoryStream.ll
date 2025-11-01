@@ -150,8 +150,8 @@ define linkonce_odr hidden i64 @_ZN4LIEF12BinaryStream9peek_dataERSt6vectorIhSaI
   %18 = icmp ule i64 %13, %17
   %19 = icmp sgt i64 %2, -1
   %or.cond = and i1 %19, %18
-  %20 = icmp sgt i64 %3, 0
-  %or.cond3 = and i1 %20, %or.cond
+  %21 = icmp sgt i64 %3, 0
+  %spec.select = and i1 %21, %or.cond
   %21 = icmp sgt i64 %13, -1
   %spec.select = and i1 %21, %or.cond3
   br i1 %spec.select, label %22, label %.critedge
@@ -181,16 +181,16 @@ define linkonce_odr hidden i64 @_ZN4LIEF12BinaryStream9read_dataERSt6vectorIhSaI
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 %8(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %5, i64 noundef %2, i64 noundef 0) #9
   %10 = and i64 %9, 4294967296
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %15, label %12
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %14, label %11
 
-12:                                               ; preds = %3
-  %13 = load i64, ptr %4, align 8, !tbaa !3
-  %14 = add i64 %13, %2
-  store i64 %14, ptr %4, align 8, !tbaa !3
-  br label %15
+11:                                               ; preds = %3
+  %12 = load i64, ptr %4, align 8, !tbaa !3
+  %13 = add i64 %12, %2
+  store i64 %13, ptr %4, align 8, !tbaa !3
+  br label %14
 
-15:                                               ; preds = %3, %12
+14:                                               ; preds = %3, %11
   %.sroa.2.0 = phi i64 [ 4294967297, %12 ], [ 1, %3 ]
   ret i64 %.sroa.2.0
 }

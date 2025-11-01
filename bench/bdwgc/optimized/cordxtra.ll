@@ -171,8 +171,8 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   call void @CORD_set_pos(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0) #16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !13
-  %.not4358 = icmp eq i32 %19, 1431655765
-  br i1 %.not4358, label %._crit_edge, label %.lr.ph
+  %.not4359 = icmp eq i32 %19, 1431655765
+  br i1 %.not4359, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -315,11 +315,11 @@ define i32 @CORD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 97:                                               ; preds = %91
   call void @CORD__next(ptr noundef nonnull %3) #16
   %.pre = load i64, ptr %4, align 16, !tbaa !18
-  %.pre59 = load i64, ptr %22, align 16, !tbaa !17
+  %.pre60 = load i64, ptr %22, align 16, !tbaa !17
   br label %98
 
 98:                                               ; preds = %97, %96
-  %99 = phi i64 [ %.pre59, %97 ], [ %38, %96 ]
+  %99 = phi i64 [ %.pre60, %97 ], [ %38, %96 ]
   %100 = phi i64 [ %.pre, %97 ], [ %39, %96 ]
   %101 = add i64 %100, %92
   store i64 %101, ptr %4, align 16, !tbaa !18
@@ -367,8 +367,8 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @CORD_set_pos(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %1) #16
   call void @CORD_set_pos(ptr noundef nonnull %7, ptr noundef %2, i64 noundef %3) #16
-  %.not71 = icmp eq i64 %4, 0
-  br i1 %.not71, label %.thread63, label %.lr.ph
+  %.not72 = icmp eq i64 %4, 0
+  br i1 %.not72, label %.thread63, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -382,7 +382,7 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   br label %16
 
 16:                                               ; preds = %.lr.ph, %.thread60
-  %.03166 = phi i64 [ 0, %.lr.ph ], [ %.132, %.thread60 ]
+  %.03167 = phi i64 [ 0, %.lr.ph ], [ %.132, %.thread60 ]
   %17 = load i32, ptr %8, align 8, !tbaa !13
   %.not = icmp eq i32 %17, 1431655765
   %18 = load i32, ptr %9, align 8, !tbaa !13
@@ -482,7 +482,7 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   br label %.thread
 
 .thread:                                          ; preds = %65, %66
-  %67 = add nuw i64 %.03166, 1
+  %67 = add nuw i64 %.03167, 1
   br label %.thread60
 
 68:                                               ; preds = %52
@@ -493,7 +493,7 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
 
 72:                                               ; preds = %27
   %spec.select = call i64 @llvm.umin.i64(i64 %25, i64 %30)
-  %73 = add i64 %spec.select, %.03166
+  %73 = add i64 %spec.select, %.03167
   %74 = call i64 @llvm.usub.sat.i64(i64 %73, i64 %4)
   %.136 = sub i64 %spec.select, %74
   %75 = load ptr, ptr %12, align 16, !tbaa !19
@@ -523,11 +523,11 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
 90:                                               ; preds = %84
   call void @CORD__next(ptr noundef nonnull %6) #16
   %.pre = load i64, ptr %7, align 16, !tbaa !18
-  %.pre72 = load i64, ptr %11, align 16, !tbaa !17
+  %.pre73 = load i64, ptr %11, align 16, !tbaa !17
   br label %91
 
 91:                                               ; preds = %90, %89
-  %92 = phi i64 [ %.pre72, %90 ], [ %28, %89 ]
+  %92 = phi i64 [ %.pre73, %90 ], [ %28, %89 ]
   %93 = phi i64 [ %.pre, %90 ], [ %29, %89 ]
   %94 = add i64 %93, %85
   store i64 %94, ptr %7, align 16, !tbaa !18
@@ -1364,49 +1364,49 @@ define internal fastcc ptr @CORD_from_file_lazy_inner(ptr noundef %0, i64 nounde
   unreachable
 
 9:                                                ; preds = %2
-  %10 = icmp eq i64 %1, 0
-  br i1 %10, label %20, label %11
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %19, label %10
 
-11:                                               ; preds = %9
+10:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %12 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 1, ptr noundef %0)
-  %13 = icmp ugt i64 %12, 1
-  br i1 %13, label %16, label %14
+  %11 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 1, ptr noundef %0)
+  %12 = icmp ugt i64 %11, 1
+  br i1 %12, label %15, label %13
 
-14:                                               ; preds = %11
-  %15 = tail call i32 @fseek(ptr noundef %0, i64 noundef 0, i32 noundef 0)
-  %.not14 = icmp eq i32 %15, 0
-  br i1 %.not14, label %19, label %16
+13:                                               ; preds = %10
+  %14 = tail call i32 @fseek(ptr noundef %0, i64 noundef 0, i32 noundef 0)
+  %.not14 = icmp eq i32 %14, 0
+  br i1 %.not14, label %18, label %15
 
-16:                                               ; preds = %14, %11
-  %17 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #18
+15:                                               ; preds = %13, %10
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #18
   tail call void @abort() #19
   unreachable
 
-19:                                               ; preds = %14
+18:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %20
+  br label %19
 
-20:                                               ; preds = %19, %9
+19:                                               ; preds = %18, %9
   store ptr %0, ptr %4, align 8, !tbaa !34
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %22
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %21
 
-22:                                               ; preds = %20, %22
+21:                                               ; preds = %19, %21
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
-  store volatile ptr null, ptr %23, align 8, !tbaa !36
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  store volatile ptr null, ptr %22, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %.not, label %24, label %22, !llvm.loop !37
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 32
+  br i1 %exitcond.not, label %23, label %21, !llvm.loop !37
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %25, align 8, !tbaa !38
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 0, ptr %24, align 8, !tbaa !38
   tail call void @GC_register_finalizer(ptr noundef nonnull %4, ptr noundef nonnull @CORD_lf_close_proc, ptr noundef null, ptr noundef null, ptr noundef null) #16
-  %26 = tail call ptr @CORD_from_fn(ptr noundef nonnull @CORD_lf_func, ptr noundef nonnull %4, i64 noundef %1) #16
-  ret ptr %26
+  %25 = tail call ptr @CORD_from_fn(ptr noundef nonnull @CORD_lf_func, ptr noundef nonnull %4, i64 noundef %1) #16
+  ret ptr %25
 }
 
 ; Function Attrs: nounwind uwtable

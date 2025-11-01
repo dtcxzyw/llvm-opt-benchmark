@@ -439,7 +439,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_full_contents(ptr nou
 
 xmalloc.exit.thread:                              ; preds = %1
   tail call void (ptr, ...) @msg(ptr noundef nonnull @.str)
-  br label %41
+  br label %40
 
 xmalloc.exit:                                     ; preds = %1, %32
   %.037 = phi i64 [ %34, %32 ], [ 0, %1 ]
@@ -517,29 +517,29 @@ xread.exit:                                       ; preds = %.lr.ph.i, %28, %11
 32:                                               ; preds = %xread.exit
   %33 = and i64 %29, 2147483647
   %34 = add i64 %33, %.037
-  %35 = icmp eq i32 %30, 0
-  br i1 %35, label %36, label %xmalloc.exit
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %35, label %xmalloc.exit
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.1, ptr %37, align 8, !tbaa !24
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %34, ptr %38, align 8, !tbaa !26
-  br label %41
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.1, ptr %36, align 8, !tbaa !24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %34, ptr %37, align 8, !tbaa !26
+  br label %40
 
 .loopexit:                                        ; preds = %xread.exit, %xread.exit.thread, %select.unfold
   %.3 = phi ptr [ %.033, %select.unfold ], [ %.1, %xread.exit.thread ], [ %.1, %xread.exit ]
   %.032 = phi i32 [ -1, %select.unfold ], [ -1, %xread.exit.thread ], [ %30, %xread.exit ]
   tail call void @free(ptr noundef %.3) #20
-  br label %41
+  br label %40
 
 select.unfold:                                    ; preds = %7, %5
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !21
-  tail call void (ptr, ...) @msg(ptr noundef nonnull @.str.21, ptr noundef %40)
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !21
+  tail call void (ptr, ...) @msg(ptr noundef nonnull @.str.21, ptr noundef %39)
   br label %.loopexit
 
-41:                                               ; preds = %xmalloc.exit.thread, %.loopexit, %36
+40:                                               ; preds = %xmalloc.exit.thread, %.loopexit, %35
   %.0 = phi i32 [ %.032, %.loopexit ], [ 0, %36 ], [ -1, %xmalloc.exit.thread ]
   ret i32 %.0
 }

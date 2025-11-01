@@ -760,45 +760,45 @@ define dso_local range(i64 0, -9223372036854775807) i64 @int8gcd(ptr noundef rea
   %spec.select.i = select i1 %10, i64 %3, i64 %5
   %spec.select28.i = select i1 %10, i64 %5, i64 %3
   %11 = icmp eq i64 %spec.select28.i, -9223372036854775808
-  br i1 %11, label %12, label %20
+  br i1 %11, label %12, label %19
 
 12:                                               ; preds = %1
   %13 = and i64 %spec.select.i, 9223372036854775807
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %19
+  %or.cond.i = icmp eq i64 %13, 0
+  br i1 %or.cond.i, label %14, label %18
 
-15:                                               ; preds = %12
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %17 = tail call i32 @errcode(i32 noundef 50331778) #10
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #10
+14:                                               ; preds = %12
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %16 = tail call i32 @errcode(i32 noundef 50331778) #10
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 636, ptr noundef nonnull @__func__.int8gcd_internal) #10
   unreachable
 
-19:                                               ; preds = %12
+18:                                               ; preds = %12
   %cond.i = icmp eq i64 %spec.select.i, -1
   br i1 %cond.i, label %int8gcd_internal.exit, label %.lr.ph.i.preheader
 
-20:                                               ; preds = %1
+19:                                               ; preds = %1
   %.not30.i = icmp eq i64 %spec.select.i, 0
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %20, %19
+.lr.ph.i.preheader:                               ; preds = %19, %18
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.132.i = phi i64 [ %.12731.i, %.lr.ph.i ], [ %spec.select28.i, %.lr.ph.i.preheader ]
-  %.12731.i = phi i64 [ %21, %.lr.ph.i ], [ %spec.select.i, %.lr.ph.i.preheader ]
-  %21 = srem i64 %.132.i, %.12731.i
-  %.not.i = icmp eq i64 %21, 0
+  %.12731.i = phi i64 [ %20, %.lr.ph.i ], [ %spec.select.i, %.lr.ph.i.preheader ]
+  %20 = srem i64 %.132.i, %.12731.i
+  %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %20
-  %.1.lcssa.i = phi i64 [ %spec.select28.i, %20 ], [ %.12731.i, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %19
+  %.1.lcssa.i = phi i64 [ %spec.select28.i, %19 ], [ %.12731.i, %.lr.ph.i ]
   %spec.select29.i = tail call i64 @llvm.abs.i64(i64 %.1.lcssa.i, i1 false)
   br label %int8gcd_internal.exit
 
-int8gcd_internal.exit:                            ; preds = %19, %._crit_edge.i
-  %.0.i = phi i64 [ %spec.select29.i, %._crit_edge.i ], [ 1, %19 ]
+int8gcd_internal.exit:                            ; preds = %18, %._crit_edge.i
+  %.0.i = phi i64 [ %spec.select29.i, %._crit_edge.i ], [ 1, %18 ]
   ret i64 %.0.i
 }
 
@@ -811,7 +811,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @int8lcm(ptr noundef rea
   %6 = icmp eq i64 %3, 0
   %7 = icmp eq i64 %5, 0
   %or.cond = select i1 %6, i1 true, i1 %7
-  br i1 %or.cond, label %42, label %8
+  br i1 %or.cond, label %38, label %8
 
 8:                                                ; preds = %1
   %9 = tail call i64 @llvm.abs.i64(i64 %3, i1 false)
@@ -826,67 +826,67 @@ define dso_local range(i64 0, -9223372036854775808) i64 @int8lcm(ptr noundef rea
 
 15:                                               ; preds = %8
   %16 = and i64 %spec.select.i, 9223372036854775807
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %22
+  %or.cond.i = icmp eq i64 %16, 0
+  br i1 %or.cond.i, label %17, label %21
 
-18:                                               ; preds = %15
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %20 = tail call i32 @errcode(i32 noundef 50331778) #10
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #10
+17:                                               ; preds = %15
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %19 = tail call i32 @errcode(i32 noundef 50331778) #10
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 636, ptr noundef nonnull @__func__.int8gcd_internal) #10
   unreachable
 
-22:                                               ; preds = %15
-  %23 = icmp eq i64 %spec.select.i, -1
-  br i1 %23, label %int8gcd_internal.exit, label %.lr.ph.i.preheader
+21:                                               ; preds = %15
+  %cond.i = icmp eq i64 %spec.select.i, -1
+  br i1 %cond.i, label %int8gcd_internal.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %8, %22
+.lr.ph.i.preheader:                               ; preds = %8, %21
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.132.i = phi i64 [ %.12731.i, %.lr.ph.i ], [ %spec.select28.i, %.lr.ph.i.preheader ]
-  %.12731.i = phi i64 [ %24, %.lr.ph.i ], [ %spec.select.i, %.lr.ph.i.preheader ]
-  %24 = srem i64 %.132.i, %.12731.i
-  %.not.i = icmp eq i64 %24, 0
+  %.12731.i = phi i64 [ %22, %.lr.ph.i ], [ %spec.select.i, %.lr.ph.i.preheader ]
+  %22 = srem i64 %.132.i, %.12731.i
+  %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %spec.select29.i = tail call i64 @llvm.abs.i64(i64 %.12731.i, i1 false)
   br label %int8gcd_internal.exit
 
-int8gcd_internal.exit:                            ; preds = %22, %._crit_edge.i
+int8gcd_internal.exit:                            ; preds = %21, %._crit_edge.i
   %.0.i = phi i64 [ %spec.select29.i, %._crit_edge.i ], [ 1, %22 ]
-  %25 = sdiv i64 %3, %.0.i
-  %26 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %25, i64 %5)
-  %27 = extractvalue { i64, i1 } %26, 1
-  %28 = extractvalue { i64, i1 } %26, 0
-  br i1 %27, label %29, label %33, !prof !7
+  %23 = sdiv i64 %3, %.0.i
+  %24 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %23, i64 %5)
+  %25 = extractvalue { i64, i1 } %24, 1
+  %26 = extractvalue { i64, i1 } %24, 0
+  br i1 %25, label %27, label %31, !prof !7
 
-29:                                               ; preds = %int8gcd_internal.exit
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %31 = tail call i32 @errcode(i32 noundef 50331778) #10
-  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #10
+27:                                               ; preds = %int8gcd_internal.exit
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %29 = tail call i32 @errcode(i32 noundef 50331778) #10
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 704, ptr noundef nonnull @__func__.int8lcm) #10
   unreachable
 
-33:                                               ; preds = %int8gcd_internal.exit
-  %34 = icmp eq i64 %28, -9223372036854775808
-  br i1 %34, label %35, label %39, !prof !7
+31:                                               ; preds = %int8gcd_internal.exit
+  %32 = icmp eq i64 %26, -9223372036854775808
+  br i1 %32, label %33, label %37, !prof !7
 
-35:                                               ; preds = %33
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %37 = tail call i32 @errcode(i32 noundef 50331778) #10
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #10
+33:                                               ; preds = %31
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %35 = tail call i32 @errcode(i32 noundef 50331778) #10
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 710, ptr noundef nonnull @__func__.int8lcm) #10
   unreachable
 
-39:                                               ; preds = %33
-  %40 = icmp ugt i64 %28, -9223372036854775808
+37:                                               ; preds = %31
+  %40 = icmp ugt i64 %26, -9223372036854775808
   %41 = sub nsw i64 0, %28
   %spec.select = select i1 %40, i64 %41, i64 %28
   br label %42
 
-42:                                               ; preds = %39, %1
+38:                                               ; preds = %37, %1
   %.0 = phi i64 [ 0, %1 ], [ %spec.select, %39 ]
   ret i64 %.0
 }

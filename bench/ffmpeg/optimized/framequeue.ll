@@ -312,9 +312,9 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
   %wide.trip.count46 = zext nneg i32 %54 to i64
   br label %59
 
-55:                                               ; preds = %.lr.ph, %55
+55: ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !42
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.0
   store ptr %58, ptr %56, align 8, !tbaa !42
@@ -322,23 +322,23 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph41, label %55, !llvm.loop !44
 
-59:                                               ; preds = %.lr.ph41, %59
+58:                                               ; preds = %.lr.ph41, %58
   %indvars.iv43 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next44, %59 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv43
-  %61 = load ptr, ptr %60, align 8, !tbaa !42
-  %62 = getelementptr inbounds nuw ptr, ptr %.pre48, i64 %indvars.iv43
-  store ptr %61, ptr %62, align 8, !tbaa !42
+  %59 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv43
+  %60 = load ptr, ptr %59, align 8, !tbaa !42
+  %61 = getelementptr inbounds nuw ptr, ptr %.pre48, i64 %indvars.iv43
+  store ptr %60, ptr %61, align 8, !tbaa !42
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge, label %59, !llvm.loop !45
+  br i1 %exitcond47.not, label %._crit_edge, label %58, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %59, %39
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %64 = load i64, ptr %63, align 8, !tbaa !29
-  %65 = add i64 %64, %1
-  store i64 %65, ptr %63, align 8, !tbaa !29
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 1, ptr %66, align 8, !tbaa !30
+._crit_edge:                                      ; preds = %58, %39
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %63 = load i64, ptr %62, align 8, !tbaa !29
+  %64 = add i64 %63, %1
+  store i64 %64, ptr %62, align 8, !tbaa !29
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 1, ptr %65, align 8, !tbaa !30
   ret void
 }
 

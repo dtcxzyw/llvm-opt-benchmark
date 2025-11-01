@@ -146,13 +146,13 @@ define range(i32 0, 2) i32 @Mvc_CoverIsBinaryBuffer(ptr noundef readonly capture
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !14
   %.not = icmp eq i32 %3, 2
-  br i1 %.not, label %4, label %14
+  br i1 %.not, label %4, label %13
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !15
   %.not5 = icmp eq i32 %6, 1
-  br i1 %.not5, label %7, label %14
+  br i1 %.not5, label %7, label %13
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -160,11 +160,11 @@ define range(i32 0, 2) i32 @Mvc_CoverIsBinaryBuffer(ptr noundef readonly capture
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = and i32 %11, 3
-  %13 = icmp eq i32 %12, 2
-  %spec.select = zext i1 %13 to i32
-  br label %14
+  %or.cond.not = icmp eq i32 %12, 2
+  %spec.select = zext i1 %or.cond.not to i32
+  br label %13
 
-14:                                               ; preds = %7, %4, %1
+13:                                               ; preds = %7, %4, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
@@ -244,7 +244,7 @@ Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
   %.027 = add nsw i32 %8, -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph: ; preds = %.lr.ph.preheader, %.lr.ph
   %.028 = phi i32 [ %.0, %.lr.ph ], [ %.027, %.lr.ph.preheader ]
   %26 = zext nneg i32 %.028 to i64
   %27 = getelementptr inbounds nuw i32, ptr %23, i64 %26
@@ -338,7 +338,7 @@ define noundef ptr @Mvc_CoverCreateTautology(ptr noundef readonly captures(none)
   %.029 = add nsw i32 %10, -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph: ; preds = %.lr.ph.preheader, %.lr.ph
   %.030 = phi i32 [ %.0, %.lr.ph ], [ %.029, %.lr.ph.preheader ]
   %28 = zext nneg i32 %.030 to i64
   %29 = getelementptr inbounds nuw i32, ptr %25, i64 %28

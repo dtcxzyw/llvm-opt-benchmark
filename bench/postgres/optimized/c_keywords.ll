@@ -12,68 +12,68 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 -1, 65536) i32 @ScanCKeywordLookup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #2
   %3 = icmp ugt i64 %2, 8
-  br i1 %3, label %39, label %4
+  br i1 %3, label %36, label %4
 
 4:                                                ; preds = %1
-  %5 = icmp eq i64 %2, 0
-  br i1 %5, label %ScanCKeywords_hash_func.exit, label %.lr.ph.i
+  %.not11.i = icmp eq i64 %2, 0
+  br i1 %.not11.i, label %ScanCKeywords_hash_func.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
-  %.015.i = phi i64 [ %6, %.lr.ph.i ], [ %2, %4 ]
-  %.0814.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %4 ]
-  %.0913.i = phi i32 [ %11, %.lr.ph.i ], [ 0, %4 ]
-  %.01012.i = phi ptr [ %7, %.lr.ph.i ], [ %0, %4 ]
-  %6 = add i64 %.015.i, -1
-  %7 = getelementptr inbounds nuw i8, ptr %.01012.i, i64 1
-  %8 = load i8, ptr %.01012.i, align 1
-  %9 = mul i32 %.0913.i, 257
-  %10 = zext i8 %8 to i32
-  %11 = add i32 %9, %10
-  %12 = mul i32 %.0814.i, 17
-  %13 = add i32 %12, %10
-  %.not.i = icmp eq i64 %6, 0
+  %.015.i = phi i64 [ %5, %.lr.ph.i ], [ %2, %4 ]
+  %.0814.i = phi i32 [ %12, %.lr.ph.i ], [ 0, %4 ]
+  %.0913.i = phi i32 [ %10, %.lr.ph.i ], [ 0, %4 ]
+  %.01012.i = phi ptr [ %6, %.lr.ph.i ], [ %0, %4 ]
+  %5 = add i64 %.015.i, -1
+  %6 = getelementptr inbounds nuw i8, ptr %.01012.i, i64 1
+  %7 = load i8, ptr %.01012.i, align 1
+  %8 = mul i32 %.0913.i, 257
+  %9 = zext i8 %7 to i32
+  %10 = add i32 %8, %9
+  %11 = mul i32 %.0814.i, 17
+  %12 = add i32 %11, %9
+  %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %14 = urem i32 %11, 53
-  %15 = zext nneg i32 %14 to i64
-  %16 = urem i32 %13, 53
-  %17 = zext nneg i32 %16 to i64
+  %13 = urem i32 %10, 53
+  %14 = zext nneg i32 %13 to i64
+  %15 = urem i32 %12, 53
+  %16 = zext nneg i32 %15 to i64
   br label %ScanCKeywords_hash_func.exit
 
 ScanCKeywords_hash_func.exit:                     ; preds = %4, %._crit_edge.loopexit.i
-  %.09.lcssa.i = phi i64 [ 0, %4 ], [ %15, %._crit_edge.loopexit.i ]
-  %.08.lcssa.i = phi i64 [ 0, %4 ], [ %17, %._crit_edge.loopexit.i ]
-  %18 = getelementptr inbounds nuw i8, ptr @ScanCKeywords_hash_func.h, i64 %.09.lcssa.i
-  %19 = load i8, ptr %18, align 1
-  %20 = sext i8 %19 to i32
-  %21 = getelementptr inbounds nuw i8, ptr @ScanCKeywords_hash_func.h, i64 %.08.lcssa.i
-  %22 = load i8, ptr %21, align 1
-  %23 = sext i8 %22 to i32
-  %24 = add nsw i32 %23, %20
-  %25 = icmp ugt i32 %24, -257
+  %.09.lcssa.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i ]
+  %.08.lcssa.i = phi i64 [ 0, %4 ], [ %16, %._crit_edge.loopexit.i ]
+  %17 = getelementptr inbounds nuw i8, ptr @ScanCKeywords_hash_func.h, i64 %.09.lcssa.i
+  %18 = load i8, ptr %17, align 1
+  %19 = sext i8 %18 to i32
+  %20 = getelementptr inbounds nuw i8, ptr @ScanCKeywords_hash_func.h, i64 %.08.lcssa.i
+  %21 = load i8, ptr %20, align 1
+  %22 = sext i8 %21 to i32
+  %23 = add nsw i32 %22, %19
+  %or.cond = icmp ugt i32 %23, -257
   %26 = icmp sgt i32 %24, 25
   %or.cond = or i1 %25, %26
   br i1 %or.cond, label %39, label %27
 
-27:                                               ; preds = %ScanCKeywords_hash_func.exit
-  %28 = zext nneg i32 %24 to i64
-  %29 = getelementptr inbounds nuw i16, ptr @ScanCKeywords_kw_offsets, i64 %28
-  %30 = load i16, ptr %29, align 2
-  %31 = zext i16 %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr @ScanCKeywords_kw_string, i64 %31
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %0) #2
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %39
+24:                                               ; preds = %ScanCKeywords_hash_func.exit
+  %25 = zext nneg i32 %23 to i64
+  %26 = getelementptr inbounds nuw i16, ptr @ScanCKeywords_kw_offsets, i64 %25
+  %27 = load i16, ptr %26, align 2
+  %28 = zext i16 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr @ScanCKeywords_kw_string, i64 %28
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %0) #2
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %36
 
-35:                                               ; preds = %27
-  %36 = getelementptr inbounds nuw i16, ptr @ScanCKeywordTokens, i64 %28
-  %37 = load i16, ptr %36, align 2
-  %38 = zext i16 %37 to i32
-  br label %39
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw i16, ptr @ScanCKeywordTokens, i64 %25
+  %34 = load i16, ptr %33, align 2
+  %35 = zext i16 %34 to i32
+  br label %36
 
-39:                                               ; preds = %27, %ScanCKeywords_hash_func.exit, %1, %35
-  %.0 = phi i32 [ %38, %35 ], [ -1, %1 ], [ -1, %ScanCKeywords_hash_func.exit ], [ -1, %27 ]
+36:                                               ; preds = %24, %ScanCKeywords_hash_func.exit, %1, %32
+  %.0 = phi i32 [ %35, %35 ], [ -1, %1 ], [ -1, %ScanCKeywords_hash_func.exit ], [ -1, %27 ]
   ret i32 %.0
 }
 

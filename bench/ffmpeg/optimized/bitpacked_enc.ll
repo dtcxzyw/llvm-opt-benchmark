@@ -26,14 +26,14 @@ define internal range(i32 -22, 1) i32 @encode_init(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = and i32 %8, 1
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %12, label %11
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #5
   br label %20
 
-12:                                               ; preds = %1
+12:; preds = %1
   %13 = tail call i32 @av_get_bits_per_pixel(ptr noundef %6) #5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i32 %13, ptr %14, align 8, !tbaa !29
@@ -46,9 +46,9 @@ define internal range(i32 -22, 1) i32 @encode_init(ptr noundef %0) #0 {
 
 19:                                               ; preds = %12
   store ptr @encode_yuv422p10, ptr %3, align 8, !tbaa !31
-  br label %20
+  br label %19
 
-20:                                               ; preds = %12, %19, %11
+19:                                               ; preds = %12, %19, %11
   %.0 = phi i32 [ -22, %11 ], [ 0, %19 ], [ -22, %12 ]
   ret i32 %.0
 }

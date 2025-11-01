@@ -75,11 +75,11 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg4(ptr noundef %0, ptr nou
   %12 = zext nneg i8 %11 to i32
   %13 = tail call fastcc i32 @tcpmss_mangle_packet(ptr noundef %0, ptr noundef %1, i32 noundef 2, i32 noundef %12, i32 noundef 40), !range !5
   switch i32 %13, label %14 [
-    i32 -1, label %38
+    i32 -1, label %41
     i32 0, label %.fold.split
   ]
 
-14:                                               ; preds = %2
+14:; preds = %2
   %15 = load ptr, ptr %3, align 8
   %16 = load i16, ptr %5, align 4
   %17 = zext i16 %16 to i64
@@ -107,12 +107,12 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg4(ptr noundef %0, ptr nou
   store i16 %24, ptr %19, align 2
   br label %38
 
-.fold.split:                                      ; preds = %2
-  br label %38
+.fold.split:; preds = %2
+  br label %41
 
-38:                                               ; preds = %2, %.fold.split, %14
-  %39 = phi i32 [ 0, %2 ], [ -1, %14 ], [ -1, %.fold.split ]
-  ret i32 %39
+41:                                               ; preds = %2, %.fold.split, %14
+  %42 = phi i32 [ 0, %2 ], [ -1, %14 ], [ -1, %.fold.split ]
+  ret i32 %42
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -215,7 +215,7 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr nou
   store i8 %12, ptr %3, align 1
   %13 = call i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef 40, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %41, label %15
+  br i1 %14, label %44, label %15
 
 15:                                               ; preds = %2
   %16 = call fastcc i32 @tcpmss_mangle_packet(ptr noundef %0, ptr noundef %1, i32 noundef 10, i32 noundef %13, i32 noundef 60), !range !5
@@ -224,7 +224,7 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr nou
     i32 0, label %.fold.split
   ]
 
-17:                                               ; preds = %15
+17:; preds = %15
   %18 = load ptr, ptr %5, align 8
   %19 = load i16, ptr %7, align 4
   %20 = zext i16 %19 to i64
@@ -241,7 +241,7 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr nou
   %31 = icmp eq i8 %30, 64
   br i1 %31, label %32, label %40
 
-32:                                               ; preds = %17
+32:; preds = %17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %34 = load i32, ptr %33, align 8
   %35 = zext i16 %23 to i32
@@ -252,18 +252,18 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr nou
   store i32 %39, ptr %33, align 8
   br label %40
 
-40:                                               ; preds = %32, %17
+40:; preds = %32, %17
   store i16 %27, ptr %22, align 4
   br label %41
 
-.fold.split:                                      ; preds = %15
-  br label %41
+.fold.split:; preds = %15
+  br label %44
 
-41:                                               ; preds = %15, %.fold.split, %40, %2
-  %42 = phi i32 [ 0, %2 ], [ 0, %15 ], [ -1, %40 ], [ -1, %.fold.split ]
+44:                                               ; preds = %15, %.fold.split, %40, %2
+  %45 = phi i32 [ 0, %2 ], [ 0, %15 ], [ -1, %40 ], [ -1, %.fold.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %42
+  ret i32 %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

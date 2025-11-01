@@ -1786,18 +1786,18 @@ define noundef double @_ZNK3g2o30EstimatePropagatorCostOdometryclEPNS_16Optimiza
   %13 = load i32, ptr %12, align 8, !tbaa !70
   %14 = sub nsw i32 %11, %13
   %15 = tail call i32 @llvm.abs.i32(i32 %14, i1 true)
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %30
+  %.not = icmp eq i32 %15, 1
+  br i1 %.not, label %16, label %24
 
-17:                                               ; preds = %4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !120
-  %20 = tail call ptr @_ZNK3g2o15SparseOptimizer14findActiveEdgeEPKNS_16OptimizableGraph4EdgeE(ptr noundef nonnull align 8 dereferenceable(409) %19, ptr noundef %1)
-  %21 = load ptr, ptr %18, align 8, !tbaa !120
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 360
-  %23 = load ptr, ptr %22, align 8, !tbaa !123
-  %24 = icmp eq ptr %20, %23
-  br i1 %24, label %30, label %25
+16:                                               ; preds = %4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !120
+  %19 = tail call ptr @_ZNK3g2o15SparseOptimizer14findActiveEdgeEPKNS_16OptimizableGraph4EdgeE(ptr noundef nonnull align 8 dereferenceable(409) %18, ptr noundef %1)
+  %20 = load ptr, ptr %17, align 8, !tbaa !120
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 360
+  %22 = load ptr, ptr %21, align 8, !tbaa !123
+  %23 = icmp eq ptr %19, %22
+  br i1 %23, label %24, label %25
 
 25:                                               ; preds = %17
   %26 = load ptr, ptr %1, align 8, !tbaa !92
@@ -1806,7 +1806,7 @@ define noundef double @_ZNK3g2o30EstimatePropagatorCostOdometryclEPNS_16Optimiza
   %29 = tail call noundef double %28(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %3)
   br label %30
 
-30:                                               ; preds = %25, %17, %4
+24:                                               ; preds = %25, %16, %4
   %.0 = phi double [ 0x7FEFFFFFFFFFFFFF, %4 ], [ %29, %25 ], [ 0x7FEFFFFFFFFFFFFF, %17 ]
   ret double %.0
 }
