@@ -503,17 +503,15 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %123
 
 123:                                              ; preds = %122, %.thread22
-  switch i32 %121, label %.loopexit28 [
-    i32 -14, label %124
-    i32 -11, label %127
-  ]
+  %cond = icmp eq i32 %121, -14
+  br i1 %cond, label %124, label %.loopexit28
 
 124:                                              ; preds = %123
   %125 = call i32 @fault_in_user_writeable(ptr noundef %2) #8
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %.loopexit28
 
-127:                                              ; preds = %124, %123
+127:                                              ; preds = %124
   %128 = call i32 @__SCT__cond_resched() #8
   br i1 %28, label %46, label %29
 
@@ -670,7 +668,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @wake_up_q(ptr noundef nonnull %10) #8
   br label %.loopexit28
 
-.loopexit28:                                      ; preds = %32, %29, %124, %123, %217, %6
+.loopexit28:                                      ; preds = %32, %29, %123, %124, %217, %6
   %218 = phi i32 [ %215, %217 ], [ %12, %6 ], [ %125, %124 ], [ %121, %123 ], [ %30, %29 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

@@ -4598,7 +4598,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %.6258648.us.i.i.i = phi i64 [ %974, %967 ], [ %.0252.i.i.i, %.lr.ph.i32.i.i ]
   %.6333647.us.i.i.i = phi i32 [ %972, %967 ], [ %.0327.i.i.i, %.lr.ph.i32.i.i ]
   %.not.us.i.i.i = icmp ult ptr %.6649.us.i.i.i, %888
-  br i1 %.not.us.i.i.i, label %942, label %.thread395.i.i.i
+  br i1 %.not.us.i.i.i, label %942, label %.thread396.i.i.i
 
 942:                                              ; preds = %.lr.ph.split.us.i.i.i
   %943 = load i32, ptr %403, align 8, !tbaa !183
@@ -4611,7 +4611,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %946 = load i32, ptr %403, align 8
   %.not348.us.i.i.i = icmp slt i32 %946, %904
   %or.cond841.i.i.i = select i1 %.not347.us.i.i.i, i1 %.not348.us.i.i.i, i1 false
-  br i1 %or.cond841.i.i.i, label %.thread395.i.i.i, label %947
+  br i1 %or.cond841.i.i.i, label %.thread396.i.i.i, label %947
 
 947:                                              ; preds = %944, %942
   %948 = phi i32 [ %946, %944 ], [ %943, %942 ]
@@ -4622,25 +4622,25 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %953 = trunc i64 %952 to i32
   %954 = load i32, ptr %930, align 4, !tbaa !95
   %955 = and i32 %954, %953
-  %.val376.us.i.i.i = load i32, ptr %884, align 8, !tbaa !174
-  %.val377.us.i.i.i = load ptr, ptr %931, align 8, !tbaa !121
+  %.val377.us.i.i.i = load i32, ptr %884, align 8, !tbaa !174
+  %.val378.us.i.i.i = load ptr, ptr %931, align 8, !tbaa !121
   %956 = zext i32 %955 to i64
-  %957 = getelementptr inbounds nuw i16, ptr %.val377.us.i.i.i, i64 %956
+  %957 = getelementptr inbounds nuw i16, ptr %.val378.us.i.i.i, i64 %956
   %958 = load i16, ptr %957, align 2, !tbaa !215
   %959 = zext i16 %958 to i32
-  %960 = icmp sgt i32 %.val376.us.i.i.i, %959
-  %..i386.us.i.i.i = select i1 %960, i32 %959, i32 0
-  %961 = zext nneg i32 %..i386.us.i.i.i to i64
+  %960 = icmp sgt i32 %.val377.us.i.i.i, %959
+  %..i387.us.i.i.i = select i1 %960, i32 %959, i32 0
+  %961 = zext nneg i32 %..i387.us.i.i.i to i64
   %962 = getelementptr inbounds nuw i8, ptr %896, i64 %961
   %963 = load i8, ptr %962, align 1, !tbaa !4
   %964 = zext i8 %963 to i32
   %965 = sub nsw i32 %948, %964
   store i32 %965, ptr %403, align 8, !tbaa !183
-  %966 = icmp samesign ugt i32 %..i386.us.i.i.i, 255
+  %966 = icmp samesign ugt i32 %..i387.us.i.i.i, 255
   br i1 %966, label %.split.us.i.i.i, label %967
 
 967:                                              ; preds = %947
-  %968 = trunc nuw i32 %..i386.us.i.i.i to i8
+  %968 = trunc nuw i32 %..i387.us.i.i.i to i8
   %969 = sext i32 %.6333647.us.i.i.i to i64
   %970 = getelementptr inbounds i8, ptr %890, i64 %969
   store i8 %968, ptr %970, align 1, !tbaa !4
@@ -4676,7 +4676,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %.6258648.i.i.i = phi i64 [ %1027, %1020 ], [ %.0252.i.i.i, %.lr.ph.i32.i.i ]
   %.6333647.i.i.i = phi i32 [ %1025, %1020 ], [ %.0327.i.i.i, %.lr.ph.i32.i.i ]
   %.not.i33.i.i = icmp ult ptr %.6649.i.i.i, %888
-  br i1 %.not.i33.i.i, label %978, label %.thread395.i.i.i
+  br i1 %.not.i33.i.i, label %978, label %.thread396.i.i.i
 
 978:                                              ; preds = %.lr.ph.split.i.i.i
   %979 = load i32, ptr %403, align 8, !tbaa !183
@@ -4686,8 +4686,8 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
 ._crit_edge827.i.i:                               ; preds = %978
   %.pre828.i.i = load i64, ptr %3, align 8, !tbaa !185
   %.pre830.i.i = load i32, ptr %930, align 4, !tbaa !95
-  %.val376.i.pre.i.i = load i32, ptr %884, align 8, !tbaa !174
-  %.val377.i.pre.i.i = load ptr, ptr %931, align 8, !tbaa !121
+  %.val377.i.pre.i.i = load i32, ptr %884, align 8, !tbaa !174
+  %.val378.i.pre.i.i = load ptr, ptr %931, align 8, !tbaa !121
   br label %999
 
 980:                                              ; preds = %978
@@ -4698,8 +4698,8 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %or.cond1439.i.i.i = select i1 %.not347.i.i.i, i1 %.not348.i.i.i, i1 false
   %.pre829.i.i = load i64, ptr %3, align 8, !tbaa !185
   %.pre831.i.i = load i32, ptr %930, align 4, !tbaa !95
-  %.val376.i.pre832.i.i = load i32, ptr %884, align 8, !tbaa !174
-  %.val377.i.pre834.i.i = load ptr, ptr %931, align 8, !tbaa !121
+  %.val377.i.pre832.i.i = load i32, ptr %884, align 8, !tbaa !174
+  %.val378.i.pre834.i.i = load ptr, ptr %931, align 8, !tbaa !121
   br i1 %or.cond1439.i.i.i, label %982, label %999
 
 982:                                              ; preds = %980
@@ -4709,10 +4709,10 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %986 = trunc i64 %985 to i32
   %987 = and i32 %.pre831.i.i, %986
   %988 = zext i32 %987 to i64
-  %989 = getelementptr inbounds nuw i16, ptr %.val377.i.pre834.i.i, i64 %988
+  %989 = getelementptr inbounds nuw i16, ptr %.val378.i.pre834.i.i, i64 %988
   %990 = load i16, ptr %989, align 2, !tbaa !215
   %991 = zext i16 %990 to i32
-  %992 = icmp sgt i32 %.val376.i.pre832.i.i, %991
+  %992 = icmp sgt i32 %.val377.i.pre832.i.i, %991
   %..i.i.i.i = select i1 %992, i32 %991, i32 0
   %993 = zext nneg i32 %..i.i.i.i to i64
   %994 = getelementptr inbounds nuw i8, ptr %896, i64 %993
@@ -4724,8 +4724,8 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br i1 %998, label %1018, label %.thread.i30.i.i
 
 999:                                              ; preds = %980, %._crit_edge827.i.i
-  %.val377.i.i.i = phi ptr [ %.val377.i.pre834.i.i, %980 ], [ %.val377.i.pre.i.i, %._crit_edge827.i.i ]
-  %.val376.i.i.i = phi i32 [ %.val376.i.pre832.i.i, %980 ], [ %.val376.i.pre.i.i, %._crit_edge827.i.i ]
+  %.val378.i.i.i = phi ptr [ %.val378.i.pre834.i.i, %980 ], [ %.val378.i.pre.i.i, %._crit_edge827.i.i ]
+  %.val377.i.i.i = phi i32 [ %.val377.i.pre832.i.i, %980 ], [ %.val377.i.pre.i.i, %._crit_edge827.i.i ]
   %1000 = phi i32 [ %.pre831.i.i, %980 ], [ %.pre830.i.i, %._crit_edge827.i.i ]
   %1001 = phi i64 [ %.pre829.i.i, %980 ], [ %.pre828.i.i, %._crit_edge827.i.i ]
   %1002 = phi i32 [ %.pre.i34.i.i, %980 ], [ %979, %._crit_edge827.i.i ]
@@ -4735,12 +4735,12 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %1006 = trunc i64 %1005 to i32
   %1007 = and i32 %1000, %1006
   %1008 = zext i32 %1007 to i64
-  %1009 = getelementptr inbounds nuw i16, ptr %.val377.i.i.i, i64 %1008
+  %1009 = getelementptr inbounds nuw i16, ptr %.val378.i.i.i, i64 %1008
   %1010 = load i16, ptr %1009, align 2, !tbaa !215
   %1011 = zext i16 %1010 to i32
-  %1012 = icmp sgt i32 %.val376.i.i.i, %1011
-  %..i386.i.i.i = select i1 %1012, i32 %1011, i32 0
-  %1013 = zext nneg i32 %..i386.i.i.i to i64
+  %1012 = icmp sgt i32 %.val377.i.i.i, %1011
+  %..i387.i.i.i = select i1 %1012, i32 %1011, i32 0
+  %1013 = zext nneg i32 %..i387.i.i.i to i64
   %1014 = getelementptr inbounds nuw i8, ptr %896, i64 %1013
   %1015 = load i8, ptr %1014, align 1, !tbaa !4
   %1016 = zext i8 %1015 to i32
@@ -4749,7 +4749,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br label %1018
 
 1018:                                             ; preds = %999, %982
-  %.0263.i.i.i = phi i32 [ %..i386.i.i.i, %999 ], [ %..i.i.i.i, %982 ]
+  %.0263.i.i.i = phi i32 [ %..i387.i.i.i, %999 ], [ %..i.i.i.i, %982 ]
   %1019 = icmp samesign ugt i32 %.0263.i.i.i, 255
   br i1 %1019, label %.split.us.i.i.i, label %1020
 
@@ -4799,7 +4799,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br i1 %or.cond1440.i.i.i, label %1038, label %1058
 
 1038:                                             ; preds = %1036
-  br i1 %.not109.i, label %1039, label %.thread395.i.i.i
+  br i1 %.not109.i, label %1039, label %.thread396.i.i.i
 
 1039:                                             ; preds = %1038
   %1040 = load i64, ptr %3, align 8, !tbaa !185
@@ -4809,15 +4809,15 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %1044 = trunc i64 %1043 to i32
   %1045 = load i32, ptr %933, align 4, !tbaa !95
   %1046 = and i32 %1045, %1044
-  %.val378.i.i.i = load i32, ptr %883, align 8, !tbaa !174
-  %.val379.i.i.i = load ptr, ptr %934, align 8, !tbaa !121
+  %.val379.i.i.i = load i32, ptr %883, align 8, !tbaa !174
+  %.val380.i.i.i = load ptr, ptr %934, align 8, !tbaa !121
   %1047 = zext i32 %1046 to i64
-  %1048 = getelementptr inbounds nuw i16, ptr %.val379.i.i.i, i64 %1047
+  %1048 = getelementptr inbounds nuw i16, ptr %.val380.i.i.i, i64 %1047
   %1049 = load i16, ptr %1048, align 2, !tbaa !215
   %1050 = zext i16 %1049 to i32
-  %1051 = icmp sgt i32 %.val378.i.i.i, %1050
-  %..i387.i.i.i = select i1 %1051, i32 %1050, i32 0
-  %1052 = zext nneg i32 %..i387.i.i.i to i64
+  %1051 = icmp sgt i32 %.val379.i.i.i, %1050
+  %..i388.i.i.i = select i1 %1051, i32 %1050, i32 0
+  %1052 = zext nneg i32 %..i388.i.i.i to i64
   %1053 = getelementptr inbounds nuw i8, ptr %894, i64 %1052
   %1054 = load i8, ptr %1053, align 1, !tbaa !4
   %1055 = zext i8 %1054 to i32
@@ -4835,15 +4835,15 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %1064 = trunc i64 %1063 to i32
   %1065 = load i32, ptr %933, align 4, !tbaa !95
   %1066 = and i32 %1065, %1064
-  %.val380.i.i.i = load i32, ptr %883, align 8, !tbaa !174
-  %.val381.i.i.i = load ptr, ptr %934, align 8, !tbaa !121
+  %.val381.i.i.i = load i32, ptr %883, align 8, !tbaa !174
+  %.val382.i.i.i = load ptr, ptr %934, align 8, !tbaa !121
   %1067 = zext i32 %1066 to i64
-  %1068 = getelementptr inbounds nuw i16, ptr %.val381.i.i.i, i64 %1067
+  %1068 = getelementptr inbounds nuw i16, ptr %.val382.i.i.i, i64 %1067
   %1069 = load i16, ptr %1068, align 2, !tbaa !215
   %1070 = zext i16 %1069 to i32
-  %1071 = icmp sgt i32 %.val380.i.i.i, %1070
-  %..i388.i.i.i = select i1 %1071, i32 %1070, i32 0
-  %1072 = zext nneg i32 %..i388.i.i.i to i64
+  %1071 = icmp sgt i32 %.val381.i.i.i, %1070
+  %..i389.i.i.i = select i1 %1071, i32 %1070, i32 0
+  %1072 = zext nneg i32 %..i389.i.i.i to i64
   %1073 = getelementptr inbounds nuw i8, ptr %894, i64 %1072
   %1074 = load i8, ptr %1073, align 1, !tbaa !4
   %1075 = zext i8 %1074 to i32
@@ -4852,7 +4852,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br label %1077
 
 1077:                                             ; preds = %1058, %1039
-  %.1264.i.i.i = phi i32 [ %..i388.i.i.i, %1058 ], [ %..i387.i.i.i, %1039 ]
+  %.1264.i.i.i = phi i32 [ %..i389.i.i.i, %1058 ], [ %..i388.i.i.i, %1039 ]
   %1078 = add nuw nsw i32 %.1264.i.i.i, 9
   br label %1081
 
@@ -4907,7 +4907,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br i1 %or.cond369.i.i.i, label %1097, label %1098
 
 1097:                                             ; preds = %1094
-  br i1 %.not109.i, label %.thread.i30.i.i, label %.thread395.i.i.i
+  br i1 %.not109.i, label %.thread.i30.i.i, label %.thread396.i.i.i
 
 1098:                                             ; preds = %1094, %1091
   %1099 = phi i32 [ %1096, %1094 ], [ %1093, %1091 ]
@@ -4935,11 +4935,11 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
 
 ._crit_edge836.i.i:                               ; preds = %1111
   %.pre837.i.i = load i64, ptr %3, align 8, !tbaa !185
-  %.pre838.i.i = sub nsw i32 %.pre1134.i.i.i, %1092
+  %.pre839.i.i = sub nsw i32 %.pre1134.i.i.i, %1092
   br label %1134
 
 1113:                                             ; preds = %1111
-  br i1 %.not109.i, label %1114, label %.thread395.i.i.i
+  br i1 %.not109.i, label %1114, label %.thread396.i.i.i
 
 1114:                                             ; preds = %1113
   %1115 = sub nsw i32 %.pre1134.i.i.i, %1092
@@ -4950,15 +4950,15 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %1120 = trunc i64 %1119 to i32
   %1121 = load i32, ptr %937, align 4, !tbaa !95
   %1122 = and i32 %1121, %1120
-  %.val382.i.i.i = load i32, ptr %882, align 8, !tbaa !174
-  %.val383.i.i.i = load ptr, ptr %938, align 8, !tbaa !121
+  %.val383.i.i.i = load i32, ptr %882, align 8, !tbaa !174
+  %.val384.i.i.i = load ptr, ptr %938, align 8, !tbaa !121
   %1123 = zext i32 %1122 to i64
-  %1124 = getelementptr inbounds nuw i16, ptr %.val383.i.i.i, i64 %1123
+  %1124 = getelementptr inbounds nuw i16, ptr %.val384.i.i.i, i64 %1123
   %1125 = load i16, ptr %1124, align 2, !tbaa !215
   %1126 = zext i16 %1125 to i32
-  %1127 = icmp sgt i32 %.val382.i.i.i, %1126
-  %..i389.i.i.i = select i1 %1127, i32 %1126, i32 0
-  %1128 = zext nneg i32 %..i389.i.i.i to i64
+  %1127 = icmp sgt i32 %.val383.i.i.i, %1126
+  %..i390.i.i.i = select i1 %1127, i32 %1126, i32 0
+  %1128 = zext nneg i32 %..i390.i.i.i to i64
   %1129 = getelementptr inbounds nuw i8, ptr %892, i64 %1128
   %1130 = load i8, ptr %1129, align 1, !tbaa !4
   %1131 = zext i8 %1130 to i32
@@ -4968,7 +4968,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br i1 %1133, label %1152, label %.thread.i30.i.i
 
 1134:                                             ; preds = %._crit_edge836.i.i, %1098
-  %.pre-phi.i.i = phi i32 [ %.pre838.i.i, %._crit_edge836.i.i ], [ %1101, %1098 ]
+  %.pre-phi.i.i = phi i32 [ %.pre839.i.i, %._crit_edge836.i.i ], [ %1101, %1098 ]
   %1135 = phi i64 [ %.pre837.i.i, %._crit_edge836.i.i ], [ %1100, %1098 ]
   %1136 = sub nsw i32 %.pre-phi.i.i, %900
   %1137 = zext nneg i32 %1136 to i64
@@ -4976,15 +4976,15 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %1139 = trunc i64 %1138 to i32
   %1140 = load i32, ptr %937, align 4, !tbaa !95
   %1141 = and i32 %1140, %1139
-  %.val384.i.i.i = load i32, ptr %882, align 8, !tbaa !174
-  %.val385.i.i.i = load ptr, ptr %938, align 8, !tbaa !121
+  %.val385.i.i.i = load i32, ptr %882, align 8, !tbaa !174
+  %.val386.i.i.i = load ptr, ptr %938, align 8, !tbaa !121
   %1142 = zext i32 %1141 to i64
-  %1143 = getelementptr inbounds nuw i16, ptr %.val385.i.i.i, i64 %1142
+  %1143 = getelementptr inbounds nuw i16, ptr %.val386.i.i.i, i64 %1142
   %1144 = load i16, ptr %1143, align 2, !tbaa !215
   %1145 = zext i16 %1144 to i32
-  %1146 = icmp sgt i32 %.val384.i.i.i, %1145
-  %..i390.i.i.i = select i1 %1146, i32 %1145, i32 0
-  %1147 = zext nneg i32 %..i390.i.i.i to i64
+  %1146 = icmp sgt i32 %.val385.i.i.i, %1145
+  %..i391.i.i.i = select i1 %1146, i32 %1145, i32 0
+  %1147 = zext nneg i32 %..i391.i.i.i to i64
   %1148 = getelementptr inbounds nuw i8, ptr %892, i64 %1147
   %1149 = load i8, ptr %1148, align 1, !tbaa !4
   %1150 = zext i8 %1149 to i32
@@ -4993,7 +4993,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br label %1152
 
 1152:                                             ; preds = %1134, %1114
-  %.2265.i.i.i = phi i32 [ %..i390.i.i.i, %1134 ], [ %..i389.i.i.i, %1114 ]
+  %.2265.i.i.i = phi i32 [ %..i391.i.i.i, %1134 ], [ %..i390.i.i.i, %1114 ]
   %1153 = add nsw i32 %.2265.i.i.i, %1109
   br label %1171
 
@@ -5011,7 +5011,7 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br i1 %or.cond370.i.i.i, label %1159, label %1160
 
 1159:                                             ; preds = %1156
-  br i1 %.not109.i, label %.thread.i30.i.i, label %.thread395.i.i.i
+  br i1 %.not109.i, label %.thread.i30.i.i, label %.thread396.i.i.i
 
 1160:                                             ; preds = %1156, %1154
   %1161 = phi i32 [ %1158, %1156 ], [ %1155, %1154 ]
@@ -5143,18 +5143,19 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %.8318.i.i.i = sub nsw i32 %.7317.i.i.i, %1214
   %.8274.i.i.i = select i1 %.not367.i.i.i, i32 %.7273..i.i.i, i32 %.7273.i.i.i
   %.1262.i.i.i = select i1 %.not367.i.i.i, i32 %.374.i.i.i, i32 10
-  switch i32 %.1262.i.i.i, label %lzx_decode_blocks.exit.i.i [
+  switch i32 %.1262.i.i.i, label %.unreachabledefault375.i.i.i [
     i32 0, label %1179
     i32 10, label %.outer.i.i.i.outer
-    i32 7, label %.thread395.i.i.i
+    i32 7, label %.thread396.i.i.i
   ]
 
 .thread.i30.i.i:                                  ; preds = %1114, %1081, %1039, %982, %1159, %1097
   %1215 = getelementptr inbounds nuw i8, ptr %879, i64 540
   store i32 -25, ptr %1215, align 4, !tbaa !158
+  %.pre838.i.i = load i64, ptr %399, align 8, !tbaa !198
   br label %lzx_decode_blocks.exit.i.i
 
-.thread395.i.i.i:                                 ; preds = %1113, %.loopexit.i26.i.i, %1038, %944, %.lr.ph.split.us.i.i.i, %.lr.ph.split.i.i.i, %1159, %1097
+.thread396.i.i.i:                                 ; preds = %1113, %.loopexit.i26.i.i, %1038, %944, %.lr.ph.split.us.i.i.i, %.lr.ph.split.i.i.i, %1159, %1097
   %.7334.i.i.i = phi i32 [ %.3330.i.i.i, %1159 ], [ %.3330.i.i.i, %1097 ], [ %.6333647.i.i.i, %.lr.ph.split.i.i.i ], [ %.6333647.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.6333647.us.i.i.i, %944 ], [ %.2329.i.i.i, %1038 ], [ %1212, %.loopexit.i26.i.i ], [ %.3330.i.i.i, %1113 ]
   %.4323.i.i.i = phi i32 [ %.0319.i.i.i, %1159 ], [ %.0319.i.i.i, %1097 ], [ %.0319.i.i.i, %.lr.ph.split.i.i.i ], [ %.0319.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.0319.i.i.i, %944 ], [ %.0319.i.i.i, %1038 ], [ %1210, %.loopexit.i26.i.i ], [ %1109, %1113 ]
   %.5315.i.i.i = phi i32 [ %.2312.i.i.i, %1159 ], [ %.2312.i.i.i, %1097 ], [ %.0310.i.i.i, %.lr.ph.split.i.i.i ], [ %.0310.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.0310.i.i.i, %944 ], [ %.0310.i.i.i, %1038 ], [ %.8318.i.i.i, %.loopexit.i26.i.i ], [ %.2312.i.i.i, %1113 ]
@@ -5184,10 +5185,13 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   store i64 %1217, ptr %399, align 8, !tbaa !198
   br label %lzx_decode_blocks.exit.i.i
 
-lzx_decode_blocks.exit.i.i:                       ; preds = %.loopexit.i26.i.i, %.thread395.i.i.i, %.thread.i30.i.i, %.preheader._crit_edge.i.i.i
-  %.0248.i.i.i = phi i32 [ 1, %.preheader._crit_edge.i.i.i ], [ 0, %.thread395.i.i.i ], [ -25, %.thread.i30.i.i ], [ undef, %.loopexit.i26.i.i ]
+.unreachabledefault375.i.i.i:                     ; preds = %.loopexit.i26.i.i
+  unreachable
+
+lzx_decode_blocks.exit.i.i:                       ; preds = %.thread396.i.i.i, %.thread.i30.i.i, %.preheader._crit_edge.i.i.i
+  %1218 = phi i64 [ %977, %.preheader._crit_edge.i.i.i ], [ %1217, %.thread396.i.i.i ], [ %.pre838.i.i, %.thread.i30.i.i ]
+  %.0248.i.i.i = phi i32 [ 1, %.preheader._crit_edge.i.i.i ], [ 0, %.thread396.i.i.i ], [ -25, %.thread.i30.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %1218 = load i64, ptr %399, align 8, !tbaa !198
   %1219 = sub nsw i64 %880, %1218
   %1220 = load ptr, ptr %398, align 8, !tbaa !199
   %1221 = getelementptr inbounds i8, ptr %1220, i64 %1219
@@ -5271,18 +5275,18 @@ lzx_decode.exit.i:                                ; preds = %.loopexit.i.i, %421
 
 1257:                                             ; preds = %1250
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre916.i = load i16, ptr %235, align 8, !tbaa !105
+  %.pre917.i = load i16, ptr %235, align 8, !tbaa !105
   br label %1258
 
 1258:                                             ; preds = %1257, %._crit_edge.i
-  %1259 = phi i16 [ %.pre916.i, %1257 ], [ %1240, %._crit_edge.i ]
+  %1259 = phi i16 [ %.pre917.i, %1257 ], [ %1240, %._crit_edge.i ]
   %.val97.i = load ptr, ptr %391, align 8, !tbaa !112
   %1260 = getelementptr inbounds nuw i8, ptr %.val97.i, i64 40
   %1261 = load i8, ptr %1260, align 8, !tbaa !189
   %1262 = icmp eq i8 %1261, 0
   %1263 = icmp ult i16 %1259, 11
   %or.cond.i104.i = select i1 %1262, i1 true, i1 %1263
-  %.pre918.i = load ptr, ptr %223, align 8, !tbaa !122
+  %.pre919.i = load ptr, ptr %223, align 8, !tbaa !122
   br i1 %or.cond.i104.i, label %lzx_translation.exit.i, label %.lr.ph.i105.i
 
 .lr.ph.i105.i:                                    ; preds = %1258
@@ -5290,16 +5294,16 @@ lzx_decode.exit.i:                                ; preds = %.loopexit.i.i, %421
   %1265 = getelementptr inbounds nuw i8, ptr %1264, i64 88
   %1266 = load i32, ptr %1265, align 8, !tbaa !132
   %1267 = zext i16 %1259 to i64
-  %1268 = getelementptr i8, ptr %.pre918.i, i64 %1267
+  %1268 = getelementptr i8, ptr %.pre919.i, i64 %1267
   %1269 = getelementptr i8, ptr %1268, i64 -10
   %1270 = ptrtoint ptr %1269 to i64
-  %1271 = ptrtoint ptr %.pre918.i to i64
+  %1271 = ptrtoint ptr %.pre919.i to i64
   %1272 = getelementptr inbounds nuw i8, ptr %.val97.i, i64 36
   %1273 = shl i32 %1266, 15
   br label %1274
 
 1274:                                             ; preds = %1287, %.lr.ph.i105.i
-  %.01.i.i = phi ptr [ %.pre918.i, %.lr.ph.i105.i ], [ %1288, %1287 ]
+  %.01.i.i = phi ptr [ %.pre919.i, %.lr.ph.i105.i ], [ %1288, %1287 ]
   %1275 = ptrtoint ptr %.01.i.i to i64
   %1276 = sub i64 %1270, %1275
   %1277 = call ptr @memchr(ptr noundef %.01.i.i, i32 noundef 232, i64 noundef %1276) #20
@@ -5335,11 +5339,11 @@ lzx_decode.exit.i:                                ; preds = %.loopexit.i.i, %421
   br i1 %1289, label %1274, label %lzx_translation.exit.loopexit.i, !llvm.loop !220
 
 lzx_translation.exit.loopexit.i:                  ; preds = %1287, %1274
-  %.pre917.i = load ptr, ptr %223, align 8, !tbaa !122
+  %.pre918.i = load ptr, ptr %223, align 8, !tbaa !122
   br label %lzx_translation.exit.i
 
 lzx_translation.exit.i:                           ; preds = %lzx_translation.exit.loopexit.i, %1258
-  %1290 = phi ptr [ %.pre917.i, %lzx_translation.exit.loopexit.i ], [ %.pre918.i, %1258 ]
+  %1290 = phi ptr [ %.pre918.i, %lzx_translation.exit.loopexit.i ], [ %.pre919.i, %1258 ]
   %1291 = getelementptr inbounds nuw i8, ptr %222, i64 14
   %1292 = load i16, ptr %1291, align 2, !tbaa !143
   %1293 = zext i16 %1292 to i64

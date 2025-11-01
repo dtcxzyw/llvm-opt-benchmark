@@ -441,7 +441,7 @@ bytestream2_get_le32.exit163:                     ; preds = %123, %122, %78
   %195 = sdiv i32 %191, 2
   %196 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %195, ptr %196, align 4, !tbaa !59
-  switch i32 %.0133, label %247 [
+  switch i32 %.0133, label %.unreachabledefault [
     i32 1497837872, label %197
     i32 1497581366, label %211
     i32 1146639409, label %237
@@ -518,7 +518,10 @@ bytestream2_get_le32.exit163:                     ; preds = %123, %122, %78
   %246 = icmp slt i32 %245, 0
   br i1 %246, label %.thread, label %247
 
-247:                                              ; preds = %237, %188
+.unreachabledefault:                              ; preds = %188
+  unreachable
+
+247:                                              ; preds = %237
   store i32 1, ptr %2, align 4, !tbaa !61
   %248 = load i32, ptr %12, align 8, !tbaa !33
   br label %.thread

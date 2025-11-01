@@ -1697,8 +1697,8 @@ define internal fastcc range(i32 -1, 2) i32 @SDL_PrivateAddGamepadMapping(ptr no
   %70 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %.059) #10
   %71 = add i64 %70, 2
   %72 = call noalias ptr @SDL_malloc_REAL(i64 noundef %71) #10
-  %.not.i97 = icmp eq ptr %72, null
-  br i1 %.not.i97, label %117, label %73
+  %.not.i98 = icmp eq ptr %72, null
+  br i1 %.not.i98, label %117, label %73
 
 73:                                               ; preds = %69
   %74 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %72, ptr noundef nonnull %.059, i64 noundef %71) #10
@@ -1738,8 +1738,8 @@ define internal fastcc range(i32 -1, 2) i32 @SDL_PrivateAddGamepadMapping(ptr no
   %89 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %.059) #10
   %90 = add i64 %89, 2
   %91 = call noalias ptr @SDL_malloc_REAL(i64 noundef %90) #10
-  %.not.i98 = icmp eq ptr %91, null
-  br i1 %.not.i98, label %117, label %92
+  %.not.i99 = icmp eq ptr %91, null
+  br i1 %.not.i99, label %117, label %92
 
 92:                                               ; preds = %88
   %93 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %91, ptr noundef nonnull %.059, i64 noundef %90) #10
@@ -1793,10 +1793,10 @@ define internal fastcc range(i32 -1, 2) i32 @SDL_PrivateAddGamepadMapping(ptr no
   br i1 %spec.select95, label %SDL_ConvertMappingToPositionalAXBY.exit.thread, label %117
 
 SDL_ConvertMappingToPositionalAXBY.exit.thread.sink.split: ; preds = %110, %83
-  %.sink144 = phi ptr [ %77, %83 ], [ %98, %110 ]
+  %.sink145 = phi ptr [ %77, %83 ], [ %98, %110 ]
   %.168.ph.ph = phi ptr [ %72, %83 ], [ %91, %110 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.sink144, i64 5
-  %114 = getelementptr inbounds nuw i8, ptr %.sink144, i64 6
+  %113 = getelementptr inbounds nuw i8, ptr %.sink145, i64 5
+  %114 = getelementptr inbounds nuw i8, ptr %.sink145, i64 6
   %115 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %113) #10
   %116 = add i64 %115, 1
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull align 1 %113, i64 %116, i1 false)
@@ -1841,11 +1841,11 @@ SDL_ConvertMappingToPositionalAXBY.exit.thread:   ; preds = %SDL_ConvertMappingT
   br label %127
 
 127:                                              ; preds = %117, %124, %126, %125, %120, %118
-  %.370118 = phi ptr [ %.370.ph, %118 ], [ null, %117 ], [ %.370.ph, %120 ], [ %.370.ph, %125 ], [ %.370.ph, %126 ], [ %.370.ph, %124 ]
+  %.370119 = phi ptr [ %.370.ph, %118 ], [ null, %117 ], [ %.370.ph, %120 ], [ %.370.ph, %125 ], [ %.370.ph, %126 ], [ %.370.ph, %124 ]
   %.366 = phi i32 [ -1, %118 ], [ %.164, %117 ], [ 0, %120 ], [ 1, %125 ], [ 1, %126 ], [ 1, %124 ]
   %128 = load ptr, ptr %3, align 8
   call void @SDL_free_REAL(ptr noundef %128) #10
-  call void @SDL_free_REAL(ptr noundef %.370118) #10
+  call void @SDL_free_REAL(ptr noundef %.370119) #10
   br label %129
 
 129:                                              ; preds = %127, %18, %8

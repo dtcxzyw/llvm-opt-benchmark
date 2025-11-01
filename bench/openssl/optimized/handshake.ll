@@ -759,35 +759,35 @@ configure_handshake_ssl.exit:                     ; preds = %225, %228
   br label %.outer.outer.outer
 
 .outer.outer.outer:                               ; preds = %336, %278
-  %.ph251.ph.ph = phi i32 [ %314, %336 ], [ 1, %278 ]
-  %.ph252.ph.ph = phi i32 [ 0, %336 ], [ 3, %278 ]
-  %.ph253.ph.ph = phi i32 [ %316, %336 ], [ 1, %278 ]
+  %.ph250.ph.ph = phi i32 [ %314, %336 ], [ 1, %278 ]
+  %.ph251.ph.ph = phi i32 [ 0, %336 ], [ 3, %278 ]
+  %.ph252.ph.ph = phi i32 [ %316, %336 ], [ 1, %278 ]
   %.0133.ph.ph.ph = phi i32 [ %331, %336 ], [ 0, %278 ]
   %.0131.ph.ph.ph = phi i32 [ %337, %336 ], [ 0, %278 ]
-  %.0130.ph.ph.ph = phi i32 [ %.0130.ph.ph.ph260, %336 ], [ 0, %278 ]
-  br label %.outer.outer.outer254
+  %.0130.ph.ph.ph = phi i32 [ %.0130.ph.ph.ph259, %336 ], [ 0, %278 ]
+  br label %.outer.outer.outer253
 
-.outer.outer.outer254:                            ; preds = %.outer.outer.outer, %312
+.outer.outer.outer253:                            ; preds = %.outer.outer.outer, %312
+  %.ph250.ph.ph255 = phi i32 [ %.ph250.ph.ph, %.outer.outer.outer ], [ 1, %312 ]
   %.ph251.ph.ph256 = phi i32 [ %.ph251.ph.ph, %.outer.outer.outer ], [ 1, %312 ]
   %.ph252.ph.ph257 = phi i32 [ %.ph252.ph.ph, %.outer.outer.outer ], [ 1, %312 ]
-  %.ph253.ph.ph258 = phi i32 [ %.ph253.ph.ph, %.outer.outer.outer ], [ 1, %312 ]
-  %.0133.ph.ph.ph259 = phi i32 [ %.0133.ph.ph.ph, %.outer.outer.outer ], [ 0, %312 ]
-  %.0130.ph.ph.ph260 = phi i32 [ %.0130.ph.ph.ph, %.outer.outer.outer ], [ %.0.i172.ph, %312 ]
+  %.0133.ph.ph.ph258 = phi i32 [ %.0133.ph.ph.ph, %.outer.outer.outer ], [ 0, %312 ]
+  %.0130.ph.ph.ph259 = phi i32 [ %.0130.ph.ph.ph, %.outer.outer.outer ], [ %.0.i172.ph, %312 ]
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %.outer.outer.outer254, %340
-  %.ph251.ph = phi i32 [ %314, %340 ], [ %.ph251.ph.ph256, %.outer.outer.outer254 ]
-  %.ph252.ph = phi i32 [ %313, %340 ], [ %.ph252.ph.ph257, %.outer.outer.outer254 ]
-  %.ph253.ph = phi i32 [ %316, %340 ], [ %.ph253.ph.ph258, %.outer.outer.outer254 ]
-  %.0135.ph.ph = phi i32 [ %341, %340 ], [ 1, %.outer.outer.outer254 ]
-  %.0133.ph.ph = phi i32 [ %331, %340 ], [ %.0133.ph.ph.ph259, %.outer.outer.outer254 ]
+.outer.outer:                                     ; preds = %.outer.outer.outer253, %340
+  %.ph250.ph = phi i32 [ %314, %340 ], [ %.ph250.ph.ph255, %.outer.outer.outer253 ]
+  %.ph251.ph = phi i32 [ %313, %340 ], [ %.ph251.ph.ph256, %.outer.outer.outer253 ]
+  %.ph252.ph = phi i32 [ %316, %340 ], [ %.ph252.ph.ph257, %.outer.outer.outer253 ]
+  %.0135.ph.ph = phi i32 [ %341, %340 ], [ 1, %.outer.outer.outer253 ]
+  %.0133.ph.ph = phi i32 [ %331, %340 ], [ %.0133.ph.ph.ph258, %.outer.outer.outer253 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %327
-  %.ph = phi i32 [ %313, %327 ], [ %.ph252.ph, %.outer.outer ]
-  %.ph251 = phi i32 [ %314, %327 ], [ %.ph251.ph, %.outer.outer ]
-  %.ph252 = phi i32 [ %315, %327 ], [ %.ph252.ph, %.outer.outer ]
-  %.ph253 = phi i32 [ %328, %327 ], [ %.ph253.ph, %.outer.outer ]
+  %.ph = phi i32 [ %313, %327 ], [ %.ph251.ph, %.outer.outer ]
+  %.ph250 = phi i32 [ %314, %327 ], [ %.ph250.ph, %.outer.outer ]
+  %.ph251 = phi i32 [ %315, %327 ], [ %.ph251.ph, %.outer.outer ]
+  %.ph252 = phi i32 [ %328, %327 ], [ %.ph252.ph, %.outer.outer ]
   %.0135.ph = phi i32 [ %329, %327 ], [ %.0135.ph.ph, %.outer.outer ]
   %283 = icmp ne i32 %.0135.ph, 0
   %284 = icmp eq i32 %.0135.ph, 0
@@ -795,13 +795,13 @@ configure_handshake_ssl.exit:                     ; preds = %225, %228
 
 285:                                              ; preds = %.outer, %325
   %286 = phi i32 [ %313, %325 ], [ %.ph, %.outer ]
-  %287 = phi i32 [ %314, %325 ], [ %.ph251, %.outer ]
-  %288 = phi i32 [ %315, %325 ], [ %.ph252, %.outer ]
-  %289 = phi i32 [ %314, %325 ], [ %.ph253, %.outer ]
+  %287 = phi i32 [ %314, %325 ], [ %.ph250, %.outer ]
+  %288 = phi i32 [ %315, %325 ], [ %.ph251, %.outer ]
+  %289 = phi i32 [ %314, %325 ], [ %.ph252, %.outer ]
   br i1 %283, label %290, label %297
 
 290:                                              ; preds = %285
-  call fastcc void @do_connect_step(ptr noundef %3, ptr noundef %19, i32 noundef %.0130.ph.ph.ph260)
+  call fastcc void @do_connect_step(ptr noundef %3, ptr noundef %19, i32 noundef %.0130.ph.ph.ph259)
   %291 = load i32, ptr %279, align 4, !tbaa !58
   switch i32 %291, label %handshake_status.exit [
     i32 2, label %295
@@ -823,7 +823,7 @@ configure_handshake_ssl.exit:                     ; preds = %225, %228
   br label %handshake_status.exit
 
 295:                                              ; preds = %290
-  switch i32 %288, label %handshake_status.exit171.thread [
+  switch i32 %288, label %.unreachabledefault [
     i32 2, label %handshake_status.exit171.thread210
     i32 3, label %handshake_status.exit.thread199
     i32 0, label %handshake_status.exit171.thread208
@@ -841,7 +841,7 @@ handshake_status.exit.thread199:                  ; preds = %295, %handshake_sta
   br label %handshake_status.exit171
 
 297:                                              ; preds = %285
-  call fastcc void @do_connect_step(ptr noundef %3, ptr noundef %18, i32 noundef %.0130.ph.ph.ph260)
+  call fastcc void @do_connect_step(ptr noundef %3, ptr noundef %18, i32 noundef %.0130.ph.ph.ph259)
   %298 = load i32, ptr %280, align 4, !tbaa !58
   switch i32 %298, label %handshake_status.exit171.thread [
     i32 2, label %300
@@ -867,15 +867,14 @@ handshake_status.exit171:                         ; preds = %handshake_status.ex
   %301 = phi i32 [ 1, %handshake_status.exit.thread199 ], [ %286, %handshake_status.exit ]
   %302 = phi i32 [ 1, %handshake_status.exit.thread199 ], [ %288, %handshake_status.exit ]
   %.0129 = phi i32 [ %.0.i201, %handshake_status.exit.thread199 ], [ %.0.i, %handshake_status.exit ]
-  switch i32 %.0129, label %default.unreachable250 [
+  switch i32 %.0129, label %default.unreachable [
     i32 4, label %handshake_status.exit171.thread204
     i32 1, label %handshake_status.exit171.thread208
-    i32 2, label %handshake_status.exit171.thread210
     i32 3, label %handshake_status.exit171.thread
   ]
 
 handshake_status.exit171.thread206:               ; preds = %292, %299
-  switch i32 %.0130.ph.ph.ph260, label %311 [
+  switch i32 %.0130.ph.ph.ph259, label %311 [
     i32 0, label %303
     i32 1, label %312
     i32 2, label %307
@@ -920,17 +919,20 @@ next_phase.exit:                                  ; preds = %handshake_status.ex
   %.0.i172.ph = phi i32 [ %spec.select.i, %305 ], [ %..i, %307 ], [ 2, %handshake_status.exit171.thread206 ], [ 1, %303 ], [ 5, %310 ], [ 4, %309 ], [ -1, %311 ]
   store i32 1, ptr %280, align 4, !tbaa !58
   store i32 1, ptr %279, align 4, !tbaa !58
-  br label %.outer.outer.outer254
+  br label %.outer.outer.outer253
 
 handshake_status.exit171.thread208:               ; preds = %295, %300, %handshake_status.exit171
   store i32 2, ptr %31, align 8, !tbaa !27
   br label %342
 
-handshake_status.exit171.thread210:               ; preds = %295, %300, %handshake_status.exit171
+handshake_status.exit171.thread210:               ; preds = %295, %300
   store i32 1, ptr %31, align 8, !tbaa !27
   br label %342
 
-handshake_status.exit171.thread:                  ; preds = %295, %297, %299, %300, %handshake_status.exit171
+.unreachabledefault:                              ; preds = %295
+  unreachable
+
+handshake_status.exit171.thread:                  ; preds = %handshake_status.exit171, %297, %299, %300
   store i32 3, ptr %31, align 8, !tbaa !27
   br label %342
 
@@ -995,7 +997,7 @@ handshake_status.exit171.thread204:               ; preds = %300, %handshake_sta
   %341 = xor i32 %.0135.ph, 1
   br label %.outer.outer
 
-default.unreachable250:                           ; preds = %handshake_status.exit171
+default.unreachable:                              ; preds = %handshake_status.exit171
   unreachable
 
 342:                                              ; preds = %267, %270, %274, %261, %264, %251, %253, %232, %237, %339, %333, %322, %handshake_status.exit171.thread, %handshake_status.exit171.thread210, %handshake_status.exit171.thread208, %next_phase.exit, %211, %208

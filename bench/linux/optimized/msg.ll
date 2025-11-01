@@ -823,7 +823,7 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
   %22 = or i1 %21, %20
   %23 = icmp slt i64 %1, 1
   %24 = or i1 %23, %22
-  br i1 %24, label %.loopexit24, label %25
+  br i1 %24, label %200, label %25
 
 25:                                               ; preds = %5
   %26 = call ptr @load_msg(ptr noundef %2, i64 noundef %3) #11
@@ -832,7 +832,7 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
 
 28:                                               ; preds = %25
   %29 = ptrtoint ptr %26 to i64
-  br label %.loopexit24
+  br label %200
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -953,16 +953,16 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
 .thread23:                                        ; preds = %90, %52, %55, %58, %73, %74, %77, %86
   %.ph = phi i32 [ -43, %77 ], [ -43, %74 ], [ -11, %73 ], [ %59, %58 ], [ -43, %55 ], [ -13, %52 ], [ -514, %86 ], [ -514, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit25
+  br label %.loopexit24
 
 94:                                               ; preds = %90, %66
   %95 = phi i32 [ %71, %66 ], [ 0, %90 ]
   %96 = phi i32 [ %72, %66 ], [ 0, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  switch i32 %96, label %.loopexit24 [
+  switch i32 %96, label %.unreachabledefault [
     i32 0, label %52
     i32 3, label %97
-    i32 5, label %.loopexit25
+    i32 5, label %.loopexit24
   ], !llvm.loop !16
 
 97:                                               ; preds = %94
@@ -1112,7 +1112,7 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
   %178 = getelementptr inbounds nuw i8, ptr %123, i64 48
   store volatile ptr %26, ptr %178, align 8
-  br label %.loopexit25
+  br label %.loopexit24
 
 179:                                              ; preds = %152, %138, %135, %132, %129, %.preheader
   %180 = icmp eq ptr %124, %120
@@ -1137,18 +1137,18 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
   call void @percpu_counter_add_batch(ptr noundef nonnull %189, i64 noundef %3, i32 noundef 2147483647) #11
   %190 = getelementptr inbounds nuw i8, ptr %14, i64 720
   call void @percpu_counter_add_batch(ptr noundef nonnull %190, i64 noundef 1, i32 noundef 2147483647) #11
-  br label %.loopexit25
+  br label %.loopexit24
 
-.loopexit25:                                      ; preds = %94, %.thread23, %.loopexit, %174
+.loopexit24:                                      ; preds = %94, %.thread23, %.loopexit, %174
   %191 = phi ptr [ null, %.loopexit ], [ null, %174 ], [ %26, %.thread23 ], [ %26, %94 ]
   %192 = phi i32 [ 0, %.loopexit ], [ 0, %174 ], [ %.ph, %.thread23 ], [ %95, %94 ]
   call void @_raw_spin_unlock(ptr noundef %34) #11
   call void @wake_up_q(ptr noundef nonnull %6) #11
   br label %193
 
-193:                                              ; preds = %.loopexit25, %36
-  %194 = phi ptr [ %26, %36 ], [ %191, %.loopexit25 ]
-  %195 = phi i32 [ %38, %36 ], [ %192, %.loopexit25 ]
+193:                                              ; preds = %.loopexit24, %36
+  %194 = phi ptr [ %26, %36 ], [ %191, %.loopexit24 ]
+  %195 = phi i32 [ %38, %36 ], [ %192, %.loopexit24 ]
   call void @__rcu_read_unlock() #11
   %196 = icmp eq ptr %194, null
   br i1 %196, label %198, label %197
@@ -1159,12 +1159,15 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
 
 198:                                              ; preds = %197, %193
   %199 = sext i32 %195 to i64
-  br label %.loopexit24
+  br label %200
 
-.loopexit24:                                      ; preds = %94, %198, %28, %5
-  %200 = phi i64 [ %29, %28 ], [ %199, %198 ], [ -22, %5 ], [ undef, %94 ]
+.unreachabledefault:                              ; preds = %94
+  unreachable
+
+200:                                              ; preds = %198, %28, %5
+  %201 = phi i64 [ %29, %28 ], [ %199, %198 ], [ -22, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i64 %200
+  ret i64 %201
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1457,10 +1460,9 @@ define internal fastcc i64 @do_msgrcv(i32 noundef %0, ptr noundef %1, i64 nounde
 
 .preheader29.split.split:                         ; preds = %.preheader29, %114
   %102 = phi ptr [ %115, %114 ], [ %80, %.preheader29 ]
-  switch i32 %40, label %107 [
+  switch i32 %40, label %103 [
     i32 1, label %111
-    i32 5, label %111
-    i32 2, label %103
+    i32 3, label %107
   ]
 
 103:                                              ; preds = %.preheader29.split.split
@@ -1475,7 +1477,7 @@ define internal fastcc i64 @do_msgrcv(i32 noundef %0, ptr noundef %1, i64 nounde
   %110 = icmp eq i64 %109, %76
   br i1 %110, label %114, label %111
 
-111:                                              ; preds = %107, %103, %.preheader29.split.split, %.preheader29.split.split
+111:                                              ; preds = %107, %103, %.preheader29.split.split
   %112 = call i32 @security_msg_queue_msgrcv(ptr noundef %42, ptr noundef %102, ptr noundef %11, i64 noundef %76, i32 noundef %40) #11
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %.loopexit30, label %114
@@ -2317,7 +2319,7 @@ define internal fastcc i32 @msgctl_down(ptr noundef %0, i32 noundef %1, i32 noun
   call void @__rcu_read_unlock() #11
   br label %37
 
-37:                                               ; preds = %18, %35
+37:                                               ; preds = %35, %18
   %38 = phi i32 [ %36, %35 ], [ 0, %18 ]
   call void @up_write(ptr noundef %8) #11
   ret i32 %38

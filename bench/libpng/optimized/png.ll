@@ -3425,9 +3425,9 @@ define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(no
   br i1 %7, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %4, %60
-  %.03851 = phi i64 [ %61, %60 ], [ %6, %4 ]
-  %.03950 = phi i32 [ %.241, %60 ], [ %5, %4 ]
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.03851
+  %.03852 = phi i64 [ %61, %60 ], [ %6, %4 ]
+  %.03951 = phi i32 [ %.241, %60 ], [ %5, %4 ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.03852
   %9 = load i8, ptr %8, align 1, !tbaa !27
   switch i8 %9, label %.thread [
     i8 43, label %15
@@ -3464,7 +3464,7 @@ define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(no
 
 15:                                               ; preds = %.lr.ph, %14, %13, %12, %11, %10
   %.037 = phi i32 [ 132, %10 ], [ 16, %11 ], [ 8, %12 ], [ 264, %13 ], [ 32, %14 ], [ 4, %.lr.ph ]
-  %16 = and i32 %.03950, 3
+  %16 = and i32 %.03951, 3
   %17 = and i32 %.037, 60
   %18 = or disjoint i32 %17, %16
   switch i32 %18, label %.thread [
@@ -3479,91 +3479,91 @@ define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(no
   ]
 
 19:                                               ; preds = %15
-  %20 = and i32 %.03950, 60
+  %20 = and i32 %.03951, 60
   %.not46 = icmp eq i32 %20, 0
   br i1 %.not46, label %21, label %.thread
 
 21:                                               ; preds = %19
-  %22 = or i32 %.037, %.03950
+  %22 = or i32 %.037, %.03951
   br label %60
 
 23:                                               ; preds = %15
-  %24 = and i32 %.03950, 16
+  %24 = and i32 %.03951, 16
   %.not44 = icmp eq i32 %24, 0
   br i1 %.not44, label %25, label %.thread
 
 25:                                               ; preds = %23
-  %26 = and i32 %.03950, 8
+  %26 = and i32 %.03951, 8
   %.not45 = icmp eq i32 %26, 0
   br i1 %.not45, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = or i32 %.037, %.03950
+  %28 = or i32 %.037, %.03951
   br label %60
 
 29:                                               ; preds = %25
-  %30 = and i32 %.03950, 448
+  %30 = and i32 %.03951, 448
   %31 = or i32 %30, %.037
   %32 = or disjoint i32 %31, 1
   br label %60
 
 33:                                               ; preds = %15
-  %34 = and i32 %.03950, 16
+  %34 = and i32 %.03951, 16
   %.not43 = icmp eq i32 %34, 0
-  %35 = and i32 %.03950, 384
+  %35 = and i32 %.03951, 384
   %36 = or disjoint i32 %35, 17
-  %.3 = select i1 %.not43, i32 %.03950, i32 %36
+  %.3 = select i1 %.not43, i32 %.03951, i32 %36
   %37 = or i32 %.3, %.037
   %38 = or i32 %37, 64
   br label %60
 
 39:                                               ; preds = %15
-  %40 = and i32 %.03950, 8
+  %40 = and i32 %.03951, 8
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %39
-  %43 = and i32 %.03950, 448
+  %43 = and i32 %.03951, 448
   %44 = or disjoint i32 %43, 2
   br label %60
 
 45:                                               ; preds = %15
-  %46 = or i32 %.03950, %.037
+  %46 = or i32 %.03951, %.037
   %47 = or i32 %46, 64
   br label %60
 
 48:                                               ; preds = %15
-  %49 = and i32 %.03950, 8
+  %49 = and i32 %.03951, 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %48
-  %52 = and i32 %.03950, 448
+  %52 = and i32 %.03951, 448
   %53 = or disjoint i32 %52, 2
   br label %60
 
 54:                                               ; preds = %15
-  %55 = and i32 %.03950, 60
+  %55 = and i32 %.03951, 60
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %56, label %.thread
 
 56:                                               ; preds = %54
-  %57 = or disjoint i32 %.03950, 4
+  %57 = or disjoint i32 %.03951, 4
   br label %60
 
 58:                                               ; preds = %15
-  %59 = or i32 %.03950, 72
+  %59 = or i32 %.03951, 72
   br label %60
 
 60:                                               ; preds = %21, %33, %42, %45, %51, %56, %58, %27, %29
   %.241 = phi i32 [ %22, %21 ], [ %28, %27 ], [ %32, %29 ], [ %38, %33 ], [ %44, %42 ], [ %47, %45 ], [ %53, %51 ], [ %57, %56 ], [ %59, %58 ]
-  %61 = add i64 %.03851, 1
+  %61 = add i64 %.03852, 1
   %exitcond.not = icmp eq i64 %61, %1
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %60, %.lr.ph, %19, %23, %39, %48, %54, %15, %4
-  %.039.lcssa = phi i32 [ %5, %4 ], [ %.03950, %15 ], [ %.03950, %54 ], [ %.03950, %48 ], [ %.03950, %39 ], [ %.03950, %23 ], [ %.03950, %19 ], [ %.03950, %.lr.ph ], [ %.241, %60 ]
-  %.038.lcssa = phi i64 [ %6, %4 ], [ %.03851, %15 ], [ %.03851, %54 ], [ %.03851, %48 ], [ %.03851, %39 ], [ %.03851, %23 ], [ %.03851, %19 ], [ %.03851, %.lr.ph ], [ %1, %60 ]
+  %.039.lcssa = phi i32 [ %5, %4 ], [ %.03951, %15 ], [ %.03951, %54 ], [ %.03951, %48 ], [ %.03951, %39 ], [ %.03951, %23 ], [ %.03951, %19 ], [ %.03951, %.lr.ph ], [ %.241, %60 ]
+  %.038.lcssa = phi i64 [ %6, %4 ], [ %.03852, %15 ], [ %.03852, %54 ], [ %.03852, %48 ], [ %.03852, %39 ], [ %.03852, %23 ], [ %.03852, %19 ], [ %.03852, %.lr.ph ], [ %1, %60 ]
   store i32 %.039.lcssa, ptr %2, align 4, !tbaa !43
   store i64 %.038.lcssa, ptr %3, align 8, !tbaa !42
   %62 = lshr i32 %.039.lcssa, 3

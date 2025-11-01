@@ -156,7 +156,7 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
   %19 = tail call i32 @X509_check_purpose(ptr noundef %18, i32 noundef -1, i32 noundef -1) #8
   %20 = tail call ptr @policy_cache_set(ptr noundef %18) #8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %tree_init.exit.thread, label %22
+  br i1 %21, label %.thread66, label %22
 
 22:                                               ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -217,7 +217,7 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
   %.191.lcssa162.i = phi i32 [ %.393.i, %._crit_edge.i ], [ %.090.i, %13 ]
   %48 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %.not111.i = icmp eq ptr %48, null
-  br i1 %.not111.i, label %tree_init.exit.thread, label %49
+  br i1 %.not111.i, label %.thread66, label %49
 
 49:                                               ; preds = %._crit_edge.thread.i
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -235,7 +235,7 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
 
 54:                                               ; preds = %49
   tail call void @free(ptr noundef nonnull %48) #8
-  br label %tree_init.exit.thread
+  br label %.thread66
 
 55:                                               ; preds = %49
   store i32 %8, ptr %52, align 8, !tbaa !16
@@ -353,19 +353,15 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
 
 112:                                              ; preds = %58, %55
   tail call void @X509_policy_tree_free(ptr noundef nonnull %48)
-  br label %tree_init.exit.thread
+  br label %.thread66
 
 tree_init.exit:                                   ; preds = %45
   switch i32 %.198.i, label %tree_calculate_user_set.exit [
     i32 2, label %.thread66
     i32 -1, label %113
-    i32 0, label %tree_init.exit.thread
   ]
 
 113:                                              ; preds = %tree_init.exit
-  br label %.thread66
-
-tree_init.exit.thread:                            ; preds = %.lr.ph.i, %._crit_edge.thread.i, %54, %112, %tree_init.exit
   br label %.thread66
 
 tree_init.exit.thread57:                          ; preds = %45
@@ -1012,8 +1008,8 @@ tree_calculate_user_set.exit:                     ; preds = %223, %144, %170, %1
   call void @X509_policy_tree_free(ptr noundef %.04549)
   br label %.thread66
 
-.thread66:                                        ; preds = %5, %402, %tree_evaluate.exit, %tree_init.exit, %tree_calculate_user_set.exit, %406, %tree_init.exit.thread57, %tree_init.exit.thread, %113
-  %.0 = phi i32 [ 0, %tree_calculate_user_set.exit ], [ 1, %406 ], [ -1, %113 ], [ 0, %tree_init.exit.thread ], [ -2, %tree_init.exit.thread57 ], [ %., %tree_evaluate.exit ], [ -2, %402 ], [ 1, %5 ], [ 1, %tree_init.exit ]
+.thread66:                                        ; preds = %.lr.ph.i, %112, %54, %._crit_edge.thread.i, %5, %402, %tree_evaluate.exit, %tree_init.exit, %tree_calculate_user_set.exit, %406, %tree_init.exit.thread57, %113
+  %.0 = phi i32 [ 0, %tree_calculate_user_set.exit ], [ 1, %406 ], [ -1, %113 ], [ -2, %tree_init.exit.thread57 ], [ %., %tree_evaluate.exit ], [ -2, %402 ], [ 1, %5 ], [ 1, %tree_init.exit ], [ 0, %._crit_edge.thread.i ], [ 0, %54 ], [ 0, %112 ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

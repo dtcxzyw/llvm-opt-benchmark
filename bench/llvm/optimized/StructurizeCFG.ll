@@ -1649,7 +1649,6 @@ _ZNK4llvm11Instruction11getMetadataEj.exit.thread.i: ; preds = %227, %_ZNK4llvm1
   %.pre144.i = phi ptr [ %.pre144.pre.i, %_ZNK4llvm11Instruction11getMetadataEj.exit._ZNK4llvm11Instruction11getMetadataEj.exit.thread_crit_edge.i ], [ %180, %227 ]
   %231 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_121RelaxedUniformRegionsE, i64 120), align 8, !tbaa !34, !range !52, !noundef !53
   %232 = trunc nuw i8 %231 to i1
-  %spec.select.i = select i1 %232, i32 6, i32 1
   %not..i = xor i1 %232, true
   %spec.select114.i = select i1 %not..i, i1 %.029.i, i1 false
   br label %_ZNK4llvm11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.i
@@ -1662,7 +1661,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit.thread.i: ; preds = %227, %_ZNK4llvm1
 
 _ZNK4llvm11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.i: ; preds = %191, %208, %_ZNK4llvm11Instruction11getMetadataEj.exit.thread.i
   %234 = phi ptr [ %.pre144.i, %_ZNK4llvm11Instruction11getMetadataEj.exit.thread.i ], [ %180, %208 ], [ %180, %191 ]
-  %.344.i = phi i32 [ %spec.select.i, %_ZNK4llvm11Instruction11getMetadataEj.exit.thread.i ], [ 6, %208 ], [ 6, %191 ]
+  %.344.i = phi i1 [ %232, %_ZNK4llvm11Instruction11getMetadataEj.exit.thread.i ], [ true, %208 ], [ true, %191 ]
   %.534.i = phi i1 [ %spec.select114.i, %_ZNK4llvm11Instruction11getMetadataEj.exit.thread.i ], [ %.029.i, %208 ], [ %.029.i, %191 ]
   %.not.i.i.i.i.i = icmp eq ptr %234, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorINS1_11InstructionES2_EEEESaIS9_EED2Ev.exit.i.i, label %235
@@ -1758,14 +1757,11 @@ _ZNSt6vectorISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorINS1_11In
 
 _ZN4llvm14iterator_rangeINS_10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE22block_iterator_wrapperILb0EEEED2Ev.exit.i: ; preds = %272, %_ZNSt6vectorISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorINS1_11InstructionES2_EEEESaIS9_EED2Ev.exit.i2.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  switch i32 %.344.i, label %_ZNK4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.loopexit130.i [
-    i32 6, label %.thread101.i
-    i32 3, label %.thread101.i
-  ]
+  br i1 %.344.i, label %.thread101.i, label %_ZNK4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS7_.exit.loopexit130.i
 
-.thread101.i:                                     ; preds = %_ZN4llvm14iterator_rangeINS_10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE22block_iterator_wrapperILb0EEEED2Ev.exit.i, %_ZN4llvm14iterator_rangeINS_10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE22block_iterator_wrapperILb0EEEED2Ev.exit.i, %149, %142, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i
-  %.231106.i = phi i1 [ %.029.i, %149 ], [ %.534.i, %_ZN4llvm14iterator_rangeINS_10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE22block_iterator_wrapperILb0EEEED2Ev.exit.i ], [ %.029.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ %.029.i, %142 ], [ %.534.i, %_ZN4llvm14iterator_rangeINS_10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE22block_iterator_wrapperILb0EEEED2Ev.exit.i ]
-  %.339105.i = phi i32 [ %150, %149 ], [ %.036.i, %_ZN4llvm14iterator_rangeINS_10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE22block_iterator_wrapperILb0EEEED2Ev.exit.i ], [ %.036.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ %.036.i, %142 ], [ %.036.i, %_ZN4llvm14iterator_rangeINS_10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE22block_iterator_wrapperILb0EEEED2Ev.exit.i ]
+.thread101.i:                                     ; preds = %_ZN4llvm14iterator_rangeINS_10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE22block_iterator_wrapperILb0EEEED2Ev.exit.i, %149, %142, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i
+  %.231106.i = phi i1 [ %.029.i, %149 ], [ %.029.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ %.029.i, %142 ], [ %.534.i, %_ZN4llvm14iterator_rangeINS_10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE22block_iterator_wrapperILb0EEEED2Ev.exit.i ]
+  %.339105.i = phi i32 [ %150, %149 ], [ %.036.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i ], [ %.036.i, %142 ], [ %.036.i, %_ZN4llvm14iterator_rangeINS_10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE22block_iterator_wrapperILb0EEEED2Ev.exit.i ]
   call void @_ZN4llvm11df_iteratorIPNS_10RegionNodeENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(112) %5)
   %.pre.i = load ptr, ptr %71, align 8, !tbaa !173
   %.pre141.i = load ptr, ptr %47, align 8, !tbaa !176

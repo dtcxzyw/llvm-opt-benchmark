@@ -231,7 +231,7 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   br label %105
 
 84:                                               ; preds = %79
-  switch i32 %.054, label %92 [
+  switch i32 %.054, label %.unreachabledefault [
     i32 4097, label %85
     i32 4098, label %86
     i32 4100, label %88
@@ -258,9 +258,12 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   %.pre = load i32, ptr %10, align 4, !tbaa !10
   br label %92
 
-92:                                               ; preds = %90, %88, %86, %85, %84
-  %93 = phi i32 [ 0, %84 ], [ %.091, %85 ], [ %87, %86 ], [ %89, %88 ], [ %.pre, %90 ]
-  %.0 = phi ptr [ null, %84 ], [ @cpy_asc, %85 ], [ @cpy_bmp, %86 ], [ @cpy_univ, %88 ], [ @cpy_utf8, %90 ]
+.unreachabledefault:                              ; preds = %84
+  unreachable
+
+92:                                               ; preds = %90, %88, %86, %85
+  %93 = phi i32 [ %.091, %85 ], [ %87, %86 ], [ %89, %88 ], [ %.pre, %90 ]
+  %.0 = phi ptr [ @cpy_asc, %85 ], [ @cpy_bmp, %86 ], [ @cpy_univ, %88 ], [ @cpy_utf8, %90 ]
   %94 = add nsw i32 %93, 1
   %95 = sext i32 %94 to i64
   %96 = call noalias ptr @malloc(i64 noundef %95) #10
@@ -286,7 +289,7 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   %102 = sext i32 %93 to i64
   %103 = getelementptr inbounds i8, ptr %96, i64 %102
   store i8 0, ptr %103, align 1, !tbaa !23
-  %104 = call fastcc i32 @traverse_string(ptr noundef %1, i32 noundef %.058, i32 noundef %3, ptr noundef %.0, ptr noundef %11)
+  %104 = call fastcc i32 @traverse_string(ptr noundef %1, i32 noundef %.058, i32 noundef %3, ptr noundef nonnull %.0, ptr noundef %11)
   br label %105
 
 105:                                              ; preds = %81, %66, %100, %99, %83, %77, %54, %49, %44, %39, %38, %27, %22

@@ -203324,11 +203324,11 @@ _ZNK5boost8geometry6detail7overlay26get_turn_info_linear_arealINS2_18assign_null
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %96 = load i64, ptr %95, align 8, !tbaa !24
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %.sroa.19.80..sroa_idx79162 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.80..sroa_idx79162, ptr noundef nonnull align 8 dereferenceable(12) %97, i64 12, i1 false)
+  %.sroa.19.80..sroa_idx79 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.80..sroa_idx79, ptr noundef nonnull align 8 dereferenceable(12) %97, i64 12, i1 false), !tbaa.struct !2614
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  %.sroa.31.152..sroa_idx117163 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.31.152..sroa_idx117163, ptr noundef nonnull align 4 dereferenceable(12) %98, i64 12, i1 false)
+  %.sroa.31.152..sroa_idx117 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.31.152..sroa_idx117, ptr noundef nonnull align 4 dereferenceable(12) %98, i64 12, i1 false), !tbaa.struct !2614
   %.sroa.0.0.copyload.i32 = load ptr, ptr %3, align 8
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i32, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !2421
@@ -226612,14 +226612,12 @@ _ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1
 define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay18collinear_oppositeINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIdEENS2_21turn_operation_linearIS9_SB_EESt5arrayISD_Lm2EEEENS2_18assign_null_policyEE5applyINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS5_3boxIS9_EELm2EEES9_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKS9_St6vectorIS9_SaIS9_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEEENSL_ILb1ESP_S9_SZ_S13_S14_EESt20back_insert_iteratorISV_ISG_SaISG_EEENS2_17intersection_infoIS15_S16_S9_S13_S14_EENS2_15side_calculatorIS15_S16_S13_EENS2_26get_turn_info_linear_arealISH_E19turn_transformer_ecILb0EEEEEvRKT_RKT0_RKSG_RT1_RKT2_RKT3_T4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 8 dereferenceable(216) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(280) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 %6) local_unnamed_addr #4 comdat align 2 {
   %8 = alloca %"struct.boost::geometry::strategy::side::side_by_triangle<>::eps_policy", align 8
   %9 = alloca %"struct.boost::geometry::strategy::side::side_by_triangle<>::eps_policy", align 8
-  %.sroa.048 = alloca [2 x double], align 8
   %.sroa.13 = alloca [20 x i8], align 4
   %.sroa.19 = alloca [68 x i8], align 4
   %.sroa.21 = alloca [12 x i8], align 8
   %.sroa.23 = alloca [3 x i8], align 1
   %.sroa.31 = alloca [68 x i8], align 4
   %.sroa.33 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.048)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.21)
@@ -226709,7 +226707,6 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_r
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.132 = select i1 %43, i32 2, i32 1
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.048, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !1701
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %.sroa.19.88..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.19.88..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false), !tbaa.struct !3231
@@ -226875,13 +226872,12 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_r
 _ZNK5boost8geometry6detail7overlay26get_turn_info_linear_arealINS2_18assign_null_policyEE19turn_transformer_ecILb0EEclINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIdEENS2_21turn_operation_linearISE_SG_EESt5arrayISI_Lm2EEEEEEvRT_.exit31: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i18, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.048, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %.sroa.19.88..sroa_idx75152 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.19.88..sroa_idx75152, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false)
+  %.sroa.19.88..sroa_idx75 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.19.88..sroa_idx75, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false), !tbaa.struct !3231
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %.sroa.31.176..sroa_idx109153 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.31.176..sroa_idx109153, ptr noundef nonnull align 8 dereferenceable(24) %96, i64 24, i1 false)
+  %.sroa.31.176..sroa_idx109 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.31.176..sroa_idx109, ptr noundef nonnull align 8 dereferenceable(24) %96, i64 24, i1 false), !tbaa.struct !3231
   %.sroa.0.0.copyload.i32 = load ptr, ptr %3, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i32, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !3020
@@ -226891,7 +226887,7 @@ _ZNK5boost8geometry6detail7overlay26get_turn_info_linear_arealINS2_18assign_null
   br i1 %.not.i.i33, label %104, label %101
 
 101:                                              ; preds = %_ZNK5boost8geometry6detail7overlay26get_turn_info_linear_arealINS2_18assign_null_policyEE19turn_transformer_ecILb0EEclINS2_9turn_infoINS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIdEENS2_21turn_operation_linearISE_SG_EESt5arrayISI_Lm2EEEEEEvRT_.exit31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.048, i64 16, i1 false), !tbaa.struct !3047
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false)
   %.sroa.9.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store i32 %6, ptr %.sroa.9.0..sroa_idx53, align 8, !tbaa !2449
   %.sroa.13.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %98, i64 20
@@ -226941,7 +226937,7 @@ _ZNKSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS
   %116 = mul nuw nsw i64 %115, 216
   %117 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %116) #59
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 %108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.048, i64 16, i1 false), !tbaa.struct !3047
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false)
   %.sroa.9.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %118, i64 16
   store i32 %6, ptr %.sroa.9.0..sroa_idx55, align 8, !tbaa !2449
   %.sroa.13.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %118, i64 20
@@ -226992,7 +226988,6 @@ _ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1
   br label %_ZNSt20back_insert_iteratorISt6vectorIN5boost8geometry6detail7overlay9turn_infoINS2_5model5pointIdLm2ENS2_2cs9cartesianEEENS2_13segment_ratioIdEENS4_21turn_operation_linearISA_SC_EESt5arrayISE_Lm2EEEESaISH_EEEaSERKSH_.exit46
 
 _ZNSt20back_insert_iteratorISt6vectorIN5boost8geometry6detail7overlay9turn_infoINS2_5model5pointIdLm2ENS2_2cs9cartesianEEENS2_13segment_ratioIdEENS4_21turn_operation_linearISA_SC_EESt5arrayISE_Lm2EEEESaISH_EEEaSERKSH_.exit46: ; preds = %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEEENS5_ILb1ESE_SC_SO_SS_ST_EESS_E9qk_wrt_q1Ev.exit.thread126, %_ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs9cartesianEEENS1_13segment_ratioIdEENS3_21turn_operation_linearIS9_SB_EESt5arrayISD_Lm2EEEESaISG_EE17_M_realloc_insertIJRKSG_EEEvN9__gnu_cxx17__normal_iteratorIPSG_SI_EEDpOT_.exit.i.i45, %101, %_ZNSt20back_insert_iteratorISt6vectorIN5boost8geometry6detail7overlay9turn_infoINS2_5model5pointIdLm2ENS2_2cs9cartesianEEENS2_13segment_ratioIdEENS4_21turn_operation_linearISA_SC_EESt5arrayISE_Lm2EEEESaISH_EEEaSERKSH_.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.048)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.19)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.21)
@@ -247015,14 +247010,12 @@ _ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIeLm2ENS1
 define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay18collinear_oppositeINS2_9turn_infoINS0_5model5pointIeLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIeEENS2_21turn_operation_linearIS9_SB_EESt5arrayISD_Lm2EEEENS2_18assign_null_policyEE5applyINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS5_3boxIS9_EELm2EEES9_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKS9_St6vectorIS9_SaIS9_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEEENSL_ILb1ESP_S9_SZ_S13_S14_EESt20back_insert_iteratorISV_ISG_SaISG_EEENS2_17intersection_infoIS15_S16_S9_S13_S14_EENS2_15side_calculatorIS15_S16_S13_EENS2_26get_turn_info_linear_arealISH_E19turn_transformer_ecILb0EEEEEvRKT_RKT0_RKSG_RT1_RKT2_RKT3_T4_(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull align 8 dereferenceable(67) %1, ptr noundef nonnull align 16 dereferenceable(320) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 16 dereferenceable(432) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 %6) local_unnamed_addr #4 comdat align 2 {
   %8 = alloca %"struct.boost::geometry::strategy::side::side_by_triangle<>::eps_policy.1322", align 16
   %9 = alloca %"struct.boost::geometry::strategy::side::side_by_triangle<>::eps_policy.1322", align 16
-  %.sroa.048 = alloca [2 x x86_fp80], align 16
   %.sroa.13 = alloca [28 x i8], align 4
   %.sroa.19 = alloca [92 x i8], align 4
   %.sroa.21 = alloca [20 x i8], align 16
   %.sroa.23 = alloca [11 x i8], align 1
   %.sroa.31 = alloca [92 x i8], align 4
   %.sroa.33 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.048)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.19)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.21)
@@ -247112,7 +247105,6 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_r
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.132 = select i1 %43, i32 2, i32 1
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.048, ptr noundef nonnull align 16 dereferenceable(32) %44, i64 32, i1 false), !tbaa.struct !3726
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %.sroa.19.112..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.19.112..sroa_idx, ptr noundef nonnull align 16 dereferenceable(48) %45, i64 48, i1 false), !tbaa.struct !3727
@@ -247278,13 +247270,12 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_r
 _ZNK5boost8geometry6detail7overlay26get_turn_info_linear_arealINS2_18assign_null_policyEE19turn_transformer_ecILb0EEclINS2_9turn_infoINS0_5model5pointIeLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIeEENS2_21turn_operation_linearISE_SG_EESt5arrayISI_Lm2EEEEEEvRT_.exit31: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIeeNS2_20equals_factor_policyIeLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i18, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.048, ptr noundef nonnull align 16 dereferenceable(32) %94, i64 32, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %.sroa.19.112..sroa_idx75152 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.19.112..sroa_idx75152, ptr noundef nonnull align 16 dereferenceable(48) %95, i64 48, i1 false)
+  %.sroa.19.112..sroa_idx75 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.19.112..sroa_idx75, ptr noundef nonnull align 16 dereferenceable(48) %95, i64 48, i1 false), !tbaa.struct !3727
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  %.sroa.31.240..sroa_idx109153 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.31.240..sroa_idx109153, ptr noundef nonnull align 16 dereferenceable(48) %96, i64 48, i1 false)
+  %.sroa.31.240..sroa_idx109 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.31.240..sroa_idx109, ptr noundef nonnull align 16 dereferenceable(48) %96, i64 48, i1 false), !tbaa.struct !3727
   %.sroa.0.0.copyload.i32 = load ptr, ptr %3, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i32, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !3513
@@ -247294,7 +247285,7 @@ _ZNK5boost8geometry6detail7overlay26get_turn_info_linear_arealINS2_18assign_null
   br i1 %.not.i.i33, label %104, label %101
 
 101:                                              ; preds = %_ZNK5boost8geometry6detail7overlay26get_turn_info_linear_arealINS2_18assign_null_policyEE19turn_transformer_ecILb0EEclINS2_9turn_infoINS0_5model5pointIeLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIeEENS2_21turn_operation_linearISE_SG_EESt5arrayISI_Lm2EEEEEEvRT_.exit31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %98, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.048, i64 32, i1 false), !tbaa.struct !3540
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %98, ptr noundef nonnull align 16 dereferenceable(32) %94, i64 32, i1 false)
   %.sroa.9.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %98, i64 32
   store i32 %6, ptr %.sroa.9.0..sroa_idx53, align 16, !tbaa !2449
   %.sroa.13.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %98, i64 36
@@ -247344,7 +247335,7 @@ _ZNKSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIeLm2ENS
   %116 = mul nuw nsw i64 %115, 320
   %117 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %116) #59
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 %108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %118, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.048, i64 32, i1 false), !tbaa.struct !3540
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %118, ptr noundef nonnull align 16 dereferenceable(32) %94, i64 32, i1 false)
   %.sroa.9.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %118, i64 32
   store i32 %6, ptr %.sroa.9.0..sroa_idx55, align 16, !tbaa !2449
   %.sroa.13.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %118, i64 36
@@ -247395,7 +247386,6 @@ _ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIeLm2ENS1
   br label %_ZNSt20back_insert_iteratorISt6vectorIN5boost8geometry6detail7overlay9turn_infoINS2_5model5pointIeLm2ENS2_2cs9cartesianEEENS2_13segment_ratioIeEENS4_21turn_operation_linearISA_SC_EESt5arrayISE_Lm2EEEESaISH_EEEaSERKSH_.exit46
 
 _ZNSt20back_insert_iteratorISt6vectorIN5boost8geometry6detail7overlay9turn_infoINS2_5model5pointIeLm2ENS2_2cs9cartesianEEENS2_13segment_ratioIeEENS4_21turn_operation_linearISA_SC_EESt5arrayISE_Lm2EEEESaISH_EEEaSERKSH_.exit46: ; preds = %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIeLm2ENS0_2cs9cartesianEEEEELm2EEESC_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSC_St6vectorISC_SaISC_EEEEEENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyEEENS5_ILb1ESE_SC_SO_SS_ST_EESS_E9qk_wrt_q1Ev.exit.thread126, %_ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIeLm2ENS1_2cs9cartesianEEENS1_13segment_ratioIeEENS3_21turn_operation_linearIS9_SB_EESt5arrayISD_Lm2EEEESaISG_EE17_M_realloc_insertIJRKSG_EEEvN9__gnu_cxx17__normal_iteratorIPSG_SI_EEDpOT_.exit.i.i45, %101, %_ZNSt20back_insert_iteratorISt6vectorIN5boost8geometry6detail7overlay9turn_infoINS2_5model5pointIeLm2ENS2_2cs9cartesianEEENS2_13segment_ratioIeEENS4_21turn_operation_linearISA_SC_EESt5arrayISE_Lm2EEEESaISH_EEEaSERKSH_.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.048)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.19)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.21)

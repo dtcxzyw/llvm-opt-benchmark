@@ -42955,18 +42955,16 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %532
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %532, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i, %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  switch i32 %522, label %._crit_edge193.loopexit [
-    i32 0, label %537
-    i32 3, label %537
-  ]
+  %cond = icmp eq i32 %522, 0
+  br i1 %cond, label %537, label %._crit_edge193.loopexit
 
-537:                                              ; preds = %.thread175, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
+537:                                              ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, %.thread175
   %538 = getelementptr inbounds nuw i8, ptr %.040190, i64 16
   %.not = icmp eq ptr %538, %133
   br i1 %.not, label %._crit_edge193.loopexit, label %200
 
-._crit_edge193.loopexit:                          ; preds = %537, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
-  %.041.ph = phi i32 [ %522, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i ], [ 2, %537 ]
+._crit_edge193.loopexit:                          ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, %537
+  %.041.ph = phi i32 [ 2, %537 ], [ %522, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i ]
   %.pre199 = load ptr, ptr %23, align 8, !tbaa !84
   %539 = and i32 %.041.ph, -3
   %540 = icmp eq i32 %539, 0

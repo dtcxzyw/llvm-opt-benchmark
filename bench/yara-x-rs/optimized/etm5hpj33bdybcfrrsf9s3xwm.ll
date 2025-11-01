@@ -68762,7 +68762,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr135dro
           cleanup
   br label %.thread
 
-.thread409.loopexit.split-lp.loopexit:            ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zip..result..ZipError$GT$$GT$17h53ae3dc4a91b1bc3E.exit.invoke", %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h4b2c1d8407847b29E.exit.i227", %468, %469
+.thread409.loopexit.split-lp.loopexit:            ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zip..result..ZipError$GT$$GT$17h53ae3dc4a91b1bc3E.exit.invoke", %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h4b2c1d8407847b29E.exit.i227", %469
   %lpad.loopexit524 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -70004,20 +70004,14 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i.i.i: ; preds = 
           to label %.thread unwind label %373
 
 467:                                              ; preds = %166
-  switch i64 %.sroa.9.sroa.0.1.ph, label %469 [
-    i64 -9223372036854775807, label %468
-    i64 -9223372036854775808, label %"_ZN4core3ptr42drop_in_place$LT$zip..result..ZipError$GT$17hb13ab00a3c874cd5E.exit"
-  ]
+  %468 = icmp eq i64 %.sroa.9.sroa.0.1.ph, -9223372036854775807
+  br i1 %468, label %469, label %"_ZN4core3ptr42drop_in_place$LT$zip..result..ZipError$GT$17hb13ab00a3c874cd5E.exit"
 
-468:                                              ; preds = %467
+469:                                              ; preds = %467
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0597c85246a79ee7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.17.8..sroa_idx)
           to label %"_ZN4core3ptr42drop_in_place$LT$zip..result..ZipError$GT$17hb13ab00a3c874cd5E.exit" unwind label %.thread409.loopexit.split-lp.loopexit
 
-469:                                              ; preds = %467
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h17da03b531ea35d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-          to label %"_ZN4core3ptr42drop_in_place$LT$zip..result..ZipError$GT$17hb13ab00a3c874cd5E.exit" unwind label %.thread409.loopexit.split-lp.loopexit
-
-"_ZN4core3ptr42drop_in_place$LT$zip..result..ZipError$GT$17hb13ab00a3c874cd5E.exit": ; preds = %467, %468, %469, %470
+"_ZN4core3ptr42drop_in_place$LT$zip..result..ZipError$GT$17hb13ab00a3c874cd5E.exit": ; preds = %467, %469, %470
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.backedge530
 

@@ -307,7 +307,7 @@ if.end46.us:                                      ; preds = %if.else36.us, %if.e
   br i1 %cmp48.us, label %while.end, label %if.end53.us
 
 if.end53.us:                                      ; preds = %if.end46.us
-  switch i16 %bytesToWrite.0.us, label %default.unreachable213 [
+  switch i16 %bytesToWrite.0.us, label %if.end53.us.unreachabledefault [
     i16 4, label %sw.bb.us
     i16 3, label %sw.bb57.us
     i16 2, label %sw.bb63.us
@@ -357,6 +357,12 @@ sw.bb69.us:                                       ; preds = %sw.bb63.us, %if.end
   %add.ptr76.us = getelementptr inbounds nuw i8, ptr %incdec.ptr73.us, i64 %idx.ext.us
   %cmp.us = icmp ult ptr %source.252.us, %sourceEnd
   br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !7
+
+if.end53.us.unreachabledefault:                   ; preds = %if.end53.us
+  unreachable
+
+default.unreachable:                              ; preds = %if.end53.us124
+  unreachable
 
 while.body.us90:                                  ; preds = %while.body.lr.ph, %sw.bb69.us141
   %source.063.us91 = phi ptr [ %source.252.us118, %sw.bb69.us141 ], [ %0, %while.body.lr.ph ]
@@ -413,7 +419,7 @@ if.end46.us117:                                   ; preds = %if.else36.us112, %i
   br i1 %cmp48.us123, label %while.end, label %if.end53.us124
 
 if.end53.us124:                                   ; preds = %if.end46.us117
-  switch i16 %bytesToWrite.0.us120, label %default.unreachable213 [
+  switch i16 %bytesToWrite.0.us120, label %default.unreachable [
     i16 4, label %sw.bb.us125
     i16 3, label %sw.bb57.us129
     i16 2, label %sw.bb63.us135
@@ -463,9 +469,6 @@ sw.bb69.us141:                                    ; preds = %sw.bb63.us135, %if.
   %add.ptr76.us147 = getelementptr inbounds nuw i8, ptr %incdec.ptr73.us146, i64 %idx.ext.us121
   %cmp.us148 = icmp ult ptr %source.252.us118, %sourceEnd
   br i1 %cmp.us148, label %while.body.us90, label %while.end, !llvm.loop !7
-
-default.unreachable213:                           ; preds = %if.end53.us, %if.end53.us124
-  unreachable
 
 while.end:                                        ; preds = %sw.bb69.us, %if.then.us, %if.end46.us, %sw.bb69.us141, %if.then4.us103, %if.then.us101, %while.body.us90, %if.end46.us117, %entry
   %target.0.lcssa = phi ptr [ %1, %entry ], [ %target.061.us92, %if.end46.us117 ], [ %target.061.us92, %while.body.us90 ], [ %target.061.us92, %if.then.us101 ], [ %target.061.us92, %if.then4.us103 ], [ %add.ptr76.us147, %sw.bb69.us141 ], [ %target.061.us, %if.end46.us ], [ %target.061.us, %if.then.us ], [ %add.ptr76.us, %sw.bb69.us ]
@@ -522,7 +525,7 @@ if.end21.us:                                      ; preds = %if.else14.us, %if.e
   br i1 %cmp22.us, label %while.end, label %if.end28.us
 
 if.end28.us:                                      ; preds = %if.end21.us
-  switch i16 %bytesToWrite.0.us, label %default.unreachable61 [
+  switch i16 %bytesToWrite.0.us, label %if.end28.us.unreachabledefault [
     i16 4, label %sw.bb.us
     i16 3, label %sw.bb32.us
     i16 2, label %sw.bb38.us
@@ -573,6 +576,12 @@ sw.bb44.us:                                       ; preds = %sw.bb38.us, %if.end
   %cmp.us = icmp ult ptr %incdec.ptr.us, %sourceEnd
   br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !8
 
+if.end28.us.unreachabledefault:                   ; preds = %if.end28.us
+  unreachable
+
+default.unreachable:                              ; preds = %if.end28
+  unreachable
+
 while.body:                                       ; preds = %while.body.lr.ph, %sw.bb44
   %result.038 = phi i32 [ %result.2, %sw.bb44 ], [ 0, %while.body.lr.ph ]
   %source.037 = phi ptr [ %incdec.ptr, %sw.bb44 ], [ %0, %while.body.lr.ph ]
@@ -612,7 +621,7 @@ if.end21:                                         ; preds = %if.else14, %if.else
   br i1 %cmp22, label %while.end, label %if.end28
 
 if.end28:                                         ; preds = %if.end21
-  switch i16 %bytesToWrite.0, label %default.unreachable61 [
+  switch i16 %bytesToWrite.0, label %default.unreachable [
     i16 4, label %sw.bb
     i16 3, label %sw.bb32
     i16 2, label %sw.bb38
@@ -662,9 +671,6 @@ sw.bb44:                                          ; preds = %sw.bb38, %if.end28
   %add.ptr51 = getelementptr inbounds nuw i8, ptr %incdec.ptr48, i64 %idx.ext
   %cmp = icmp ult ptr %incdec.ptr, %sourceEnd
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
-
-default.unreachable61:                            ; preds = %if.end28.us, %if.end28
-  unreachable
 
 while.end:                                        ; preds = %sw.bb44.us, %if.end21.us, %sw.bb44, %while.body, %if.end21, %entry
   %target.0.lcssa = phi ptr [ %1, %entry ], [ %target.036, %if.end21 ], [ %target.036, %while.body ], [ %add.ptr51, %sw.bb44 ], [ %target.036.us, %if.end21.us ], [ %add.ptr51.us, %sw.bb44.us ]

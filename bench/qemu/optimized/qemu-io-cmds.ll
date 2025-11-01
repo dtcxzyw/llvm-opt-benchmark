@@ -2172,7 +2172,7 @@ define internal fastcc ptr @create_iovec(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
-  %.05469 = phi i64 [ 0, %.lr.ph.preheader ], [ %32, %30 ]
+  %.05470 = phi i64 [ 0, %.lr.ph.preheader ], [ %32, %30 ]
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2206,7 +2206,7 @@ define internal fastcc ptr @create_iovec(ptr noundef %0, ptr noundef %1, ptr nou
 
 25:                                               ; preds = %21
   %26 = sub nuw nsw i64 2147483136, %.0.i
-  %27 = icmp ugt i64 %.05469, %26
+  %27 = icmp ugt i64 %.05470, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
@@ -2216,7 +2216,7 @@ define internal fastcc ptr @create_iovec(ptr noundef %0, ptr noundef %1, ptr nou
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
   store i64 %.0.i, ptr %31, align 8
-  %32 = add nuw nsw i64 %.0.i, %.05469
+  %32 = add nuw nsw i64 %.0.i, %.05470
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
@@ -2242,26 +2242,26 @@ qemu_io_alloc.exit:                               ; preds = %._crit_edge, %38
   %41 = shl nuw nsw i8 %40, 4
   %spec.select12.idx.i = zext nneg i8 %41 to i64
   %spec.select12.i = getelementptr inbounds nuw i8, ptr %36, i64 %spec.select12.idx.i
-  br i1 %10, label %.lr.ph73.preheader, label %.thread
+  br i1 %10, label %.lr.ph74.preheader, label %.thread
 
-.lr.ph73.preheader:                               ; preds = %qemu_io_alloc.exit
-  %wide.trip.count85 = zext nneg i32 %3 to i64
-  br label %.lr.ph73
+.lr.ph74.preheader:                               ; preds = %qemu_io_alloc.exit
+  %wide.trip.count86 = zext nneg i32 %3 to i64
+  br label %.lr.ph74
 
-.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
-  %indvars.iv82 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next83, %.lr.ph73 ]
-  %.05271 = phi ptr [ %spec.select12.i, %.lr.ph73.preheader ], [ %45, %.lr.ph73 ]
-  %42 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv82
+.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
+  %indvars.iv83 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next84, %.lr.ph74 ]
+  %.05272 = phi ptr [ %spec.select12.i, %.lr.ph74.preheader ], [ %45, %.lr.ph74 ]
+  %42 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv83
   %43 = load i64, ptr %42, align 8
-  call void @qemu_iovec_add(ptr noundef %1, ptr noundef %.05271, i64 noundef %43) #26
+  call void @qemu_iovec_add(ptr noundef %1, ptr noundef %.05272, i64 noundef %43) #26
   %44 = load i64, ptr %42, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %.05271, i64 %44
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.thread, label %.lr.ph73, !llvm.loop !19
+  %45 = getelementptr inbounds nuw i8, ptr %.05272, i64 %44
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
+  br i1 %exitcond87.not, label %.thread, label %.lr.ph74, !llvm.loop !19
 
-.thread:                                          ; preds = %.lr.ph73, %qemu_io_alloc.exit, %28, %23, %19
-  %.053 = phi ptr [ null, %19 ], [ null, %23 ], [ null, %28 ], [ %spec.select12.i, %qemu_io_alloc.exit ], [ %spec.select12.i, %.lr.ph73 ]
+.thread:                                          ; preds = %.lr.ph74, %qemu_io_alloc.exit, %28, %23, %19
+  %.053 = phi ptr [ null, %19 ], [ null, %23 ], [ null, %28 ], [ %spec.select12.i, %qemu_io_alloc.exit ], [ %spec.select12.i, %.lr.ph74 ]
   call void @g_free(ptr noundef %9) #26
   ret ptr %.053
 }

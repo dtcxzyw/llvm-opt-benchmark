@@ -10270,14 +10270,13 @@ _ZSt8_DestroyIPSt6vectorIN10ClipperLib8IntPointESaIS2_EES4_EvT_S6_RSaIT0_E.exit.
 523:                                              ; preds = %516, %_ZSt8_DestroyIPSt6vectorIN10ClipperLib8IntPointESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   switch i32 %.8140, label %_ZNSt6vectorIN6Assimp3IFC22ProjectedWindowContourESaIS2_EE12emplace_backIJRS_I10aiVector2tIdESaIS7_EERSt4pairIS7_S7_ERbEEERS2_DpOT_.exit [
-    i32 0, label %.backedge
-    i32 11, label %.backedge
     i32 10, label %.thread435.loopexit
+    i32 11, label %.backedge
   ]
 
-.backedge:                                        ; preds = %.thread847, %523, %523
-  %.10852 = phi i1 [ %.7621, %.thread847 ], [ %.9, %523 ], [ %.9, %523 ]
-  %.sroa.0294.2851 = phi ptr [ %522, %.thread847 ], [ %.sroa.0294.1, %523 ], [ %.sroa.0294.1, %523 ]
+.backedge:                                        ; preds = %.thread847, %523
+  %.10852 = phi i1 [ %.7621, %.thread847 ], [ %.9, %523 ]
+  %.sroa.0294.2851 = phi ptr [ %522, %.thread847 ], [ %.sroa.0294.1, %523 ]
   %524 = load ptr, ptr %49, align 8
   %.not447 = icmp eq ptr %.sroa.0294.2851, %524
   br i1 %.not447, label %.thread435.loopexit, label %.lr.ph623

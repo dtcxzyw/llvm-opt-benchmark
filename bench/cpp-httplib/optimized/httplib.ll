@@ -77081,89 +77081,67 @@ define noundef zeroext i1 @_ZNK7httplib9SSLClient33verify_host_with_subject_alt_
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  switch i32 %.025, label %.lr.ph.split [
-    i32 2, label %.lr.ph.split.us
-    i32 7, label %.lr.ph.split.us46
-  ]
+  %16 = icmp eq i32 %.025, 2
+  br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %27
-  %.02743.us = phi i32 [ %28, %27 ], [ 0, %.lr.ph ]
-  %16 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %12, i32 noundef %.02743.us)
-  %17 = load i32, ptr %16, align 8, !tbaa !1124
-  %18 = icmp eq i32 %17, 2
-  br i1 %18, label %19, label %27
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %28
+  %.02744.us = phi i32 [ %29, %28 ], [ 0, %.lr.ph ]
+  %17 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %12, i32 noundef %.02744.us)
+  %18 = load i32, ptr %17, align 8, !tbaa !1124
+  %19 = icmp eq i32 %18, 2
+  br i1 %19, label %20, label %28
 
-19:                                               ; preds = %.lr.ph.split.us
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !14
-  %22 = call ptr @ASN1_STRING_get0_data(ptr noundef %21)
-  %23 = load ptr, ptr %20, align 8, !tbaa !14
-  %24 = call i32 @ASN1_STRING_length(ptr noundef %23)
-  %25 = sext i32 %24 to i64
-  %26 = call noundef zeroext i1 @_ZNK7httplib9SSLClient15check_host_nameEPKcm(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef %22, i64 noundef %25)
-  br label %27
+20:                                               ; preds = %.lr.ph.split.us
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !14
+  %23 = call ptr @ASN1_STRING_get0_data(ptr noundef %22)
+  %24 = load ptr, ptr %21, align 8, !tbaa !14
+  %25 = call i32 @ASN1_STRING_length(ptr noundef %24)
+  %26 = sext i32 %25 to i64
+  %27 = call noundef zeroext i1 @_ZNK7httplib9SSLClient15check_host_nameEPKcm(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef %23, i64 noundef %26)
+  br label %28
 
-27:                                               ; preds = %19, %.lr.ph.split.us
-  %.129.us = phi i1 [ false, %.lr.ph.split.us ], [ %26, %19 ]
-  %28 = add nuw nsw i32 %.02743.us, 1
-  %29 = icmp sge i32 %28, %14
-  %.not37.us = or i1 %.129.us, %29
+28:                                               ; preds = %20, %.lr.ph.split.us
+  %.129.us = phi i1 [ false, %.lr.ph.split.us ], [ %27, %20 ]
+  %29 = add nuw nsw i32 %.02744.us, 1
+  %30 = icmp sge i32 %29, %14
+  %.not37.us = or i1 %.129.us, %30
   br i1 %.not37.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1126
 
-.lr.ph.split.us46:                                ; preds = %.lr.ph, %41
-  %.02743.us47 = phi i32 [ %42, %41 ], [ 0, %.lr.ph ]
-  %.03042.us48 = phi i1 [ %.131.us49, %41 ], [ false, %.lr.ph ]
-  %30 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %12, i32 noundef %.02743.us47)
-  %31 = load i32, ptr %30, align 8, !tbaa !1124
-  %32 = icmp eq i32 %31, 7
-  br i1 %32, label %33, label %41
+.lr.ph.split:                                     ; preds = %.lr.ph, %42
+  %.02744 = phi i32 [ %43, %42 ], [ 0, %.lr.ph ]
+  %.03043 = phi i1 [ %.131, %42 ], [ false, %.lr.ph ]
+  %31 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %12, i32 noundef %.02744)
+  %32 = load i32, ptr %31, align 8, !tbaa !1124
+  %33 = icmp eq i32 %32, %.025
+  br i1 %33, label %34, label %42
 
-33:                                               ; preds = %.lr.ph.split.us46
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !14
-  %36 = call ptr @ASN1_STRING_get0_data(ptr noundef %35)
-  %37 = load ptr, ptr %34, align 8, !tbaa !14
-  %38 = call i32 @ASN1_STRING_length(ptr noundef %37)
-  %bcmp.us = call i32 @bcmp(ptr nonnull %3, ptr %36, i64 %.026)
-  %.not38.us = icmp eq i32 %bcmp.us, 0
-  br i1 %.not38.us, label %40, label %39
+34:                                               ; preds = %.lr.ph.split
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !14
+  %37 = call ptr @ASN1_STRING_get0_data(ptr noundef %36)
+  %38 = load ptr, ptr %35, align 8, !tbaa !14
+  %39 = call i32 @ASN1_STRING_length(ptr noundef %38)
+  %bcmp = call i32 @bcmp(ptr nonnull %3, ptr %37, i64 %.026)
+  %.not38 = icmp eq i32 %bcmp, 0
+  br i1 %.not38, label %41, label %40
 
-39:                                               ; preds = %33
-  %bcmp39.us = call i32 @bcmp(ptr nonnull %4, ptr %36, i64 %.026)
-  %.not40.us = icmp eq i32 %bcmp39.us, 0
-  br i1 %.not40.us, label %40, label %41
+40:                                               ; preds = %34
+  %bcmp39 = call i32 @bcmp(ptr nonnull %4, ptr %37, i64 %.026)
+  %.not40 = icmp eq i32 %bcmp39, 0
+  br i1 %.not40, label %41, label %42
 
-40:                                               ; preds = %39, %33
-  br label %41
+41:                                               ; preds = %40, %34
+  br label %42
 
-41:                                               ; preds = %40, %39, %.lr.ph.split.us46
-  %.131.us49 = phi i1 [ %.03042.us48, %.lr.ph.split.us46 ], [ %.03042.us48, %39 ], [ true, %40 ]
-  %42 = add nuw nsw i32 %.02743.us47, 1
-  %exitcond.not = icmp eq i32 %42, %14
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us46, !llvm.loop !1126
+42:                                               ; preds = %41, %40, %.lr.ph.split
+  %.131 = phi i1 [ %.03043, %.lr.ph.split ], [ %.03043, %40 ], [ true, %41 ]
+  %43 = add nuw nsw i32 %.02744, 1
+  %exitcond.not = icmp eq i32 %43, %14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1126
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %52
-  %.02743 = phi i32 [ %53, %52 ], [ 0, %.lr.ph ]
-  %43 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %12, i32 noundef %.02743)
-  %44 = load i32, ptr %43, align 8, !tbaa !1124
-  %45 = icmp eq i32 %44, %.025
-  br i1 %45, label %46, label %52
-
-46:                                               ; preds = %.lr.ph.split
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !14
-  %49 = call ptr @ASN1_STRING_get0_data(ptr noundef %48)
-  %50 = load ptr, ptr %47, align 8, !tbaa !14
-  %51 = call i32 @ASN1_STRING_length(ptr noundef %50)
-  br label %52
-
-52:                                               ; preds = %46, %.lr.ph.split
-  %53 = add nuw nsw i32 %.02743, 1
-  %exitcond60.not = icmp eq i32 %53, %14
-  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1126
-
-._crit_edge:                                      ; preds = %41, %27, %52, %13, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %13 ], [ false, %52 ], [ %.129.us, %27 ], [ %.131.us49, %41 ]
+._crit_edge:                                      ; preds = %42, %28, %13, %11
+  %.0 = phi i1 [ false, %11 ], [ false, %13 ], [ %.129.us, %28 ], [ %.131, %42 ]
   call void @GENERAL_NAMES_free(ptr noundef %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
