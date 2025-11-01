@@ -1408,8 +1408,8 @@ _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEb
   %.059 = phi ptr [ %.2.i.i, %.loopexit ], [ %0, %_ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE0EE10BuildStackEPS3_i.exit ]
   %140 = tail call noundef ptr @_ZN4absl13cord_internal12CordRepBtree7NewLeafILNS1_8EdgeTypeE0EEEPS1_St17basic_string_viewIcSt11char_traitsIcEEm(i64 %.sroa.0.0, ptr %.sroa.11.0, i64 noundef %3)
   %141 = load i64, ptr %140, align 8, !tbaa !7
-  %.not105 = icmp eq i64 %141, %.sroa.0.0
-  br i1 %.not105, label %.thread84, label %.lr.ph
+  %.not102 = icmp eq i64 %141, %.sroa.0.0
+  br i1 %.not102, label %.thread84, label %.lr.ph
 
 .lr.ph:                                           ; preds = %139
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1426,12 +1426,12 @@ _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEb
 144:                                              ; preds = %.lr.ph, %161
   %145 = phi i64 [ %141, %.lr.ph ], [ %163, %161 ]
   %146 = phi ptr [ %140, %.lr.ph ], [ %162, %161 ]
-  %.261108 = phi ptr [ %.059, %.lr.ph ], [ %148, %161 ]
-  %.063107 = phi i32 [ %10, %.lr.ph ], [ %151, %161 ]
-  %.sroa.0.1106 = phi i64 [ %.sroa.0.0, %.lr.ph ], [ %.sroa.speculated.i.i, %161 ]
-  %147 = sub i64 %.sroa.0.1106, %145
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.0.1106, i64 %147)
-  %148 = call fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE0EE6UnwindILb0EEEPS3_S7_imNS3_8OpResultE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %.261108, i32 noundef %.063107, i64 noundef %145, ptr nonnull %146, i32 2)
+  %.261105 = phi ptr [ %.059, %.lr.ph ], [ %148, %161 ]
+  %.063104 = phi i32 [ %10, %.lr.ph ], [ %151, %161 ]
+  %.sroa.0.1103 = phi i64 [ %.sroa.0.0, %.lr.ph ], [ %.sroa.speculated.i.i, %161 ]
+  %147 = sub i64 %.sroa.0.1103, %145
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.0.1103, i64 %147)
+  %148 = call fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE0EE6UnwindILb0EEEPS3_S7_imNS3_8OpResultE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %.261105, i32 noundef %.063104, i64 noundef %145, ptr nonnull %146, i32 2)
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 13
   %150 = load i8, ptr %149, align 1, !tbaa !4
   %151 = zext i8 %150 to i32
@@ -1956,18 +1956,18 @@ _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE1EEENS1_8OpResultEb
 
 _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.lr.ph.i: ; preds = %198, %140
   %147 = phi ptr [ %141, %140 ], [ %199, %198 ]
-  %.261136 = phi ptr [ %.059, %140 ], [ %185, %198 ]
-  %.063135 = phi i32 [ %10, %140 ], [ %188, %198 ]
-  %.sroa.0.1134 = phi i64 [ %.sroa.0.0, %140 ], [ %183, %198 ]
-  %.sroa.11.1133 = phi ptr [ %.sroa.11.0, %140 ], [ %184, %198 ]
+  %.261133 = phi ptr [ %.059, %140 ], [ %185, %198 ]
+  %.063132 = phi i32 [ %10, %140 ], [ %188, %198 ]
+  %.sroa.0.1131 = phi i64 [ %.sroa.0.0, %140 ], [ %183, %198 ]
+  %.sroa.11.1130 = phi ptr [ %.sroa.11.0, %140 ], [ %184, %198 ]
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   br label %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.i
 
 _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.i: ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.i, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.lr.ph.i
   %.029.i = phi i64 [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.lr.ph.i ], [ %169, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.i ]
   %.01828.i = phi i64 [ 0, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.lr.ph.i ], [ %170, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.i ]
-  %.sroa.6.027.i = phi ptr [ %.sroa.11.1133, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.lr.ph.i ], [ %174, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.i ]
-  %.sroa.0.026.i = phi i64 [ %.sroa.0.1134, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.lr.ph.i ], [ %173, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.i ]
+  %.sroa.6.027.i = phi ptr [ %.sroa.11.1130, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.lr.ph.i ], [ %174, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.i ]
+  %.sroa.0.026.i = phi i64 [ %.sroa.0.1131, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.lr.ph.i ], [ %173, %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEEPcS8_m.exit.i ]
   %149 = add i64 %.sroa.0.026.i, %3
   %150 = icmp ult i64 %149, 20
   %spec.store.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %149, i64 4083)
@@ -2017,25 +2017,25 @@ _ZN4absl13cord_internal12CordRepBtree7NewLeafILNS1_8EdgeTypeE1EEEPS1_St17basic_s
   %178 = getelementptr inbounds nuw i8, ptr %147, i64 15
   store i64 %169, ptr %147, align 8, !tbaa !7
   store i8 %177, ptr %178, align 1, !tbaa !4
-  %.not = icmp eq i64 %169, %.sroa.0.1134
+  %.not = icmp eq i64 %169, %.sroa.0.1131
   br i1 %.not, label %.thread99, label %180
 
 .thread99:                                        ; preds = %_ZN4absl13cord_internal12CordRepBtree7NewLeafILNS1_8EdgeTypeE1EEEPS1_St17basic_string_viewIcSt11char_traitsIcEEm.exit
-  %179 = call fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE1EE6UnwindILb0EEEPS3_S7_imNS3_8OpResultE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %.261136, i32 noundef %.063135, i64 noundef %.sroa.0.1134, ptr nonnull %147, i32 2)
+  %179 = call fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE1EE6UnwindILb0EEEPS3_S7_imNS3_8OpResultE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %.261133, i32 noundef %.063132, i64 noundef %.sroa.0.1131, ptr nonnull %147, i32 2)
   br label %204
 
 180:                                              ; preds = %_ZN4absl13cord_internal12CordRepBtree7NewLeafILNS1_8EdgeTypeE1EEEPS1_St17basic_string_viewIcSt11char_traitsIcEEm.exit
-  %181 = icmp ugt i64 %169, %.sroa.0.1134
+  %181 = icmp ugt i64 %169, %.sroa.0.1131
   br i1 %181, label %182, label %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEES8_m.exit
 
 182:                                              ; preds = %180
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i64 noundef %169, i64 noundef %.sroa.0.1134) #22
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i64 noundef %169, i64 noundef %.sroa.0.1131) #22
   unreachable
 
 _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEES8_m.exit: ; preds = %180
-  %183 = sub nuw i64 %.sroa.0.1134, %169
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.11.1133, i64 %169
-  %185 = call fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE1EE6UnwindILb0EEEPS3_S7_imNS3_8OpResultE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %.261136, i32 noundef %.063135, i64 noundef %169, ptr nonnull %147, i32 2)
+  %183 = sub nuw i64 %.sroa.0.1131, %169
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.11.1130, i64 %169
+  %185 = call fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE1EE6UnwindILb0EEEPS3_S7_imNS3_8OpResultE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %.261133, i32 noundef %.063132, i64 noundef %169, ptr nonnull %147, i32 2)
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 13
   %187 = load i8, ptr %186, align 1, !tbaa !4
   %188 = zext i8 %187 to i32

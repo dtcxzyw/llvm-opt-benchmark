@@ -16100,7 +16100,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit252: ; preds = %_ZN4cvc58internal1
   %866 = load i64, ptr %865, align 8
   %867 = and i64 %866, 1152920405095219200
   %.not.i.i253 = icmp eq i64 %867, 1152920405095219200
-  br i1 %.not.i.i253, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit255.thread, label %868, !prof !316
+  br i1 %.not.i.i253, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit255, label %868, !prof !316
 
 868:                                              ; preds = %864
   %869 = add i64 %866, 1152920405095219200
@@ -16109,7 +16109,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit252: ; preds = %_ZN4cvc58internal1
   %872 = or disjoint i64 %870, %871
   store i64 %872, ptr %865, align 8
   %873 = icmp eq i64 %870, 0
-  br i1 %873, label %874, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit255.thread, !prof !316
+  br i1 %873, label %874, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit255, !prof !316
 
 874:                                              ; preds = %868
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %865)
@@ -16122,7 +16122,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit252: ; preds = %_ZN4cvc58internal1
   call void @__clang_call_terminate(ptr %877) #28
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit255.thread: ; preds = %874, %868, %864, %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEbSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_bEEE4findERS9_.exit, %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEbSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_bEEEixERS9_.exit, %189
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit255: ; preds = %874, %868, %864, %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEbSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_bEEE4findERS9_.exit, %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEbSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_bEEEixERS9_.exit, %189
   %878 = load ptr, ptr %5, align 8, !tbaa !297
   %879 = load ptr, ptr %71, align 8, !tbaa !297
   %880 = icmp eq ptr %878, %879

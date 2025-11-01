@@ -77091,56 +77091,56 @@ define noundef zeroext i1 @_ZNK7httplib9SSLClient33verify_host_with_subject_alt_
   %19 = icmp eq i32 %18, 2
   br i1 %19, label %20, label %28
 
-20:                                               ; preds = %.lr.ph.split.us
+20:; preds = %.lr.ph.split.us
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !14
   %23 = call ptr @ASN1_STRING_get0_data(ptr noundef %22)
-  %24 = load ptr, ptr %21, align 8, !tbaa !14
-  %25 = call i32 @ASN1_STRING_length(ptr noundef %24)
+  %21 = load ptr, ptr %21, align 8, !tbaa !14
+  %22 = call i32 @ASN1_STRING_length(ptr noundef %21)
   %26 = sext i32 %25 to i64
-  %27 = call noundef zeroext i1 @_ZNK7httplib9SSLClient15check_host_nameEPKcm(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef %23, i64 noundef %26)
+  %24 = call noundef zeroext i1 @_ZNK7httplib9SSLClient15check_host_nameEPKcm(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr noundef %23, i64 noundef %26)
   br label %28
 
-28:                                               ; preds = %20, %.lr.ph.split.us
+27:                                               ; preds = %20, %.lr.ph.split.us
   %.129.us = phi i1 [ false, %.lr.ph.split.us ], [ %27, %20 ]
-  %29 = add nuw nsw i32 %.02744.us, 1
-  %30 = icmp sge i32 %29, %14
-  %.not37.us = or i1 %.129.us, %30
+  %28 = add nuw nsw i32 %.02744.us, 1
+  %29 = icmp sge i32 %28, %14
+  %.not37.us = or i1 %.129.us, %29
   br i1 %.not37.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1126
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %42
-  %.02744 = phi i32 [ %43, %42 ], [ 0, %.lr.ph ]
-  %.03043 = phi i1 [ %.131, %42 ], [ false, %.lr.ph ]
-  %31 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %12, i32 noundef %.02744)
-  %32 = load i32, ptr %31, align 8, !tbaa !1124
-  %33 = icmp eq i32 %32, %.025
-  br i1 %33, label %34, label %42
+.lr.ph.split.us46:                                ; preds = %.lr.ph, %42
+  %.02743.us47 = phi i32 [ %43, %42 ], [ 0, %.lr.ph ]
+  %.03042.us48 = phi i1 [ %.131, %42 ], [ false, %.lr.ph ]
+  %30 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %12, i32 noundef %.02743.us47)
+  %31 = load i32, ptr %30, align 8, !tbaa !1124
+  %32 = icmp eq i32 %31, %.025
+  br i1 %32, label %33, label %42
 
-34:                                               ; preds = %.lr.ph.split
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !14
-  %37 = call ptr @ASN1_STRING_get0_data(ptr noundef %36)
-  %38 = load ptr, ptr %35, align 8, !tbaa !14
-  %39 = call i32 @ASN1_STRING_length(ptr noundef %38)
-  %bcmp = call i32 @bcmp(ptr nonnull %3, ptr %37, i64 %.026)
-  %.not38 = icmp eq i32 %bcmp, 0
-  br i1 %.not38, label %41, label %40
+33:                                               ; preds = %.lr.ph.split.us46
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !14
+  %36 = call ptr @ASN1_STRING_get0_data(ptr noundef %35)
+  %37 = load ptr, ptr %34, align 8, !tbaa !14
+  %38 = call i32 @ASN1_STRING_length(ptr noundef %37)
+  %bcmp.us = call i32 @bcmp(ptr nonnull %3, ptr %36, i64 %.026)
+  %.not38.us = icmp eq i32 %bcmp.us, 0
+  br i1 %.not38.us, label %41, label %40
 
-40:                                               ; preds = %34
+41:                                               ; preds = %34
   %bcmp39 = call i32 @bcmp(ptr nonnull %4, ptr %37, i64 %.026)
   %.not40 = icmp eq i32 %bcmp39, 0
-  br i1 %.not40, label %41, label %42
+  br i1 %.not40, label %41, label %52
 
 41:                                               ; preds = %40, %34
-  br label %42
+  br label %52
 
-42:                                               ; preds = %41, %40, %.lr.ph.split
-  %.131 = phi i1 [ %.03043, %.lr.ph.split ], [ %.03043, %40 ], [ true, %41 ]
-  %43 = add nuw nsw i32 %.02744, 1
+52:                                               ; preds = %41, %40, %.lr.ph.split
+  %.131 = phi i1 [ %.03042.us48, %.lr.ph.split ], [ %.03043, %40 ], [ true, %41 ]
+  %43 = add nuw nsw i32 %.02743.us47, 1
   %exitcond.not = icmp eq i32 %43, %14
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !1126
 
-._crit_edge:                                      ; preds = %42, %28, %13, %11
+._crit_edge:                                      ; preds = %42, %27, %13, %11
   %.0 = phi i1 [ false, %11 ], [ false, %13 ], [ %.129.us, %28 ], [ %.131, %42 ]
   call void @GENERAL_NAMES_free(ptr noundef %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

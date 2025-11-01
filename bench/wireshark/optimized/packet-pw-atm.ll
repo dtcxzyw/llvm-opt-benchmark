@@ -1602,7 +1602,7 @@ define internal i32 @dissect_11_or_aal5_pdu(ptr noundef %0, ptr noundef %1, ptr 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %5, ptr noundef nonnull align 4 dereferenceable(76) @__const.dissect_n1_nocw.pd, i64 76, i1 false)
   %7 = load i32, ptr @proto_11_or_aal5_pdu, align 4
   %8 = tail call fastcc zeroext i1 @too_small_packet_or_notpw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, ptr noundef nonnull @shortname_11_or_aal5_pdu)
-  br i1 %8, label %137, label %9
+  br i1 %8, label %139, label %9
 
 9:                                                ; preds = %4
   %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
@@ -1800,9 +1800,9 @@ proto_item_set_generated.exit:                    ; preds = %71, %74, %77
   br label %proto_item_set_generated.exit105
 
 proto_item_set_generated.exit105:                 ; preds = %87, %84, %81, %proto_item_set_generated.exit
-  br i1 %.not87, label %96, label %switch.lookup
+  br i1 %.not87, label %96, label %91
 
-switch.lookup:                                    ; preds = %proto_item_set_generated.exit105
+91:                                               ; preds = %proto_item_set_generated.exit105
   %91 = zext nneg i32 %22 to i64
   %92 = getelementptr i32, ptr @switch.table.dissect_11_or_aal5_pdu, i64 %91
   %switch.gep = getelementptr i8, ptr %92, i64 -12
@@ -1812,7 +1812,7 @@ switch.lookup:                                    ; preds = %proto_item_set_gene
   %brmerge = or i1 %.not88, %or.cond
   br i1 %brmerge, label %96, label %94
 
-94:                                               ; preds = %switch.lookup
+106:                                              ; preds = %91
   %95 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %61, ptr noundef nonnull @ei_cell_broken, ptr noundef nonnull @.str.184, i32 noundef %.083)
   br label %96
 
@@ -1832,46 +1832,46 @@ switch.lookup:                                    ; preds = %proto_item_set_gene
 
 104:                                              ; preds = %96
   %.not89 = icmp eq i32 %.082, 0
-  br i1 %.not89, label %128, label %105
+  br i1 %.not89, label %133, label %107
 
-105:                                              ; preds = %104
+107:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %106 = call ptr @tvb_new_subset_remaining(ptr noundef %100, i32 noundef 1)
-  %107 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %108 = call ptr @tvb_new_subset_remaining(ptr noundef %100, i32 noundef 1)
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  store i8 4, ptr %107, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  store i8 0, ptr %108, align 2
-  %109 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %110 = load i32, ptr %109, align 4
-  %111 = icmp sgt i32 %110, -1
-  %112 = trunc i32 %110 to i16
-  %spec.select.i = select i1 %111, i16 %112, i16 0
-  %113 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 %spec.select.i, ptr %113, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %115 = load i32, ptr %114, align 4
-  %116 = icmp sgt i32 %115, -1
-  %117 = trunc i32 %115 to i16
-  %118 = select i1 %116, i16 %117, i16 0
-  %119 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i16 %118, ptr %119, align 2
-  %120 = getelementptr inbounds nuw i8, ptr %6, i64 14
-  store i16 0, ptr %120, align 2
-  %121 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  %122 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %123 = load i8, ptr %122, align 4, !range !6, !noundef !7
-  %124 = zext nneg i8 %123 to i16
-  %spec.store.select.i108 = shl nuw nsw i16 %124, 8
-  store i16 %spec.store.select.i108, ptr %121, align 2
-  %125 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 0, ptr %125, align 4
-  %126 = load ptr, ptr @dh_atm_untruncated, align 8
-  %127 = call i32 @call_dissector_with_data(ptr noundef %126, ptr noundef %106, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  store i8 4, ptr %109, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  store i8 0, ptr %110, align 2
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp sgt i32 %112, -1
+  %114 = trunc i32 %112 to i16
+  %spec.select.i = select i1 %113, i16 %114, i16 0
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i16 %spec.select.i, ptr %115, align 4
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp sgt i32 %117, -1
+  %119 = trunc i32 %117 to i16
+  %120 = select i1 %118, i16 %119, i16 0
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i16 %120, ptr %121, align 2
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 14
+  store i16 0, ptr %122, align 2
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 18
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %125 = load i8, ptr %124, align 4, !range !6, !noundef !7
+  %126 = zext nneg i8 %125 to i16
+  %spec.store.select.i108 = shl nuw nsw i16 %126, 8
+  store i16 %spec.store.select.i108, ptr %123, align 2
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 0, ptr %127, align 4
+  %128 = load ptr, ptr @dh_atm_untruncated, align 8
+  %129 = call i32 @call_dissector_with_data(ptr noundef %128, ptr noundef %108, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %128
+  br label %133
 
-128:                                              ; preds = %104, %105, %103
+133:                                              ; preds = %104, %105, %103
   %129 = load i32, ptr %34, align 4
   %130 = add i32 %129, -3
   %or.cond18 = icmp ult i32 %130, 2
@@ -1884,14 +1884,14 @@ switch.lookup:                                    ; preds = %proto_item_set_gene
   %134 = load ptr, ptr %132, align 8
   call void @col_clear(ptr noundef %134, i32 noundef 25)
   call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.082, i32 noundef %.083, i32 noundef 0, ptr noundef nonnull %5)
-  br label %135
-
-135:                                              ; preds = %128, %131
-  %136 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %137
 
-137:                                              ; preds = %4, %135
-  %.0 = phi i32 [ %136, %135 ], [ 1, %4 ]
+137:                                              ; preds = %133, %131
+  %138 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %139
+
+139:                                              ; preds = %4, %137
+  %.0 = phi i32 [ %138, %135 ], [ 1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

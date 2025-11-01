@@ -215,25 +215,25 @@ define hidden noundef i32 @_ZN4ncnn33DeconvolutionDepthWise_x86_avx51215create_p
   %11 = load i32, ptr %10, align 4, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = load i32, ptr %12, align 8, !tbaa !40
-  %.fr129 = freeze i32 %13
-  %.fr130 = freeze i32 %11
-  %14 = mul i32 %.fr129, %.fr130
+  %.fr128 = freeze i32 %13
+  %.fr129 = freeze i32 %11
+  %14 = mul i32 %.fr128, %.fr129
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %16 = load i32, ptr %15, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %18 = load i32, ptr %17, align 4, !tbaa !42
-  %.fr128 = freeze i32 %18
-  %.fr127 = freeze i32 %16
-  %19 = sdiv i32 %.fr127, %.fr128
+  %.fr127 = freeze i32 %18
+  %.fr126 = freeze i32 %16
+  %19 = sdiv i32 %.fr126, %.fr127
   %20 = sdiv i32 %19, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %22 = load i32, ptr %21, align 8, !tbaa !43
-  %.fr131 = freeze i32 %22
-  %23 = sdiv i32 %.fr131, %.fr128
+  %.fr130 = freeze i32 %22
+  %23 = sdiv i32 %.fr130, %.fr127
   %24 = sdiv i32 %20, %23
-  %25 = mul i32 %24, %.fr128
-  %26 = icmp eq i32 %25, %.fr128
-  %27 = icmp eq i32 %.fr128, %.fr131
+  %25 = mul i32 %24, %.fr127
+  %26 = icmp eq i32 %25, %.fr127
+  %27 = icmp eq i32 %.fr127, %.fr130
   %or.cond = and i1 %27, %26
   br i1 %or.cond, label %28, label %311
 
@@ -244,17 +244,17 @@ define hidden noundef i32 @_ZN4ncnn33DeconvolutionDepthWise_x86_avx51215create_p
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %28
-  %33 = and i32 %.fr128, 15
+  %33 = and i32 %.fr127, 15
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %32
-  %36 = and i32 %.fr128, 7
+  %36 = and i32 %.fr127, 7
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %35
-  %39 = and i32 %.fr128, 3
+  %39 = and i32 %.fr127, 3
   %40 = icmp eq i32 %39, 0
   %41 = select i1 %40, i32 4, i32 1
   br label %42
@@ -282,16 +282,16 @@ define hidden noundef i32 @_ZN4ncnn33DeconvolutionDepthWise_x86_avx51215create_p
   %56 = load i32, ptr %17, align 4, !tbaa !42
   %57 = load i32, ptr %21, align 8, !tbaa !43
   %58 = sdiv i32 %57, %56
-  %59 = srem i32 %.fr128, %56
-  %60 = sub nsw i32 %.fr128, %59
+  %59 = srem i32 %.fr127, %56
+  %60 = sub nsw i32 %.fr127, %59
   %61 = mul i32 %60, %58
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.preheader.lr.ph, label %._crit_edge126
+  br i1 %62, label %.preheader.lr.ph, label %.split
 
 .preheader.lr.ph:                                 ; preds = %42
   %63 = icmp sgt i32 %14, 0
   %64 = sext i32 %14 to i64
-  br i1 %63, label %.preheader.us.preheader, label %._crit_edge126
+  br i1 %63, label %.preheader.us.preheader, label %.split
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %65 = load ptr, ptr %3, align 8, !tbaa !16
@@ -321,10 +321,10 @@ define hidden noundef i32 @_ZN4ncnn33DeconvolutionDepthWise_x86_avx51215create_p
   %73 = getelementptr inbounds nuw float, ptr %.038124.us, i64 %64
   %74 = getelementptr inbounds nuw float, ptr %.044123.us, i64 %64
   %75 = add nuw nsw i32 %.037125.us, 1
-  %exitcond136.not = icmp eq i32 %75, %61
-  br i1 %exitcond136.not, label %._crit_edge126, label %.preheader.us, !llvm.loop !53
+  %exitcond135.not = icmp eq i32 %75, %61
+  br i1 %exitcond135.not, label %.split, label %.preheader.us, !llvm.loop !53
 
-._crit_edge126:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %42
+.split:                                           ; preds = %._crit_edge.us, %.preheader.lr.ph, %42
   %76 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.045, i1 true)
   switch i32 %76, label %.unreachabledefault [
     i32 4, label %77
@@ -333,7 +333,7 @@ define hidden noundef i32 @_ZN4ncnn33DeconvolutionDepthWise_x86_avx51215create_p
     i32 0, label %212
   ]
 
-77:                                               ; preds = %._crit_edge126
+77:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %4, ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %14, i32 noundef %56, ptr noundef null)
           to label %78 unwind label %99
@@ -447,7 +447,7 @@ _ZN4ncnn3MatD2Ev.exit59:                          ; preds = %117, %116, %112, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %294
 
-121:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit._crit_edge, %._crit_edge126
+121:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit._crit_edge, %.split
   %122 = phi i32 [ %.pre, %_ZN4ncnn3MatD2Ev.exit._crit_edge ], [ %56, %._crit_edge126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %14, i32 noundef %122, ptr noundef null)
@@ -557,7 +557,7 @@ _ZN4ncnn3MatD2Ev.exit61:                          ; preds = %162, %161, %157, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %294
 
-166:                                              ; preds = %._crit_edge126, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit60
+166:                                              ; preds = %.split, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit60
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %167 = load i32, ptr %17, align 4, !tbaa !42
   invoke void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %14, i32 noundef %167, ptr noundef null)
@@ -665,7 +665,7 @@ _ZN4ncnn3MatD2Ev.exit63:                          ; preds = %208, %207, %203, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %294
 
-212:                                              ; preds = %._crit_edge126, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit60, %_ZN4ncnn3MatD2Ev.exit62
+212:                                              ; preds = %.split, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit60, %_ZN4ncnn3MatD2Ev.exit62
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %214 = icmp eq ptr %213, %3
   br i1 %214, label %_ZN4ncnn3MataSERKS0_.exit, label %215
@@ -751,7 +751,7 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %233, %234, %229, %2
           cleanup
   br label %294
 
-.unreachabledefault:                              ; preds = %._crit_edge126
+_ZN4ncnn3MataSERKS0_.exit:                        ; preds = %.split
   unreachable
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releaseEv.exit.i, %212, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit60, %_ZN4ncnn3MatD2Ev.exit62

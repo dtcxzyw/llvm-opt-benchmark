@@ -5771,16 +5771,16 @@ _ZL22writeCollationDataTOMLPKcS0_S0_PKN6icu_7713CollationDataEaiP10UErrorCode.ex
 
 288:                                              ; preds = %286, %284, %271
   %.6 = phi i32 [ %.5, %271 ], [ %285, %284 ], [ %287, %286 ]
-  %289 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @.str.93, ptr noundef %5)
-  %.not.i140 = icmp eq ptr %289, null
-  br i1 %.not.i140, label %_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit, label %290
+  %290 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @.str.93, ptr noundef %5)
+  %.not.i140 = icmp eq ptr %290, null
+  br i1 %.not.i140, label %_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit, label %291
 
-290:                                              ; preds = %288
-  %291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %289, ptr noundef nonnull @.str.94, i32 noundef %.6) #21
-  %292 = call i32 @fclose(ptr noundef nonnull %289)
+291:                                              ; preds = %288
+  %292 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %290, ptr noundef nonnull @.str.94, i32 noundef %.6) #21
+  %293 = call i32 @fclose(ptr noundef nonnull %290)
   br label %_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit
 
-_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit: ; preds = %290, %288, %124, %269, %_ZL22writeCollationDataTOMLPKcS0_S0_PKN6icu_7713CollationDataEaiP10UErrorCode.exit, %_ZL28writeCollationReorderingTOMLPKcS0_S0_PKN6icu_7717CollationSettingsEP10UErrorCode.exit, %_ZL34writeCollationSpecialPrimariesTOMLPKcS0_S0_PKN6icu_7713CollationDataEP10UErrorCode.exit, %_ZL22writeCollationJamoTOMLPKcS0_S0_PKN6icu_7713CollationDataEP10UErrorCode.exit, %23
+_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit: ; preds = %291, %288, %124, %269, %_ZL22writeCollationDataTOMLPKcS0_S0_PKN6icu_7713CollationDataEaiP10UErrorCode.exit, %_ZL28writeCollationReorderingTOMLPKcS0_S0_PKN6icu_7717CollationSettingsEP10UErrorCode.exit, %_ZL34writeCollationSpecialPrimariesTOMLPKcS0_S0_PKN6icu_7713CollationDataEP10UErrorCode.exit, %_ZL22writeCollationJamoTOMLPKcS0_S0_PKN6icu_7713CollationDataEP10UErrorCode.exit, %23
   ret void
 }
 

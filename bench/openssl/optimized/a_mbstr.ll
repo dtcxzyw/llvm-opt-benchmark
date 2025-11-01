@@ -283,7 +283,7 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   %.pre = load i32, ptr %10, align 4, !tbaa !16
   br label %96
 
-.unreachabledefault:                              ; preds = %88
+96:                                               ; preds = %88
   unreachable
 
 96:                                               ; preds = %94, %92, %90, %89

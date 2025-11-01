@@ -1924,7 +1924,7 @@ parse_double.exit575:                             ; preds = %.preheader696
 
 529:                                              ; preds = %.critedge.i578, %527
   %530 = phi i8 [ %526, %527 ], [ %.pre936, %.critedge.i578 ]
-  %storemerge666 = phi ptr [ %2, %527 ], [ %532, %.critedge.i578 ]
+  %storemerge665 = phi ptr [ %2, %527 ], [ %532, %.critedge.i578 ]
   switch i8 %530, label %.preheader.i579.preheader [
     i8 32, label %.critedge.i578
     i8 9, label %.critedge.i578
@@ -1935,13 +1935,13 @@ parse_double.exit575:                             ; preds = %.preheader696
   br label %.preheader.i579
 
 .critedge.i578:                                   ; preds = %529, %529
-  %532 = getelementptr inbounds nuw i8, ptr %storemerge666, i64 1
+  %532 = getelementptr inbounds nuw i8, ptr %storemerge665, i64 1
   %.pre936 = load i8, ptr %532, align 1, !tbaa !23
   br label %529
 
 .preheader.i579:                                  ; preds = %.preheader.i579.preheader, %535
   %533 = phi i8 [ %.pre.i580, %535 ], [ %530, %.preheader.i579.preheader ]
-  %534 = phi ptr [ %536, %535 ], [ %storemerge666, %.preheader.i579.preheader ]
+  %534 = phi ptr [ %536, %535 ], [ %storemerge665, %.preheader.i579.preheader ]
   switch i8 %533, label %535 [
     i8 32, label %parse_string.exit581
     i8 9, label %parse_string.exit581
@@ -1959,7 +1959,7 @@ parse_string.exit581:                             ; preds = %.preheader.i579, %.
   %537 = getelementptr inbounds nuw i8, ptr %534, i64 1
   store ptr %537, ptr %8, align 8, !tbaa !26
   store i8 0, ptr %534, align 1, !tbaa !23
-  %538 = call ptr @g_hash_table_lookup(ptr noundef %.ph1172, ptr noundef nonnull %storemerge666) #13
+  %538 = call ptr @g_hash_table_lookup(ptr noundef %.ph1172, ptr noundef nonnull %storemerge665) #13
   %.not436 = icmp eq ptr %538, null
   br i1 %.not436, label %.thread649, label %539
 

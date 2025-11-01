@@ -258,7 +258,7 @@ traverse_string.exit.thread:                      ; preds = %33, %30
   %.pre = load i32, ptr %10, align 4, !tbaa !10
   br label %92
 
-.unreachabledefault:                              ; preds = %84
+92:                                               ; preds = %84
   unreachable
 
 92:                                               ; preds = %90, %88, %86, %85

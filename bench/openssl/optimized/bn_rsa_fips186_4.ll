@@ -384,7 +384,7 @@ define range(i32 0, 2) i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, p
   tail call void @BN_CTX_end(ptr noundef %7) #3
   ret i32 %.095
 
-.unreachabledefault:                              ; preds = %76
+.loopexit122:                                     ; preds = %76
   unreachable
 }
 

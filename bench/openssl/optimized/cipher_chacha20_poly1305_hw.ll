@@ -264,7 +264,7 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %78, %80, %86
   br i1 %.not134, label %.thread, label %101
 
 .thread:                                          ; preds = %99
-  %.not139158 = icmp eq i64 %4, %10
+  %.not139155 = icmp eq i64 %4, %10
   br label %146
 
 101:                                              ; preds = %99
@@ -355,15 +355,15 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %78, %80, %86
 ._crit_edge:                                      ; preds = %143
   %.0118 = getelementptr inbounds nuw i8, ptr %3, i64 %.1
   %.0117 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
-  %.pre166 = load i8, ptr %11, align 8
+  %.pre167 = load i8, ptr %11, align 8
   br label %146
 
 146:                                              ; preds = %._crit_edge, %.thread
-  %147 = phi i8 [ %100, %.thread ], [ %.pre166, %._crit_edge ]
-  %.not139163 = phi i1 [ %.not139158, %.thread ], [ false, %._crit_edge ]
-  %.0116162 = phi i64 [ %10, %.thread ], [ %.1, %._crit_edge ]
-  %.0117161 = phi ptr [ %1, %.thread ], [ %.0117, %._crit_edge ]
-  %.0118160 = phi ptr [ null, %.thread ], [ %.0118, %._crit_edge ]
+  %147 = phi i8 [ %100, %.thread ], [ %.pre167, %._crit_edge ]
+  %.not139160 = phi i1 [ %.not139155, %.thread ], [ false, %._crit_edge ]
+  %.0116159 = phi i64 [ %10, %.thread ], [ %.1, %._crit_edge ]
+  %.0117158 = phi ptr [ %1, %.thread ], [ %.0117, %._crit_edge ]
+  %.0118157 = phi ptr [ null, %.thread ], [ %.0118, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %148 = and i8 %147, 1
   %.not140 = icmp eq i8 %148, 0
@@ -379,11 +379,11 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %78, %80, %86
 153:                                              ; preds = %149
   %154 = sub nuw nsw i64 16, %152
   tail call void @Poly1305_Update(ptr noundef nonnull %8, ptr noundef nonnull @zero, i64 noundef %154) #7
-  %.pre167 = load i8, ptr %11, align 8
+  %.pre168 = load i8, ptr %11, align 8
   br label %155
 
 155:                                              ; preds = %153, %149
-  %156 = phi i8 [ %.pre167, %153 ], [ %147, %149 ]
+  %156 = phi i8 [ %.pre168, %153 ], [ %147, %149 ]
   %157 = and i8 %156, -2
   store i8 %157, ptr %11, align 8
   br label %158
@@ -413,50 +413,50 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %78, %80, %86
   %171 = load i8, ptr %11, align 8
   %172 = and i8 %171, -3
   store i8 %172, ptr %11, align 8
-  %.not144 = icmp eq ptr %.0118160, null
-  %or.cond151 = select i1 %.not144, i1 true, i1 %.not139163
+  %.not144 = icmp eq ptr %.0118157, null
+  %or.cond151 = select i1 %.not144, i1 true, i1 %.not139160
   %173 = load i8, ptr %166, align 4
   %174 = and i8 %173, 2
   %.not146 = icmp eq i8 %174, 0
-  br i1 %or.cond151, label %183, label %175
+  br i1 %or.cond151, label %184, label %175
 
 175:                                              ; preds = %165
   br i1 %.not146, label %177, label %176
 
 176:                                              ; preds = %175
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.0117161, ptr noundef nonnull align 4 dereferenceable(16) %169, i64 16, i1 false)
-  br label %.sink.split
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.0117158, ptr noundef nonnull align 4 dereferenceable(16) %169, i64 16, i1 false)
+  br label %select.unfold
 
 177:                                              ; preds = %175
-  %178 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %7, ptr noundef nonnull %.0118160, i64 noundef 16) #7
+  %178 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %7, ptr noundef nonnull %.0118157, i64 noundef 16) #7
   %.not149 = icmp eq i32 %178, 0
-  br i1 %.not149, label %181, label %.thread183
+  br i1 %.not149, label %182, label %179
 
-.thread183:                                       ; preds = %177
-  %179 = sub i64 0, %.0116162
-  %180 = getelementptr inbounds i8, ptr %.0117161, i64 %179
-  call void @llvm.memset.p0.i64(ptr align 1 %180, i8 0, i64 %.0116162, i1 false)
+179:                                              ; preds = %177
+  %180 = sub i64 0, %.0116159
+  %181 = getelementptr inbounds i8, ptr %.0117158, i64 %180
+  call void @llvm.memset.p0.i64(ptr align 1 %181, i8 0, i64 %.0116159, i1 false)
   br label %.sink.split
 
-181:                                              ; preds = %177
-  %182 = add i64 %4, -16
-  br label %.sink.split
+182:                                              ; preds = %177
+  %183 = add i64 %4, -16
+  br label %select.unfold
 
-183:                                              ; preds = %165
-  br i1 %.not146, label %184, label %.sink.split
+184:                                              ; preds = %165
+  br i1 %.not146, label %185, label %select.unfold
 
-184:                                              ; preds = %183
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %186 = load i64, ptr %185, align 8, !tbaa !30
-  %187 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %7, ptr noundef nonnull %169, i64 noundef %186) #7
-  %.fr = freeze i32 %187
+185:                                              ; preds = %184
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %187 = load i64, ptr %186, align 8, !tbaa !30
+  %188 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %7, ptr noundef nonnull %169, i64 noundef %187) #7
+  %.fr = freeze i32 %188
   %.not147 = icmp eq i32 %.fr, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %spec.select = select i1 %.not147, i64 %4, i64 0
   br label %188
 
-.sink.split:                                      ; preds = %183, %181, %176, %.thread183
-  %.0181.ph = phi i1 [ false, %.thread183 ], [ true, %176 ], [ true, %181 ], [ true, %183 ]
+select.unfold:                                    ; preds = %183, %181, %176, %180
+  %.1120.ph = phi i1 [ false, %.thread183 ], [ true, %176 ], [ true, %181 ], [ true, %183 ]
   %.ph = phi i64 [ 0, %.thread183 ], [ %4, %176 ], [ %182, %181 ], [ %4, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %188

@@ -1700,9 +1700,9 @@ define dso_local range(i32 -6, 1) i32 @get_tree_entry_follow_symlinks(ptr nounde
   br label %32
 
 32:                                               ; preds = %.backedge, %.outer
-  %.0103 = phi i64 [ %.0103.ph, %.outer ], [ %.0103.be, %.backedge ]
-  %.091 = phi i64 [ %.091.ph, %.outer ], [ %.192, %.backedge ]
-  %.085 = phi ptr [ %.085.ph, %.outer ], [ %.186, %.backedge ]
+  %33 = phi i64 [ %.0103.ph, %.outer ], [ %.0103.be, %.backedge ]
+  %.0108 = phi i64 [ %.091.ph, %.outer ], [ %.192, %.backedge ]
+  %.0103 = phi ptr [ %.085.ph, %.outer ], [ %.186, %.backedge ]
   %33 = load ptr, ptr %21, align 8, !tbaa !35
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %34, label %74
@@ -1838,13 +1838,13 @@ init_tree_desc_internal.exit.i:                   ; preds = %60, %63
 
 83:                                               ; preds = %._crit_edge
   store i8 0, ptr %82, align 1, !tbaa !41
-  %.pre = load ptr, ptr %29, align 8, !tbaa !38
-  %.pre162 = load i8, ptr %.pre, align 1
+  %.pre174 = load ptr, ptr %29, align 8, !tbaa !38
+  %.pre175 = load i8, ptr %.pre174, align 1
   br label %sub_0
 
 sub_0:                                            ; preds = %83, %._crit_edge
-  %84 = phi i8 [ %.pre162, %83 ], [ %81, %._crit_edge ]
-  %85 = phi ptr [ %.pre, %83 ], [ %.lcssa, %._crit_edge ]
+  %84 = phi i8 [ %.pre175, %83 ], [ %81, %._crit_edge ]
+  %85 = phi ptr [ %.pre174, %83 ], [ %.lcssa, %._crit_edge ]
   switch i8 %84, label %.thread178 [
     i8 46, label %sub_1
     i8 0, label %125
@@ -1853,14 +1853,14 @@ sub_0:                                            ; preds = %83, %._crit_edge
 sub_1:                                            ; preds = %sub_0
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %87 = load i8, ptr %86, align 1
-  %.not158 = icmp eq i8 %87, 46
-  br i1 %.not158, label %.tail, label %.thread178
+  %.not163 = icmp eq i8 %87, 46
+  br i1 %.not163, label %.tail, label %.thread192
 
 .tail:                                            ; preds = %sub_1
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 2
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 0
-  br i1 %90, label %91, label %.thread178
+  br i1 %90, label %91, label %.thread192
 
 91:                                               ; preds = %.tail
   %92 = icmp eq i64 %.1104, 1
@@ -1871,11 +1871,11 @@ sub_1:                                            ; preds = %sub_0
 
 94:                                               ; preds = %93
   store i8 47, ptr %82, align 1, !tbaa !41
-  %.pre163 = load ptr, ptr %29, align 8, !tbaa !38
+  %.pre176 = load ptr, ptr %29, align 8, !tbaa !38
   br label %.preheader.thread
 
 .preheader.thread:                                ; preds = %93, %94
-  %95 = phi ptr [ %.pre163, %94 ], [ %85, %93 ]
+  %95 = phi ptr [ %.pre176, %94 ], [ %85, %93 ]
   %96 = load i64, ptr %30, align 8, !tbaa !57
   call void @strbuf_add(ptr noundef %4, ptr noundef %95, i64 noundef %96) #15
   store i16 0, ptr %5, align 2, !tbaa !93
@@ -1900,8 +1900,8 @@ sub_1:                                            ; preds = %sub_0
 107:                                              ; preds = %97
   %108 = getelementptr i8, ptr %98, i64 -64
   %109 = load i32, ptr %108, align 4, !tbaa !4
-  %.not18.i.i130 = icmp eq i32 %109, 0
-  br i1 %.not18.i.i130, label %113, label %110
+  %.not18.i.i129 = icmp eq i32 %109, 0
+  br i1 %.not18.i.i129, label %113, label %110
 
 110:                                              ; preds = %107
   %111 = sext i32 %109 to i64
@@ -1921,21 +1921,21 @@ sub_1:                                            ; preds = %sub_0
   %119 = trunc i64 %106 to i32
   store i32 %119, ptr %22, align 8, !tbaa !36
   store i32 0, ptr %23, align 4, !tbaa !37
-  %.not19.i.i131 = icmp eq i64 %106, 0
-  br i1 %.not19.i.i131, label %init_tree_desc.exit134, label %init_tree_desc_internal.exit.i132
+  %.not19.i.i130 = icmp eq i64 %106, 0
+  br i1 %.not19.i.i130, label %init_tree_desc.exit133, label %init_tree_desc_internal.exit.i131
 
-init_tree_desc_internal.exit.i132:                ; preds = %117
+init_tree_desc_internal.exit.i131:                ; preds = %117
   %120 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %13, ptr noundef %104, i64 noundef %106, ptr noundef nonnull %8)
-  %.not.i133 = icmp eq i32 %120, 0
-  br i1 %.not.i133, label %init_tree_desc.exit134, label %121
+  %.not.i132 = icmp eq i32 %120, 0
+  br i1 %.not.i132, label %init_tree_desc.exit133, label %121
 
-121:                                              ; preds = %init_tree_desc_internal.exit.i132
+121:                                              ; preds = %init_tree_desc_internal.exit.i131
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %123 = load ptr, ptr %122, align 8, !tbaa !38
   call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef %123) #14
   unreachable
 
-init_tree_desc.exit134:                           ; preds = %117, %init_tree_desc_internal.exit.i132
+init_tree_desc.exit133:                           ; preds = %117, %init_tree_desc_internal.exit.i131
   call void @strbuf_release(ptr noundef nonnull %8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %124 = select i1 %.not120, i64 2, i64 3
@@ -1951,12 +1951,12 @@ init_tree_desc.exit134:                           ; preds = %117, %init_tree_des
   store i32 %129, ptr %31, align 4, !tbaa !4
   br label %.preheader
 
-.thread178:                                       ; preds = %sub_0, %.tail, %sub_1
+.thread192:                                       ; preds = %sub_0, %.tail, %sub_1
   %130 = call fastcc i32 @find_tree_entry(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %85, ptr noundef nonnull %11, ptr noundef %5)
   %.not124 = icmp eq i32 %130, 0
   br i1 %.not124, label %131, label %.preheader
 
-131:                                              ; preds = %.thread178
+131:                                              ; preds = %.thread192
   %132 = load i16, ptr %5, align 2, !tbaa !93
   %133 = and i16 %132, -4096
   %134 = icmp eq i16 %133, 16384
@@ -2007,12 +2007,12 @@ init_tree_desc.exit134:                           ; preds = %117, %init_tree_des
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %152 = add nsw i32 %.0108.ph, -1
   %153 = icmp eq i32 %.0108.ph, 0
-  br i1 %153, label %.thread148, label %154
+  br i1 %153, label %.thread147, label %154
 
 154:                                              ; preds = %151
   %155 = call ptr @repo_read_object_file(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %17, ptr noundef nonnull %16) #15
   %.not125 = icmp eq ptr %155, null
-  br i1 %.not125, label %.thread148, label %156
+  br i1 %.not125, label %.thread147, label %156
 
 156:                                              ; preds = %154
   %157 = load i8, ptr %155, align 1, !tbaa !41
@@ -2024,7 +2024,7 @@ init_tree_desc.exit134:                           ; preds = %117, %init_tree_des
   call void @strbuf_add(ptr noundef %4, ptr noundef nonnull %155, i64 noundef %160) #15
   call void @free(ptr noundef nonnull %155) #15
   store i16 0, ptr %5, align 2, !tbaa !93
-  br label %.thread148
+  br label %.thread147
 
 161:                                              ; preds = %156
   %162 = load ptr, ptr %29, align 8
@@ -2041,14 +2041,14 @@ init_tree_desc.exit134:                           ; preds = %117, %init_tree_des
   %172 = load i64, ptr %171, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_tree_entry_follow_symlinks.namebuf, i64 24, i1 false)
-  %.not.i.i135 = icmp eq ptr %169, null
-  br i1 %.not.i.i135, label %179, label %173
+  %.not.i.i134 = icmp eq ptr %169, null
+  br i1 %.not.i.i134, label %179, label %173
 
 173:                                              ; preds = %161
   %174 = getelementptr i8, ptr %167, i64 -8
   %175 = load i32, ptr %174, align 4, !tbaa !4
-  %.not18.i.i136 = icmp eq i32 %175, 0
-  br i1 %.not18.i.i136, label %179, label %176
+  %.not18.i.i135 = icmp eq i32 %175, 0
+  br i1 %.not18.i.i135, label %179, label %176
 
 176:                                              ; preds = %173
   %177 = sext i32 %175 to i64
@@ -2068,77 +2068,77 @@ init_tree_desc.exit134:                           ; preds = %117, %init_tree_des
   %185 = trunc i64 %172 to i32
   store i32 %185, ptr %22, align 8, !tbaa !36
   store i32 0, ptr %23, align 4, !tbaa !37
-  %.not19.i.i137 = icmp eq i64 %172, 0
-  br i1 %.not19.i.i137, label %init_tree_desc.exit140, label %init_tree_desc_internal.exit.i138
+  %.not19.i.i136 = icmp eq i64 %172, 0
+  br i1 %.not19.i.i136, label %init_tree_desc.exit139, label %init_tree_desc_internal.exit.i137
 
-init_tree_desc_internal.exit.i138:                ; preds = %183
+init_tree_desc_internal.exit.i137:                ; preds = %183
   %186 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %13, ptr noundef %170, i64 noundef %172, ptr noundef nonnull %7)
-  %.not.i139 = icmp eq i32 %186, 0
-  br i1 %.not.i139, label %init_tree_desc.exit140, label %187
+  %.not.i138 = icmp eq i32 %186, 0
+  br i1 %.not.i138, label %init_tree_desc.exit139, label %187
 
-187:                                              ; preds = %init_tree_desc_internal.exit.i138
+187:                                              ; preds = %init_tree_desc_internal.exit.i137
   %188 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %189 = load ptr, ptr %188, align 8, !tbaa !38
   call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef %189) #14
   unreachable
 
-init_tree_desc.exit140:                           ; preds = %183, %init_tree_desc_internal.exit.i138
+init_tree_desc.exit139:                           ; preds = %183, %init_tree_desc_internal.exit.i137
   call void @strbuf_release(ptr noundef nonnull %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %190 = load i64, ptr %16, align 8, !tbaa !40
   call void @strbuf_splice(ptr noundef nonnull %12, i64 noundef 0, i64 noundef %.090, ptr noundef nonnull %155, i64 noundef %190) #15
   br i1 %.not120, label %195, label %191
 
-191:                                              ; preds = %init_tree_desc.exit140
+191:                                              ; preds = %init_tree_desc.exit139
   %192 = load ptr, ptr %29, align 8, !tbaa !38
   %193 = load i64, ptr %16, align 8, !tbaa !40
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 %193
   store i8 47, ptr %194, align 1, !tbaa !41
   br label %195
 
-.thread148:                                       ; preds = %151, %154, %159
+.thread147:                                       ; preds = %151, %154, %159
   %.7.ph = phi i32 [ 0, %159 ], [ -5, %151 ], [ -4, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.preheader
 
-195:                                              ; preds = %191, %init_tree_desc.exit140
+195:                                              ; preds = %191, %init_tree_desc.exit139
   call void @free(ptr noundef nonnull %155) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.outer
 
-.preheader:                                       ; preds = %.thread178, %125, %136, %146, %147, %.thread, %.thread148
-  %.3106.ph = phi i64 [ %.1104, %.thread148 ], [ %.2105.ph, %.thread ], [ %.1104, %147 ], [ %.1104, %146 ], [ %.1104, %136 ], [ %.1104, %125 ], [ %.1104, %.thread178 ]
-  %.489.ph = phi ptr [ %.186, %.thread148 ], [ %.287.ph, %.thread ], [ %.186, %147 ], [ %.186, %146 ], [ %.186, %136 ], [ %.186, %125 ], [ %.186, %.thread178 ]
-  %.3.ph = phi i32 [ %.7.ph, %.thread148 ], [ %.2.ph, %.thread ], [ 0, %147 ], [ -6, %146 ], [ 0, %136 ], [ 0, %125 ], [ %.084.ph, %.thread178 ]
-  %.not159 = icmp eq i64 %.3106.ph, 0
-  br i1 %.not159, label %._crit_edge156, label %.lr.ph155.preheader
+.backedge:                                        ; preds = %.thread192, %125, %136, %146, %147, %.thread, %.thread148
+  %.1109 = phi i64 [ %.1104, %.thread148 ], [ %.2105.ph, %.thread ], [ %.1104, %147 ], [ %.1104, %146 ], [ %.1104, %136 ], [ %.1104, %125 ], [ %.1104, %.thread178 ]
+  %.3106 = phi ptr [ %.186, %.thread148 ], [ %.287.ph, %.thread ], [ %.186, %147 ], [ %.186, %146 ], [ %.186, %136 ], [ %.186, %125 ], [ %.186, %.thread178 ]
+  %.3 = phi i32 [ %.7.ph, %.thread148 ], [ %.2.ph, %.thread ], [ 0, %147 ], [ -6, %146 ], [ 0, %136 ], [ 0, %125 ], [ %.084.ph, %.thread178 ]
+  %.not159 = icmp eq i64 %.1109, 0
+  br i1 %.not159, label %.loopexit, label %.lr.ph155.backedge
 
-.lr.ph155.preheader:                              ; preds = %.preheader.thread, %.preheader
-  %.3.ph195 = phi i32 [ 0, %.preheader.thread ], [ %.3.ph, %.preheader ]
-  %.489.ph193 = phi ptr [ %.186, %.preheader.thread ], [ %.489.ph, %.preheader ]
-  %.3106.ph192 = phi i64 [ 1, %.preheader.thread ], [ %.3106.ph, %.preheader ]
+.preheader:                                       ; preds = %.preheader.thread, %.preheader
+  %.3106.ph = phi i32 [ 0, %.preheader.thread ], [ %.3.ph, %.preheader ]
+  %.489.ph = phi ptr [ %.186, %.preheader.thread ], [ %.3106, %.preheader ]
+  %.3.ph = phi i64 [ 1, %.preheader.thread ], [ %.1109, %.preheader ]
   br label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
   %.0101154 = phi i64 [ %198, %.lr.ph155 ], [ 0, %.lr.ph155.preheader ]
-  %196 = getelementptr inbounds nuw %struct.dir_state, ptr %.489.ph193, i64 %.0101154
+  %196 = getelementptr inbounds nuw %struct.dir_state, ptr %.3106, i64 %.0101154
   %197 = load ptr, ptr %196, align 8, !tbaa !96
   call void @free(ptr noundef %197) #15
   %198 = add nuw i64 %.0101154, 1
   %exitcond.not = icmp eq i64 %198, %.3106.ph192
-  br i1 %exitcond.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !100
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph155, !llvm.loop !100
 
-._crit_edge156:                                   ; preds = %.lr.ph155, %.preheader
-  %.3.ph196 = phi i32 [ %.3.ph, %.preheader ], [ %.3.ph195, %.lr.ph155 ]
-  %.489.ph194 = phi ptr [ %.489.ph, %.preheader ], [ %.489.ph193, %.lr.ph155 ]
-  call void @free(ptr noundef %.489.ph194) #15
+.loopexit:                                        ; preds = %.lr.ph155, %.preheader
+  %.3.ph211 = phi i32 [ %.3.ph, %.preheader ], [ %.3.ph195, %.lr.ph155 ]
+  %.489.ph209 = phi ptr [ %.489.ph, %.preheader ], [ %.489.ph, %.lr.ph155 ]
+  call void @free(ptr noundef %.489.ph209) #15
   call void @strbuf_release(ptr noundef nonnull %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  ret i32 %.3.ph196
+  ret i32 %.3.ph211
 }
 
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3

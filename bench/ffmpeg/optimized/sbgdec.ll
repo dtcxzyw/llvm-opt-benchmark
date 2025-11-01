@@ -2139,7 +2139,7 @@ is_space.exit.thread.i.i95:                       ; preds = %.lr.ph.i.i94, %.lr.
   %exitcond.not.i.i96 = icmp eq ptr %253, %230
   br i1 %exitcond.not.i.i96, label %.loopexit, label %.lr.ph.i.i94, !llvm.loop !161
 
-.critedge.unreachabledefault.i:                   ; preds = %.critedge.i
+parse_options.exit.thread:                        ; preds = %.critedge.i
   unreachable
 
 parse_options.exit.thread:                        ; preds = %244, %.loopexit261.i, %232, %233, %parse_optarg.exit189.i, %221, %218, %parse_optarg.exit174.i, %196, %193, %parse_optarg.exit159.i, %parse_optarg.exit144.i, %147, %parse_optarg.exit129.i, %125, %parse_optarg.exit.i, %97, %223

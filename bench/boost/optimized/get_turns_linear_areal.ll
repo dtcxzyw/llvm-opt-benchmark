@@ -203324,11 +203324,11 @@ _ZNK5boost8geometry6detail7overlay26get_turn_info_linear_arealINS2_18assign_null
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %96 = load i64, ptr %95, align 8, !tbaa !24
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %.sroa.19.80..sroa_idx79 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.80..sroa_idx79, ptr noundef nonnull align 8 dereferenceable(12) %97, i64 12, i1 false), !tbaa.struct !2614
+  %.sroa.19.80..sroa_idx79162 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.80..sroa_idx79162, ptr noundef nonnull align 8 dereferenceable(12) %97, i64 12, i1 false), !tbaa.struct !2614
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  %.sroa.31.152..sroa_idx117 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.31.152..sroa_idx117, ptr noundef nonnull align 4 dereferenceable(12) %98, i64 12, i1 false), !tbaa.struct !2614
+  %.sroa.31.152..sroa_idx117163 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.31.152..sroa_idx117163, ptr noundef nonnull align 4 dereferenceable(12) %98, i64 12, i1 false), !tbaa.struct !2614
   %.sroa.0.0.copyload.i32 = load ptr, ptr %3, align 8
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i32, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !2421
@@ -226873,11 +226873,11 @@ _ZNK5boost8geometry6detail7overlay26get_turn_info_linear_arealINS2_18assign_null
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %.sroa.19.88..sroa_idx75 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.19.88..sroa_idx75, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false), !tbaa.struct !3231
+  %.sroa.19.88..sroa_idx75152 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.19.88..sroa_idx75152, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false), !tbaa.struct !3231
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %.sroa.31.176..sroa_idx109 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.31.176..sroa_idx109, ptr noundef nonnull align 8 dereferenceable(24) %96, i64 24, i1 false), !tbaa.struct !3231
+  %.sroa.31.176..sroa_idx109153 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.31.176..sroa_idx109153, ptr noundef nonnull align 8 dereferenceable(24) %96, i64 24, i1 false), !tbaa.struct !3231
   %.sroa.0.0.copyload.i32 = load ptr, ptr %3, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i32, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !3020
@@ -247271,11 +247271,11 @@ _ZNK5boost8geometry6detail7overlay26get_turn_info_linear_arealINS2_18assign_null
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %.sroa.19.112..sroa_idx75 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.19.112..sroa_idx75, ptr noundef nonnull align 16 dereferenceable(48) %95, i64 48, i1 false), !tbaa.struct !3727
+  %.sroa.19.112..sroa_idx75152 = getelementptr inbounds nuw i8, ptr %.sroa.19, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.19.112..sroa_idx75152, ptr noundef nonnull align 16 dereferenceable(48) %95, i64 48, i1 false), !tbaa.struct !3727
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  %.sroa.31.240..sroa_idx109 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.31.240..sroa_idx109, ptr noundef nonnull align 16 dereferenceable(48) %96, i64 48, i1 false), !tbaa.struct !3727
+  %.sroa.31.240..sroa_idx109153 = getelementptr inbounds nuw i8, ptr %.sroa.31, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.31.240..sroa_idx109153, ptr noundef nonnull align 16 dereferenceable(48) %96, i64 48, i1 false), !tbaa.struct !3727
   %.sroa.0.0.copyload.i32 = load ptr, ptr %3, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i32, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !3513

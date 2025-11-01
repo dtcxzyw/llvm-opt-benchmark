@@ -3971,7 +3971,7 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
   store ptr %45, ptr %46, align 8, !tbaa !23
   %47 = call fastcc i32 @unicode_general_category1(ptr noundef nonnull %41, i32 noundef %38)
   %.not51 = icmp eq i32 %47, 0
-  br i1 %.not51, label %.outer.backedge, label %.loopexit58
+  br i1 %.not51, label %.outer.backedge, label %.loopexit57
 
 .outer.backedge:                                  ; preds = %36, %58, %80, %.thread
   %.042.ph.be = phi i32 [ %96, %.thread ], [ %83, %80 ], [ %61, %58 ], [ %39, %36 ]
@@ -4006,13 +4006,13 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   store ptr %64, ptr %66, align 16, !tbaa !19
-  %.not.i53 = icmp eq ptr %65, null
-  %67 = select i1 %.not.i53, ptr @cr_default_realloc, ptr %65
+  %.not.i52 = icmp eq ptr %65, null
+  %67 = select i1 %.not.i52, ptr @cr_default_realloc, ptr %65
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store ptr %67, ptr %68, align 8, !tbaa !23
   %69 = call fastcc i32 @unicode_prop1(ptr noundef nonnull %63, i32 noundef %60)
   %.not50 = icmp eq i32 %69, 0
-  br i1 %.not50, label %.outer.backedge, label %.loopexit58
+  br i1 %.not50, label %.outer.backedge, label %.loopexit57
 
 70:                                               ; preds = %22
   %71 = icmp ult i32 %23, 41
@@ -4043,13 +4043,13 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   store ptr %86, ptr %88, align 16, !tbaa !19
-  %.not.i54 = icmp eq ptr %87, null
-  %89 = select i1 %.not.i54, ptr @cr_default_realloc, ptr %87
+  %.not.i53 = icmp eq ptr %87, null
+  %89 = select i1 %.not.i53, ptr @cr_default_realloc, ptr %87
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store ptr %89, ptr %90, align 8, !tbaa !23
   %91 = call fastcc i32 @unicode_case1(ptr noundef nonnull %85, i32 noundef %82)
   %.not49 = icmp eq i32 %91, 0
-  br i1 %.not49, label %.outer.backedge, label %.loopexit58
+  br i1 %.not49, label %.outer.backedge, label %.loopexit57
 
 92:                                               ; preds = %22, %22, %22
   %93 = add i32 %.042.ph, -2
@@ -4065,8 +4065,8 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %100, i8 0, i64 16, i1 false)
   store ptr %101, ptr %103, align 16, !tbaa !19
-  %.not.i55 = icmp eq ptr %102, null
-  %104 = select i1 %.not.i55, ptr @cr_default_realloc, ptr %102
+  %.not.i54 = icmp eq ptr %102, null
+  %104 = select i1 %.not.i54, ptr @cr_default_realloc, ptr %102
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store ptr %104, ptr %105, align 8, !tbaa !23
   %106 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -4098,12 +4098,12 @@ define internal range(i32 -1, 1) i32 @unicode_prop_ops(ptr noundef captures(none
 
 126:                                              ; preds = %92
   %127 = add i32 %.042.ph, 1
-  br label %.loopexit58
+  br label %.loopexit57
 
 128:                                              ; preds = %22
   %129 = call i32 @cr_invert(ptr noundef nonnull %10)
   %.not = icmp eq i32 %129, 0
-  br i1 %.not, label %11, label %.loopexit58
+  br i1 %.not, label %11, label %.loopexit57
 
 130:                                              ; preds = %22
   call void @abort() #22
@@ -4165,12 +4165,12 @@ cr_copy.exit:                                     ; preds = %.cr_copy.exit_crit_
   %158 = call ptr %155(ptr noundef %157, ptr noundef %153, i64 noundef 0) #21
   br label %.loopexit
 
-.loopexit58:                                      ; preds = %128, %80, %58, %36, %126
+.loopexit57:                                      ; preds = %128, %80, %58, %36, %126
   %.1 = phi i32 [ %127, %126 ], [ %.042.ph, %128 ], [ %39, %36 ], [ %61, %58 ], [ %83, %80 ]
   %159 = icmp sgt i32 %.1, 0
   br i1 %159, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %.loopexit58
+.lr.ph.preheader:                                 ; preds = %.loopexit57
   %wide.trip.count = zext nneg i32 %.1 to i64
   br label %.lr.ph
 
@@ -4188,7 +4188,7 @@ cr_copy.exit:                                     ; preds = %.cr_copy.exit_crit_
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !61
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit58, %cr_copy.exit
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit57, %cr_copy.exit
   %.041 = phi i32 [ %.0.i, %cr_copy.exit ], [ -1, %.loopexit58 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

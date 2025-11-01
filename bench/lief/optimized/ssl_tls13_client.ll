@@ -2578,7 +2578,7 @@ define internal fastcc i32 @ssl_tls13_postprocess_server_hello(ptr noundef %0) u
 
 9:                                                ; preds = %1
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1899, ptr noundef nonnull @.str.66) #12
-  br label %27
+  br label %28
 
 10:                                               ; preds = %1, %8, %7
   %.sink = phi i8 [ 4, %8 ], [ 2, %7 ], [ 1, %1 ]
@@ -2598,21 +2598,21 @@ switch.lookup:                                    ; preds = %10
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ssl_tls13_postprocess_server_hello.19, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1909, ptr noundef nonnull @.str.67, ptr noundef nonnull %switch.load) #12
-  br label %27
+  br label %28
 
-switch.lookup44:                                  ; preds = %10
+switch.lookup42:                                  ; preds = %10
   %switch.gep45 = getelementptr inbounds nuw ptr, ptr @switch.table.ssl_tls13_postprocess_server_hello.19, i64 %15
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1915, ptr noundef nonnull @.str.68, ptr noundef nonnull %switch.load46) #12
   %16 = tail call i32 @mbedtls_ssl_tls13_key_schedule_stage_early(ptr noundef nonnull %0) #12
   %.not29 = icmp eq i32 %16, 0
-  br i1 %.not29, label %18, label %17
+  br i1 %.not29, label %21, label %17
 
-17:                                               ; preds = %switch.lookup44
+19:                                               ; preds = %switch.lookup42
   tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1935, ptr noundef nonnull @.str.69, i32 noundef %16) #12
   br label %27
 
-18:                                               ; preds = %switch.lookup44
+21:                                               ; preds = %switch.lookup44
   %19 = tail call i32 @mbedtls_ssl_tls13_compute_handshake_transform(ptr noundef nonnull %0) #12
   %.not30 = icmp eq i32 %19, 0
   br i1 %.not30, label %21, label %20
@@ -2621,23 +2621,23 @@ switch.lookup44:                                  ; preds = %10
   tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1944, ptr noundef nonnull @.str.70, i32 noundef %19) #12
   br label %27
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 3296
-  %23 = load ptr, ptr %22, align 8, !tbaa !96
-  tail call void @mbedtls_ssl_set_inbound_transform(ptr noundef nonnull %0, ptr noundef %23) #12
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 3296
+  %24 = load ptr, ptr %23, align 8, !tbaa !96
+  tail call void @mbedtls_ssl_set_inbound_transform(ptr noundef nonnull %0, ptr noundef %24) #12
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1949, ptr noundef nonnull @.str.71) #12
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %25 = load ptr, ptr %24, align 8, !tbaa !7
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %25, ptr %26, align 8, !tbaa !106
-  br label %28
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %26 = load ptr, ptr %25, align 8, !tbaa !7
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %26, ptr %27, align 8, !tbaa !106
+  br label %29
 
-27:                                               ; preds = %17, %20, %switch.lookup, %9
+28:                                               ; preds = %17, %20, %switch.lookup, %9
   %.0.ph = phi i32 [ -28160, %9 ], [ -28160, %switch.lookup ], [ %19, %20 ], [ %16, %17 ]
   tail call void @mbedtls_ssl_pend_fatal_alert(ptr noundef nonnull %0, i8 noundef zeroext 40, i32 noundef -28160) #12
-  br label %28
+  br label %29
 
-28:                                               ; preds = %21, %27
+29:                                               ; preds = %22, %28
   %.037 = phi i32 [ %.0.ph, %27 ], [ 0, %21 ]
   ret i32 %.037
 }
