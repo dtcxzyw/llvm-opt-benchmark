@@ -1121,7 +1121,7 @@ zend_hash_iterators_lower_pos.exit:               ; preds = %137, %126
   %.not9.i = icmp eq i32 %172, 0
   %175 = load i8, ptr %86, align 2, !tbaa !5
   %176 = icmp eq i8 %175, 0
-  br i1 %176, label %.preheader217.split.us, label %.preheader217.split
+  br i1 %176, label %.preheader217.split.us, label %.preheader217.split, !prof !22
 
 .preheader217.split.us:                           ; preds = %.preheader217
   %177 = load i32, ptr %59, align 8, !tbaa !27
@@ -3150,7 +3150,7 @@ zend_hash_iterators_lower_pos.exit:               ; preds = %366, %353
   %.not9.i = icmp eq i32 %425, 0
   %428 = load i8, ptr %291, align 2, !tbaa !5
   %429 = icmp eq i8 %428, 0
-  br i1 %429, label %.preheader822.split.us, label %.preheader822.split
+  br i1 %429, label %.preheader822.split.us, label %.preheader822.split, !prof !22
 
 .preheader822.split.us:                           ; preds = %.preheader822
   %430 = load i32, ptr %355, align 8, !tbaa !27
@@ -3661,7 +3661,7 @@ zend_hash_iterators_lower_pos.exit676:            ; preds = %602, %589
   %.not9.i678 = icmp eq i32 %660, 0
   %663 = load i8, ptr %528, align 2, !tbaa !5
   %664 = icmp eq i8 %663, 0
-  br i1 %664, label %.preheader828.split.us, label %.preheader828.split
+  br i1 %664, label %.preheader828.split.us, label %.preheader828.split, !prof !22
 
 .preheader828.split.us:                           ; preds = %.preheader828
   %665 = load i32, ptr %591, align 8, !tbaa !27
@@ -4232,7 +4232,7 @@ zend_hash_iterators_lower_pos.exit704:            ; preds = %866, %853
   %.not9.i706 = icmp eq i32 %933, 0
   %936 = load i8, ptr %783, align 2, !tbaa !5
   %937 = icmp eq i8 %936, 0
-  br i1 %937, label %.preheader811.split.us, label %.preheader811.split
+  br i1 %937, label %.preheader811.split.us, label %.preheader811.split, !prof !22
 
 .preheader811.split.us:                           ; preds = %.preheader811
   %938 = load i32, ptr %855, align 8, !tbaa !27
@@ -4794,7 +4794,7 @@ zend_hash_iterators_lower_pos.exit732:            ; preds = %1126, %1113
   %.not9.i734 = icmp eq i32 %1192, 0
   %1195 = load i8, ptr %1044, align 2, !tbaa !5
   %1196 = icmp eq i8 %1195, 0
-  br i1 %1196, label %.preheader816.split.us, label %.preheader816.split
+  br i1 %1196, label %.preheader816.split.us, label %.preheader816.split, !prof !22
 
 .preheader816.split.us:                           ; preds = %.preheader816
   %1197 = load i32, ptr %1115, align 8, !tbaa !27

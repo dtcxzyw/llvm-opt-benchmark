@@ -275,7 +275,7 @@ if.then:                                          ; preds = %land.lhs.true
 for.body.lr.ph.i:                                 ; preds = %if.then
   %22 = load ptr, ptr %underlying_, align 8, !tbaa !18
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %for.body.i, label %for.body.lr.ph.split.us.i
+  br i1 %23, label %for.body.i, label %for.body.lr.ph.split.us.i, !prof !20
 
 for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i
   %values_.i.us.i = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -399,7 +399,7 @@ if.then19:                                        ; preds = %_ZNK5boost10shared_
 for.body.lr.ph.i40:                               ; preds = %if.then19
   %52 = load ptr, ptr %underlying_, align 8, !tbaa !18
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %for.body.i51, label %for.body.lr.ph.split.us.i42
+  br i1 %53, label %for.body.i51, label %for.body.lr.ph.split.us.i42, !prof !20
 
 for.body.lr.ph.split.us.i42:                      ; preds = %for.body.lr.ph.i40
   %values_.i.us.i43 = getelementptr inbounds nuw i8, ptr %52, i64 32

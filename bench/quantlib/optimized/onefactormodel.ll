@@ -4482,7 +4482,7 @@ _ZN8QuantLib5ArrayC2Em.exit:                      ; preds = %_ZNK5boost10shared_
   br i1 %cmp.i.i, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
 for.body.lr.ph.split.us:                          ; preds = %_ZN8QuantLib5ArrayC2Em.exit
-  br i1 %9, label %for.body.us, label %for.body.lr.ph.split.us.split.us
+  br i1 %9, label %for.body.us, label %for.body.lr.ph.split.us.split.us, !prof !41
 
 for.body.lr.ph.split.us.split.us:                 ; preds = %for.body.lr.ph.split.us
   %x0_.i.i.us.us = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4527,7 +4527,7 @@ lpad.split.us:                                    ; preds = %cond.false.i.i12.us
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
 for.body.lr.ph.split:                             ; preds = %_ZN8QuantLib5ArrayC2Em.exit
-  br i1 %9, label %for.body, label %for.body.lr.ph.split.split.us
+  br i1 %9, label %for.body, label %for.body.lr.ph.split.split.us, !prof !41
 
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
   %x0_.i.i.us29 = getelementptr inbounds nuw i8, ptr %1, i64 32

@@ -27166,8 +27166,8 @@ _ZN4mold7CounterpLEi.exit83:                      ; preds = %_ZNK3tbb6detail2d11
   %345 = icmp ne ptr %343, %344
   %346 = load i8, ptr @_ZN4mold7Counter7enabledE, align 1, !range !438
   %347 = trunc nuw i8 %346 to i1
-  %or.cond339 = select i1 %345, i1 %347, i1 false
-  br i1 %or.cond339, label %.lr.ph267.split, label %._crit_edge268
+  %or.cond339 = select i1 %345, i1 %347, i1 false, !prof !1382
+  br i1 %or.cond339, label %.lr.ph267.split, label %._crit_edge268, !prof !1382
 
 ._crit_edge268:                                   ; preds = %_ZN4mold7CounterpLEi.exit84, %342
   %348 = load atomic i8, ptr @_ZGVZN4mold10show_statsINS_6X86_64EEEvRNS_7ContextIT_EEE17num_output_chunks acquire, align 8

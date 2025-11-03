@@ -1444,8 +1444,8 @@ define internal fastcc ptr @getTimelineHistory(i32 noundef %0, i1 noundef zeroex
   %27 = icmp sgt i32 %26, 0
   %28 = load i32, ptr @__pg_log_level, align 4
   %29 = icmp ult i32 %28, 2
-  %or.cond = select i1 %27, i1 %29, i1 false
-  br i1 %or.cond, label %.lr.ph.split, label %.loopexit
+  %or.cond = select i1 %27, i1 %29, i1 false, !prof !12
+  br i1 %or.cond, label %.lr.ph.split, label %.loopexit, !prof !12
 
 .lr.ph.split:                                     ; preds = %25, %46
   %30 = phi i32 [ %47, %46 ], [ %26, %25 ]
@@ -1478,7 +1478,7 @@ define internal fastcc ptr @getTimelineHistory(i32 noundef %0, i1 noundef zeroex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = sext i32 %47 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph.split, label %.loopexit, !llvm.loop !12
+  br i1 %50, label %.lr.ph.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %46, %25, %21
   ret ptr %.0
@@ -1723,5 +1723,6 @@ attributes #15 = { cold noreturn nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5, !13}
-!13 = !{!"llvm.loop.unswitch.partial.disable"}
+!12 = !{!"branch_weights", i32 1, i32 4001}
+!13 = distinct !{!13, !5, !14}
+!14 = !{!"llvm.loop.unswitch.partial.disable"}

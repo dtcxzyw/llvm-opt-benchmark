@@ -331,7 +331,7 @@ for.body148.lr.ph:                                ; preds = %for.cond.cleanup147
   %arrayidx.i155 = getelementptr inbounds nuw double, ptr %16, i64 %i129.0246
   %50 = load ptr, ptr %lineSearch_, align 8, !tbaa !24
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %for.body148, label %for.body148.lr.ph.split.us
+  br i1 %51, label %for.body148, label %for.body148.lr.ph.split.us, !prof !27
 
 for.body148.lr.ph.split.us:                       ; preds = %for.body148.lr.ph
   %searchDirection_.i138213.us = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -465,7 +465,7 @@ invoke.cont228.lr.ph:                             ; preds = %for.cond.cleanup225
   store double 0.000000e+00, ptr %arrayidx.i168, align 8, !tbaa !17
   %90 = load ptr, ptr %lineSearch_, align 8, !tbaa !24
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %invoke.cont228, label %invoke.cont228.lr.ph.split.us
+  br i1 %91, label %invoke.cont228, label %invoke.cont228.lr.ph.split.us, !prof !27
 
 invoke.cont228.lr.ph.split.us:                    ; preds = %invoke.cont228.lr.ph
   %92 = load ptr, ptr %inverseHessian_, align 8, !tbaa !19

@@ -2597,7 +2597,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont6
   %9 = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %8, i64 %direction
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %for.body, label %for.body.lr.ph.split.us
+  br i1 %11, label %for.body, label %for.body.lr.ph.split.us, !prof !24
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %locations_.i.us = getelementptr inbounds nuw i8, ptr %10, i64 8

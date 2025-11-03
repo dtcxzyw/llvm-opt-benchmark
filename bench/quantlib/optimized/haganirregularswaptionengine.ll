@@ -6251,7 +6251,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %annuities_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %2 = load ptr, ptr %this, align 8, !tbaa !43
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %for.body, label %for.body.lr.ph.split.us
+  br i1 %3, label %for.body, label %for.body.lr.ph.split.us, !prof !59
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %type_.i.us = getelementptr inbounds nuw i8, ptr %2, i64 256

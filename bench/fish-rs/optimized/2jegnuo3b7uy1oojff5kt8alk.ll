@@ -24746,7 +24746,7 @@ define hidden void @_ZN4fish8builtins4echo22parse_numeric_sequence17he186494eebb
   store i32 %.sroa.6.0.copyload, ptr %.sroa.2.sroa.2.sroa.2.sroa.4.0..sroa.2.sroa.2.sroa.2.0..sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.sroa_idx.sroa_idx, align 4
   %.sroa.2.sroa.2.sroa.2.sroa.5.0..sroa.2.sroa.2.sroa.2.0..sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %.promoted, ptr %.sroa.2.sroa.2.sroa.2.sroa.5.0..sroa.2.sroa.2.sroa.2.0..sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.sroa_idx.sroa_idx, align 8
-  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split, !prof !179
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %27 = zext nneg i8 %25 to i32

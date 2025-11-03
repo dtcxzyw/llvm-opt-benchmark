@@ -12715,7 +12715,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont34
   %_M_finish.i.i62 = getelementptr inbounds nuw i8, ptr %__begin2, i64 16
   %39 = load ptr, ptr %f_, align 8, !tbaa !296
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %for.body, label %for.body.lr.ph.split.us
+  br i1 %40, label %for.body, label %for.body.lr.ph.split.us, !prof !82
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %41 = load ptr, ptr %rhs, align 8, !tbaa !3

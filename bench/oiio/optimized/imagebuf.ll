@@ -28162,7 +28162,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09setpixel_IfEEvRNS0_8Ima
   %37 = load ptr, ptr %36, align 8, !tbaa !189
   %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = icmp eq i32 %38, 3
-  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us, !prof !137
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count17 = zext nneg i32 %5 to i64
@@ -28512,7 +28512,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09setpixel_ItEEvRNS0_8Ima
   %37 = load ptr, ptr %36, align 8, !tbaa !189
   %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = icmp eq i32 %38, 3
-  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us, !prof !137
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count17 = zext nneg i32 %5 to i64
@@ -28656,7 +28656,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09setpixel_IsEEvRNS0_8Ima
   %37 = load ptr, ptr %36, align 8, !tbaa !189
   %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = icmp eq i32 %38, 3
-  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us, !prof !137
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count17 = zext nneg i32 %5 to i64
@@ -28800,7 +28800,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09setpixel_IjEEvRNS0_8Ima
   %37 = load ptr, ptr %36, align 8, !tbaa !189
   %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = icmp eq i32 %38, 3
-  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us, !prof !137
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count17 = zext nneg i32 %5 to i64
@@ -28946,7 +28946,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09setpixel_IiEEvRNS0_8Ima
   %37 = load ptr, ptr %36, align 8, !tbaa !189
   %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = icmp eq i32 %38, 3
-  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us, !prof !137
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count17 = zext nneg i32 %5 to i64
@@ -29185,7 +29185,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09setpixel_IdEEvRNS0_8Ima
   %37 = load ptr, ptr %36, align 8, !tbaa !189
   %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = icmp eq i32 %38, 3
-  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us, !prof !137
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count17 = zext nneg i32 %5 to i64
@@ -29313,7 +29313,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09setpixel_IyEEvRNS0_8Ima
   %37 = load ptr, ptr %36, align 8, !tbaa !189
   %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = icmp eq i32 %38, 3
-  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us, !prof !137
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count17 = zext nneg i32 %5 to i64
@@ -29457,7 +29457,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09setpixel_IxEEvRNS0_8Ima
   %37 = load ptr, ptr %36, align 8, !tbaa !189
   %38 = load i32, ptr %37, align 8, !tbaa !50
   %39 = icmp eq i32 %38, 3
-  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+  br i1 %39, label %.lr.ph.split.preheader, label %.lr.ph.split.us, !prof !137
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count17 = zext nneg i32 %5 to i64
@@ -32074,7 +32074,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %111, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -32355,7 +32355,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -32640,7 +32640,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us26, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us26, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %153, %127, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -32995,7 +32995,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -33280,7 +33280,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -33565,7 +33565,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -33850,7 +33850,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -34135,7 +34135,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -34420,7 +34420,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %112, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -37882,7 +37882,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us22, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us22, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %110, %105, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -40174,7 +40174,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %117, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -40473,7 +40473,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -41075,7 +41075,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %111, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -41356,7 +41356,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -41657,7 +41657,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -41958,7 +41958,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -42253,7 +42253,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -42554,7 +42554,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -45302,7 +45302,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %117, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -45601,7 +45601,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -46203,7 +46203,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -46498,7 +46498,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -46799,7 +46799,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %111, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -47080,7 +47080,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -47375,7 +47375,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -47676,7 +47676,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -47977,7 +47977,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -48278,7 +48278,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -48881,7 +48881,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -49176,7 +49176,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -49477,7 +49477,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -49778,7 +49778,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %111, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -50059,7 +50059,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -50360,7 +50360,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %117, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -50659,7 +50659,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -50960,7 +50960,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -51563,7 +51563,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -51858,7 +51858,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -52159,7 +52159,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %118, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -52460,7 +52460,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %115, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -52755,7 +52755,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %111, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -53036,7 +53036,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us23, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %117, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -53335,7 +53335,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %112, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -53618,7 +53618,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -53903,7 +53903,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us26, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us26, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %155, %127, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -54262,7 +54262,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -54547,7 +54547,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -54832,7 +54832,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -55117,7 +55117,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -55402,7 +55402,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %113, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -55687,7 +55687,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us: ; preds =
   %95 = load ptr, ptr %94, align 8, !tbaa !189
   %96 = load i32, ptr %95, align 8, !tbaa !50
   %97 = icmp eq i32 %96, 3
-  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us
+  br i1 %97, label %.lr.ph.split.us20, label %.lr.ph.split.us.us, !prof !137
 
 ..loopexit_crit_edge.us:                          ; preds = %111, %106, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.us
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %7)
@@ -92035,7 +92035,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %365 = load ptr, ptr %364, align 8, !tbaa !189
   %366 = load i32, ptr %365, align 8, !tbaa !50
   %367 = icmp eq i32 %366, 3
-  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %420, %360
   %368 = phi ptr [ %361, %360 ], [ %419, %420 ]
@@ -92919,7 +92919,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %202 = load ptr, ptr %201, align 8, !tbaa !189
   %203 = load i32, ptr %202, align 8, !tbaa !50
   %204 = icmp eq i32 %203, 3
-  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %257, %197
   %205 = phi ptr [ %198, %197 ], [ %256, %257 ]
@@ -94697,7 +94697,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %202 = load ptr, ptr %201, align 8, !tbaa !189
   %203 = load i32, ptr %202, align 8, !tbaa !50
   %204 = icmp eq i32 %203, 3
-  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %257, %197
   %205 = phi ptr [ %198, %197 ], [ %256, %257 ]
@@ -95580,7 +95580,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %202 = load ptr, ptr %201, align 8, !tbaa !189
   %203 = load i32, ptr %202, align 8, !tbaa !50
   %204 = icmp eq i32 %203, 3
-  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %257, %197
   %205 = phi ptr [ %198, %197 ], [ %256, %257 ]
@@ -96463,7 +96463,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %202 = load ptr, ptr %201, align 8, !tbaa !189
   %203 = load i32, ptr %202, align 8, !tbaa !50
   %204 = icmp eq i32 %203, 3
-  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %257, %197
   %205 = phi ptr [ %198, %197 ], [ %256, %257 ]
@@ -97346,7 +97346,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %202 = load ptr, ptr %201, align 8, !tbaa !189
   %203 = load i32, ptr %202, align 8, !tbaa !50
   %204 = icmp eq i32 %203, 3
-  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %257, %197
   %205 = phi ptr [ %198, %197 ], [ %256, %257 ]
@@ -98229,7 +98229,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %202 = load ptr, ptr %201, align 8, !tbaa !189
   %203 = load i32, ptr %202, align 8, !tbaa !50
   %204 = icmp eq i32 %203, 3
-  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %204, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %257, %197
   %205 = phi ptr [ %198, %197 ], [ %256, %257 ]
@@ -99111,7 +99111,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %201 = load ptr, ptr %200, align 8, !tbaa !189
   %202 = load i32, ptr %201, align 8, !tbaa !50
   %203 = icmp eq i32 %202, 3
-  br i1 %203, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %203, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %256, %196
   %204 = phi ptr [ %197, %196 ], [ %255, %256 ]
@@ -110409,7 +110409,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfES4_EC2ERKS1_RKN
   %364 = load ptr, ptr %363, align 8, !tbaa !189
   %365 = load i32, ptr %364, align 8, !tbaa !50
   %366 = icmp eq i32 %365, 3
-  br i1 %366, label %.lr.ph.split.us81.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %366, label %.lr.ph.split.us81.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %419, %359
   %367 = phi ptr [ %360, %359 ], [ %418, %419 ]
@@ -116899,7 +116899,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %206 = load ptr, ptr %205, align 8, !tbaa !189
   %207 = load i32, ptr %206, align 8, !tbaa !50
   %208 = icmp eq i32 %207, 3
-  br i1 %208, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %208, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %261, %195
   %209 = phi ptr [ %196, %195 ], [ %260, %261 ]
@@ -117794,7 +117794,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %206 = load ptr, ptr %205, align 8, !tbaa !189
   %207 = load i32, ptr %206, align 8, !tbaa !50
   %208 = icmp eq i32 %207, 3
-  br i1 %208, label %.lr.ph.split.us39.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %208, label %.lr.ph.split.us39.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %261, %197
   %209 = phi ptr [ %198, %197 ], [ %260, %261 ]
@@ -119886,7 +119886,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIttEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %365 = load ptr, ptr %364, align 8, !tbaa !189
   %366 = load i32, ptr %365, align 8, !tbaa !50
   %367 = icmp eq i32 %366, 3
-  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %420, %360
   %368 = phi ptr [ %361, %360 ], [ %419, %420 ]
@@ -120779,7 +120779,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %208 = load ptr, ptr %207, align 8, !tbaa !189
   %209 = load i32, ptr %208, align 8, !tbaa !50
   %210 = icmp eq i32 %209, 3
-  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %263, %197
   %211 = phi ptr [ %198, %197 ], [ %262, %263 ]
@@ -121680,7 +121680,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %208 = load ptr, ptr %207, align 8, !tbaa !189
   %209 = load i32, ptr %208, align 8, !tbaa !50
   %210 = icmp eq i32 %209, 3
-  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %263, %197
   %211 = phi ptr [ %198, %197 ], [ %262, %263 ]
@@ -122577,7 +122577,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %206 = load ptr, ptr %205, align 8, !tbaa !189
   %207 = load i32, ptr %206, align 8, !tbaa !50
   %208 = icmp eq i32 %207, 3
-  br i1 %208, label %.lr.ph.split.us39.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %208, label %.lr.ph.split.us39.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %261, %197
   %209 = phi ptr [ %198, %197 ], [ %260, %261 ]
@@ -123474,7 +123474,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %208 = load ptr, ptr %207, align 8, !tbaa !189
   %209 = load i32, ptr %208, align 8, !tbaa !50
   %210 = icmp eq i32 %209, 3
-  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %263, %197
   %211 = phi ptr [ %198, %197 ], [ %262, %263 ]
@@ -124374,7 +124374,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %207 = load ptr, ptr %206, align 8, !tbaa !189
   %208 = load i32, ptr %207, align 8, !tbaa !50
   %209 = icmp eq i32 %208, 3
-  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %262, %196
   %210 = phi ptr [ %197, %196 ], [ %261, %262 ]
@@ -133431,7 +133431,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %206 = load ptr, ptr %205, align 8, !tbaa !189
   %207 = load i32, ptr %206, align 8, !tbaa !50
   %208 = icmp eq i32 %207, 3
-  br i1 %208, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %208, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %261, %195
   %209 = phi ptr [ %196, %195 ], [ %260, %261 ]
@@ -134328,7 +134328,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %206 = load ptr, ptr %205, align 8, !tbaa !189
   %207 = load i32, ptr %206, align 8, !tbaa !50
   %208 = icmp eq i32 %207, 3
-  br i1 %208, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %208, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %261, %197
   %209 = phi ptr [ %198, %197 ], [ %260, %261 ]
@@ -136130,7 +136130,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %206 = load ptr, ptr %205, align 8, !tbaa !189
   %207 = load i32, ptr %206, align 8, !tbaa !50
   %208 = icmp eq i32 %207, 3
-  br i1 %208, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %208, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %261, %197
   %209 = phi ptr [ %198, %197 ], [ %260, %261 ]
@@ -137029,7 +137029,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %208 = load ptr, ptr %207, align 8, !tbaa !189
   %209 = load i32, ptr %208, align 8, !tbaa !50
   %210 = icmp eq i32 %209, 3
-  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %263, %197
   %211 = phi ptr [ %198, %197 ], [ %262, %263 ]
@@ -138220,7 +138220,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIssEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %365 = load ptr, ptr %364, align 8, !tbaa !189
   %366 = load i32, ptr %365, align 8, !tbaa !50
   %367 = icmp eq i32 %366, 3
-  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %420, %360
   %368 = phi ptr [ %361, %360 ], [ %419, %420 ]
@@ -139111,7 +139111,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %206 = load ptr, ptr %205, align 8, !tbaa !189
   %207 = load i32, ptr %206, align 8, !tbaa !50
   %208 = icmp eq i32 %207, 3
-  br i1 %208, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %208, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %261, %197
   %209 = phi ptr [ %198, %197 ], [ %260, %261 ]
@@ -140010,7 +140010,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %208 = load ptr, ptr %207, align 8, !tbaa !189
   %209 = load i32, ptr %208, align 8, !tbaa !50
   %210 = icmp eq i32 %209, 3
-  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %263, %197
   %211 = phi ptr [ %198, %197 ], [ %262, %263 ]
@@ -140910,7 +140910,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %207 = load ptr, ptr %206, align 8, !tbaa !189
   %208 = load i32, ptr %207, align 8, !tbaa !50
   %209 = icmp eq i32 %208, 3
-  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %262, %196
   %210 = phi ptr [ %197, %196 ], [ %261, %262 ]
@@ -141809,7 +141809,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %207 = load ptr, ptr %206, align 8, !tbaa !189
   %208 = load i32, ptr %207, align 8, !tbaa !50
   %209 = icmp eq i32 %208, 3
-  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %262, %195
   %210 = phi ptr [ %196, %195 ], [ %261, %262 ]
@@ -142706,7 +142706,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %207 = load ptr, ptr %206, align 8, !tbaa !189
   %208 = load i32, ptr %207, align 8, !tbaa !50
   %209 = icmp eq i32 %208, 3
-  br i1 %209, label %.lr.ph.split.us39.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %209, label %.lr.ph.split.us39.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %262, %197
   %210 = phi ptr [ %198, %197 ], [ %261, %262 ]
@@ -144507,7 +144507,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %207 = load ptr, ptr %206, align 8, !tbaa !189
   %208 = load i32, ptr %207, align 8, !tbaa !50
   %209 = icmp eq i32 %208, 3
-  br i1 %209, label %.lr.ph.split.us39.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %209, label %.lr.ph.split.us39.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %262, %197
   %210 = phi ptr [ %198, %197 ], [ %261, %262 ]
@@ -145406,7 +145406,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %209 = load ptr, ptr %208, align 8, !tbaa !189
   %210 = load i32, ptr %209, align 8, !tbaa !50
   %211 = icmp eq i32 %210, 3
-  br i1 %211, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %211, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %264, %197
   %212 = phi ptr [ %198, %197 ], [ %263, %264 ]
@@ -146309,7 +146309,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %209 = load ptr, ptr %208, align 8, !tbaa !189
   %210 = load i32, ptr %209, align 8, !tbaa !50
   %211 = icmp eq i32 %210, 3
-  br i1 %211, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %211, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %264, %197
   %212 = phi ptr [ %198, %197 ], [ %263, %264 ]
@@ -147501,7 +147501,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjjEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %365 = load ptr, ptr %364, align 8, !tbaa !189
   %366 = load i32, ptr %365, align 8, !tbaa !50
   %367 = icmp eq i32 %366, 3
-  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %420, %360
   %368 = phi ptr [ %361, %360 ], [ %419, %420 ]
@@ -148395,7 +148395,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %209 = load ptr, ptr %208, align 8, !tbaa !189
   %210 = load i32, ptr %209, align 8, !tbaa !50
   %211 = icmp eq i32 %210, 3
-  br i1 %211, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %211, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %264, %197
   %212 = phi ptr [ %198, %197 ], [ %263, %264 ]
@@ -149297,7 +149297,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %208 = load ptr, ptr %207, align 8, !tbaa !189
   %209 = load i32, ptr %208, align 8, !tbaa !50
   %210 = icmp eq i32 %209, 3
-  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %263, %196
   %211 = phi ptr [ %197, %196 ], [ %262, %263 ]
@@ -150197,7 +150197,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %207 = load ptr, ptr %206, align 8, !tbaa !189
   %208 = load i32, ptr %207, align 8, !tbaa !50
   %209 = icmp eq i32 %208, 3
-  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %262, %195
   %210 = phi ptr [ %196, %195 ], [ %261, %262 ]
@@ -151096,7 +151096,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %207 = load ptr, ptr %206, align 8, !tbaa !189
   %208 = load i32, ptr %207, align 8, !tbaa !50
   %209 = icmp eq i32 %208, 3
-  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %262, %197
   %210 = phi ptr [ %198, %197 ], [ %261, %262 ]
@@ -152901,7 +152901,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %207 = load ptr, ptr %206, align 8, !tbaa !189
   %208 = load i32, ptr %207, align 8, !tbaa !50
   %209 = icmp eq i32 %208, 3
-  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %262, %197
   %210 = phi ptr [ %198, %197 ], [ %261, %262 ]
@@ -153802,7 +153802,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %209 = load ptr, ptr %208, align 8, !tbaa !189
   %210 = load i32, ptr %209, align 8, !tbaa !50
   %211 = icmp eq i32 %210, 3
-  br i1 %211, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %211, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %264, %197
   %212 = phi ptr [ %198, %197 ], [ %263, %264 ]
@@ -154705,7 +154705,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %209 = load ptr, ptr %208, align 8, !tbaa !189
   %210 = load i32, ptr %209, align 8, !tbaa !50
   %211 = icmp eq i32 %210, 3
-  br i1 %211, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %211, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %264, %197
   %212 = phi ptr [ %198, %197 ], [ %263, %264 ]
@@ -155606,7 +155606,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %207 = load ptr, ptr %206, align 8, !tbaa !189
   %208 = load i32, ptr %207, align 8, !tbaa !50
   %209 = icmp eq i32 %208, 3
-  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %209, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %262, %197
   %210 = phi ptr [ %198, %197 ], [ %261, %262 ]
@@ -156796,7 +156796,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIiiEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %365 = load ptr, ptr %364, align 8, !tbaa !189
   %366 = load i32, ptr %365, align 8, !tbaa !50
   %367 = icmp eq i32 %366, 3
-  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %420, %360
   %368 = phi ptr [ %361, %360 ], [ %419, %420 ]
@@ -157689,7 +157689,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIdfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %208 = load ptr, ptr %207, align 8, !tbaa !189
   %209 = load i32, ptr %208, align 8, !tbaa !50
   %210 = icmp eq i32 %209, 3
-  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %210, label %.lr.ph.split.us41.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %263, %196
   %211 = phi ptr [ %197, %196 ], [ %262, %263 ]
@@ -158580,7 +158580,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIffEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %201 = load ptr, ptr %200, align 8, !tbaa !189
   %202 = load i32, ptr %201, align 8, !tbaa !50
   %203 = icmp eq i32 %202, 3
-  br i1 %203, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %203, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %256, %195
   %204 = phi ptr [ %196, %195 ], [ %255, %256 ]
@@ -159463,7 +159463,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %203 = load ptr, ptr %202, align 8, !tbaa !189
   %204 = load i32, ptr %203, align 8, !tbaa !50
   %205 = icmp eq i32 %204, 3
-  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %258, %197
   %206 = phi ptr [ %198, %197 ], [ %257, %258 ]
@@ -161245,7 +161245,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %203 = load ptr, ptr %202, align 8, !tbaa !189
   %204 = load i32, ptr %203, align 8, !tbaa !50
   %205 = icmp eq i32 %204, 3
-  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %258, %197
   %206 = phi ptr [ %198, %197 ], [ %257, %258 ]
@@ -162130,7 +162130,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIcfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %203 = load ptr, ptr %202, align 8, !tbaa !189
   %204 = load i32, ptr %203, align 8, !tbaa !50
   %205 = icmp eq i32 %204, 3
-  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %258, %197
   %206 = phi ptr [ %198, %197 ], [ %257, %258 ]
@@ -163015,7 +163015,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIsfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %203 = load ptr, ptr %202, align 8, !tbaa !189
   %204 = load i32, ptr %203, align 8, !tbaa !50
   %205 = icmp eq i32 %204, 3
-  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %258, %197
   %206 = phi ptr [ %198, %197 ], [ %257, %258 ]
@@ -163900,7 +163900,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIjfEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %203 = load ptr, ptr %202, align 8, !tbaa !189
   %204 = load i32, ptr %203, align 8, !tbaa !50
   %205 = icmp eq i32 %204, 3
-  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %258, %197
   %206 = phi ptr [ %198, %197 ], [ %257, %258 ]
@@ -164785,7 +164785,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIifEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %203 = load ptr, ptr %202, align 8, !tbaa !189
   %204 = load i32, ptr %203, align 8, !tbaa !50
   %205 = icmp eq i32 %204, 3
-  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %205, label %.lr.ph.split.us38.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %258, %197
   %206 = phi ptr [ %198, %197 ], [ %257, %258 ]
@@ -165968,7 +165968,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIddEC2ERKS1_RKNS0_3ROIENS1_8WrapM
   %365 = load ptr, ptr %364, align 8, !tbaa !189
   %366 = load i32, ptr %365, align 8, !tbaa !50
   %367 = icmp eq i32 %366, 3
-  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i
+  br i1 %367, label %.lr.ph.split.us79.i.i.i, label %.lr.ph.split.us.us.i.i.i, !prof !137
 
 ._crit_edge.us.i.i.i:                             ; preds = %420, %360
   %368 = phi ptr [ %361, %360 ], [ %419, %420 ]

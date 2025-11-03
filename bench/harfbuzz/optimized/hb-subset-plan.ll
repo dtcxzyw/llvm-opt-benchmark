@@ -27082,7 +27082,7 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit: ; preds = %46,
 .lr.ph:                                           ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit
   %49 = load i8, ptr %12, align 8, !tbaa !157, !range !31, !noundef !32
   %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %.lr.ph.split, label %.loopexit
+  br i1 %50, label %.lr.ph.split, label %.loopexit, !prof !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjRjEEbOT_jOT0_b.exit
   %storemerge3855 = phi i32 [ %148, %_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjRjEEbOT_jOT0_b.exit ], [ %spec.select40, %.lr.ph ]
@@ -27392,7 +27392,7 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit: ; preds = %45,
 .lr.ph:                                           ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit
   %48 = load i8, ptr %12, align 8, !tbaa !157, !range !31, !noundef !32
   %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %.lr.ph.split, label %.loopexit
+  br i1 %49, label %.lr.ph.split, label %.loopexit, !prof !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjRjEEbOT_jOT0_b.exit
   %storemerge48 = phi i32 [ %146, %_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjRjEEbOT_jOT0_b.exit ], [ %21, %.lr.ph ]

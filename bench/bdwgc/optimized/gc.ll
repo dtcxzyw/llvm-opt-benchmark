@@ -33988,7 +33988,7 @@ define internal fastcc void @push_roots_and_advance(i8 noundef signext range(i8 
   %6 = icmp eq i64 %.pre36.i.i.fr, 0
   %7 = add i64 %.pre36.i.i.fr, -1
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 158232), align 8
-  br i1 %6, label %.lr.ph.split.i.us, label %.lr.ph.split.preheader.i.split
+  br i1 %6, label %.lr.ph.split.i.us, label %.lr.ph.split.preheader.i.split, !prof !44
 
 .lr.ph.split.i.us:                                ; preds = %.lr.ph.split.preheader.i, %GC_push_conditional_with_exclusions.exit.i.us
   %.037.i.us = phi i64 [ %28, %GC_push_conditional_with_exclusions.exit.i.us ], [ 0, %.lr.ph.split.preheader.i ]

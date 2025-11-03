@@ -4082,7 +4082,7 @@ _ZN8smallvec10infallible17h9098730c186deaebE.exit: ; preds = %"_ZN8smallvec17Sma
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %58 = icmp eq i64 %29, 0
-  br i1 %58, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %58, label %.lr.ph.split.us, label %.lr.ph.split, !prof !185
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %59 = load ptr, ptr %56, align 8, !nonnull !9
@@ -4136,7 +4136,7 @@ select.unfold.i.i.us:                             ; preds = %61
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load i64, ptr %71, align 8, !alias.scope !471, !noundef !9
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %.split.us, label %.split
+  br i1 %77, label %.split.us, label %.split, !prof !185
 
 .split.us:                                        ; preds = %._crit_edge
   %.promoted60 = load ptr, ptr %3, align 8, !alias.scope !474
