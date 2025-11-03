@@ -4891,73 +4891,71 @@ define dso_local range(i32 0, 2) i32 @raxCompare(ptr noundef readonly captures(n
   br label %12
 
 12:                                               ; preds = %11, %7
-  %.not41.not = phi i1 [ true, %11 ], [ false, %7 ]
-  %13 = icmp ne i8 %5, 62
-  br i1 %13, label %14, label %19
+  %.not40.not = phi i1 [ true, %11 ], [ false, %7 ]
+  %.not44 = icmp eq i8 %5, 62
+  br i1 %.not44, label %18, label %13
 
-14:                                               ; preds = %12
-  %15 = icmp eq i8 %5, 60
-  br i1 %15, label %19, label %16
+13:                                               ; preds = %12
+  %14 = icmp eq i8 %5, 60
+  br i1 %14, label %18, label %15
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !15
-  %.not = icmp eq i8 %18, 61
-  br i1 %.not, label %19, label %41
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %17 = load i8, ptr %16, align 1, !tbaa !15
+  %.not = icmp eq i8 %17, 61
+  br i1 %.not, label %18, label %41
 
-19:                                               ; preds = %14, %12, %16
-  %20 = phi i1 [ true, %16 ], [ true, %12 ], [ false, %14 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load i64, ptr %21, align 8, !tbaa !37
-  %23 = icmp ult i64 %3, %22
-  %. = tail call i64 @llvm.umin.i64(i64 %3, i64 %22)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !38
-  %26 = tail call i32 @memcmp(ptr noundef %25, ptr noundef %2, i64 noundef %.) #30
-  %or.cond = and i1 %13, %20
-  %27 = icmp eq i32 %26, 0
-  br i1 %or.cond, label %28, label %30
+18:                                               ; preds = %13, %12, %15
+  %or.cond = phi i1 [ true, %15 ], [ false, %12 ], [ false, %13 ]
+  %.not41 = phi i1 [ true, %15 ], [ true, %12 ], [ false, %13 ]
+  %.033 = phi i32 [ 0, %15 ], [ 0, %12 ], [ 1, %13 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %20 = load i64, ptr %19, align 8, !tbaa !37
+  %21 = icmp ult i64 %3, %20
+  %. = tail call i64 @llvm.umin.i64(i64 %3, i64 %20)
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !38
+  %24 = tail call i32 @memcmp(ptr noundef %23, ptr noundef %2, i64 noundef %.) #30
+  %25 = icmp eq i32 %24, 0
+  br i1 %or.cond, label %26, label %30
 
-28:                                               ; preds = %19
-  %29 = icmp eq i64 %3, %22
-  %spec.select = and i1 %27, %29
+26:                                               ; preds = %18
+  br i1 %25, label %27, label %41
+
+27:                                               ; preds = %26
+  %28 = icmp eq i64 %3, %20
+  %29 = zext i1 %28 to i32
   br label %41
 
-30:                                               ; preds = %19
-  br i1 %27, label %31, label %37
+30:                                               ; preds = %18
+  br i1 %25, label %31, label %38
 
 31:                                               ; preds = %30
-  %32 = icmp eq i64 %3, %22
-  %or.cond44 = and i1 %.not41.not, %32
-  br i1 %or.cond44, label %41, label %33
+  %32 = icmp eq i64 %3, %20
+  %or.cond43 = and i1 %.not40.not, %32
+  br i1 %or.cond43, label %41, label %33
 
 33:                                               ; preds = %31
-  br i1 %20, label %36, label %34
+  br i1 %.not41, label %37, label %34
 
 34:                                               ; preds = %33
-  %35 = icmp ult i64 %22, %3
+  %35 = icmp ult i64 %20, %3
+  %36 = zext i1 %35 to i32
   br label %41
 
-36:                                               ; preds = %33
-  %not.45 = xor i1 %13, true
-  %narrow = and i1 %23, %not.45
+37:                                               ; preds = %33
+  %narrow = and i1 %.not44, %21
+  %spec.select = zext i1 %narrow to i32
   br label %41
 
-37:                                               ; preds = %30
-  %38 = icmp sgt i32 %26, 0
-  br i1 %38, label %39, label %40
-
-39:                                               ; preds = %37
-  %not.40 = xor i1 %13, true
+38:                                               ; preds = %30
+  %39 = icmp sgt i32 %24, 0
+  %40 = zext i1 %.not44 to i32
+  %spec.select45 = select i1 %39, i32 %40, i32 %.033
   br label %41
 
-40:                                               ; preds = %37
-  %not. = xor i1 %20, true
-  br label %41
-
-41:                                               ; preds = %28, %36, %31, %34, %39, %40, %16
-  %.0.shrunk = phi i1 [ false, %16 ], [ %35, %34 ], [ %not.40, %39 ], [ %not., %40 ], [ true, %31 ], [ %narrow, %36 ], [ %spec.select, %28 ]
-  %.0 = zext i1 %.0.shrunk to i32
+41:                                               ; preds = %38, %37, %31, %34, %27, %26, %15
+  %.0 = phi i32 [ 0, %15 ], [ %36, %34 ], [ 0, %26 ], [ %29, %27 ], [ 1, %31 ], [ %spec.select, %37 ], [ %spec.select45, %38 ]
   ret i32 %.0
 }
 

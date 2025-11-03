@@ -472,21 +472,20 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1E
   %57 = tail call noundef double @llvm.fabs.f64(double %56)
   %58 = load double, ptr %.048.i.i.i.sroa.phi, align 8, !tbaa !52, !alias.scope !67
   %59 = tail call noundef double @llvm.fabs.f64(double %58)
+  %60 = fadd double %57, %59
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i.i: ; preds = %55, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i.i
-  %.0.i.i.i56.i.i.i = phi double [ %57, %55 ], [ %54, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i.i ]
-  %.0.i.i.i19.i.i.i = phi double [ %59, %55 ], [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i.i ]
-  %60 = fadd double %.0.i.i.i56.i.i.i, %.0.i.i.i19.i.i.i
-  %61 = fcmp ogt double %60, %49
+  %.0.i.i.i56.i.i.i = phi double [ %60, %55 ], [ %54, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i.i ]
+  %61 = fcmp ogt double %.0.i.i.i56.i.i.i, %49
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i.i
-  store double %60, ptr %25, align 16, !tbaa !70, !alias.scope !67
+  store double %.0.i.i.i56.i.i.i, ptr %25, align 16, !tbaa !70, !alias.scope !67
   br label %63
 
 63:                                               ; preds = %62, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i.i
-  %64 = phi double [ %60, %62 ], [ %49, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i.i ]
+  %64 = phi double [ %.0.i.i.i56.i.i.i, %62 ], [ %49, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i.i ]
   br i1 %.not.i.i.i.i.i.not.i.i.i, label %48, label %26, !llvm.loop !79
 
 65:                                               ; preds = %36, %38

@@ -31678,7 +31678,7 @@ GC_check_heap_proc.exit:                          ; preds = %418, %284, %281
   %444 = add i64 %443, %442
   %445 = urem i64 %437, 1000000
   %.b55 = load i1, ptr @measure_performance, align 1
-  br i1 %.b55, label %446, label %458
+  br i1 %.b55, label %446, label %459
 
 446:                                              ; preds = %432
   %447 = load i64, ptr @stopped_mark_total_time, align 8, !tbaa !10
@@ -31701,15 +31701,16 @@ GC_check_heap_proc.exit:                          ; preds = %418, %284, %281
 .thread97:                                        ; preds = %446, %453
   %456 = load i32, ptr @GC_print_stats, align 4, !tbaa !3
   %457 = icmp ne i32 %456, 0
-  br label %460
+  %458 = and i1 %.not648694, %457
+  br label %461
 
-458:                                              ; preds = %432
-  %459 = load i32, ptr @GC_print_stats, align 4, !tbaa !3
-  %.not99 = icmp eq i32 %459, 0
-  br i1 %.not99, label %473, label %460
+459:                                              ; preds = %432
+  %460 = load i32, ptr @GC_print_stats, align 4, !tbaa !3
+  %.not99 = icmp eq i32 %460, 0
+  br i1 %.not99, label %473, label %461
 
-460:                                              ; preds = %.thread97, %458
-  %461 = phi i1 [ %457, %.thread97 ], [ true, %458 ]
+461:                                              ; preds = %.thread97, %459
+  %or.cond12 = phi i1 [ %458, %.thread97 ], [ %.not648694, %459 ]
   %462 = load i32, ptr @world_stopped_total_time, align 4, !tbaa !3
   %463 = load i32, ptr @world_stopped_total_divisor, align 4, !tbaa !3
   %464 = icmp slt i32 %462, 0
@@ -31724,15 +31725,14 @@ GC_check_heap_proc.exit:                          ; preds = %418, %284, %281
   store i32 %469, ptr @world_stopped_total_time, align 4, !tbaa !3
   %470 = add i32 %.040, 1
   store i32 %470, ptr @world_stopped_total_divisor, align 4, !tbaa !3
-  %or.cond12 = and i1 %.not648694, %461
   br i1 %or.cond12, label %471, label %473
 
-471:                                              ; preds = %460
+471:                                              ; preds = %461
   %472 = udiv i32 %469, %470
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.163, i64 noundef %444, i64 noundef %445, i32 noundef %472)
   br label %473
 
-473:                                              ; preds = %460, %471, %458
+473:                                              ; preds = %461, %471, %459
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store atomic volatile i8 0, ptr @GC_collecting monotonic, align 1
   br i1 %.not648694, label %479, label %475
@@ -42985,14 +42985,14 @@ tailrecurse:                                      ; preds = %39, %4
 define internal fastcc i64 @GC_descr_obj_size(ptr noundef readonly captures(none) %0) unnamed_addr #1 {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %9, %1
-  %accumulator.tr = phi i64 [ 1, %1 ], [ %14, %9 ]
-  %.tr = phi ptr [ %0, %1 ], [ %13, %9 ]
+tailrecurse:                                      ; preds = %10, %1
+  %accumulator.tr = phi i64 [ 1, %1 ], [ %15, %10 ]
+  %.tr = phi ptr [ %0, %1 ], [ %14, %10 ]
   %2 = load i64, ptr %.tr, align 8, !tbaa !41
-  switch i64 %2, label %23 [
+  switch i64 %2, label %24 [
     i64 1, label %3
-    i64 2, label %9
-    i64 3, label %15
+    i64 2, label %10
+    i64 3, label %16
   ]
 
 3:                                                ; preds = %tailrecurse
@@ -43001,39 +43001,40 @@ tailrecurse:                                      ; preds = %9, %1
   %6 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !41
   %8 = mul i64 %7, %5
-  br label %common.ret
+  %9 = mul i64 %8, %accumulator.tr
+  br label %common.ret33
 
-9:                                                ; preds = %tailrecurse
-  %10 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !41
-  %12 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !41
-  %14 = mul i64 %11, %accumulator.tr
+10:                                               ; preds = %tailrecurse
+  %11 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %12 = load i64, ptr %11, align 8, !tbaa !41
+  %13 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
+  %15 = mul i64 %12, %accumulator.tr
   br label %tailrecurse
 
-common.ret:                                       ; preds = %3, %23, %15
-  %.pn = phi i64 [ %22, %15 ], [ %8, %3 ], [ 0, %23 ]
-  %common.ret.op = mul i64 %.pn, %accumulator.tr
-  ret i64 %common.ret.op
+common.ret33:                                     ; preds = %24, %3, %16
+  %common.ret33.op = phi i64 [ %accumulator.ret.tr, %16 ], [ %9, %3 ], [ 0, %24 ]
+  ret i64 %common.ret33.op
 
-15:                                               ; preds = %tailrecurse
-  %16 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !41
-  %18 = tail call fastcc i64 @GC_descr_obj_size(ptr noundef %17)
-  %19 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !41
-  %21 = tail call fastcc i64 @GC_descr_obj_size(ptr noundef %20)
-  %22 = add i64 %21, %18
-  br label %common.ret
+16:                                               ; preds = %tailrecurse
+  %17 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !41
+  %19 = tail call fastcc i64 @GC_descr_obj_size(ptr noundef %18)
+  %20 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  %22 = tail call fastcc i64 @GC_descr_obj_size(ptr noundef %21)
+  %23 = add i64 %22, %19
+  %accumulator.ret.tr = mul i64 %23, %accumulator.tr
+  br label %common.ret33
 
-23:                                               ; preds = %tailrecurse
-  %24 = load ptr, ptr @GC_current_warn_proc, align 8, !tbaa !12
-  %25 = icmp eq ptr %24, inttoptr (i64 -1 to ptr)
-  br i1 %25, label %common.ret, label %26
+24:                                               ; preds = %tailrecurse
+  %25 = load ptr, ptr @GC_current_warn_proc, align 8, !tbaa !12
+  %26 = icmp eq ptr %25, inttoptr (i64 -1 to ptr)
+  br i1 %26, label %common.ret33, label %27
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
-  tail call void %27(ptr noundef nonnull @.str.227) #46
+27:                                               ; preds = %24
+  %28 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
+  tail call void %28(ptr noundef nonnull @.str.227) #46
   tail call void @abort() #50
   unreachable
 }

@@ -1651,8 +1651,7 @@ for.inc:                                          ; preds = %_ZNK3irr4core6strin
   br i1 %cmp.not, label %for.body, label %cleanup, !llvm.loop !55
 
 cleanup:                                          ; preds = %for.inc, %if.then, %entry
-  %cmp.not22 = phi i1 [ true, %if.then ], [ false, %entry ], [ false, %for.inc ]
-  %retval.0 = phi i1 [ %call13, %if.then ], [ undef, %entry ], [ undef, %for.inc ]
+  %cmp.not22 = phi i1 [ %call13, %if.then ], [ false, %entry ], [ false, %for.inc ]
   %18 = load ptr, ptr %absPath, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw i8, ptr %absPath, i64 16
   %cmp.i.i.i.i = icmp eq ptr %18, %19
@@ -1663,9 +1662,8 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %cleanup, %if.then.i.i.i
-  %spec.select = and i1 %cmp.not22, %retval.0
   call void @llvm.lifetime.end.p0(ptr nonnull %absPath)
-  ret i1 %spec.select
+  ret i1 %cmp.not22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1707,6 +1705,7 @@ if.then:                                          ; preds = %for.body.if.then_cr
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %7 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %indvars.iv.lcssa) #23
+  %8 = and i1 %cmp.not15.lcssa, %call5
   br label %cleanup
 
 for.inc:                                          ; preds = %for.body.preheader, %for.body
@@ -1716,10 +1715,8 @@ for.inc:                                          ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !56
 
 cleanup:                                          ; preds = %for.inc, %if.then, %entry
-  %cmp.not11 = phi i1 [ %cmp.not15.lcssa, %if.then ], [ false, %entry ], [ false, %for.inc ]
-  %retval.0 = phi i1 [ %call5, %if.then ], [ undef, %entry ], [ undef, %for.inc ]
-  %spec.select = and i1 %cmp.not11, %retval.0
-  ret i1 %spec.select
+  %cmp.not11 = phi i1 [ %8, %if.then ], [ false, %entry ], [ false, %for.inc ]
+  ret i1 %cmp.not11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

@@ -627,18 +627,18 @@ define hidden { double, i64 } @_ZN5ceres8internal14DoglegStrategy11ComputeStepER
 20:                                               ; preds = %.critedge48
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %22 = load i32, ptr %21, align 4, !tbaa !53
-  switch i32 %22, label %122 [
+  switch i32 %22, label %123 [
     i32 0, label %23
     i32 1, label %24
   ]
 
 23:                                               ; preds = %20
   tail call void @_ZN5ceres8internal14DoglegStrategy28ComputeTraditionalDoglegStepEPd(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull %4)
-  br label %122
+  br label %123
 
 24:                                               ; preds = %20
   tail call void @_ZN5ceres8internal14DoglegStrategy25ComputeSubspaceDoglegStepEPd(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull %4)
-  br label %122
+  br label %123
 
 25:                                               ; preds = %.critedge48
   store i8 1, ptr %17, align 8, !tbaa !51
@@ -847,15 +847,14 @@ _ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit53: ; preds = %112, %_ZNKSt7__c
   %119 = zext i32 %.sroa.9.1 to i64
   %120 = shl nuw i64 %119, 32
   %121 = zext i32 %83 to i64
-  br label %122
+  %122 = or disjoint i64 %120, %121
+  br label %123
 
-122:                                              ; preds = %20, %23, %24, %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit53
+123:                                              ; preds = %20, %23, %24, %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit53
   %.sroa.063.0 = phi double [ %81, %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit53 ], [ -1.000000e+00, %24 ], [ -1.000000e+00, %23 ], [ -1.000000e+00, %20 ]
-  %.sroa.464.0 = phi i64 [ %121, %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit53 ], [ 0, %24 ], [ 0, %23 ], [ 0, %20 ]
-  %.sroa.9.0 = phi i64 [ %120, %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit53 ], [ 0, %24 ], [ 0, %23 ], [ 0, %20 ]
+  %.sroa.9.0 = phi i64 [ %122, %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit53 ], [ 0, %24 ], [ 0, %23 ], [ 0, %20 ]
   %.fca.0.insert = insertvalue { double, i64 } poison, double %.sroa.063.0, 0
-  %.sroa.464.8.insert.insert = or disjoint i64 %.sroa.9.0, %.sroa.464.0
-  %.fca.1.insert = insertvalue { double, i64 } %.fca.0.insert, i64 %.sroa.464.8.insert.insert, 1
+  %.fca.1.insert = insertvalue { double, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { double, i64 } %.fca.1.insert
 }
 

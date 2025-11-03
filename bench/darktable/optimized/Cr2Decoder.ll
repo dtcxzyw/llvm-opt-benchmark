@@ -219,8 +219,7 @@ $_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = comdat an
 @_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = linkonce_odr hidden thread_local global %"struct.std::array.139" zeroinitializer, comdat, align 1
 @_ZTIN8rawspeed19RawDecoderExceptionE = external constant ptr
 @_ZTVN8rawspeed19RawDecoderExceptionE = external unnamed_addr constant { [6 x ptr] }, align 8
-@switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv = private unnamed_addr constant [3 x i64] [i64 4294967296, i64 8589934592, i64 4294967296], align 8
-@switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv.11 = private unnamed_addr constant [3 x i64] [i64 1, i64 2, i64 2], align 8
+@switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv = private unnamed_addr constant [3 x i64] [i64 4294967297, i64 8589934594, i64 4294967298], align 8
 @switch.table._ZNK8rawspeed10Cr2Decoder20decodeCanonColorDataEv = private unnamed_addr constant [8 x i32] [i32 25, i32 34, i32 63, i32 63, i32 71, i32 63, i32 63, i32 63], align 4
 
 ; Function Attrs: mustprogress uwtable
@@ -1360,7 +1359,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10Cr2Decoder12isSubSampledEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i64 4294967296, 8589934596) i64 @_ZNK8rawspeed10Cr2Decoder14getSubSamplingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
+define hidden range(i64 4294967297, 8589934595) i64 @_ZNK8rawspeed10Cr2Decoder14getSubSamplingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %3, i16 noundef zeroext 1) #29
@@ -1385,7 +1384,7 @@ define hidden range(i64 4294967296, 8589934596) i64 @_ZNK8rawspeed10Cr2Decoder14
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %12 = load i32, ptr %11, align 4, !tbaa !85
   %13 = icmp ult i32 %12, 47
-  br i1 %13, label %22, label %14
+  br i1 %13, label %20, label %14
 
 14:                                               ; preds = %10
   %15 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 46)
@@ -1401,15 +1400,11 @@ switch.lookup:                                    ; preds = %14
   %19 = zext nneg i16 %15 to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
-  %20 = zext nneg i16 %15 to i64
-  %switch.gep7 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK8rawspeed10Cr2Decoder14getSubSamplingEv.11, i64 %20
-  %switch.load8 = load i64, ptr %switch.gep7, align 8
-  %21 = or disjoint i64 %switch.load8, %switch.load
-  br label %22
+  br label %20
 
-22:                                               ; preds = %switch.lookup, %10
-  %.sroa.0.0.insert.insert = phi i64 [ 4294967297, %10 ], [ %21, %switch.lookup ]
-  ret i64 %.sroa.0.0.insert.insert
+20:                                               ; preds = %switch.lookup, %10
+  %.sroa.5.0 = phi i64 [ 4294967297, %10 ], [ %switch.load, %switch.lookup ]
+  ret i64 %.sroa.5.0
 }
 
 declare noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #1

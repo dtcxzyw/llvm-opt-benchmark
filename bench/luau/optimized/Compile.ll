@@ -4447,7 +4447,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare void @_Z12setLuauFlagsPKc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i64 0, 4294967312) i64 @_ZL16getCompileFormatPKc(ptr noundef readonly captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 8, 4294967305) i64 @_ZL16getCompileFormatPKc(ptr noundef readonly captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.180) #31
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %29, label %4
@@ -4490,14 +4490,12 @@ define internal fastcc range(i64 0, 4294967312) i64 @_ZL16getCompileFormatPKc(pt
 25:                                               ; preds = %22
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.188) #31
   %27 = icmp eq i32 %26, 0
-  %28 = select i1 %27, i64 4294967296, i64 0
+  %28 = select i1 %27, i64 4294967304, i64 8
   br label %29
 
 29:                                               ; preds = %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 1, %4 ], [ 2, %7 ], [ 3, %10 ], [ 4, %13 ], [ 5, %16 ], [ 6, %19 ], [ 7, %22 ], [ 8, %25 ]
-  %.sroa.10.0 = phi i64 [ 4294967296, %1 ], [ 4294967296, %4 ], [ 4294967296, %7 ], [ 4294967296, %10 ], [ 4294967296, %13 ], [ 4294967296, %16 ], [ 4294967296, %19 ], [ 4294967296, %22 ], [ %28, %25 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.10.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.10.0 = phi i64 [ 4294967296, %1 ], [ 4294967297, %4 ], [ 4294967298, %7 ], [ 4294967299, %10 ], [ 4294967300, %13 ], [ 4294967301, %16 ], [ 4294967302, %19 ], [ 4294967303, %22 ], [ %28, %25 ]
+  ret i64 %.sroa.10.0
 }
 
 declare void @_Z14getSourceFilesB5cxx11iPPc(ptr dead_on_unwind writable sret(%"class.std::vector.13") align 8, i32 noundef, ptr noundef) local_unnamed_addr #5

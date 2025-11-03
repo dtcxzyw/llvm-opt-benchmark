@@ -3143,13 +3143,12 @@ if.end:                                           ; preds = %entry
   %second = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %0 = load i8, ptr %second, align 1
   %1 = zext i8 %0 to i16
+  %2 = or disjoint i16 %1, 256
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.sroa.0.0 = phi i16 [ %1, %if.end ], [ 0, %entry ]
-  %retval.sroa.2.0 = phi i16 [ 256, %if.end ], [ 0, %entry ]
-  %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.2.0, %retval.sroa.0.0
-  ret i16 %retval.sroa.0.0.insert.insert
+  %retval.sroa.2.0 = phi i16 [ %2, %if.end ], [ 0, %entry ]
+  ret i16 %retval.sroa.2.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8385,13 +8384,12 @@ if.then:                                          ; preds = %land.rhs.i.i.i, %if
   %second = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i, i64 32
   %16 = load i32, ptr %second, align 4
   %17 = zext i32 %16 to i64
+  %18 = or disjoint i64 %17, 4294967296
   br label %return
 
 return:                                           ; preds = %while.end.i, %if.end20.i, %if.then
-  %retval.sroa.0.0 = phi i64 [ %17, %if.then ], [ 0, %if.end20.i ], [ 0, %while.end.i ]
-  %retval.sroa.2.0 = phi i64 [ 4294967296, %if.then ], [ 0, %if.end20.i ], [ 0, %while.end.i ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.2.0, %retval.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  %retval.sroa.2.0 = phi i64 [ %18, %if.then ], [ 0, %if.end20.i ], [ 0, %while.end.i ]
+  ret i64 %retval.sroa.2.0
 }
 
 ; Function Attrs: mustprogress uwtable

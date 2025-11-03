@@ -1675,7 +1675,7 @@ define noundef zeroext i1 @_ZN5folly11IPAddressV48validateENS_5RangeIPKcEE(ptr %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 4294967296, 12884901888) i64 @_ZN5folly11IPAddressV413tryFromStringENS_5RangeIPKcEE(ptr %0, ptr %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 4294967296, 8589934593) i64 @_ZN5folly11IPAddressV413tryFromStringENS_5RangeIPKcEE(ptr %0, ptr %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.in_addr, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1696,7 +1696,7 @@ define range(i64 4294967296, 12884901888) i64 @_ZN5folly11IPAddressV413tryFromSt
 
 .noexc.i.i:                                       ; preds = %2
   invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #38
-          to label %.noexc unwind label %36
+          to label %.noexc unwind label %37
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
@@ -1709,7 +1709,7 @@ define range(i64 4294967296, 12884901888) i64 @_ZN5folly11IPAddressV413tryFromSt
 
 .noexc.i.i.i:                                     ; preds = %13
   %15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-          to label %.noexc1 unwind label %36
+          to label %.noexc1 unwind label %37
 
 .noexc1:                                          ; preds = %.noexc.i.i.i
   store ptr %15, ptr %5, align 8, !tbaa !12, !alias.scope !43
@@ -1756,7 +1756,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not, label %32, label %35
+  br i1 %.not, label %32, label %36
 
 32:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1765,20 +1765,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %21, %
   %33 = load i32, ptr %6, align 4, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %34 = zext i32 %33 to i64
-  br label %35
+  %35 = or disjoint i64 %34, 4294967296
+  br label %36
 
-35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %32
-  %.sroa.03.0 = phi i64 [ %34, %32 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %32 ], [ 8589934592, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+36:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %32
+  %.sroa.3.0 = phi i64 [ %35, %32 ], [ 8589934592, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.03.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.03.0
-  ret i64 %.sroa.03.0.insert.insert
+  ret i64 %.sroa.3.0
 
-36:                                               ; preds = %.noexc.i.i.i, %.noexc.i.i
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.noexc.i.i.i, %.noexc.i.i
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #36
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #36
   unreachable
 }
 
@@ -4327,13 +4326,17 @@ define i32 @_ZN5folly11IPAddressV410fromBinaryENS_5RangeIPKhEE(ptr %0, ptr %1) l
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64
   %9 = sub i64 %7, %8
-  %.not.i.i.not = icmp eq i64 %9, 4
-  br i1 %.not.i.i.not, label %_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE.exit, label %.critedge
+  %.not.i.i = icmp eq i64 %9, 4
+  br i1 %.not.i.i, label %_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE.exit, label %_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE.exit.thread
 
-_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE.exit: ; preds = %6
-  %10 = load i32, ptr %0, align 1
+_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE.exit.thread: ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %10
+  %10 = call ptr @__cxa_allocate_exception(i64 16) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  store i64 %9, ptr %5, align 8, !tbaa !19
+  invoke void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA55_cmETnNSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueEiE4typeELi0EEES9_DpRKSB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 1 dereferenceable(55) @.str.28, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %15 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 11:                                               ; preds = %2
   %12 = landingpad { ptr, i32 }
@@ -4342,25 +4345,21 @@ _ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE.exit: ; preds = %6
   call void @__clang_call_terminate(ptr %13) #36
   unreachable
 
-.critedge:                                        ; preds = %6
+_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE.exit: ; preds = %6
+  %14 = load i32, ptr %0, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %14 = call ptr @__cxa_allocate_exception(i64 16) #35
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %9, ptr %5, align 8, !tbaa !19
-  invoke void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA55_cmETnNSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueEiE4typeELi0EEES9_DpRKSB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 1 dereferenceable(55) @.str.28, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %15 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+  ret i32 %14
 
-15:                                               ; preds = %.critedge
-  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(32) %4)
+15:                                               ; preds = %_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE.exit.thread
+  invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %16 unwind label %18
 
 16:                                               ; preds = %15
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly24IPAddressFormatExceptionE, i64 16), ptr %14, align 8, !tbaa !32
-  invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN5folly24IPAddressFormatExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #38
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly24IPAddressFormatExceptionE, i64 16), ptr %10, align 8, !tbaa !32
+  invoke void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTIN5folly24IPAddressFormatExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #38
           to label %27 unwind label %18
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %.critedge
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE.exit.thread
   %17 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4390,24 +4389,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
   br i1 %.0, label %25, label %26
 
 25:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn15 = phi { ptr, i32 } [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %14) #35
+  %.pn18 = phi { ptr, i32 } [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  call void @__cxa_free_exception(ptr %10) #35
   br label %26
 
 26:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn14 = phi { ptr, i32 } [ %.pn15, %25 ], [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  resume { ptr, i32 } %.pn14
+  %.pn17 = phi { ptr, i32 } [ %.pn18, %25 ], [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  resume { ptr, i32 } %.pn17
 
 27:                                               ; preds = %16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 4294967296, 12884901888) i64 @_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE(ptr %0, ptr %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 4294967296, 8589934593) i64 @_ZN5folly11IPAddressV413tryFromBinaryENS_5RangeIPKhEE(ptr %0, ptr %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.folly::IPAddressV4", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN5folly11IPAddressV4C1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %4 unwind label %11
+          to label %4 unwind label %12
 
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %1 to i64
@@ -4419,20 +4418,19 @@ define range(i64 4294967296, 12884901888) i64 @_ZN5folly11IPAddressV413tryFromBi
 8:                                                ; preds = %4
   %9 = load i32, ptr %0, align 1
   %10 = zext i32 %9 to i64
+  %11 = or disjoint i64 %10, 4294967296
   br label %_ZNR5folly8ExpectedINS_4UnitENS_20IPAddressFormatErrorEE5errorEv.exit
 
 _ZNR5folly8ExpectedINS_4UnitENS_20IPAddressFormatErrorEE5errorEv.exit: ; preds = %4, %8
-  %.sroa.06.0 = phi i64 [ %10, %8 ], [ 0, %4 ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %8 ], [ 8589934592, %4 ]
+  %.sroa.3.0 = phi i64 [ %11, %8 ], [ 8589934592, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.06.0
-  ret i64 %.sroa.06.0.insert.insert
+  ret i64 %.sroa.3.0
 
-11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #36
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #36
   unreachable
 }
 

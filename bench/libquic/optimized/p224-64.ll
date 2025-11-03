@@ -3384,11 +3384,11 @@ get_bit.exit96.i:                                 ; preds = %336, %.preheader.i
   %347 = lshr i8 %346, %312
   %348 = shl i8 %347, 4
   %349 = and i8 %348, 16
+  %350 = or disjoint i8 %349, %.0.i95.i
   br label %get_bit.exit98.i
 
 get_bit.exit98.i:                                 ; preds = %345, %get_bit.exit96.i
-  %.0.i97.i = phi i8 [ %349, %345 ], [ 0, %get_bit.exit96.i ]
-  %350 = or disjoint i8 %.0.i97.i, %.0.i95.i
+  %.0.i97.i = phi i8 [ %350, %345 ], [ %.0.i95.i, %get_bit.exit96.i ]
   br i1 %314, label %get_bit.exit100.i, label %351
 
 351:                                              ; preds = %get_bit.exit98.i
@@ -3396,11 +3396,11 @@ get_bit.exit98.i:                                 ; preds = %345, %get_bit.exit9
   %353 = lshr i8 %352, %318
   %354 = shl i8 %353, 3
   %355 = and i8 %354, 8
+  %356 = or disjoint i8 %355, %.0.i97.i
   br label %get_bit.exit100.i
 
 get_bit.exit100.i:                                ; preds = %351, %get_bit.exit98.i
-  %.0.i99.i = phi i8 [ %355, %351 ], [ 0, %get_bit.exit98.i ]
-  %356 = or disjoint i8 %350, %.0.i99.i
+  %.0.i99.i = phi i8 [ %356, %351 ], [ %.0.i97.i, %get_bit.exit98.i ]
   br i1 %320, label %get_bit.exit102.i, label %get_bit.exit102.thread.i
 
 get_bit.exit102.thread.i:                         ; preds = %get_bit.exit100.i
@@ -3408,36 +3408,35 @@ get_bit.exit102.thread.i:                         ; preds = %get_bit.exit100.i
   %358 = lshr i8 %357, %324
   %359 = shl i8 %358, 2
   %360 = and i8 %359, 4
-  %361 = or disjoint i8 %360, %356
+  %361 = or disjoint i8 %360, %.0.i99.i
   br label %362
 
 get_bit.exit102.i:                                ; preds = %get_bit.exit100.i
   br i1 %325, label %get_bit.exit104.i, label %362
 
 362:                                              ; preds = %get_bit.exit102.i, %get_bit.exit102.thread.i
-  %363 = phi i8 [ %361, %get_bit.exit102.thread.i ], [ %356, %get_bit.exit102.i ]
+  %363 = phi i8 [ %361, %get_bit.exit102.thread.i ], [ %.0.i99.i, %get_bit.exit102.i ]
   %364 = load i8, ptr %327, align 1, !tbaa !6
   %365 = lshr i8 %364, %329
   %366 = shl i8 %365, 1
   %367 = and i8 %366, 2
+  %368 = or disjoint i8 %367, %363
   br label %get_bit.exit104.i
 
 get_bit.exit104.i:                                ; preds = %362, %get_bit.exit102.i
-  %368 = phi i8 [ %363, %362 ], [ %356, %get_bit.exit102.i ]
-  %.0.i103.i = phi i8 [ %367, %362 ], [ 0, %get_bit.exit102.i ]
-  %369 = or disjoint i8 %.0.i103.i, %368
+  %369 = phi i8 [ %368, %362 ], [ %.0.i99.i, %get_bit.exit102.i ]
   br i1 %331, label %get_bit.exit106.i, label %370
 
 370:                                              ; preds = %get_bit.exit104.i
   %371 = load i8, ptr %333, align 1, !tbaa !6
   %372 = lshr i8 %371, %335
   %373 = and i8 %372, 1
+  %374 = or disjoint i8 %373, %369
   br label %get_bit.exit106.i
 
 get_bit.exit106.i:                                ; preds = %370, %get_bit.exit104.i
-  %.0.i105.i = phi i8 [ %373, %370 ], [ 0, %get_bit.exit104.i ]
-  %374 = or disjoint i8 %369, %.0.i105.i
-  call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef nonnull %13, ptr noundef nonnull %14, i8 noundef zeroext %374) #10
+  %.0.i105.i = phi i8 [ %374, %370 ], [ %369, %get_bit.exit104.i ]
+  call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef nonnull %13, ptr noundef nonnull %14, i8 noundef zeroext %.0.i105.i) #10
   %375 = load i8, ptr %14, align 1, !tbaa !6
   %376 = zext i8 %375 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %12, i8 0, i64 96, i1 false)

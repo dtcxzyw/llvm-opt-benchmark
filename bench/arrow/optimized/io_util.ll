@@ -690,19 +690,18 @@ define range(i64 0, 8589934592) i64 @_ZN5arrow8internal21ErrnoFromStatusDetailER
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %6 = icmp eq ptr %5, @_ZN5arrow8internal12_GLOBAL__N_118kErrnoDetailTypeIdE
-  br i1 %6, label %7, label %10
+  br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i32, ptr %8, align 8, !tbaa !24
   %9 = zext i32 %.val to i64
-  br label %10
+  %10 = or disjoint i64 %9, 4294967296
+  br label %11
 
-10:                                               ; preds = %1, %7
-  %.sroa.0.0 = phi i64 [ %9, %7 ], [ 0, %1 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %7 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+11:                                               ; preds = %1, %7
+  %.sroa.2.0 = phi i64 [ %10, %7 ], [ 0, %1 ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress uwtable

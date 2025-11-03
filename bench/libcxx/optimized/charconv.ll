@@ -3343,8 +3343,8 @@ _ZNSt3__131__parse_fractional_hex_constantB8ne210000IjEENS_28__fractional_consta
   %53 = sext i32 %.sroa.7.0 to i64
   %54 = add nsw i64 %52, %53
   %spec.select11.i = tail call i64 @llvm.smax.i64(i64 %54, i64 -255)
-  %.0.i66 = tail call i64 @llvm.smin.i64(i64 %spec.select11.i, i64 255)
-  %.0.i = trunc nsw i64 %.0.i66 to i32
+  %.0.i63 = tail call i64 @llvm.smin.i64(i64 %spec.select11.i, i64 255)
+  %.0.i = trunc nsw i64 %.0.i63 to i32
   %55 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.lcssa.i, i1 true)
   %56 = shl i32 %.lcssa.i, %55
   %57 = sub nsw i32 %.0.i, %55
@@ -3532,7 +3532,7 @@ _ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_co
   %.036 = phi i32 [ %.0.i, %40 ], [ %.0.i44, %.thread ]
   %.0 = phi i64 [ %.0.lcssa.i, %40 ], [ %.fca.0.extract11, %.thread ]
   %.not = icmp eq i32 %.lcssa.i, 0
-  br i1 %.not, label %57, label %51
+  br i1 %.not, label %59, label %51
 
 51:                                               ; preds = %50
   %52 = sub i64 %7, %10
@@ -3550,28 +3550,28 @@ _ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_co
   %sh.diff = lshr i64 %.fca.0.extract, 9
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %56 = and i32 %tr.sh.diff, 2139095040
-  br label %57
+  %57 = or disjoint i32 %55, %56
+  %58 = icmp ne i32 %56, 0
+  br label %59
 
-57:                                               ; preds = %51, %50
-  %.sroa.5.0 = phi i32 [ %56, %51 ], [ 0, %50 ]
-  %.sroa.06.0 = phi i32 [ %55, %51 ], [ 0, %50 ]
+59:                                               ; preds = %51, %50
+  %.sroa.5.0 = phi i1 [ %58, %51 ], [ false, %50 ]
+  %.sroa.06.0 = phi i32 [ %57, %51 ], [ 0, %50 ]
   %.sroa.510.0 = phi i32 [ %spec.select, %51 ], [ 0, %50 ]
-  %58 = or disjoint i32 %.sroa.06.0, %.sroa.5.0
-  %59 = icmp ne i32 %.sroa.510.0, 34
-  %60 = icmp ne i32 %.sroa.5.0, 0
-  %or.cond.not9.i = or i1 %60, %59
-  %61 = icmp eq i32 %58, 0
+  %60 = icmp ne i32 %.sroa.510.0, 34
+  %or.cond.not9.i = or i1 %.sroa.5.0, %60
+  %61 = icmp eq i32 %.sroa.06.0, 0
   %or.cond7.i = select i1 %or.cond.not9.i, i1 true, i1 %61
   %spec.store.select.i = select i1 %or.cond7.i, i32 %.sroa.510.0, i32 0
-  %62 = bitcast i32 %58 to float
+  %62 = bitcast i32 %.sroa.06.0 to float
   %63 = fneg float %62
   %storemerge.i = select i1 %5, float %63, float %62
   br label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread
 
-_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread: ; preds = %42, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit, %6, %57
-  %.sink69 = phi float [ %storemerge.i, %57 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 0.000000e+00, %42 ]
-  %.sink67 = phi i64 [ %.0, %57 ], [ 0, %6 ], [ 0, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 0, %42 ]
-  %.sink = phi i32 [ %spec.store.select.i, %57 ], [ 22, %6 ], [ 22, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 22, %42 ]
+_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit.thread: ; preds = %42, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit, %6, %59
+  %.sink69 = phi float [ %storemerge.i, %59 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 0.000000e+00, %42 ]
+  %.sink67 = phi i64 [ %.0, %59 ], [ 0, %6 ], [ 0, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 0, %42 ]
+  %.sink = phi i32 [ %spec.store.select.i, %59 ], [ 22, %6 ], [ 22, %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000IjEENS_28__fractional_constant_resultIT_EEPKcll.exit ], [ 22, %42 ]
   store float %.sink69, ptr %0, align 8, !tbaa !60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink67, ptr %64, align 8, !tbaa !52
@@ -3585,14 +3585,14 @@ define linkonce_odr hidden { i64, i32 } @_ZN24__llvm_libc_common_utils8internal2
   %.sroa.446.0.extract.shift = lshr i64 %0, 32
   %.sroa.446.0.extract.trunc = trunc nuw i64 %.sroa.446.0.extract.shift to i32
   %6 = icmp sgt i32 %.sroa.446.0.extract.trunc, 39
-  br i1 %6, label %.thread91, label %7
+  br i1 %6, label %.thread89, label %7
 
 7:                                                ; preds = %5
   %8 = icmp slt i32 %.sroa.446.0.extract.trunc, -55
-  br i1 %8, label %.thread91, label %9
+  br i1 %8, label %.thread89, label %9
 
 9:                                                ; preds = %7
-  br i1 %1, label %68, label %10
+  br i1 %1, label %69, label %10
 
 10:                                               ; preds = %9
   %.sroa.019.0.extract.trunc.i = trunc i64 %0 to i32
@@ -3695,45 +3695,45 @@ define linkonce_odr hidden { i64, i32 } @_ZN24__llvm_libc_common_utils8internal2
   %.sroa.6.0.extract.shift.i = and i64 %.sroa.0.0.insert.insert.i, 1095233437440
   %66 = and i32 %.0.i.i, 255
   %67 = zext nneg i32 %66 to i64
-  %.sroa.045.0.insert.insert.i = or disjoint i64 %.sroa.6.0.extract.shift.i, %67
-  br label %.thread91
+  %68 = or disjoint i64 %.sroa.6.0.extract.shift.i, %67
+  br label %.thread89
 
-68:                                               ; preds = %9
-  %69 = tail call { i64, i8 } @_ZN24__llvm_libc_common_utils8internal12eisel_lemireIfEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE(i64 %0, i32 noundef %2)
-  %.fca.1.extract11 = extractvalue { i64, i8 } %69, 1
-  %70 = trunc nuw i8 %.fca.1.extract11 to i1
-  br i1 %70, label %73, label %.thread95
+69:                                               ; preds = %9
+  %70 = tail call { i64, i8 } @_ZN24__llvm_libc_common_utils8internal12eisel_lemireIfEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE(i64 %0, i32 noundef %2)
+  %.fca.1.extract11 = extractvalue { i64, i8 } %70, 1
+  %71 = trunc nuw i8 %.fca.1.extract11 to i1
+  br i1 %71, label %74, label %.thread93
 
 .thread:                                          ; preds = %36, %24, %14, %10
-  %71 = tail call { i64, i8 } @_ZN24__llvm_libc_common_utils8internal12eisel_lemireIfEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE(i64 %0, i32 noundef %2)
-  %.fca.0.extract1087 = extractvalue { i64, i8 } %71, 0
-  %.fca.1.extract1188 = extractvalue { i64, i8 } %71, 1
-  %72 = trunc nuw i8 %.fca.1.extract1188 to i1
-  br i1 %72, label %.thread91, label %.thread95
+  %72 = tail call { i64, i8 } @_ZN24__llvm_libc_common_utils8internal12eisel_lemireIfEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE(i64 %0, i32 noundef %2)
+  %.fca.0.extract1085 = extractvalue { i64, i8 } %72, 0
+  %.fca.1.extract1186 = extractvalue { i64, i8 } %72, 1
+  %73 = trunc nuw i8 %.fca.1.extract1186 to i1
+  br i1 %73, label %.thread89, label %.thread93
 
-73:                                               ; preds = %68
-  %.fca.0.extract10 = extractvalue { i64, i8 } %69, 0
+74:                                               ; preds = %69
+  %.fca.0.extract10 = extractvalue { i64, i8 } %70, 0
   %.sroa.446.0.insert.shift = and i64 %0, -4294967296
-  %74 = add i64 %0, 1
-  %.sroa.08.0.insert.ext = and i64 %74, 4294967295
+  %75 = add i64 %0, 1
+  %.sroa.08.0.insert.ext = and i64 %75, 4294967295
   %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.08.0.insert.ext, %.sroa.446.0.insert.shift
-  %75 = tail call { i64, i8 } @_ZN24__llvm_libc_common_utils8internal12eisel_lemireIfEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE(i64 %.sroa.08.0.insert.insert, i32 noundef %2)
-  %.fca.0.extract4 = extractvalue { i64, i8 } %75, 0
-  %.fca.1.extract5 = extractvalue { i64, i8 } %75, 1
-  %76 = trunc nuw i8 %.fca.1.extract5 to i1
-  %77 = icmp eq i64 %.fca.0.extract10, %.fca.0.extract4
-  %or.cond98 = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond98, label %.thread91, label %.thread95
+  %76 = tail call { i64, i8 } @_ZN24__llvm_libc_common_utils8internal12eisel_lemireIfEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE(i64 %.sroa.08.0.insert.insert, i32 noundef %2)
+  %.fca.0.extract4 = extractvalue { i64, i8 } %76, 0
+  %.fca.1.extract5 = extractvalue { i64, i8 } %76, 1
+  %77 = trunc nuw i8 %.fca.1.extract5 to i1
+  %78 = icmp eq i64 %.fca.0.extract10, %.fca.0.extract4
+  %or.cond96 = select i1 %77, i1 %78, i1 false
+  br i1 %or.cond96, label %.thread89, label %.thread93
 
-.thread95:                                        ; preds = %73, %.thread, %68
-  %78 = tail call { i64, i32 } @_ZN24__llvm_libc_common_utils8internal25simple_decimal_conversionIfEENS0_18FloatConvertReturnIT_EEPKcmNS0_14RoundDirectionE(ptr noundef %3, i64 noundef %4, i32 noundef %2)
-  %.fca.0.extract = extractvalue { i64, i32 } %78, 0
-  %.fca.1.extract = extractvalue { i64, i32 } %78, 1
-  br label %.thread91
+.thread93:                                        ; preds = %74, %.thread, %69
+  %79 = tail call { i64, i32 } @_ZN24__llvm_libc_common_utils8internal25simple_decimal_conversionIfEENS0_18FloatConvertReturnIT_EEPKcmNS0_14RoundDirectionE(ptr noundef %3, i64 noundef %4, i32 noundef %2)
+  %.fca.0.extract = extractvalue { i64, i32 } %79, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %79, 1
+  br label %.thread89
 
-.thread91:                                        ; preds = %73, %.thread, %7, %5, %.thread95, %60
-  %.sroa.051.0 = phi i64 [ %.fca.0.extract, %.thread95 ], [ %.sroa.045.0.insert.insert.i, %60 ], [ 1095216660480, %5 ], [ 0, %7 ], [ %.fca.0.extract1087, %.thread ], [ %.fca.0.extract10, %73 ]
-  %.sroa.7.0 = phi i32 [ %.fca.1.extract, %.thread95 ], [ 0, %60 ], [ 34, %5 ], [ 34, %7 ], [ 0, %.thread ], [ 0, %73 ]
+.thread89:                                        ; preds = %74, %.thread, %7, %5, %.thread93, %60
+  %.sroa.051.0 = phi i64 [ %.fca.0.extract, %.thread93 ], [ %68, %60 ], [ 1095216660480, %5 ], [ 0, %7 ], [ %.fca.0.extract1085, %.thread ], [ %.fca.0.extract10, %74 ]
+  %.sroa.7.0 = phi i32 [ %.fca.1.extract, %.thread93 ], [ 0, %60 ], [ 34, %5 ], [ 34, %7 ], [ 0, %.thread ], [ 0, %74 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.051.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { i64, i32 } %.fca.1.insert
@@ -3854,14 +3854,13 @@ define linkonce_odr hidden { i64, i8 } @_ZN24__llvm_libc_common_utils8internal12
   %.sroa.6.0.extract.shift = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext.masked
   %61 = and i32 %.1, 255
   %62 = zext nneg i32 %61 to i64
+  %63 = or disjoint i64 %.sroa.6.0.extract.shift, %62
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %59, %43, %54, %2
-  %.sroa.057.0 = phi i64 [ 0, %2 ], [ %62, %59 ], [ 0, %43 ], [ 0, %54 ], [ 0, %25 ]
-  %.sroa.6.sroa.0.0 = phi i64 [ 0, %2 ], [ %.sroa.6.0.extract.shift, %59 ], [ 0, %43 ], [ 0, %54 ], [ 0, %25 ]
+  %.sroa.6.sroa.0.0 = phi i64 [ 0, %2 ], [ %63, %59 ], [ 0, %43 ], [ 0, %54 ], [ 0, %25 ]
   %.sroa.6.sroa.2.0 = phi i8 [ 0, %2 ], [ 1, %59 ], [ 0, %43 ], [ 0, %54 ], [ 0, %25 ]
-  %.sroa.057.0.insert.insert = or i64 %.sroa.6.sroa.0.0, %.sroa.057.0
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.057.0.insert.insert, 0
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.6.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.6.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
 }

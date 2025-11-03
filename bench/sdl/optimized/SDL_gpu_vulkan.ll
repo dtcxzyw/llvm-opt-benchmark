@@ -19513,15 +19513,11 @@ define internal fastcc noundef ptr @VULKAN_INTERNAL_CreateTexture(ptr noundef %0
   br label %SwizzleForSDLFormat.exit
 
 SwizzleForSDLFormat.exit:                         ; preds = %3, %17, %18
-  %.sroa.7.0.i = phi i64 [ 6, %17 ], [ 0, %18 ], [ 1, %3 ]
-  %.sroa.4.0.i = phi i64 [ 12884901888, %17 ], [ 0, %18 ], [ 4294967296, %3 ]
-  %.sroa.0.0.i = phi i64 [ 4, %17 ], [ 0, %18 ], [ 1, %3 ]
-  %.sroa.11.0.i = phi i64 [ 21474836480, %17 ], [ 0, %18 ], [ 12884901888, %3 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.i, %.sroa.4.0.i
-  %.sroa.7.8.insert.insert.i = or disjoint i64 %.sroa.11.0.i, %.sroa.7.0.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %14, align 8
+  %.sroa.4.0.i = phi i64 [ 12884901892, %17 ], [ 0, %18 ], [ 4294967297, %3 ]
+  %.sroa.11.0.i = phi i64 [ 21474836486, %17 ], [ 0, %18 ], [ 12884901889, %3 ]
+  store i64 %.sroa.4.0.i, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store i64 %.sroa.7.8.insert.insert.i, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.11.0.i, ptr %.sroa.4.0..sroa_idx, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 60
   store i32 %.279, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8

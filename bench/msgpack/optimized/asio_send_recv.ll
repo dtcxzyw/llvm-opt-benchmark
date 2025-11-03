@@ -32421,7 +32421,7 @@ declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local { i64, ptr } @_ZN5boost4asio6detail10socket_ops24translate_addrinfo_errorEi(i32 noundef %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %35 [
-    i32 0, label %40
+    i32 0, label %41
     i32 -3, label %2
     i32 -1, label %8
     i32 -4, label %9
@@ -32446,13 +32446,13 @@ _ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9ena
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, i32 noundef 2) #36
-  br i1 %7, label %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %40
+  br i1 %7, label %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %41
 
 _ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread: ; preds = %2, %2, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit
-  br label %40
+  br label %41
 
 8:                                                ; preds = %1
-  br label %40
+  br label %41
 
 9:                                                ; preds = %1
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, i64 8), align 8
@@ -32466,16 +32466,16 @@ _ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9ena
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, i32 noundef 3) #36
-  br i1 %14, label %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread, label %40
+  br i1 %14, label %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread, label %41
 
 _ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread: ; preds = %9, %9, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6
-  br label %40
+  br label %41
 
 15:                                               ; preds = %1
-  br label %40
+  br label %41
 
 16:                                               ; preds = %1
-  br label %40
+  br label %41
 
 17:                                               ; preds = %1, %1, %1
   %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, i64 8), align 8
@@ -32489,10 +32489,10 @@ _ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9ena
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, i32 noundef 1) #36
-  br i1 %22, label %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread, label %40
+  br i1 %22, label %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread, label %41
 
 _ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread: ; preds = %17, %17, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13
-  br label %40
+  br label %41
 
 23:                                               ; preds = %1
   %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, i64 8), align 8
@@ -32506,10 +32506,10 @@ _ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, i32 noundef -8) #36
-  br i1 %28, label %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %40
+  br i1 %28, label %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %41
 
 _ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread: ; preds = %23, %23, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit
-  br label %40
+  br label %41
 
 29:                                               ; preds = %1
   %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, i64 8), align 8
@@ -32523,10 +32523,10 @@ _ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, i32 noundef -7) #36
-  br i1 %34, label %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread, label %40
+  br i1 %34, label %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread, label %41
 
 _ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread: ; preds = %29, %29, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22
-  br label %40
+  br label %41
 
 35:                                               ; preds = %1
   %36 = tail call ptr @__errno_location() #41
@@ -32534,14 +32534,13 @@ _ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9
   %.not = icmp eq i32 %37, 0
   %38 = zext i32 %37 to i64
   %39 = select i1 %.not, i64 0, i64 4294967296
-  br label %40
+  %40 = or disjoint i64 %39, %38
+  br label %41
 
-40:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %1, %35, %16, %15, %8
+41:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %1, %35, %16, %15, %8
   %.sroa.1343.0 = phi ptr [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %35 ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %8 ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %15 ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %16 ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %1 ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6 ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13 ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22 ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread ]
-  %.sroa.11.0 = phi i64 [ %39, %35 ], [ 4294967296, %8 ], [ 4294967296, %15 ], [ 4294967296, %16 ], [ 0, %1 ], [ 0, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ 4294967296, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6 ], [ 4294967296, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13 ], [ 4294967296, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ 4294967296, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22 ], [ 4294967296, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread ]
-  %.sroa.0.0 = phi i64 [ %38, %35 ], [ 22, %8 ], [ 97, %15 ], [ 12, %16 ], [ 0, %1 ], [ 2, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ 2, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 3, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6 ], [ 3, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread ], [ 1, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13 ], [ 1, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread ], [ 4294967288, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ 4294967288, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 4294967289, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22 ], [ 4294967289, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.0.0
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.insert.insert, 0
+  %.sroa.11.0 = phi i64 [ %40, %35 ], [ 4294967318, %8 ], [ 4294967393, %15 ], [ 4294967308, %16 ], [ 0, %1 ], [ 2, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ 4294967298, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 3, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6 ], [ 4294967299, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread ], [ 1, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13 ], [ 4294967297, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread ], [ 4294967288, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ 8589934584, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 4294967289, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22 ], [ 8589934585, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.11.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.1343.0, 1
   ret { i64, ptr } %.fca.1.insert
 }

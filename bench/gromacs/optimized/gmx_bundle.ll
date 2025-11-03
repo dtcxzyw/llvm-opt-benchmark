@@ -2074,20 +2074,17 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit388:       ; preds = %_ZNSt10filesystem7_
   %.pre216.i = load float, ptr %700, align 16, !tbaa !81
   %.pre217.i = load float, ptr %698, align 8, !tbaa !81
   %.pre218.i = load float, ptr %701, align 4, !tbaa !81
-  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.50, i32 noundef 139, ptr noundef nonnull %716)
-          to label %.lr.ph165.i unwind label %.loopexit
-
-.lr.ph165.i:                                      ; preds = %._crit_edge158.i
   %775 = fadd float %.pre.i, %.pre214.i
   %776 = fadd float %.pre215.i, %.pre216.i
   %777 = fadd float %.pre217.i, %.pre218.i
   %778 = fmul float %775, 5.000000e-01
   %779 = fmul float %776, 5.000000e-01
   %780 = fmul float %777, 5.000000e-01
-  br label %.lr.ph161.us.i
+  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.50, i32 noundef 139, ptr noundef nonnull %716)
+          to label %.lr.ph161.us.i unwind label %.loopexit
 
-.lr.ph161.us.i:                                   ; preds = %._crit_edge162.us.i, %.lr.ph165.i
-  %indvars.iv204.i = phi i64 [ 0, %.lr.ph165.i ], [ %indvars.iv.next205.i, %._crit_edge162.us.i ]
+.lr.ph161.us.i:                                   ; preds = %._crit_edge158.i, %._crit_edge162.us.i
+  %indvars.iv204.i = phi i64 [ %indvars.iv.next205.i, %._crit_edge162.us.i ], [ 0, %._crit_edge158.i ]
   %781 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv204.i
   %782 = load float, ptr %781, align 4, !tbaa !81
   %783 = fsub float %782, %778

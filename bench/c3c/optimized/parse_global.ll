@@ -5432,7 +5432,7 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
   store i8 %27, ptr %24, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
   %28 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 18) #8
-  br i1 %28, label %29, label %54
+  br i1 %28, label %29, label %55
 
 29:                                               ; preds = %19
   %30 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 1) #8
@@ -5485,39 +5485,38 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
 .critedge.i:                                      ; preds = %47
   tail call void @advance(ptr noundef nonnull %0) #8
   %53 = select i1 %30, i8 16, i8 0
-  br label %54
+  %54 = or disjoint i8 %.1.i, %53
+  br label %55
 
-54:                                               ; preds = %.critedge.i, %19
-  %.065.i = phi i8 [ %53, %.critedge.i ], [ 0, %19 ]
-  %.064.i = phi i8 [ %.1.i, %.critedge.i ], [ 0, %19 ]
-  %55 = load i32, ptr %9, align 8
-  %.off.i = add i32 %55, -64
+55:                                               ; preds = %.critedge.i, %19
+  %.064.i = phi i8 [ %54, %.critedge.i ], [ 0, %19 ]
+  %56 = load i32, ptr %9, align 8
+  %.off.i = add i32 %56, -64
   %switch.i = icmp ult i32 %.off.i, 9
-  br i1 %switch.i, label %58, label %56
+  br i1 %switch.i, label %59, label %57
 
-56:                                               ; preds = %54
-  %57 = load i64, ptr %6, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %57, ptr noundef nonnull @.str.96) #8
+57:                                               ; preds = %55
+  %58 = load i64, ptr %6, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %58, ptr noundef nonnull @.str.96) #8
   br label %parse_contract_param.exit.thread
 
-58:                                               ; preds = %54
-  %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %62 = load i64, ptr %6, align 8
-  store i64 %62, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %64 = load i8, ptr %63, align 8
-  %65 = and i8 %64, -32
-  %66 = or i8 %.064.i, %.065.i
-  %67 = or i8 %66, %65
-  store i8 %67, ptr %63, align 8
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %10, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store ptr %60, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %63 = load i64, ptr %6, align 8
+  store i64 %63, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %65 = load i8, ptr %64, align 8
+  %66 = and i8 %65, -32
+  %67 = or i8 %66, %.064.i
+  store i8 %67, ptr %64, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
   %68 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #8
   br i1 %68, label %69, label %75
 
-69:                                               ; preds = %58
+69:                                               ; preds = %59
   %70 = load i32, ptr %9, align 8
   %71 = icmp eq i32 %70, 76
   br i1 %71, label %.critedge71.i, label %72
@@ -5532,7 +5531,7 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
   tail call void @advance(ptr noundef nonnull %0) #8
   br label %77
 
-75:                                               ; preds = %58
+75:                                               ; preds = %59
   %76 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 76) #8
   br label %77
 
@@ -5890,8 +5889,8 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
   %.pre = load i32, ptr %7, align 4
   br label %12
 
-parse_contract_param.exit.thread:                 ; preds = %217, %211, %201, %124, %113, %119, %72, %50, %45, %56, %2, %253, %252, %248
-  %.0 = phi i1 [ false, %252 ], [ false, %253 ], [ true, %248 ], [ true, %2 ], [ false, %56 ], [ false, %45 ], [ false, %50 ], [ false, %72 ], [ false, %119 ], [ false, %113 ], [ false, %124 ], [ false, %201 ], [ false, %211 ], [ false, %217 ]
+parse_contract_param.exit.thread:                 ; preds = %217, %211, %201, %124, %113, %119, %72, %50, %45, %57, %2, %253, %252, %248
+  %.0 = phi i1 [ false, %252 ], [ false, %253 ], [ true, %248 ], [ true, %2 ], [ false, %57 ], [ false, %45 ], [ false, %50 ], [ false, %72 ], [ false, %119 ], [ false, %113 ], [ false, %124 ], [ false, %201 ], [ false, %211 ], [ false, %217 ]
   ret i1 %.0
 }
 

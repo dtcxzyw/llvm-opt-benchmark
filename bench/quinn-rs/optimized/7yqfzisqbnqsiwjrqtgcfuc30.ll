@@ -3447,7 +3447,7 @@ common.resume:                                    ; preds = %.thread66, %28
           cleanup
   br label %.thread66
 
-.thread72.loopexit.split-lp:                      ; preds = %189, %122, %99, %78, %71, %54, %40, %248
+.thread72.loopexit.split-lp:                      ; preds = %189, %122, %99, %78, %71, %54, %40, %247
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread66
@@ -3922,110 +3922,109 @@ select.unfold.i:                                  ; preds = %202, %._crit_edge.i
   unreachable
 
 .loopexit:                                        ; preds = %.backedge.i, %185
-  %239 = phi i1 [ false, %185 ], [ true, %.backedge.i ]
+  %239 = phi i1 [ %171, %185 ], [ true, %.backedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %240 = or i1 %239, %171
-  %241 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %242 = load i64, ptr %241, align 8, !noundef !3
-  %243 = icmp eq i64 %242, 0
-  br i1 %243, label %244, label %248
+  %240 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %241 = load i64, ptr %240, align 8, !noundef !3
+  %242 = icmp eq i64 %241, 0
+  br i1 %242, label %243, label %247
 
-244:                                              ; preds = %248, %.loopexit
-  %245 = getelementptr inbounds nuw i8, ptr %34, i64 1000
-  %246 = load i64, ptr %245, align 8, !noundef !3
-  %247 = icmp eq i64 %246, 0
-  br i1 %247, label %249, label %252
+243:                                              ; preds = %247, %.loopexit
+  %244 = getelementptr inbounds nuw i8, ptr %34, i64 1000
+  %245 = load i64, ptr %244, align 8, !noundef !3
+  %246 = icmp eq i64 %245, 0
+  br i1 %246, label %248, label %251
 
-248:                                              ; preds = %.loopexit
+247:                                              ; preds = %.loopexit
   invoke void @_ZN5tokio4sync6notify6Notify14notify_waiters17h88f79be220ab0135E(ptr noundef nonnull align 8 %172)
-          to label %244 unwind label %.thread72.loopexit.split-lp
+          to label %243 unwind label %.thread72.loopexit.split-lp
 
-249:                                              ; preds = %244
-  %250 = load i64, ptr %176, align 8, !noundef !3
-  %251 = icmp eq i64 %250, 0
-  br i1 %251, label %270, label %252
+248:                                              ; preds = %243
+  %249 = load i64, ptr %176, align 8, !noundef !3
+  %250 = icmp eq i64 %249, 0
+  br i1 %250, label %269, label %251
 
-252:                                              ; preds = %249, %244
-  %253 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  br i1 %37, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43, label %254
+251:                                              ; preds = %248, %243
+  %252 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  br i1 %37, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43, label %253
 
-254:                                              ; preds = %252
-  %255 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hbe50f93f4fcd319cE monotonic, align 8
-  %256 = and i64 %255, 9223372036854775807
-  %257 = icmp eq i64 %256, 0
-  br i1 %257, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43, label %.noexc44, !prof !4
+253:                                              ; preds = %251
+  %254 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hbe50f93f4fcd319cE monotonic, align 8
+  %255 = and i64 %254, 9223372036854775807
+  %256 = icmp eq i64 %255, 0
+  br i1 %256, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43, label %.noexc44, !prof !4
 
-.noexc44:                                         ; preds = %254
-  %258 = call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h1c1768a2b70327b8E()
-  br i1 %258, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43, label %259
+.noexc44:                                         ; preds = %253
+  %257 = call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h1c1768a2b70327b8E()
+  br i1 %257, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43, label %258
 
-259:                                              ; preds = %.noexc44
-  store atomic i8 1, ptr %253 monotonic, align 4
+258:                                              ; preds = %.noexc44
+  store atomic i8 1, ptr %252 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43
 
-_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43: ; preds = %259, %.noexc44, %254, %252
-  %260 = atomicrmw xchg ptr %34, i32 0 release, align 4
-  %261 = icmp eq i32 %260, 2
-  br i1 %261, label %262, label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46", !prof !5
+_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43: ; preds = %258, %.noexc44, %253, %251
+  %259 = atomicrmw xchg ptr %34, i32 0 release, align 4
+  %260 = icmp eq i32 %259, 2
+  br i1 %260, label %261, label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46", !prof !5
 
-262:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43
+261:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43
   call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17hd721f493096dd565E(ptr noundef nonnull align 4 %34)
   br label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46"
 
-"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46": ; preds = %262, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43
-  br i1 %240, label %263, label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit"
+"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46": ; preds = %261, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i43
+  br i1 %239, label %262, label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit"
 
-263:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46"
-  %264 = load ptr, ptr %1, align 8, !nonnull !3, !align !7, !noundef !3
-  %265 = load ptr, ptr %264, align 8, !nonnull !3, !align !7, !noundef !3
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 16
-  %267 = load ptr, ptr %266, align 8, !nonnull !3, !noundef !3
-  %268 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  %269 = load ptr, ptr %268, align 8, !noundef !3
-  call void %267(ptr noundef %269)
+262:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46"
+  %263 = load ptr, ptr %1, align 8, !nonnull !3, !align !7, !noundef !3
+  %264 = load ptr, ptr %263, align 8, !nonnull !3, !align !7, !noundef !3
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 16
+  %266 = load ptr, ptr %265, align 8, !nonnull !3, !noundef !3
+  %267 = getelementptr inbounds nuw i8, ptr %263, i64 8
+  %268 = load ptr, ptr %267, align 8, !noundef !3
+  call void %266(ptr noundef %268)
   br label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit"
 
-270:                                              ; preds = %249
-  %271 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  br i1 %37, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47, label %272
+269:                                              ; preds = %248
+  %270 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  br i1 %37, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47, label %271
 
-272:                                              ; preds = %270
-  %273 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hbe50f93f4fcd319cE monotonic, align 8
-  %274 = and i64 %273, 9223372036854775807
-  %275 = icmp eq i64 %274, 0
-  br i1 %275, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47, label %276, !prof !4
+271:                                              ; preds = %269
+  %272 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hbe50f93f4fcd319cE monotonic, align 8
+  %273 = and i64 %272, 9223372036854775807
+  %274 = icmp eq i64 %273, 0
+  br i1 %274, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47, label %275, !prof !4
 
-276:                                              ; preds = %272
-  %277 = call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h1c1768a2b70327b8E()
-  br i1 %277, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47, label %278
+275:                                              ; preds = %271
+  %276 = call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h1c1768a2b70327b8E()
+  br i1 %276, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47, label %277
 
-278:                                              ; preds = %276
-  store atomic i8 1, ptr %271 monotonic, align 4
+277:                                              ; preds = %275
+  store atomic i8 1, ptr %270 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47
 
-_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47: ; preds = %278, %276, %272, %270
-  %279 = atomicrmw xchg ptr %34, i32 0 release, align 4
-  %280 = icmp eq i32 %279, 2
-  br i1 %280, label %281, label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit", !prof !5
+_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47: ; preds = %277, %275, %271, %269
+  %278 = atomicrmw xchg ptr %34, i32 0 release, align 4
+  %279 = icmp eq i32 %278, 2
+  br i1 %279, label %280, label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit", !prof !5
 
-281:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47
+280:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47
   call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17hd721f493096dd565E(ptr noundef nonnull align 4 %34)
   br label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit"
 
-"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit": ; preds = %263, %281, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47, %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46", %169, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i
-  %.sroa.5.0 = phi ptr [ %.sroa.75.0.copyload.i, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i ], [ %.sroa.75.0.copyload.i, %169 ], [ null, %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46" ], [ null, %263 ], [ null, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47 ], [ null, %281 ]
-  %.sroa.0.0 = phi i64 [ 0, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i ], [ 0, %169 ], [ 1, %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46" ], [ 1, %263 ], [ 0, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47 ], [ 0, %281 ]
-  %282 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %283 = insertvalue { i64, ptr } %282, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %283
+"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit": ; preds = %262, %280, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47, %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46", %169, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i
+  %.sroa.5.0 = phi ptr [ %.sroa.75.0.copyload.i, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i ], [ %.sroa.75.0.copyload.i, %169 ], [ null, %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46" ], [ null, %262 ], [ null, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47 ], [ null, %280 ]
+  %.sroa.0.0 = phi i64 [ 0, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i ], [ 0, %169 ], [ 1, %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit46" ], [ 1, %262 ], [ 0, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i47 ], [ 0, %280 ]
+  %281 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %282 = insertvalue { i64, ptr } %281, ptr %.sroa.5.0, 1
+  ret { i64, ptr } %282
 
 .thread66:                                        ; preds = %.thread72.loopexit, %.thread72.loopexit.split-lp, %.loopexit.split-lp.i, %156, %152, %139, %135, %131, %.thread
   %.pn65 = phi { ptr, i32 } [ %69, %.thread ], [ %140, %139 ], [ %132, %135 ], [ %132, %131 ], [ %153, %156 ], [ %153, %152 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %lpad.loopexit, %.thread72.loopexit ], [ %lpad.loopexit.split-lp, %.thread72.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE"(ptr nonnull %34, i8 %36) #21
-          to label %common.resume unwind label %284
+          to label %common.resume unwind label %283
 
-284:                                              ; preds = %.thread66
-  %285 = landingpad { ptr, i32 }
+283:                                              ; preds = %.thread66
+  %284 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable

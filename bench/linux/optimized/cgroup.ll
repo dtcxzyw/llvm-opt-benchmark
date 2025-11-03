@@ -12595,7 +12595,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cgroup_parse_float(ptr noundef r
   %10 = load i64, ptr %5, align 8
   %11 = icmp slt i64 %10, 0
   %12 = select i1 %9, i1 true, i1 %11
-  br i1 %12, label %56, label %13
+  br i1 %12, label %55, label %13
 
 13:                                               ; preds = %3
   %14 = load i32, ptr %7, align 4
@@ -12657,24 +12657,26 @@ define dso_local noundef range(i32 -22, 1) i32 @cgroup_parse_float(ptr noundef r
   %48 = add i32 %47, -1
   %49 = mul i64 %46, 10
   %50 = icmp eq i32 %48, 0
-  br i1 %50, label %.loopexit, label %.preheader, !llvm.loop !314
+  br i1 %50, label %.loopexit.loopexit, label %.preheader, !llvm.loop !314
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit18
-  %51 = phi i64 [ %42, %.loopexit18 ], [ %44, %.preheader ]
-  %52 = phi i64 [ %41, %.loopexit18 ], [ %45, %.preheader ]
-  %53 = phi i64 [ 1, %.loopexit18 ], [ %49, %.preheader ]
-  %54 = mul i64 %53, %51
-  %55 = add i64 %54, %52
-  store i64 %55, ptr %2, align 8
-  br label %56
+.loopexit.loopexit:                               ; preds = %.preheader
+  %51 = mul i64 %49, %44
+  br label %.loopexit
 
-56:                                               ; preds = %.loopexit, %3
-  %57 = phi i32 [ 0, %.loopexit ], [ -22, %3 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit18
+  %52 = phi i64 [ %41, %.loopexit18 ], [ %45, %.loopexit.loopexit ]
+  %53 = phi i64 [ %42, %.loopexit18 ], [ %51, %.loopexit.loopexit ]
+  %54 = add i64 %53, %52
+  store i64 %54, ptr %2, align 8
+  br label %55
+
+55:                                               ; preds = %.loopexit, %3
+  %56 = phi i32 [ 0, %.loopexit ], [ -22, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %57
+  ret i32 %56
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

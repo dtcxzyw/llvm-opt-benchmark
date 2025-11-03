@@ -1658,16 +1658,16 @@ _action_find_definition.exit.thread101:           ; preds = %_action_find_defini
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %220 = load i32, ptr %219, align 8, !tbaa !89
   %.not14.i = icmp ne i32 %220, 0
+  %221 = or i1 %3, %.not14.i
+  %222 = select i1 %221, ptr @.str.201, ptr @.str.5
   br label %_shortcut_is_speed.exit
 
 _shortcut_is_speed.exit:                          ; preds = %197, %203, %206, %210, %213, %218
-  %.not91 = phi i1 [ true, %213 ], [ true, %210 ], [ true, %206 ], [ true, %203 ], [ true, %197 ], [ %.not14.i, %218 ]
-  %221 = or i1 %3, %.not91
-  %222 = select i1 %221, ptr @.str.201, ptr @.str.5
+  %.not91 = phi ptr [ @.str.201, %213 ], [ @.str.201, %210 ], [ @.str.201, %206 ], [ @.str.201, %203 ], [ @.str.201, %197 ], [ %222, %218 ]
   %223 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.115, i32 noundef 5) #24
   %224 = load float, ptr %193, align 8, !tbaa !125
   %225 = fpext reassoc nsz arcp contract afn float %224 to double
-  %226 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %199, i64 noundef %200, ptr noundef nonnull @.str.200, ptr noundef nonnull %222, ptr noundef %223, double noundef %225) #24
+  %226 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %199, i64 noundef %200, ptr noundef nonnull @.str.200, ptr noundef nonnull %.not91, ptr noundef %223, double noundef %225) #24
   br label %227
 
 227:                                              ; preds = %_shortcut_is_speed.exit, %185, %183, %_action_find_definition.exit.thread101
@@ -13920,15 +13920,17 @@ _action_find_elements.exit:                       ; preds = %131, %150, %_action
   %202 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %203 = load i32, ptr %202, align 8, !tbaa !89
   %.not14.i134 = icmp ne i32 %203, 0
-  br label %_shortcut_is_speed.exit135
+  %204 = and i1 %.lcssa, %.not14.i134
+  br i1 %204, label %.preheader.preheader, label %.loopexit
 
-_shortcut_is_speed.exit135:                       ; preds = %183, %186, %189, %193, %196, %201
-  %204 = phi i1 [ true, %196 ], [ true, %193 ], [ true, %189 ], [ true, %186 ], [ true, %183 ], [ %.not14.i134, %201 ]
-  %or.cond3 = and i1 %.lcssa, %204
-  br i1 %or.cond3, label %.preheader, label %.loopexit
+_shortcut_is_speed.exit135:                       ; preds = %183, %186, %189, %193, %196
+  br i1 %.lcssa, label %.preheader.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %_shortcut_is_speed.exit135, %235
-  %.182 = phi ptr [ %237, %235 ], [ %.081.lcssa, %_shortcut_is_speed.exit135 ]
+.preheader.preheader:                             ; preds = %201, %_shortcut_is_speed.exit135
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %235
+  %.182 = phi ptr [ %237, %235 ], [ %.081.lcssa, %.preheader.preheader ]
   %205 = load i32, ptr %.182, align 8, !tbaa !94
   %206 = icmp eq i32 %205, 4
   br i1 %206, label %207, label %235
@@ -13983,10 +13985,10 @@ _shortcut_is_speed.exit135:                       ; preds = %183, %186, %189, %1
   %.old2.not = icmp eq ptr %237, null
   br i1 %.old2.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %235, %112, %114, %.critedge114, %65, %67, %180, %207, %210, %231, %.critedge, %_shortcut_is_speed.exit135, %_shortcut_is_speed.exit126.thread, %75, %_shortcut_is_speed.exit126, %_shortcut_is_speed.exit.thread, %60, %35, %_shortcut_is_speed.exit, %32, %33, %29
-  %.184 = phi i32 [ 400, %.critedge ], [ 400, %29 ], [ 400, %33 ], [ 400, %32 ], [ 400, %35 ], [ 400, %_shortcut_is_speed.exit ], [ 400, %60 ], [ 400, %_shortcut_is_speed.exit.thread ], [ 400, %75 ], [ 400, %_shortcut_is_speed.exit126 ], [ 400, %_shortcut_is_speed.exit126.thread ], [ 400, %_shortcut_is_speed.exit135 ], [ %.487, %180 ], [ 400, %210 ], [ %spec.select117, %231 ], [ 400, %207 ], [ %74, %67 ], [ 300, %65 ], [ %130, %.critedge114 ], [ 300, %114 ], [ 400, %112 ], [ 400, %235 ]
-  %.178 = phi i32 [ 0, %.critedge ], [ 0, %29 ], [ 0, %33 ], [ 0, %32 ], [ 0, %35 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %60 ], [ 0, %_shortcut_is_speed.exit.thread ], [ 0, %75 ], [ 0, %_shortcut_is_speed.exit126 ], [ 0, %_shortcut_is_speed.exit126.thread ], [ 0, %_shortcut_is_speed.exit135 ], [ %spec.select116, %180 ], [ 0, %210 ], [ 1, %231 ], [ 0, %207 ], [ 1, %67 ], [ 1, %65 ], [ 1, %.critedge114 ], [ 1, %114 ], [ 1, %112 ], [ 0, %235 ]
-  %.1 = phi ptr [ null, %.critedge ], [ %31, %29 ], [ %34, %33 ], [ null, %32 ], [ null, %35 ], [ null, %_shortcut_is_speed.exit ], [ null, %60 ], [ null, %_shortcut_is_speed.exit.thread ], [ null, %75 ], [ null, %_shortcut_is_speed.exit126 ], [ null, %_shortcut_is_speed.exit126.thread ], [ null, %_shortcut_is_speed.exit135 ], [ %.4, %180 ], [ null, %210 ], [ %232, %231 ], [ null, %207 ], [ %72, %67 ], [ null, %65 ], [ %128, %.critedge114 ], [ null, %114 ], [ null, %112 ], [ null, %235 ]
+.loopexit:                                        ; preds = %235, %201, %112, %114, %.critedge114, %65, %67, %180, %207, %210, %231, %.critedge, %_shortcut_is_speed.exit135, %_shortcut_is_speed.exit126.thread, %75, %_shortcut_is_speed.exit126, %_shortcut_is_speed.exit.thread, %60, %35, %_shortcut_is_speed.exit, %32, %33, %29
+  %.184 = phi i32 [ 400, %.critedge ], [ 400, %29 ], [ 400, %33 ], [ 400, %32 ], [ 400, %35 ], [ 400, %_shortcut_is_speed.exit ], [ 400, %60 ], [ 400, %_shortcut_is_speed.exit.thread ], [ 400, %75 ], [ 400, %_shortcut_is_speed.exit126 ], [ 400, %_shortcut_is_speed.exit126.thread ], [ 400, %_shortcut_is_speed.exit135 ], [ %.487, %180 ], [ 400, %210 ], [ %spec.select117, %231 ], [ 400, %207 ], [ %74, %67 ], [ 300, %65 ], [ %130, %.critedge114 ], [ 300, %114 ], [ 400, %112 ], [ 400, %201 ], [ 400, %235 ]
+  %.178 = phi i32 [ 0, %.critedge ], [ 0, %29 ], [ 0, %33 ], [ 0, %32 ], [ 0, %35 ], [ 0, %_shortcut_is_speed.exit ], [ 0, %60 ], [ 0, %_shortcut_is_speed.exit.thread ], [ 0, %75 ], [ 0, %_shortcut_is_speed.exit126 ], [ 0, %_shortcut_is_speed.exit126.thread ], [ 0, %_shortcut_is_speed.exit135 ], [ %spec.select116, %180 ], [ 0, %210 ], [ 1, %231 ], [ 0, %207 ], [ 1, %67 ], [ 1, %65 ], [ 1, %.critedge114 ], [ 1, %114 ], [ 1, %112 ], [ 0, %201 ], [ 0, %235 ]
+  %.1 = phi ptr [ null, %.critedge ], [ %31, %29 ], [ %34, %33 ], [ null, %32 ], [ null, %35 ], [ null, %_shortcut_is_speed.exit ], [ null, %60 ], [ null, %_shortcut_is_speed.exit.thread ], [ null, %75 ], [ null, %_shortcut_is_speed.exit126 ], [ null, %_shortcut_is_speed.exit126.thread ], [ null, %_shortcut_is_speed.exit135 ], [ %.4, %180 ], [ null, %210 ], [ %232, %231 ], [ null, %207 ], [ %72, %67 ], [ null, %65 ], [ %128, %.critedge114 ], [ null, %114 ], [ null, %112 ], [ null, %201 ], [ null, %235 ]
   %238 = load i32, ptr %23, align 8, !tbaa !82
   %.not112 = icmp eq i32 %238, 0
   %spec.select118 = select i1 %.not112, i32 0, i32 %.178

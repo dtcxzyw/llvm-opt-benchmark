@@ -344,10 +344,10 @@ define noundef zeroext i1 @pmix_net_addr_isipv6linklocal(ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2, !tbaa !22
-  switch i16 %2, label %23 [
-    i16 10, label %25
+  switch i16 %2, label %22 [
+    i16 10, label %.loopexit
     i16 2, label %3
   ]
 
@@ -385,22 +385,16 @@ define zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captures(none
   %19 = shl i32 %17, %18
   %20 = tail call noundef i32 @llvm.bswap.i32(i32 %19)
   %21 = and i32 %20, %8
-  %.not21.not = icmp ne i32 %13, %21
-  br i1 %.not21.not, label %9, label %.loopexit
+  %.not19.not = icmp ne i32 %13, %21
+  br i1 %.not19.not, label %9, label %.loopexit
 
-.loopexit:                                        ; preds = %12, %9, %.preheader, %3
-  %.1 = phi i1 [ true, %3 ], [ undef, %.preheader ], [ false, %9 ], [ false, %12 ]
-  %22 = phi i1 [ false, %3 ], [ true, %.preheader ], [ %.not21.not, %9 ], [ %.not21.not, %12 ]
-  %spec.select = or i1 %.1, %22
-  br label %25
+22:                                               ; preds = %1
+  %23 = zext i16 %2 to i32
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef %23) #15
+  br label %.loopexit
 
-23:                                               ; preds = %1
-  %24 = zext i16 %2 to i32
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef %24) #15
-  br label %25
-
-25:                                               ; preds = %.loopexit, %1, %23
-  %.010 = phi i1 [ false, %23 ], [ false, %1 ], [ %spec.select, %.loopexit ]
+.loopexit:                                        ; preds = %9, %12, %.preheader, %3, %1, %22
+  %.010 = phi i1 [ false, %22 ], [ false, %1 ], [ true, %3 ], [ true, %.preheader ], [ %.not19.not, %12 ], [ %.not19.not, %9 ]
   ret i1 %.010
 }
 

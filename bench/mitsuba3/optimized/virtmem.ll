@@ -586,45 +586,29 @@ define internal fastcc noundef range(i32 1, 9) i32 @_ZN6asmjit9_abi_1_107VirtMem
 define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem18releaseDualMappingEPNS1_11DualMappingEm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = tail call i32 @munmap(ptr noundef %3, i64 noundef %1) #14
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %7, label %6, !prof !7
+  %5 = load ptr, ptr %0, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %8 = icmp eq ptr %5, %7
+  br i1 %8, label %12, label %9
 
-6:                                                ; preds = %2
-  br label %7
+9:                                                ; preds = %2
+  %10 = tail call i32 @munmap(ptr noundef %7, i64 noundef %1) #14
+  %11 = or i32 %10, %4
+  %or.cond = icmp eq i32 %11, 0
+  br i1 %or.cond, label %14, label %.thread, !prof !24
 
-7:                                                ; preds = %6, %2
-  %8 = phi i32 [ 2, %6 ], [ 0, %2 ]
-  %9 = load ptr, ptr %0, align 8, !tbaa !19
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
-  %12 = icmp eq ptr %9, %11
-  br i1 %12, label %20, label %13
+12:                                               ; preds = %2
+  %13 = icmp eq i32 %4, 0
+  br i1 %13, label %14, label %.thread
 
-13:                                               ; preds = %7
-  %14 = tail call i32 @munmap(ptr noundef %11, i64 noundef %1) #14
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %17, label %16, !prof !7
-
-16:                                               ; preds = %13
-  br label %17
-
-17:                                               ; preds = %16, %13
-  %18 = phi i32 [ 2, %16 ], [ 0, %13 ]
-  %19 = or i32 %18, %8
-  br label %20
-
-20:                                               ; preds = %17, %7
-  %21 = phi i32 [ %19, %17 ], [ %8, %7 ]
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %20
+14:                                               ; preds = %9, %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %24
+  br label %.thread
 
-24:                                               ; preds = %23, %20
-  %25 = phi i32 [ 0, %23 ], [ 2, %20 ]
-  ret i32 %25
+.thread:                                          ; preds = %9, %14, %12
+  %15 = phi i32 [ 0, %14 ], [ 2, %12 ], [ 2, %9 ]
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -798,3 +782,4 @@ attributes #16 = { noreturn nounwind }
 !21 = !{!20, !4, i64 8}
 !22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!"branch_weights", i32 2000, i32 2002}

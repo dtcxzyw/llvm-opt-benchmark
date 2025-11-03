@@ -4014,7 +4014,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.14031171042790067460.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i64 0, -4294967294) i64 @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_notify17h0c4ac33da2261278E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define range(i64 0, -4294967295) i64 @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_notify17h0c4ac33da2261278E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %6 = alloca i64, align 8
@@ -4029,14 +4029,14 @@ define range(i64 0, -4294967294) i64 @_ZN16wasmtime_runtime7threads13shared_memo
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = and i64 %1, 3
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %16, label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread
+  br i1 %15, label %16, label %_ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot6notify17h8c7c26df3416a917E.exit
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %18 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hf3d221024a2fb983E.llvm.12299150788236080081(ptr noundef nonnull %17, i8 noundef 0), !noalias !241
   %19 = tail call i64 @llvm.uadd.sat.i64(i64 %1, i64 4)
   %20 = icmp ult i64 %19, %18
-  br i1 %20, label %21, label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread
+  br i1 %20, label %21, label %_ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot6notify17h8c7c26df3416a917E.exit
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %13, align 8, !noalias !241, !noundef !4
@@ -4051,7 +4051,7 @@ define range(i64 0, -4294967294) i64 @_ZN16wasmtime_runtime7threads13shared_memo
   %28 = phi i32 [ %2, %21 ], [ %.pre, %105 ]
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %30 = icmp eq i32 %28, 0
-  br i1 %30, label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread, label %31
+  br i1 %30, label %_ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot6notify17h8c7c26df3416a917E.exit, label %31
 
 31:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !244
@@ -4257,7 +4257,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i: ; preds = %99, %
 
 _ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot8with_lot17h53d7222de958dc7fE.exit.i: ; preds = %102, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !244
-  br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread
+  br label %_ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot6notify17h8c7c26df3416a917E.exit
 
 105:                                              ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4311,11 +4311,9 @@ _ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot8with_lot17h53d7222de958
   %.pre = load i32, ptr %10, align 4
   br label %27
 
-_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.thread: ; preds = %_ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot8with_lot17h53d7222de958dc7fE.exit.i, %27, %16, %3
-  %.sroa.0.0 = phi i64 [ 1, %3 ], [ 1, %16 ], [ 0, %27 ], [ 0, %_ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot8with_lot17h53d7222de958dc7fE.exit.i ]
-  %.sroa.3.0.insert.insert = phi i64 [ 512, %3 ], [ 256, %16 ], [ 0, %27 ], [ %.1.i, %_ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot8with_lot17h53d7222de958dc7fE.exit.i ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+_ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot6notify17h8c7c26df3416a917E.exit: ; preds = %_ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot8with_lot17h53d7222de958dc7fE.exit.i, %27, %16, %3
+  %.sroa.41.0 = phi i64 [ 257, %16 ], [ 513, %3 ], [ %.1.i, %_ZN16wasmtime_runtime7threads12parking_spot11ParkingSpot8with_lot17h53d7222de958dc7fE.exit.i ], [ 0, %27 ]
+  ret i64 %.sroa.41.0
 }
 
 ; Function Attrs: nonlazybind uwtable

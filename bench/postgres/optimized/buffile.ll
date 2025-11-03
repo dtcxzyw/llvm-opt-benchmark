@@ -246,11 +246,10 @@ define dso_local void @BufFileDeleteFileSet(ptr noundef %0, ptr noundef %1, i1 n
 10:                                               ; preds = %9, %.lr.ph
   %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %7) #9
   %12 = call zeroext i1 @FileSetDelete(ptr noundef %0, ptr noundef nonnull %4, i1 noundef zeroext true) #9
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  br i1 %12, label %.lr.ph, label %.critedge
 
-._crit_edge:                                      ; preds = %10, %3
-  %or.cond = or i1 %2, %6
-  br i1 %or.cond, label %16, label %13
+._crit_edge:                                      ; preds = %3
+  br i1 %2, label %.critedge, label %13
 
 13:                                               ; preds = %._crit_edge
   %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -258,7 +257,7 @@ define dso_local void @BufFileDeleteFileSet(ptr noundef %0, ptr noundef %1, i1 n
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__func__.BufFileDeleteFileSet) #9
   unreachable
 
-16:                                               ; preds = %._crit_edge
+.critedge:                                        ; preds = %10, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

@@ -5141,13 +5141,14 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %77
   %70 = load i32, ptr %69, align 4, !noundef !5
   switch i32 %70, label %.lr.ph.i [
     i32 0, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hfc6702fd0fc8148cE.exit"
-    i32 1, label %._crit_edge.i
+    i32 1, label %._crit_edge.fold.split.i
   ]
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader
-  %.013.lcssa.i = phi i64 [ 1, %.preheader ], [ %spec.select.i, %.lr.ph.i ]
-  %.012.lcssa.i = phi i64 [ %25, %.preheader ], [ %75, %.lr.ph.i ]
-  %71 = mul i64 %.012.lcssa.i, %.013.lcssa.i
+._crit_edge.fold.split.i:                         ; preds = %.preheader
+  br label %"_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hfc6702fd0fc8148cE.exit"
+
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %71 = mul i64 %spec.select.i, %75
   br label %"_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hfc6702fd0fc8148cE.exit"
 
 .lr.ph.i:                                         ; preds = %.preheader, %.lr.ph.i
@@ -5161,10 +5162,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %77
   %74 = lshr i32 %.017.i, 1
   %75 = mul i64 %.01216.i, %.01216.i
   %76 = icmp ugt i32 %.017.i, 3
-  br i1 %76, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %76, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
-"_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hfc6702fd0fc8148cE.exit": ; preds = %.preheader, %._crit_edge.i
-  %.011.i = phi i64 [ %71, %._crit_edge.i ], [ 1, %.preheader ]
+"_ZN4core3num21_$LT$impl$u20$u64$GT$3pow17hfc6702fd0fc8148cE.exit": ; preds = %.preheader, %._crit_edge.fold.split.i, %._crit_edge.loopexit.i
+  %.011.i = phi i64 [ 1, %.preheader ], [ %71, %._crit_edge.loopexit.i ], [ %25, %._crit_edge.fold.split.i ]
   %.not = icmp ult i64 %2, %.011.i
   br i1 %.not, label %77, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit36
 

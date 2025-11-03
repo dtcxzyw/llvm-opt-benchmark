@@ -1383,16 +1383,19 @@ for.inc317:                                       ; preds = %sw.epilog
   %idx.ext.i = sext i32 %116 to i64
   %add.ptr.i153 = getelementptr inbounds i32, ptr %115, i64 %idx.ext.i
   %cmp58.not = icmp eq ptr %incdec.ptr, %add.ptr.i153
-  br i1 %cmp58.not, label %for.end318, label %for.body, !llvm.loop !14
+  br i1 %cmp58.not, label %for.end318.loopexit, label %for.body, !llvm.loop !14
 
-for.end318:                                       ; preds = %for.inc317, %invoke.cont52
-  %nalloc.0.lcssa = phi i32 [ 1, %invoke.cont52 ], [ %nalloc.3, %for.inc317 ]
-  %mul319 = mul nsw i32 %nalloc.0.lcssa, %add9
-  %conv320 = sext i32 %mul319 to i64
-  %117 = load i64, ptr %dfa_mem_, align 8
-  %sub322 = sub nsw i64 %117, %conv320
+for.end318.loopexit:                              ; preds = %for.inc317
+  %117 = mul nsw i32 %nalloc.3, %add9
+  br label %for.end318
+
+for.end318:                                       ; preds = %for.end318.loopexit, %invoke.cont52
+  %nalloc.0.lcssa = phi i32 [ %add9, %invoke.cont52 ], [ %117, %for.end318.loopexit ]
+  %conv320 = sext i32 %nalloc.0.lcssa to i64
+  %118 = load i64, ptr %dfa_mem_, align 8
+  %sub322 = sub nsw i64 %118, %conv320
   store i64 %sub322, ptr %dfa_mem_, align 8
-  %cmp.i.i = icmp slt i32 %mul319, 0
+  %cmp.i.i = icmp slt i32 %nalloc.0.lcssa, 0
   br i1 %cmp.i.i, label %if.end.i.i368, label %if.end4.i.i
 
 if.end.i.i368:                                    ; preds = %for.end318
@@ -1403,100 +1406,100 @@ if.end.i.i368:                                    ; preds = %for.end318
   unreachable
 
 if.end4.i.i:                                      ; preds = %for.end318
-  %conv.i367 = zext nneg i32 %mul319 to i64
+  %conv.i367 = zext nneg i32 %nalloc.0.lcssa to i64
   %call5.i2.i370 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %conv.i367) #20
           to label %invoke.cont325 unwind label %lpad42.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont325:                                   ; preds = %if.end4.i.i
   %onepass_nodes_326 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %add.ptr.i.i.i.i.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %118 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i, align 8
+  %119 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i, align 8
   store ptr %call5.i2.i370, ptr %add.ptr.i.i.i.i.i2.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %118, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %119, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3re28PODArrayIhED2Ev.exit, label %if.then.i.i.i.i.i372
 
 if.then.i.i.i.i.i372:                             ; preds = %invoke.cont325
-  call void @_ZdlPv(ptr noundef nonnull %118) #21
+  call void @_ZdlPv(ptr noundef nonnull %119) #21
   %.pre701 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i, align 8
   br label %_ZN3re28PODArrayIhED2Ev.exit
 
 _ZN3re28PODArrayIhED2Ev.exit:                     ; preds = %if.then.i.i.i.i.i372, %invoke.cont325
-  %119 = phi ptr [ %.pre701, %if.then.i.i.i.i.i372 ], [ %call5.i2.i370, %invoke.cont325 ]
-  store i32 %mul319, ptr %onepass_nodes_326, align 8
-  %120 = load i64, ptr %nodes, align 8
-  %and.i.i376 = and i64 %120, 1
+  %120 = phi ptr [ %.pre701, %if.then.i.i.i.i.i372 ], [ %call5.i2.i370, %invoke.cont325 ]
+  store i32 %nalloc.0.lcssa, ptr %onepass_nodes_326, align 8
+  %121 = load i64, ptr %nodes, align 8
+  %and.i.i376 = and i64 %121, 1
   %tobool.i.not.i377 = icmp eq i64 %and.i.i376, 0
-  %121 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i379 = select i1 %tobool.i.not.i377, ptr %data_.i.i.i, ptr %121
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %119, ptr align 1 %cond.i379, i64 %conv320, i1 false)
+  %122 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i379 = select i1 %tobool.i.not.i377, ptr %data_.i.i.i, ptr %122
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %120, ptr align 1 %cond.i379, i64 %conv320, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i358, %sw.bb299, %_ZNK3re210SparseSetTIvE8containsEi.exit.i329, %_ZNK3re210SparseSetTIvE8containsEi.exit.i300, %_ZNK3re210SparseSetTIvE8containsEi.exit.i272, %if.then112, %_ZNK3re210SparseSetTIvE8containsEi.exit.i176, %if.else, %if.else232, %_ZN3re28PODArrayIhED2Ev.exit
   %cmp58.not550 = phi i1 [ true, %_ZN3re28PODArrayIhED2Ev.exit ], [ false, %if.else232 ], [ false, %if.else ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i176 ], [ false, %if.then112 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i272 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i300 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i329 ], [ false, %sw.bb299 ], [ false, %_ZNK3re210SparseSetTIvE8containsEi.exit.i358 ]
-  %122 = load ptr, ptr %20, align 8
-  %cmp.not.i.i.i381 = icmp eq ptr %122, null
+  %123 = load ptr, ptr %20, align 8
+  %cmp.not.i.i.i381 = icmp eq ptr %123, null
   br i1 %cmp.not.i.i.i381, label %_ZN3re28PODArrayIiED2Ev.exit.i382, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %122) #21
+  call void @_ZdlPv(ptr noundef nonnull %123) #21
   br label %_ZN3re28PODArrayIiED2Ev.exit.i382
 
 _ZN3re28PODArrayIiED2Ev.exit.i382:                ; preds = %if.then.i.i.i, %cleanup
-  %123 = load ptr, ptr %18, align 8
-  %cmp.not.i.i2.i = icmp eq ptr %123, null
+  %124 = load ptr, ptr %18, align 8
+  %cmp.not.i.i2.i = icmp eq ptr %124, null
   br i1 %cmp.not.i.i2.i, label %_ZN3re210SparseSetTIvED2Ev.exit, label %if.then.i.i3.i
 
 if.then.i.i3.i:                                   ; preds = %_ZN3re28PODArrayIiED2Ev.exit.i382
-  call void @_ZdlPv(ptr noundef nonnull %123) #21
+  call void @_ZdlPv(ptr noundef nonnull %124) #21
   br label %_ZN3re210SparseSetTIvED2Ev.exit
 
 _ZN3re210SparseSetTIvED2Ev.exit:                  ; preds = %_ZN3re28PODArrayIiED2Ev.exit.i382, %if.then.i.i3.i
-  %124 = load ptr, ptr %17, align 8
-  %cmp.not.i.i.i384 = icmp eq ptr %124, null
+  %125 = load ptr, ptr %17, align 8
+  %cmp.not.i.i.i384 = icmp eq ptr %125, null
   br i1 %cmp.not.i.i.i384, label %_ZN3re28PODArrayIiED2Ev.exit.i386, label %if.then.i.i.i385
 
 if.then.i.i.i385:                                 ; preds = %_ZN3re210SparseSetTIvED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %124) #21
+  call void @_ZdlPv(ptr noundef nonnull %125) #21
   br label %_ZN3re28PODArrayIiED2Ev.exit.i386
 
 _ZN3re28PODArrayIiED2Ev.exit.i386:                ; preds = %if.then.i.i.i385, %_ZN3re210SparseSetTIvED2Ev.exit
-  %125 = load ptr, ptr %15, align 8
-  %cmp.not.i.i2.i388 = icmp eq ptr %125, null
+  %126 = load ptr, ptr %15, align 8
+  %cmp.not.i.i2.i388 = icmp eq ptr %126, null
   br i1 %cmp.not.i.i2.i388, label %_ZN3re210SparseSetTIvED2Ev.exit390, label %if.then.i.i3.i389
 
 if.then.i.i3.i389:                                ; preds = %_ZN3re28PODArrayIiED2Ev.exit.i386
-  call void @_ZdlPv(ptr noundef nonnull %125) #21
+  call void @_ZdlPv(ptr noundef nonnull %126) #21
   br label %_ZN3re210SparseSetTIvED2Ev.exit390
 
 _ZN3re210SparseSetTIvED2Ev.exit390:               ; preds = %_ZN3re28PODArrayIiED2Ev.exit.i386, %if.then.i.i3.i389
-  %126 = load i64, ptr %nodes, align 8
-  %and.i.i.i.i391 = and i64 %126, 1
+  %127 = load i64, ptr %nodes, align 8
+  %and.i.i.i.i391 = and i64 %127, 1
   %tobool.i.not.i.i.i392 = icmp eq i64 %and.i.i.i.i391, 0
   br i1 %tobool.i.not.i.i.i392, label %_ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit, label %if.then.i.i.i393
 
 if.then.i.i.i393:                                 ; preds = %_ZN3re210SparseSetTIvED2Ev.exit390
-  %127 = load ptr, ptr %data_.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %127) #21
+  %128 = load ptr, ptr %data_.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %128) #21
   br label %_ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit
 
 _ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit: ; preds = %_ZN3re210SparseSetTIvED2Ev.exit390, %if.then.i.i.i393
-  %128 = load i64, ptr %size_alloc_.i.i115, align 8
-  %cmp.i.i.i395 = icmp ult i64 %128, 129
+  %129 = load i64, ptr %size_alloc_.i.i115, align 8
+  %cmp.i.i.i395 = icmp ult i64 %129, 129
   br i1 %cmp.i.i.i395, label %_ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit, label %invoke.cont11.i.i
 
 invoke.cont11.i.i:                                ; preds = %_ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit
-  %129 = load ptr, ptr %data_.i.i129, align 8
-  call void @_ZdlPv(ptr noundef %129) #21
+  %130 = load ptr, ptr %data_.i.i129, align 8
+  call void @_ZdlPv(ptr noundef %130) #21
   br label %_ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit
 
 _ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit: ; preds = %_ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit, %invoke.cont11.i.i
-  %130 = load i64, ptr %size_alloc_.i.i, align 8
-  %cmp.i.i.i398 = icmp ult i64 %130, 65
+  %131 = load i64, ptr %size_alloc_.i.i, align 8
+  %cmp.i.i.i398 = icmp ult i64 %131, 65
   br i1 %cmp.i.i.i398, label %return, label %invoke.cont11.i.i399
 
 invoke.cont11.i.i399:                             ; preds = %_ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit
-  %131 = load ptr, ptr %data_.i.i, align 8
-  call void @_ZdlPv(ptr noundef %131) #21
+  %132 = load ptr, ptr %data_.i.i, align 8
+  call void @_ZdlPv(ptr noundef %132) #21
   br label %return
 
 ehcleanup:                                        ; preds = %lpad42.loopexit, %lpad42.loopexit.split-lp.loopexit.split-lp, %lpad42.loopexit.split-lp.loopexit, %lpad91
@@ -1511,36 +1514,36 @@ ehcleanup335:                                     ; preds = %lpad40, %_ZN3re28PO
 
 ehcleanup337:                                     ; preds = %lpad38, %_ZN3re28PODArrayIiED2Ev.exit.i, %ehcleanup335
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup335 ], [ %32, %lpad38 ], [ %16, %_ZN3re28PODArrayIiED2Ev.exit.i ]
-  %132 = load i64, ptr %nodes, align 8
-  %and.i.i.i.i401 = and i64 %132, 1
+  %133 = load i64, ptr %nodes, align 8
+  %and.i.i.i.i401 = and i64 %133, 1
   %tobool.i.not.i.i.i402 = icmp eq i64 %and.i.i.i.i401, 0
   br i1 %tobool.i.not.i.i.i402, label %_ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit405, label %if.then.i.i.i403
 
 if.then.i.i.i403:                                 ; preds = %ehcleanup337
   %data_.i.i.i.i404 = getelementptr inbounds nuw i8, ptr %nodes, i64 8
-  %133 = load ptr, ptr %data_.i.i.i.i404, align 8
-  call void @_ZdlPv(ptr noundef %133) #21
+  %134 = load ptr, ptr %data_.i.i.i.i404, align 8
+  call void @_ZdlPv(ptr noundef %134) #21
   br label %_ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit405
 
 _ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit405: ; preds = %ehcleanup337, %if.then.i.i.i403
-  %134 = load i64, ptr %size_alloc_.i.i115, align 8
-  %cmp.i.i.i407 = icmp ult i64 %134, 129
+  %135 = load i64, ptr %size_alloc_.i.i115, align 8
+  %cmp.i.i.i407 = icmp ult i64 %135, 129
   br i1 %cmp.i.i.i407, label %ehcleanup341, label %invoke.cont11.i.i408
 
 invoke.cont11.i.i408:                             ; preds = %_ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit405
-  %135 = load ptr, ptr %data_.i.i129, align 8
-  call void @_ZdlPv(ptr noundef %135) #21
+  %136 = load ptr, ptr %data_.i.i129, align 8
+  call void @_ZdlPv(ptr noundef %136) #21
   br label %ehcleanup341
 
 ehcleanup341:                                     ; preds = %invoke.cont11.i.i408, %_ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit405, %lpad33
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %lpad33 ], [ %.pn.pn.pn, %_ZN4absl7debian213InlinedVectorIhLm2048ESaIhEED2Ev.exit405 ], [ %.pn.pn.pn, %invoke.cont11.i.i408 ]
-  %136 = load i64, ptr %size_alloc_.i.i, align 8
-  %cmp.i.i.i412 = icmp ult i64 %136, 65
+  %137 = load i64, ptr %size_alloc_.i.i, align 8
+  %cmp.i.i.i412 = icmp ult i64 %137, 65
   br i1 %cmp.i.i.i412, label %eh.resume, label %invoke.cont11.i.i413
 
 invoke.cont11.i.i413:                             ; preds = %ehcleanup341
-  %137 = load ptr, ptr %data_.i.i, align 8
-  call void @_ZdlPv(ptr noundef %137) #21
+  %138 = load ptr, ptr %data_.i.i, align 8
+  call void @_ZdlPv(ptr noundef %138) #21
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont11.i.i399, %_ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit, %if.end6, %lor.lhs.false, %if.end, %if.then

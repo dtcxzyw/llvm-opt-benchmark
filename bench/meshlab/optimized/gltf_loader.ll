@@ -123309,19 +123309,12 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %22, %.noexc, %_ZNKS
 .critedge:                                        ; preds = %32, %33
   %37 = getelementptr inbounds nuw i8, ptr %.016.ptr30, i64 8
   %38 = load i32, ptr %37, align 8
-  %.sroa.6.0.extract.shift = and i32 %38, -16777216
-  %39 = and i32 %38, 16711680
-  %40 = and i32 %38, 65535
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %33, %.critedge
-  %.sroa.024.0 = phi i32 [ %40, %.critedge ], [ 1024, %33 ], [ 0, %28 ]
-  %.sroa.4.0 = phi i32 [ %39, %.critedge ], [ 0, %33 ], [ 0, %28 ]
-  %.sroa.6.0 = phi i32 [ %.sroa.6.0.extract.shift, %.critedge ], [ 0, %33 ], [ 0, %28 ]
+  %.sroa.6.0 = phi i32 [ %38, %.critedge ], [ 1024, %33 ], [ 0, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #54
-  %.sroa.4.0.insert.insert = or disjoint i32 %.sroa.4.0, %.sroa.024.0
-  %.sroa.024.0.insert.insert = or disjoint i32 %.sroa.4.0.insert.insert, %.sroa.6.0
-  ret i32 %.sroa.024.0.insert.insert
+  ret i32 %.sroa.6.0
 }
 
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0

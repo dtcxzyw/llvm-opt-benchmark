@@ -3214,11 +3214,14 @@ tk_set_wall_to_mono.exit:                         ; preds = %73, %94
   %109 = phi i32 [ %63, %69 ], [ 4, %tk_set_wall_to_mono.exit ], [ %63, %70 ]
   %110 = load i64, ptr getelementptr inbounds nuw (i8, ptr @shadow_timekeeper, i64 32), align 8
   %111 = icmp ult i64 %110, %60
-  br i1 %111, label %.loopexit20, label %.preheader
+  br i1 %111, label %.loopexit20.loopexit, label %.preheader
 
-.loopexit20:                                      ; preds = %108, %48
-  %112 = phi i32 [ 0, %48 ], [ %109, %108 ]
-  %113 = or i32 %112, %44
+.loopexit20.loopexit:                             ; preds = %108
+  %112 = or i32 %109, %44
+  br label %.loopexit20
+
+.loopexit20:                                      ; preds = %.loopexit20.loopexit, %48
+  %113 = phi i32 [ %44, %48 ], [ %112, %.loopexit20.loopexit ]
   %114 = load i64, ptr getelementptr inbounds nuw (i8, ptr @shadow_timekeeper, i64 240), align 8
   %115 = shl i64 %114, %45
   %116 = load i64, ptr getelementptr inbounds nuw (i8, ptr @shadow_timekeeper, i64 88), align 8
@@ -3466,11 +3469,14 @@ tk_set_wall_to_mono.exit:                         ; preds = %73, %94
   %264 = phi i32 [ %238, %244 ], [ 4, %248 ], [ %238, %245 ]
   %265 = load i64, ptr getelementptr inbounds nuw (i8, ptr @shadow_timekeeper, i64 32), align 8
   %266 = icmp ult i64 %265, %227
-  br i1 %266, label %.loopexit, label %236
+  br i1 %266, label %.loopexit.loopexit, label %236
 
-.loopexit:                                        ; preds = %263, %._crit_edge
-  %267 = phi i32 [ 0, %._crit_edge ], [ %264, %263 ]
-  %268 = or i32 %267, %152
+.loopexit.loopexit:                               ; preds = %263
+  %267 = or i32 %264, %152
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge
+  %268 = phi i32 [ %152, %._crit_edge ], [ %267, %.loopexit.loopexit ]
   %269 = load i32, ptr @tk_core, align 64
   %270 = add i32 %269, 1
   store i32 %270, ptr @tk_core, align 64

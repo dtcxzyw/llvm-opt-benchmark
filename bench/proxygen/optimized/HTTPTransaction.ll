@@ -2813,11 +2813,11 @@ lor.rhs.i:                                        ; preds = %call.i.i.noexc
 
 call3.i.noexc:                                    ; preds = %lor.rhs.i
   %cmp.i13 = icmp eq i16 %call3.i15, 101
+  %9 = and i1 %lnot, %cmp.i13
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %call3.i.noexc, %call.i.i.noexc, %if.end
-  %9 = phi i1 [ true, %call.i.i.noexc ], [ true, %if.end ], [ %cmp.i13, %call3.i.noexc ]
-  %10 = and i1 %lnot, %9
+  %10 = phi i1 [ %lnot, %call.i.i.noexc ], [ %lnot, %if.end ], [ %9, %call3.i.noexc ]
   %cond = zext i1 %10 to i8
   %call24 = invoke noundef zeroext i1 @_ZN8proxygen15HTTPTransaction30validateIngressStateTransitionENS_28HTTPTransactionIngressSMData5EventE(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 noundef zeroext %cond)
           to label %invoke.cont23 unwind label %lpad
@@ -14640,11 +14640,9 @@ _ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5: ; preds = %
   br label %return
 
 return:                                           ; preds = %entry, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5
-  %retval.sroa.0.0 = phi i64 [ 1, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5 ], [ 2, %entry ]
-  %retval.sroa.38.0 = phi i64 [ 0, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5 ], [ 8589934592, %entry ]
+  %retval.sroa.38.0 = phi i64 [ 1, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5 ], [ 8589934594, %entry ]
   %retval.sroa.5.0 = phi ptr [ %second, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5 ], [ null, %entry ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.38.0, %retval.sroa.0.0
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0.insert.insert, 0
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.38.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.5.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
@@ -20735,11 +20733,9 @@ _ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5.i: ; preds =
   br label %_ZN8proxygen15HTTPTransaction24newWebTransportUniStreamEv.exit
 
 _ZN8proxygen15HTTPTransaction24newWebTransportUniStreamEv.exit: ; preds = %entry, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5.i
-  %retval.sroa.0.0.i = phi i64 [ 1, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5.i ], [ 2, %entry ]
-  %retval.sroa.38.0.i = phi i64 [ 0, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5.i ], [ 8589934592, %entry ]
+  %retval.sroa.38.0.i = phi i64 [ 1, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5.i ], [ 8589934594, %entry ]
   %retval.sroa.5.0.i = phi ptr [ %second.i, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5.i ], [ null, %entry ]
-  %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.38.0.i, %retval.sroa.0.0.i
-  %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0.insert.insert.i, 0
+  %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %retval.sroa.38.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %retval.sroa.5.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %id.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
@@ -21008,18 +21004,11 @@ if.end:                                           ; preds = %_ZNSt3mapImN8proxyg
   %wtEgressStreams_.i.i = getelementptr inbounds nuw i8, ptr %4, i64 800
   %call.i.i.i = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %id.addr.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %id.addr.i.i)
-  %retval.sroa.32.0.extract.shift = and i64 %call.i.i, -4294967296
-  %8 = and i64 %call.i.i, 4294967040
-  %9 = and i64 %call.i.i, 255
   br label %return
 
 return:                                           ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit, %if.end
-  %retval.sroa.0.0 = phi i64 [ %9, %if.end ], [ 2, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 2, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 2, %entry ]
-  %retval.sroa.32.0 = phi i64 [ %retval.sroa.32.0.extract.shift, %if.end ], [ 4294967296, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 4294967296, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 4294967296, %entry ]
-  %retval.sroa.3.sroa.0.0 = phi i64 [ %8, %if.end ], [ 0, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 0, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 0, %entry ]
-  %retval.sroa.3.0.insert.insert = or disjoint i64 %retval.sroa.32.0, %retval.sroa.0.0
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0.insert.insert, %retval.sroa.3.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  %retval.sroa.32.0 = phi i64 [ %call.i.i, %if.end ], [ 4294967298, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 4294967298, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 4294967298, %entry ]
+  ret i64 %retval.sroa.32.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -21073,18 +21062,11 @@ if.end:                                           ; preds = %_ZNSt3mapImN8proxyg
   %wtIngressStreams_.i.i = getelementptr inbounds nuw i8, ptr %4, i64 848
   %call.i.i.i = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %wtIngressStreams_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %id.addr.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %id.addr.i.i)
-  %retval.sroa.32.0.extract.shift = and i64 %call.i.i, -4294967296
-  %8 = and i64 %call.i.i, 4294967040
-  %9 = and i64 %call.i.i, 255
   br label %return
 
 return:                                           ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit, %if.end
-  %retval.sroa.0.0 = phi i64 [ %9, %if.end ], [ 2, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 2, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 2, %entry ]
-  %retval.sroa.32.0 = phi i64 [ %retval.sroa.32.0.extract.shift, %if.end ], [ 4294967296, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 4294967296, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 4294967296, %entry ]
-  %retval.sroa.3.sroa.0.0 = phi i64 [ %8, %if.end ], [ 0, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 0, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 0, %entry ]
-  %retval.sroa.3.0.insert.insert = or disjoint i64 %retval.sroa.32.0, %retval.sroa.0.0
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0.insert.insert, %retval.sroa.3.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  %retval.sroa.32.0 = phi i64 [ %call.i.i, %if.end ], [ 4294967298, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 4294967298, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 4294967298, %entry ]
+  ret i64 %retval.sroa.32.0
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -63,8 +63,8 @@ define hidden i32 @text_import_regex(ptr noundef readonly captures(none) %0) loc
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %36
 
-36:                                               ; preds = %.lr.ph, %103
-  %.03242 = phi i32 [ 0, %.lr.ph ], [ %.1, %103 ]
+36:                                               ; preds = %.lr.ph, %104
+  %.03242 = phi i32 [ 0, %.lr.ph ], [ %.1, %104 ]
   %37 = load ptr, ptr %3, align 8
   %38 = call i32 @g_match_info_fetch_named_pos(ptr noundef %37, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not34 = icmp eq i32 %38, 0
@@ -169,35 +169,34 @@ define hidden i32 @text_import_regex(ptr noundef readonly captures(none) %0) loc
   %97 = call i32 @g_match_info_next(ptr noundef %96, ptr noundef nonnull %2)
   %98 = load ptr, ptr %2, align 8
   %.not38 = icmp eq ptr %98, null
-  br i1 %.not38, label %103, label %99
+  br i1 %.not38, label %104, label %99
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %101 = load i32, ptr %100, align 4
   %.not39 = icmp eq i32 %101, 0
-  br i1 %.not39, label %103, label %102
+  br i1 %.not39, label %104, label %102
 
 102:                                              ; preds = %99
   call void @g_error_free(ptr noundef nonnull %98)
+  %103 = sub i32 0, %.1
   br label %.loopexit
 
-103:                                              ; preds = %99, %95
-  %104 = load ptr, ptr %3, align 8
-  %105 = call i32 @g_match_info_matches(ptr noundef %104)
-  %.not = icmp eq i32 %105, 0
+104:                                              ; preds = %99, %95
+  %105 = load ptr, ptr %3, align 8
+  %106 = call i32 @g_match_info_matches(ptr noundef %105)
+  %.not = icmp eq i32 %106, 0
   br i1 %.not, label %.loopexit, label %36, !llvm.loop !6
 
-.loopexit:                                        ; preds = %103, %27, %102
-  %.2 = phi i32 [ %.1, %102 ], [ 0, %27 ], [ %.1, %103 ]
-  %.031 = phi i32 [ -1, %102 ], [ 1, %27 ], [ 1, %103 ]
-  %106 = load ptr, ptr %3, align 8
-  call void @g_match_info_unref(ptr noundef %106)
+.loopexit:                                        ; preds = %104, %27, %102
+  %.031 = phi i32 [ %103, %102 ], [ 0, %27 ], [ %.1, %104 ]
+  %107 = load ptr, ptr %3, align 8
+  call void @g_match_info_unref(ptr noundef %107)
   call void @g_mapped_file_unref(ptr noundef %8)
-  %107 = mul i32 %.031, %.2
   br label %108
 
 108:                                              ; preds = %.loopexit, %24
-  %.0 = phi i32 [ -1, %24 ], [ %107, %.loopexit ]
+  %.0 = phi i32 [ -1, %24 ], [ %.031, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

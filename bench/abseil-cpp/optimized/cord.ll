@@ -6387,7 +6387,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4absl4Cord16ExpectedChecksumE
   %2 = load i8, ptr %0, align 8, !tbaa !13
   %3 = and i8 %2, 1
   %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %14, label %4
+  br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6395,19 +6395,18 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4absl4Cord16ExpectedChecksumE
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i8, ptr %7, align 4, !tbaa !23
   %9 = icmp eq i8 %8, 2
-  br i1 %9, label %10, label %14
+  br i1 %9, label %10, label %15
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = tail call i32 @_ZNK4absl12crc_internal12CrcCordState8ChecksumEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %13 = zext i32 %12 to i64
-  br label %14
+  %14 = or disjoint i64 %13, 4294967296
+  br label %15
 
-14:                                               ; preds = %1, %4, %10
-  %.sroa.03.0 = phi i64 [ %13, %10 ], [ 0, %4 ], [ 0, %1 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %10 ], [ 0, %4 ], [ 0, %1 ]
-  %.sroa.03.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.03.0
-  ret i64 %.sroa.03.0.insert.insert
+15:                                               ; preds = %1, %4, %10
+  %.sroa.2.0 = phi i64 [ %14, %10 ], [ 0, %4 ], [ 0, %1 ]
+  ret i64 %.sroa.2.0
 }
 
 declare i32 @_ZNK4absl12crc_internal12CrcCordState8ChecksumEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

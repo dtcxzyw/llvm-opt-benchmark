@@ -2198,55 +2198,54 @@ any_addrinfos.exit676.thread:                     ; preds = %579, %.loopexit949.
   %695 = icmp eq i64 %.fca.0.load.i638.fr, %683
   %.not11.i684 = icmp sge i64 %.fca.1.load.i641.fr, %694
   %or.cond.not.i685 = select i1 %695, i1 %.not11.i684, i1 false
-  br label %is_timeout_tv.exit688
+  %696 = or i1 %672, %or.cond.not.i685
+  br i1 %696, label %is_timeout_tv.exit688.thread, label %any_addrinfos.exit.backedge
 
-is_timeout_tv.exit688:                            ; preds = %681, %685, %691
-  %.0.i687 = phi i1 [ false, %681 ], [ false, %685 ], [ %or.cond.not.i685, %691 ]
-  %or.cond47 = or i1 %672, %.0.i687
-  br i1 %or.cond47, label %is_timeout_tv.exit688.thread, label %any_addrinfos.exit.backedge
+any_addrinfos.exit.backedge:                      ; preds = %691, %is_timeout_tv.exit694, %.thread880, %is_timeout_tv.exit694.thread, %is_timeout_tv.exit688
+  br label %any_addrinfos.exit
 
-is_timeout_tv.exit688.thread:                     ; preds = %689, %is_timeout_tv.exit688
+is_timeout_tv.exit688:                            ; preds = %681, %685
+  br i1 %672, label %is_timeout_tv.exit688.thread, label %any_addrinfos.exit.backedge
+
+is_timeout_tv.exit688.thread:                     ; preds = %691, %689, %is_timeout_tv.exit688
   %.not.i689 = icmp eq ptr %.7500, null
-  br i1 %.not.i689, label %is_timeout_tv.exit694.thread, label %696
+  br i1 %.not.i689, label %is_timeout_tv.exit694.thread, label %697
 
-696:                                              ; preds = %is_timeout_tv.exit688.thread
-  %697 = load i64, ptr %.7500, align 8, !tbaa !88
-  %698 = icmp eq i64 %697, -1
-  br i1 %698, label %699, label %703
+697:                                              ; preds = %is_timeout_tv.exit688.thread
+  %698 = load i64, ptr %.7500, align 8, !tbaa !88
+  %699 = icmp eq i64 %698, -1
+  br i1 %699, label %700, label %704
 
-699:                                              ; preds = %696
-  %700 = getelementptr inbounds nuw i8, ptr %.7500, i64 8
-  %701 = load i64, ptr %700, align 8, !tbaa !90
-  %702 = icmp eq i64 %701, -1
-  br i1 %702, label %is_timeout_tv.exit694.thread, label %703
+700:                                              ; preds = %697
+  %701 = getelementptr inbounds nuw i8, ptr %.7500, i64 8
+  %702 = load i64, ptr %701, align 8, !tbaa !90
+  %703 = icmp eq i64 %702, -1
+  br i1 %703, label %is_timeout_tv.exit694.thread, label %704
 
-703:                                              ; preds = %699, %696
-  %704 = icmp sgt i64 %.fca.0.load.i638.fr, %697
-  br i1 %704, label %is_timeout_tv.exit694.thread896, label %is_timeout_tv.exit694
+704:                                              ; preds = %700, %697
+  %705 = icmp sgt i64 %.fca.0.load.i638.fr, %698
+  br i1 %705, label %is_timeout_tv.exit694.thread896, label %is_timeout_tv.exit694
 
-is_timeout_tv.exit694:                            ; preds = %703
-  %705 = getelementptr inbounds nuw i8, ptr %.7500, i64 8
-  %706 = load i64, ptr %705, align 8, !tbaa !90
-  %707 = mul nsw i64 %706, 1000
-  %708 = icmp eq i64 %.fca.0.load.i638.fr, %697
-  %.not11.i690 = icmp sge i64 %.fca.1.load.i641.fr, %707
-  %or.cond.not.i691.not.not = select i1 %708, i1 %.not11.i690, i1 false
+is_timeout_tv.exit694:                            ; preds = %704
+  %706 = getelementptr inbounds nuw i8, ptr %.7500, i64 8
+  %707 = load i64, ptr %706, align 8, !tbaa !90
+  %708 = mul nsw i64 %707, 1000
+  %709 = icmp eq i64 %.fca.0.load.i638.fr, %698
+  %.not11.i690 = icmp sge i64 %.fca.1.load.i641.fr, %708
+  %or.cond.not.i691.not.not = select i1 %709, i1 %.not11.i690, i1 false
   %brmerge916 = or i1 %675, %or.cond.not.i691.not.not
   br i1 %brmerge916, label %is_timeout_tv.exit694.thread896, label %any_addrinfos.exit.backedge
 
-any_addrinfos.exit.backedge:                      ; preds = %is_timeout_tv.exit694, %.thread880, %is_timeout_tv.exit694.thread, %is_timeout_tv.exit688
-  br label %any_addrinfos.exit
-
-is_timeout_tv.exit694.thread:                     ; preds = %699, %is_timeout_tv.exit688.thread
+is_timeout_tv.exit694.thread:                     ; preds = %700, %is_timeout_tv.exit688.thread
   br i1 %675, label %is_timeout_tv.exit694.thread896, label %any_addrinfos.exit.backedge
 
-is_timeout_tv.exit694.thread896:                  ; preds = %is_timeout_tv.exit694, %703, %is_timeout_tv.exit694.thread
-  %709 = load i64, ptr @rb_cObject, align 8, !tbaa !79
-  %710 = call fastcc i64 @rbimpl_intern_const(ptr noundef @init_fast_fallback_inetsock_internal.rbimpl_id.26, ptr noundef @.str.27) #25
-  %711 = call i64 @rb_const_get(i64 noundef %709, i64 noundef %710) #19
-  %712 = call fastcc i64 @rbimpl_intern_const(ptr noundef @init_fast_fallback_inetsock_internal.rbimpl_id.28, ptr noundef @.str.29) #25
-  %713 = call i64 @rb_const_get(i64 noundef %711, i64 noundef %712) #19
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %713, ptr noundef nonnull @.str.30) #21
+is_timeout_tv.exit694.thread896:                  ; preds = %is_timeout_tv.exit694, %704, %is_timeout_tv.exit694.thread
+  %710 = load i64, ptr @rb_cObject, align 8, !tbaa !79
+  %711 = call fastcc i64 @rbimpl_intern_const(ptr noundef @init_fast_fallback_inetsock_internal.rbimpl_id.26, ptr noundef @.str.27) #25
+  %712 = call i64 @rb_const_get(i64 noundef %710, i64 noundef %711) #19
+  %713 = call fastcc i64 @rbimpl_intern_const(ptr noundef @init_fast_fallback_inetsock_internal.rbimpl_id.28, ptr noundef @.str.29) #25
+  %714 = call i64 @rb_const_get(i64 noundef %712, i64 noundef %713) #19
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %714, ptr noundef nonnull @.str.30) #21
   unreachable
 
 pick_addrinfo.exit.thread899.sink.split:          ; preds = %553, %._crit_edge.i, %536
@@ -2256,18 +2255,18 @@ pick_addrinfo.exit.thread899.sink.split:          ; preds = %553, %._crit_edge.i
 
 pick_addrinfo.exit.thread899:                     ; preds = %344, %pick_addrinfo.exit.thread899.sink.split
   %.4423 = phi i32 [ %518, %pick_addrinfo.exit.thread899.sink.split ], [ %261, %344 ]
-  %714 = load i64, ptr %15, align 8, !tbaa !27
-  %715 = icmp eq i64 %714, 4
-  br i1 %715, label %716, label %719
+  %715 = load i64, ptr %15, align 8, !tbaa !27
+  %716 = icmp eq i64 %715, 4
+  br i1 %716, label %717, label %720
 
-716:                                              ; preds = %pick_addrinfo.exit.thread899
-  %717 = load i64, ptr %14, align 8, !tbaa !19
-  %718 = call i64 @rsock_init_sock(i64 noundef %717, i32 noundef %.4423) #19
-  store i64 %718, ptr %15, align 8, !tbaa !27
-  br label %719
+717:                                              ; preds = %pick_addrinfo.exit.thread899
+  %718 = load i64, ptr %14, align 8, !tbaa !19
+  %719 = call i64 @rsock_init_sock(i64 noundef %718, i32 noundef %.4423) #19
+  store i64 %719, ptr %15, align 8, !tbaa !27
+  br label %720
 
-719:                                              ; preds = %716, %pick_addrinfo.exit.thread899
-  %720 = phi i64 [ %718, %716 ], [ %714, %pick_addrinfo.exit.thread899 ]
+720:                                              ; preds = %717, %pick_addrinfo.exit.thread899
+  %721 = phi i64 [ %719, %717 ], [ %715, %pick_addrinfo.exit.thread899 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2277,7 +2276,7 @@ pick_addrinfo.exit.thread899:                     ; preds = %344, %pick_addrinfo
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.stackrestore.p0(ptr %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %720
+  ret i64 %721
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

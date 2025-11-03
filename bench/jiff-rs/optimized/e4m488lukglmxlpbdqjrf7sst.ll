@@ -3232,8 +3232,6 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !195
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !185
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !185
-  %231 = trunc i32 %.sroa.012.0.copyload.i1.i.i to i8
-  %232 = lshr i32 %.sroa.012.0.copyload.i1.i.i, 8
   br label %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit
 
 _ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread: ; preds = %55, %227, %"_ZN4jiff6shared5posix6Parser21parse_posix_time_zone28_$u7b$$u7b$closure$u7d$$u7d$17h0301cb3ab1597ee0E.exit.i"
@@ -3247,10 +3245,8 @@ _ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit: ; 
   %.sroa.541.i.sroa.0.0 = phi i32 [ undef, %76 ], [ %.sroa.541.i.sroa.0.0.copyload, %229 ], [ undef, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ]
   %.sroa.339.0.i = phi ptr [ undef, %76 ], [ %230, %229 ], [ undef, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ]
   %.sroa.440.0.i = phi i64 [ undef, %76 ], [ %.sroa.24.20.insert.insert.i, %229 ], [ undef, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ]
-  %.sroa.038.sroa.0.0.i = phi i8 [ 3, %76 ], [ %231, %229 ], [ 3, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ]
-  %.sroa.038.sroa.3.sroa.0.0.i = phi i32 [ 0, %76 ], [ %232, %229 ], [ 0, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ]
+  %.sroa.038.sroa.3.sroa.0.0.i = phi i32 [ 3, %76 ], [ %.sroa.012.0.copyload.i1.i.i, %229 ], [ 3, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %.sroa.24, ptr noundef nonnull align 1 dereferenceable(7) %59, i64 7, i1 false)
-  %.sroa.0.sroa.8.0.extract.trunc = trunc nuw i32 %.sroa.038.sroa.3.sroa.0.0.i to i24
   store ptr %.sroa.339.0.i, ptr %.sroa.9, align 8, !alias.scope !185
   %.sroa.9.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.9, i64 8
   store i64 %.sroa.440.0.i, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !185
@@ -3258,53 +3254,52 @@ _ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit: ; 
   store i32 %.sroa.541.i.sroa.0.0, ptr %.sroa.9.16..sroa_idx81, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  %233 = icmp eq i8 %.sroa.038.sroa.0.0.i, 4
-  %234 = ptrtoint ptr %.sroa.339.0.i to i64
-  %235 = trunc i64 %234 to i32
+  %231 = and i32 %.sroa.038.sroa.3.sroa.0.0.i, 255
+  %232 = icmp eq i32 %231, 4
+  %233 = ptrtoint ptr %.sroa.339.0.i to i64
+  %234 = trunc i64 %233 to i32
   %.sroa.9.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.9, i64 4
   %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8..pre = load ptr, ptr %.sroa.9.4..sroa_idx, align 4
   %.sroa.9.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.9, i64 12
   %.sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.16..pre = load i64, ptr %.sroa.9.12..sroa_idx, align 4
-  br i1 %233, label %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit._crit_edge, label %238
+  br i1 %232, label %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit._crit_edge, label %237
 
 _ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit._crit_edge: ; preds = %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread
   %.sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.16. = phi i64 [ %.sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.16.71, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread ], [ %.sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.16..pre, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit ]
   %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8. = phi ptr [ %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8.69, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread ], [ %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8..pre, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.24)
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8., ptr %236, align 8
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.16., ptr %237, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8., ptr %235, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.16., ptr %236, align 8
   store i8 4, ptr %0, align 8
-  br label %245
+  br label %244
 
-238:                                              ; preds = %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit
+237:                                              ; preds = %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %.sroa.5.sroa.3, ptr noundef nonnull align 8 dereferenceable(7) %.sroa.24, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.24)
-  %239 = load i64, ptr %78, align 8, !noundef !8
+  %238 = load i64, ptr %78, align 8, !noundef !8
   %.val.i24 = load i64, ptr %79, align 8, !noundef !8
-  %240 = icmp ugt i64 %.val.i24, %239
-  br i1 %240, label %241, label %_ZN4jiff6shared5posix6Parser9remaining17hdf5d502bb50d8601E.exit, !prof !10
+  %239 = icmp ugt i64 %.val.i24, %238
+  br i1 %239, label %240, label %_ZN4jiff6shared5posix6Parser9remaining17hdf5d502bb50d8601E.exit, !prof !10
 
-241:                                              ; preds = %238
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %.val.i24, i64 noundef %239, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6685b5908cdcb8f47694639489d9f370.274) #21
+240:                                              ; preds = %237
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %.val.i24, i64 noundef %238, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6685b5908cdcb8f47694639489d9f370.274) #21
   unreachable
 
-_ZN4jiff6shared5posix6Parser9remaining17hdf5d502bb50d8601E.exit: ; preds = %238
-  %242 = load ptr, ptr %1, align 8, !nonnull !8, !align !140, !noundef !8
-  %243 = sub nuw i64 %239, %.val.i24
-  %244 = getelementptr inbounds nuw i8, ptr %242, i64 %.val.i24
+_ZN4jiff6shared5posix6Parser9remaining17hdf5d502bb50d8601E.exit: ; preds = %237
+  %241 = load ptr, ptr %1, align 8, !nonnull !8, !align !140, !noundef !8
+  %242 = sub nuw i64 %238, %.val.i24
+  %243 = getelementptr inbounds nuw i8, ptr %241, i64 %.val.i24
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.541.i.sroa.5, i64 28, i1 false)
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(7) %.sroa.5.sroa.3, i64 7, i1 false)
-  store i8 %.sroa.038.sroa.0.0.i, ptr %0, align 8
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i24 %.sroa.0.sroa.8.0.extract.trunc, ptr %.sroa.413.0..sroa_idx, align 1
+  store i32 %.sroa.038.sroa.3.sroa.0.0.i, ptr %0, align 8
   %.sroa.413.sroa.4.0..sroa.413.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %235, ptr %.sroa.413.sroa.4.0..sroa.413.0..sroa_idx.sroa_idx, align 4
+  store i32 %234, ptr %.sroa.413.sroa.4.0..sroa.413.0..sroa_idx.sroa_idx, align 4
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8..pre, ptr %.sroa.514.0..sroa_idx, align 8
   %.sroa.615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3318,12 +3313,12 @@ _ZN4jiff6shared5posix6Parser9remaining17hdf5d502bb50d8601E.exit: ; preds = %238
   %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 79
   store i64 %.sroa.845.0.copyload.i, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx.sroa_idx, align 1
   %.sroa.816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %244, ptr %.sroa.816.0..sroa_idx, align 8
+  store ptr %243, ptr %.sroa.816.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %243, ptr %.sroa.9.0..sroa_idx, align 8
-  br label %245
+  store i64 %242, ptr %.sroa.9.0..sroa_idx, align 8
+  br label %244
 
-245:                                              ; preds = %_ZN4jiff6shared5posix6Parser9remaining17hdf5d502bb50d8601E.exit, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit._crit_edge
+244:                                              ; preds = %_ZN4jiff6shared5posix6Parser9remaining17hdf5d502bb50d8601E.exit, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit._crit_edge
   ret void
 }
 

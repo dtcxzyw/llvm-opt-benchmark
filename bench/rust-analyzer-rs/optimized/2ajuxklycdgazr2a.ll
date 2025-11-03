@@ -39181,7 +39181,6 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %21, %.thread,
   br i1 %75, label %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i", label %"_ZN4core6option15Option$LT$T$GT$6filter17hf8552f46b5f36961E.exit"
 
 "_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i": ; preds = %.noexc38, %63
-  %.sroa.055.sroa.5.0.extract.shift = and i64 %.sroa.061.0.copyload, -4294967296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.657, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.664.0..sroa_idx, i64 3, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hf8552f46b5f36961E.exit"
 
@@ -39190,8 +39189,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %21, %.thread,
   %.sroa.758.0 = phi i32 [ %.sroa.765.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
   %.sroa.859.0 = phi i64 [ %.sroa.866.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
   %.sroa.960.0 = phi i64 [ %.sroa.967.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
-  %.sroa.055.sroa.0.0 = phi i64 [ %62, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ 3, %.noexc38 ], [ 3, %72 ]
-  %.sroa.055.sroa.5.0 = phi i64 [ %.sroa.055.sroa.5.0.extract.shift, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ 0, %.noexc38 ], [ 0, %72 ]
+  %.sroa.055.sroa.5.0 = phi i64 [ %.sroa.061.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ 3, %.noexc38 ], [ 3, %72 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 %.sroa.0.0, ptr %76, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 73
@@ -39216,8 +39214,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %21, %.thread,
   store i64 %.sroa.748.0, ptr %.sroa.748.0..sroa_idx, align 4
   %.sroa.849.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.849.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.849, i64 24, i1 false)
-  %.sroa.055.sroa.0.0.insert.insert = or disjoint i64 %.sroa.055.sroa.5.0, %.sroa.055.sroa.0.0
-  store i64 %.sroa.055.sroa.0.0.insert.insert, ptr %0, align 4
+  store i64 %.sroa.055.sroa.5.0, ptr %0, align 4
   %.sroa.556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.556.0, ptr %.sroa.556.0..sroa_idx, align 4
   %.sroa.657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -39651,7 +39648,6 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %21, %.thread,
   br i1 %75, label %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i", label %"_ZN4core6option15Option$LT$T$GT$6filter17hd5f2856acf577916E.exit"
 
 "_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i": ; preds = %.noexc38, %63
-  %.sroa.055.sroa.5.0.extract.shift = and i64 %.sroa.061.0.copyload, -4294967296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.657, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.664.0..sroa_idx, i64 3, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hd5f2856acf577916E.exit"
 
@@ -39660,8 +39656,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %21, %.thread,
   %.sroa.758.0 = phi i32 [ %.sroa.765.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
   %.sroa.859.0 = phi i64 [ %.sroa.866.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
   %.sroa.960.0 = phi i64 [ %.sroa.967.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
-  %.sroa.055.sroa.0.0 = phi i64 [ %62, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ 3, %.noexc38 ], [ 3, %72 ]
-  %.sroa.055.sroa.5.0 = phi i64 [ %.sroa.055.sroa.5.0.extract.shift, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ 0, %.noexc38 ], [ 0, %72 ]
+  %.sroa.055.sroa.5.0 = phi i64 [ %.sroa.061.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ 3, %.noexc38 ], [ 3, %72 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 %.sroa.0.0, ptr %76, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 73
@@ -39686,8 +39681,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %21, %.thread,
   store i64 %.sroa.748.0, ptr %.sroa.748.0..sroa_idx, align 4
   %.sroa.849.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.849.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.849, i64 24, i1 false)
-  %.sroa.055.sroa.0.0.insert.insert = or disjoint i64 %.sroa.055.sroa.5.0, %.sroa.055.sroa.0.0
-  store i64 %.sroa.055.sroa.0.0.insert.insert, ptr %0, align 4
+  store i64 %.sroa.055.sroa.5.0, ptr %0, align 4
   %.sroa.556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.556.0, ptr %.sroa.556.0..sroa_idx, align 4
   %.sroa.657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9

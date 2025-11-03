@@ -2692,17 +2692,20 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %369 = mul i64 %368, %.03371076
   %indvars.iv.next1467 = add nuw nsw i64 %indvars.iv1466, 1
   %exitcond1470.not = icmp eq i64 %indvars.iv.next1467, %wide.trip.count1469
-  br i1 %exitcond1470.not, label %._crit_edge1079, label %.lr.ph1078, !llvm.loop !49
+  br i1 %exitcond1470.not, label %._crit_edge1079.loopexit, label %.lr.ph1078, !llvm.loop !49
 
-._crit_edge1079:                                  ; preds = %.lr.ph1078, %364
-  %.0337.lcssa = phi i64 [ 1, %364 ], [ %369, %.lr.ph1078 ]
-  %370 = mul i64 %.0337.lcssa, %.0344.lcssa
+._crit_edge1079.loopexit:                         ; preds = %.lr.ph1078
+  %370 = mul i64 %369, %.0344.lcssa
+  br label %._crit_edge1079
+
+._crit_edge1079:                                  ; preds = %._crit_edge1079.loopexit, %364
+  %.0337.lcssa = phi i64 [ %.0344.lcssa, %364 ], [ %370, %._crit_edge1079.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %371
 
 371:                                              ; preds = %._crit_edge1079, %._crit_edge
   %.11 = phi i32 [ %.12, %._crit_edge1079 ], [ %.3, %._crit_edge ]
-  %.1345 = phi i64 [ %370, %._crit_edge1079 ], [ %.0344.lcssa, %._crit_edge ]
+  %.1345 = phi i64 [ %.0337.lcssa, %._crit_edge1079 ], [ %.0344.lcssa, %._crit_edge ]
   %.1341 = phi i64 [ %345, %._crit_edge1079 ], [ %.0340, %._crit_edge ]
   %372 = call i64 @H5Acreate2(i64 noundef %1, ptr noundef nonnull %6, i64 noundef %57, i64 noundef %303, i64 noundef 0, i64 noundef 0) #9
   %373 = icmp slt i64 %372, 0

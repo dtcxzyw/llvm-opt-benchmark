@@ -594,7 +594,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %50 = tail call ptr @__errno_location() #25
   %51 = load i32, ptr %50, align 4, !tbaa !10
   %52 = icmp eq i32 %51, 4
-  br i1 %52, label %..lr.ph.split.us.i_crit_edge.i45, label %.thread39.i.i44, !llvm.loop !12
+  br i1 %52, label %..lr.ph.split.us.i_crit_edge.i45, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, !llvm.loop !12
 
 ..lr.ph.split.us.i_crit_edge.i45:                 ; preds = %49
   br label %.lr.ph.split.us.i.i36, !llvm.loop !12
@@ -622,15 +622,11 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %61 = icmp samesign ult i64 %59, 64
   br i1 %61, label %.lr.ph.split.us.preheader.i.i29, label %.preheader
 
-.thread39.i.i44:                                  ; preds = %49
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %51)
-  br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread
-
 .preheader:                                       ; preds = %.outer.i.i39
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 60
   %63 = load i16, ptr %62, align 4, !tbaa !20
   %.not28148.not = icmp eq i16 %63, 0
-  br i1 %.not28148.not, label %.thread, label %.lr.ph153
+  br i1 %.not28148.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %.preheader
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -665,7 +661,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 72:                                               ; preds = %.lr.ph.i55
   %73 = icmp eq i64 %70, 0
-  br i1 %73, label %.thread, label %74
+  br i1 %73, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %74
 
 74:                                               ; preds = %72
   %75 = add nsw i64 %70, %.028.ph72.i.i50
@@ -675,7 +671,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %77 = tail call ptr @__errno_location() #25
   %78 = load i32, ptr %77, align 4, !tbaa !10
   %79 = icmp eq i32 %78, 4
-  br i1 %79, label %..lr.ph.split.us.i_crit_edge.i65, label %.thread.sink.split, !llvm.loop !12
+  br i1 %79, label %..lr.ph.split.us.i_crit_edge.i65, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, !llvm.loop !12
 
 ..lr.ph.split.us.i_crit_edge.i65:                 ; preds = %76
   br label %.lr.ph.split.us.i.i56, !llvm.loop !12
@@ -740,7 +736,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %100 = tail call ptr @__errno_location() #25
   %101 = load i32, ptr %100, align 4, !tbaa !10
   %102 = icmp eq i32 %101, 4
-  br i1 %102, label %.lr.ph.split.us.i, label %.thread.sink.split, !llvm.loop !12
+  br i1 %102, label %.lr.ph.split.us.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, !llvm.loop !12
 
 .lr.ph.split.us.i:                                ; preds = %99, %97
   %.sroa.37.19 = phi i64 [ 0, %99 ], [ %98, %97 ]
@@ -770,7 +766,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   %.sroa.21.20 = phi i64 [ 0, %95 ], [ %.sroa.21.18.lcssa, %.outer.i ]
   %.2.i = phi i64 [ %.030.ph70.i, %95 ], [ %109, %.outer.i ]
   %112 = icmp slt i64 %.2.i, 0
-  br i1 %112, label %.thread, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118
+  br i1 %112, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit
   %.2.i124 = phi i64 [ %.2.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit68 ]
@@ -782,26 +778,20 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 113:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118
   %bcmp = call i32 @bcmp(ptr nonnull %5, ptr %1, i64 %2)
   %114 = icmp eq i32 %bcmp, 0
-  br i1 %114, label %.thread, label %115
+  br i1 %114, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %115
 
 115:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread118, %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %66, !llvm.loop !28
+  br i1 %exitcond.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %66, !llvm.loop !28
 
-.thread.sink.split:                               ; preds = %76, %99
-  %.lcssa.sink = phi i32 [ %101, %99 ], [ %78, %76 ]
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %.lcssa.sink)
-  br label %.thread
-
-.thread:                                          ; preds = %115, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, %113, %72, %.thread.sink.split, %.preheader
-  %.not28142 = phi i1 [ false, %.preheader ], [ true, %.thread.sink.split ], [ true, %72 ], [ false, %115 ], [ true, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ true, %113 ]
-  %.4 = phi i1 [ undef, %.preheader ], [ false, %.thread.sink.split ], [ false, %72 ], [ undef, %115 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ true, %113 ]
-  %spec.select = and i1 %.not28142, %.4
+_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split: ; preds = %49, %76, %99
+  %.lcssa188.sink = phi i32 [ %101, %99 ], [ %78, %76 ], [ %51, %49 ]
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %.lcssa188.sink)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread
 
-_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread: ; preds = %45, %.thread39.i.i44, %.thread
-  %.2 = phi i1 [ %spec.select, %.thread ], [ false, %.thread39.i.i44 ], [ false, %45 ]
+_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread: ; preds = %45, %113, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, %115, %72, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, %.preheader
+  %.2 = phi i1 [ false, %.preheader ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split ], [ false, %72 ], [ false, %115 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ true, %113 ], [ false, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
@@ -3538,10 +3528,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br i1 %.not56, label %13, label %.thread
 
 .thread:                                          ; preds = %61, %6, %50, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread, %.thread63
-  %.not5682 = phi i1 [ true, %.thread63 ], [ true, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread ], [ true, %50 ], [ false, %6 ], [ false, %61 ]
-  %.1 = phi i1 [ true, %.thread63 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread ], [ false, %50 ], [ undef, %6 ], [ undef, %61 ]
-  %spec.select57 = and i1 %.not5682, %.1
-  ret i1 %spec.select57
+  %.not5682 = phi i1 [ true, %.thread63 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread ], [ false, %50 ], [ false, %6 ], [ false, %61 ]
+  ret i1 %.not5682
 }
 
 ; Function Attrs: mustprogress noinline uwtable
