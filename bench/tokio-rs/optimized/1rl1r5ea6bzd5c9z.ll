@@ -1147,29 +1147,29 @@ define hidden noundef i64 @"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17hc21baa1d
     i32 1, label %._crit_edge.fold.split
   ]
 
-._crit_edge.fold.split:                           ; preds = %2
+3:                                                ; preds = %2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %._crit_edge.fold.split, %._crit_edge.loopexit
   %.011 = phi i64 [ 1, %2 ], [ %3, %._crit_edge.loopexit ], [ %0, %._crit_edge.fold.split ]
   ret i64 %.011
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %3 = mul i64 %7, %spec.select
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.017 = phi i32 [ %6, %.lr.ph ], [ %1, %2 ]
-  %.01216 = phi i64 [ %7, %.lr.ph ], [ %0, %2 ]
+  %.017 = phi i32 [ %7, %.lr.ph ], [ %1, %2 ]
+  %.01216 = phi i64 [ %8, %.lr.ph ], [ %0, %2 ]
   %.01315 = phi i64 [ %spec.select, %.lr.ph ], [ 1, %2 ]
-  %4 = and i32 %.017, 1
-  %.not = icmp eq i32 %4, 0
-  %5 = select i1 %.not, i64 1, i64 %.01216
-  %spec.select = mul i64 %5, %.01315
-  %6 = lshr i32 %.017, 1
-  %7 = mul i64 %.01216, %.01216
-  %8 = icmp ugt i32 %.017, 3
-  br i1 %8, label %.lr.ph, label %._crit_edge.loopexit
+  %5 = and i32 %.017, 1
+  %.not = icmp eq i32 %5, 0
+  %6 = select i1 %.not, i64 1, i64 %.01216
+  %spec.select = mul i64 %6, %.01315
+  %7 = lshr i32 %.017, 1
+  %8 = mul i64 %.01216, %.01216
+  %9 = icmp ugt i32 %.017, 3
+  br i1 %9, label %.lr.ph, label %._crit_edge
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -7362,7 +7362,7 @@ _ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.55429615
   %30 = icmp ugt i32 %.017.i.i.i9, 3
   br i1 %30, label %.lr.ph.i.i.i8, label %.lr.ph.i.i
 
-._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
+._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
   %31 = udiv i64 %2, %23
   %32 = tail call i64 @llvm.fshr.i64(i64 %5, i64 %5, i64 %31)
   %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %32, i1 true)
@@ -7383,9 +7383,9 @@ _ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.55429615
   %40 = lshr i32 %.017.i.i, 1
   %41 = mul i64 %.01216.i.i, %.01216.i.i
   %42 = icmp ugt i32 %.017.i.i, 3
-  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i
+  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i
 
-_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit: ; preds = %.thread28, %.thread, %._crit_edge.loopexit.i.i
+_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit: ; preds = %.thread28, %.thread, %._crit_edge.i.loopexit.i
   %.in = phi i64 [ %34, %._crit_edge.loopexit.i.i ], [ %13, %.thread ], [ %17, %.thread28 ]
   %.011.i.i.i18 = phi i64 [ %36, %._crit_edge.loopexit.i.i ], [ 64, %.thread ], [ 4096, %.thread28 ]
   %.011.i.i = phi i64 [ %37, %._crit_edge.loopexit.i.i ], [ 1, %.thread ], [ 64, %.thread28 ]
@@ -7424,10 +7424,10 @@ define hidden { i64, i64 } @_ZN5tokio7runtime4time5wheel5level5Level18next_occup
   %9 = trunc i64 %8 to i32
   switch i32 %9, label %.lr.ph.i.i [
     i32 0, label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.thread
-    i32 1, label %._crit_edge.fold.split.i.i
+    i32 1, label %._crit_edge.i.i
   ]
 
-._crit_edge.fold.split.i.i:                       ; preds = %6
+._crit_edge.i.i:                                  ; preds = %6
   br label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.thread
 
 .lr.ph.i.i:                                       ; preds = %6, %.lr.ph.i.i
@@ -7455,7 +7455,7 @@ _ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.55429615
   %19 = insertvalue { i64, i64 } %18, i64 %.sroa.3.0, 1
   ret { i64, i64 } %19
 
-_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.thread: ; preds = %._crit_edge.fold.split.i.i, %6, %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
+_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.thread: ; preds = %._crit_edge.i.i, %6, %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
   %.011.i.i3 = phi i64 [ %15, %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit ], [ 64, %._crit_edge.fold.split.i.i ], [ 1, %6 ]
   %20 = udiv i64 %1, %.011.i.i3
   %21 = tail call i64 @llvm.fshr.i64(i64 %4, i64 %4, i64 %20)
@@ -7618,13 +7618,13 @@ define hidden noundef i64 @_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b
   %2 = trunc i64 %0 to i32
   switch i32 %2, label %.lr.ph.i [
     i32 0, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17hc21baa1d6648cdfdE.llvm.5542961546488995764.exit"
-    i32 1, label %._crit_edge.fold.split.i
+    i32 1, label %._crit_edge.i.loopexit
   ]
 
-._crit_edge.fold.split.i:                         ; preds = %1
+._crit_edge.i.loopexit:                           ; preds = %1
   br label %"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17hc21baa1d6648cdfdE.llvm.5542961546488995764.exit"
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %3 = mul i64 %spec.select.i, %7
   br label %"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17hc21baa1d6648cdfdE.llvm.5542961546488995764.exit"
 
@@ -7641,7 +7641,7 @@ define hidden noundef i64 @_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b
   %8 = icmp ugt i32 %.017.i, 3
   br i1 %8, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
-"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17hc21baa1d6648cdfdE.llvm.5542961546488995764.exit": ; preds = %1, %._crit_edge.fold.split.i, %._crit_edge.loopexit.i
+"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17hc21baa1d6648cdfdE.llvm.5542961546488995764.exit": ; preds = %1, %._crit_edge.i.loopexit, %._crit_edge.i
   %.011.i = phi i64 [ 1, %1 ], [ %3, %._crit_edge.loopexit.i ], [ 64, %._crit_edge.fold.split.i ]
   ret i64 %.011.i
 }
@@ -7651,13 +7651,13 @@ define hidden noundef range(i64 0, -63) i64 @_ZN5tokio7runtime4time5wheel5level1
   %2 = trunc i64 %0 to i32
   switch i32 %2, label %.lr.ph.i.i [
     i32 0, label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
-    i32 1, label %._crit_edge.fold.split.i.i
+    i32 1, label %._crit_edge.i.i
   ]
 
-._crit_edge.fold.split.i.i:                       ; preds = %1
+._crit_edge.i.loopexit.i:                         ; preds = %1
   br label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
 
-._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %3 = shl i64 %8, 6
   %4 = mul i64 %3, %spec.select.i.i
   br label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
@@ -7673,9 +7673,9 @@ define hidden noundef range(i64 0, -63) i64 @_ZN5tokio7runtime4time5wheel5level1
   %7 = lshr i32 %.017.i.i, 1
   %8 = mul i64 %.01216.i.i, %.01216.i.i
   %9 = icmp ugt i32 %.017.i.i, 3
-  br i1 %9, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i
+  br i1 %9, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i
 
-_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit: ; preds = %1, %._crit_edge.fold.split.i.i, %._crit_edge.loopexit.i.i
+_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit: ; preds = %1, %._crit_edge.i.loopexit.i, %._crit_edge.i.i
   %.011.i.i = phi i64 [ 64, %1 ], [ %4, %._crit_edge.loopexit.i.i ], [ 4096, %._crit_edge.fold.split.i.i ]
   ret i64 %.011.i.i
 }

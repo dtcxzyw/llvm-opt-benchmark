@@ -385,10 +385,10 @@ define noundef zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captu
   %19 = shl i32 %17, %18
   %20 = tail call noundef i32 @llvm.bswap.i32(i32 %19)
   %21 = and i32 %20, %8
-  %.not19.not = icmp ne i32 %13, %21
-  br i1 %.not19.not, label %9, label %.loopexit
+  %.not21.not = icmp ne i32 %13, %21
+  br i1 %.not21.not, label %9, label %.loopexit
 
-22:                                               ; preds = %1
+.loopexit:                                        ; preds = %1
   %23 = zext i16 %2 to i32
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef %23) #15
   br label %.loopexit

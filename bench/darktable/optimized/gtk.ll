@@ -677,7 +677,7 @@ define range(i32 0, 2) i32 @dt_gui_get_scroll_delta(ptr noundef %0, ptr noundef 
   %6 = load i32, ptr %5, align 4, !tbaa !58
   switch i32 %6, label %dt_gui_get_scroll_deltas.exit [
     i32 2, label %.sink.split.i
-    i32 3, label %13
+    i32 3, label %.thread47.i
     i32 0, label %.sink.split.i
     i32 1, label %13
     i32 4, label %7
@@ -689,23 +689,23 @@ define range(i32 0, 2) i32 @dt_gui_get_scroll_delta(ptr noundef %0, ptr noundef 
   %10 = fcmp reassoc nsz arcp contract afn une double %9, 0.000000e+00
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !61
-  %11 = fcmp reassoc nsz arcp contract afn une double %.pre, 0.000000e+00
-  %or.cond = select i1 %10, i1 true, i1 %11
+  %13 = fcmp reassoc nsz arcp contract afn une double %.pre, 0.000000e+00
+  %or.cond = select i1 %10, i1 true, i1 %13
   br i1 %or.cond, label %.thread47.i, label %dt_gui_get_scroll_deltas.exit
 
-.thread47.i:                                      ; preds = %7
+.sink.split.i:                                    ; preds = %7
   %12 = fadd reassoc nsz arcp contract afn double %.pre, %9
   br label %13
 
 .sink.split.i:                                    ; preds = %4, %4
   br label %13
 
-13:                                               ; preds = %4, %4, %.thread47.i, %.sink.split.i
+.thread47.i:                                      ; preds = %4, %4, %.thread47.i, %.sink.split.i
   %.2.ph = phi double [ -1.000000e+00, %.sink.split.i ], [ %12, %.thread47.i ], [ 1.000000e+00, %4 ], [ 1.000000e+00, %4 ]
   store double %.2.ph, ptr %1, align 8, !tbaa !59
   br label %dt_gui_get_scroll_deltas.exit
 
-dt_gui_get_scroll_deltas.exit:                    ; preds = %7, %4, %2, %13
+dt_gui_get_scroll_deltas.exit:                    ; preds = %7, %4, %2, %.thread47.i
   %.0 = phi i32 [ 1, %13 ], [ 0, %2 ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }

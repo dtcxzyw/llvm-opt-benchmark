@@ -93895,7 +93895,7 @@ _ZN5typst5model10numbering_13NumberingKind9from_char17h2c74da6d5069f7a3E.exit: ;
   %.0..0..0..sroa.083.0.copyload84.pre = load ptr, ptr %7, align 8, !noalias !24731
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.8..8..8..sroa.585.0.copyload87.pre = load i56, ptr %.8..8..8..sroa_idx, align 8, !noalias !24731
-  %87 = zext i56 %.8..8..8..sroa.585.0.copyload87.pre to i64
+  %88 = zext i56 %.8..8..8..sroa.585.0.copyload87.pre to i64
   %88 = or disjoint i64 %86, %87
   %89 = or disjoint i64 %88, -9223372036854775808
   br label %105

@@ -14121,7 +14121,7 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
   %.sroa.044.0.copyload = load i64, ptr %7, align 8
   switch i64 %6, label %default.unreachable [
     i64 3, label %8
-    i64 0, label %16
+    i64 0, label %18
     i64 1, label %13
     i64 2, label %14
   ]
@@ -14143,7 +14143,7 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
   store i32 %.sroa.646.0.copyload, ptr %.sroa.520.0..sroa_idx, align 8
   br label %12
 
-12:                                               ; preds = %16, %8
+12:                                               ; preds = %18, %8
   %storemerge = phi i64 [ 0, %8 ], [ 1, %16 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -14152,18 +14152,18 @@ default.unreachable:                              ; preds = %4
   unreachable
 
 13:                                               ; preds = %4
-  br label %16
+  br label %18
 
 14:                                               ; preds = %4
   %.sroa.524.sroa.4.sroa.3.0..sroa.524.sroa.4.0..sroa.524.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 28
   %.sroa.524.sroa.4.sroa.3.0.copyload = load i32, ptr %.sroa.524.sroa.4.sroa.3.0..sroa.524.sroa.4.0..sroa.524.0..sroa_idx.sroa_idx.sroa_idx, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.524.sroa.3.0.copyload = load i32, ptr %15, align 8
+  %.sroa.524.sroa.4.0..sroa.524.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sroa.524.sroa.4.sroa.0.0.copyload = load i32, ptr %.sroa.524.sroa.4.0..sroa.524.0..sroa_idx.sroa_idx, align 8
   %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.524.sroa.0.0.copyload = load i64, ptr %.sroa.524.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %4, %14, %13
+18:                                               ; preds = %4, %14, %13
   %.sroa.026.0 = phi i64 [ undef, %13 ], [ %.sroa.044.0.copyload, %14 ], [ %.sroa.044.0.copyload, %4 ]
   %.sroa.528.0 = phi i64 [ undef, %13 ], [ %.sroa.524.sroa.0.0.copyload, %14 ], [ undef, %4 ]
   %.sroa.530.0 = phi i32 [ 58, %13 ], [ %.sroa.524.sroa.3.0.copyload, %14 ], [ 57, %4 ]

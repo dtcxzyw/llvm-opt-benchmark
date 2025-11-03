@@ -38128,24 +38128,24 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br i1 %.not19, label %.critedge23, label %42
 
 .critedge23:                                      ; preds = %.critedge21, %48, %.critedge
-  %.sroa.630.3 = phi i32 [ %54, %.critedge ], [ 1024, %48 ], [ 0, %.critedge21 ]
+  %.sroa.029.1 = phi i32 [ %54, %.critedge ], [ 1024, %48 ], [ 0, %.critedge21 ]
   %55 = icmp eq ptr %10, %7
   br i1 %55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %.critedge23
-  %56 = icmp ult i64 %11, 16
-  call void @llvm.assume(i1 %56)
+  %58 = icmp ult i64 %11, 16
+  call void @llvm.assume(i1 %58)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.critedge23
-  %57 = load i64, ptr %7, align 8, !tbaa !13
-  %58 = add i64 %57, 1
-  call void @_ZdlPvm(ptr noundef %10, i64 noundef %58) #30
+  %59 = load i64, ptr %7, align 8, !tbaa !13
+  %60 = add i64 %59, 1
+  call void @_ZdlPvm(ptr noundef %10, i64 noundef %60) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.sroa.630.3
+  ret i32 %.sroa.029.1
 }
 
 ; Function Attrs: mustprogress nounwind

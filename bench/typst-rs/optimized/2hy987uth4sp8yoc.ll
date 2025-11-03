@@ -6357,8 +6357,8 @@ define hidden void @_ZN12typst_syntax6parser14code_expr_prec17ha92f54319f8d463eE
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 257
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !72
   %13 = icmp slt i8 %.pre, 0
-  %or.cond.not = select i1 %1, i1 true, i1 %13
-  br i1 %or.cond.not, label %_ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit.thread, label %_ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit
+  %or.cond424.not = select i1 %1, i1 true, i1 %13
+  br i1 %or.cond424.not, label %_ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit.thread, label %_ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit
 
 _ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit: ; preds = %3
   %14 = zext nneg i8 %.pre to i128
@@ -8766,13 +8766,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN12typst_syntax6parser14code_expr_prec17ha92f54319f8d463eE.llvm.17794941744620341598, i64 %744
   %switch.load = load i8, ptr %switch.gep, align 1
   %745 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep453 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax6parser14code_expr_prec17ha92f54319f8d463eE.llvm.17794941744620341598.29, i64 %745
-  %switch.load454 = load i64, ptr %switch.gep453, align 8
+  %switch.gep452 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax6parser14code_expr_prec17ha92f54319f8d463eE.llvm.17794941744620341598.29, i64 %745
+  %switch.load453 = load i64, ptr %switch.gep452, align 8
   br label %_ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E.exit
 
 _ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E.exit: ; preds = %switch.lookup, %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit54
   %.011.ph285 = phi i8 [ 14, %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit54 ], [ %switch.load, %switch.lookup ]
-  %.0.i66 = phi i64 [ 4, %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit54 ], [ %switch.load454, %switch.lookup ]
+  %.0.i66 = phi i64 [ 4, %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit54 ], [ %switch.load453, %switch.lookup ]
   %746 = icmp ult i64 %.0.i66, %2
   br i1 %746, label %_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit, label %747
 

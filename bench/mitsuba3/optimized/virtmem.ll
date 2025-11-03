@@ -590,25 +590,25 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem18rele
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   %8 = icmp eq ptr %5, %7
-  br i1 %8, label %12, label %9
+  br i1 %8, label %12, label %17
 
-9:                                                ; preds = %2
+17:                                               ; preds = %2
   %10 = tail call i32 @munmap(ptr noundef %7, i64 noundef %1) #14
-  %11 = or i32 %10, %4
+  %19 = or i32 %10, %4
   %or.cond = icmp eq i32 %11, 0
   br i1 %or.cond, label %14, label %.thread, !prof !24
 
-12:                                               ; preds = %2
+20:                                               ; preds = %2
   %13 = icmp eq i32 %4, 0
-  br i1 %13, label %14, label %.thread
+  br i1 %13, label %23, label %24
 
-14:                                               ; preds = %9, %12
+23:                                               ; preds = %9, %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %.thread
+  br label %24
 
-.thread:                                          ; preds = %9, %14, %12
-  %15 = phi i32 [ 0, %14 ], [ 2, %12 ], [ 2, %9 ]
-  ret i32 %15
+24:                                               ; preds = %9, %23, %20
+  %25 = phi i32 [ 0, %14 ], [ 2, %12 ], [ 2, %9 ]
+  ret i32 %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

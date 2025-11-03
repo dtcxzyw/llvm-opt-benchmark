@@ -64565,7 +64565,7 @@ endTimer.exit:                                    ; preds = %beginTimer.exit, %t
   %121 = load ptr, ptr %13, align 8, !tbaa !29
   call void @sqlite3_free(ptr noundef %121) #43
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %doAutoDetectRestore.exit.thread
+  br label %203
 
 122:                                              ; preds = %endTimer.exit
   %123 = load i32, ptr %16, align 4, !tbaa !453
@@ -64637,17 +64637,17 @@ doAutoDetectRestore.exit.thread42:                ; preds = %149
   %153 = call i32 @sqlite3_prepare_v2(ptr noundef %152, ptr noundef nonnull @.str.1889, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null) #43
   %.fr = freeze i32 %153
   %.not.i.i37 = icmp eq i32 %.fr, 0
-  br i1 %.not.i.i37, label %154, label %.thread61
+  br i1 %.not.i.i37, label %158, label %.thread61
 
-154:                                              ; preds = %151
-  %155 = load ptr, ptr %5, align 8, !tbaa !31
-  %156 = call i32 @sqlite3_step(ptr noundef %155) #43
-  %157 = icmp ne i32 %156, 100
+158:                                              ; preds = %151
+  %159 = load ptr, ptr %5, align 8, !tbaa !31
+  %160 = call i32 @sqlite3_step(ptr noundef %159) #43
+  %161 = icmp ne i32 %160, 100
   %158 = load ptr, ptr %5, align 8, !tbaa !31
   %.not.i31.i = icmp eq ptr %158, null
   br i1 %.not.i31.i, label %172, label %164
 
-.thread61:                                        ; preds = %151
+.thread61:; preds = %151
   %159 = load ptr, ptr @stderr, align 8, !tbaa !14
   %160 = call ptr @sqlite3_errmsg(ptr noundef %152) #43
   %161 = call i32 @sqlite3_errcode(ptr noundef %152) #43
@@ -64661,14 +64661,14 @@ doAutoDetectRestore.exit.thread68:                ; preds = %.thread61
   store i8 7, ptr %134, align 1, !tbaa !1172
   br label %doAutoDetectRestore.exit.thread
 
-164:                                              ; preds = %.thread61, %154
+165:                                              ; preds = %.thread61, %154
   %165 = phi ptr [ %163, %.thread61 ], [ %158, %154 ]
-  %or.cond.i65 = phi i1 [ false, %.thread61 ], [ %157, %154 ]
+  %or.cond.i65 = phi i1 [ false, %.thread61 ], [ %161, %154 ]
   %166 = call ptr @sqlite3_db_handle(ptr noundef nonnull %165) #43
   %167 = call i32 @sqlite3_finalize(ptr noundef nonnull %165) #43
   br i1 %.not.i.i37, label %168, label %doAutoDetectRestore.exit.thread46
 
-168:                                              ; preds = %164
+168:                                              ; preds = %165
   %.not7.i.i = icmp eq i32 %167, 0
   br i1 %.not7.i.i, label %.thread, label %.thread44.i
 
@@ -64684,9 +64684,9 @@ doAutoDetectRestore.exit.thread68:                ; preds = %.thread61
 
 .thread:                                          ; preds = %168
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %or.cond.i65, label %173, label %doAutoDetectRestore.exit.thread60
+  br i1 %or.cond.i65, label %173, label %doAutoDetectRestore.exit.thread61
 
-doAutoDetectRestore.exit.thread60:                ; preds = %.thread
+doAutoDetectRestore.exit.thread61:                ; preds = %.thread
   store i8 7, ptr %134, align 1, !tbaa !1172
   br label %doAutoDetectRestore.exit.thread
 
@@ -64715,10 +64715,10 @@ doAutoDetectRestore.exit.thread60:                ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %doAutoDetectRestore.exit.thread
 
-doAutoDetectRestore.exit.thread46:                ; preds = %164, %.thread44.i
+doAutoDetectRestore.exit.thread46:                ; preds = %165, %.thread44.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i8 7, ptr %134, align 1, !tbaa !1172
-  br label %doAutoDetectRestore.exit.thread
+  br label %203
 
 187:                                              ; preds = %137
   %188 = load ptr, ptr %0, align 8, !tbaa !476
@@ -64757,7 +64757,7 @@ doAutoDetectRestore.exit:                         ; preds = %172
   store i8 7, ptr %134, align 1, !tbaa !1172
   br label %doAutoDetectRestore.exit.thread
 
-doAutoDetectRestore.exit.thread:                  ; preds = %doAutoDetectRestore.exit.thread42, %187, %202, %148, %173, %133, %doAutoDetectRestore.exit.thread60, %doAutoDetectRestore.exit, %doAutoDetectRestore.exit.thread68, %doAutoDetectRestore.exit.thread46, %118
+203:                                              ; preds = %doAutoDetectRestore.exit.thread42, %187, %202, %148, %173, %133, %doAutoDetectRestore.exit.thread60, %doAutoDetectRestore.exit, %doAutoDetectRestore.exit.thread68, %doAutoDetectRestore.exit.thread46, %118
   %.025 = phi i32 [ 1, %118 ], [ 1, %doAutoDetectRestore.exit.thread46 ], [ 1, %doAutoDetectRestore.exit.thread68 ], [ 0, %doAutoDetectRestore.exit ], [ 0, %doAutoDetectRestore.exit.thread60 ], [ 0, %133 ], [ 0, %173 ], [ 0, %148 ], [ 0, %202 ], [ 0, %187 ], [ 0, %doAutoDetectRestore.exit.thread42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.025

@@ -894,44 +894,44 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit:                ; preds = %97, %.noexc67.threa
   %.not.i68 = icmp eq ptr %99, %100
   br i1 %.not.i68, label %._crit_edge.i71, label %.lr.ph.i69
 
-._crit_edge.i71.loopexit:                         ; preds = %.lr.ph.i69
-  %105 = mul i64 %111, %24
+._crit_edge.i71:                                  ; preds = %.lr.ph.i69
+  %105 = mul i64 %110, %24
   br label %._crit_edge.i71
 
 ._crit_edge.i71:                                  ; preds = %._crit_edge.i71.loopexit, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit
   %.0.lcssa.i = phi i64 [ 0, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit ], [ %105, %._crit_edge.i71.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %106 = trunc i64 %104 to i32
-  %107 = invoke noundef i64 @_ZN5draco21ComputeShannonEntropyEPKjiiPi(ptr noundef %100, i32 noundef %106, i32 noundef 32, ptr noundef nonnull %9)
+  %105 = trunc i64 %104 to i32
+  %106 = invoke noundef i64 @_ZN5draco21ComputeShannonEntropyEPKjiiPi(ptr noundef %100, i32 noundef %105, i32 noundef 32, ptr noundef nonnull %9)
           to label %113 unwind label %183
 
 .lr.ph.i69:                                       ; preds = %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit, %.lr.ph.i69
-  %.02.i = phi i64 [ %111, %.lr.ph.i69 ], [ 0, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit ]
-  %.081.i = phi i64 [ %112, %.lr.ph.i69 ], [ 0, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit ]
-  %108 = getelementptr inbounds nuw i32, ptr %100, i64 %.081.i
-  %109 = load i32, ptr %108, align 4, !tbaa !15
-  %110 = zext i32 %109 to i64
-  %111 = add i64 %.02.i, %110
-  %112 = add nuw i64 %.081.i, 1
-  %exitcond.not.i70 = icmp eq i64 %112, %104
-  br i1 %exitcond.not.i70, label %._crit_edge.i71.loopexit, label %.lr.ph.i69, !llvm.loop !21
+  %.02.i = phi i64 [ %110, %.lr.ph.i69 ], [ 0, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit ]
+  %.081.i = phi i64 [ %111, %.lr.ph.i69 ], [ 0, %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit ]
+  %107 = getelementptr inbounds nuw i32, ptr %100, i64 %.081.i
+  %108 = load i32, ptr %107, align 4, !tbaa !15
+  %109 = zext i32 %108 to i64
+  %110 = add i64 %.02.i, %109
+  %111 = add nuw i64 %.081.i, 1
+  %exitcond.not.i70 = icmp eq i64 %111, %104
+  br i1 %exitcond.not.i70, label %._crit_edge.i71, label %.lr.ph.i69, !llvm.loop !21
 
-113:                                              ; preds = %._crit_edge.i71
-  %114 = load i32, ptr %9, align 4, !tbaa !15
-  %115 = shl nsw i32 %114, 3
-  %116 = sext i32 %115 to i64
-  %117 = shl nsw i64 %116, 1
+112:                                              ; preds = %._crit_edge.i71
+  %113 = load i32, ptr %9, align 4, !tbaa !15
+  %114 = shl nsw i32 %113, 3
+  %115 = sext i32 %114 to i64
+  %116 = shl nsw i64 %115, 1
   %118 = add i64 %107, %.0.lcssa.i
-  %119 = add i64 %118, %117
+  %118 = add i64 %118, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not.i.i.i73 = icmp eq ptr %100, null
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %120
 
-120:                                              ; preds = %113
+120:                                              ; preds = %112
   call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef %103) #18
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %113, %120
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %112, %120
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %121 = invoke noundef i64 @_ZN5draco21ComputeShannonEntropyEPKjiiPi(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef %.us-phi133, ptr noundef nonnull %8)
           to label %122 unwind label %186

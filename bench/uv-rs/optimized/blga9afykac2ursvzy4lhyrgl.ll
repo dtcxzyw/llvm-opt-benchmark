@@ -2294,7 +2294,7 @@ define hidden range(i64 0, -4294967295) i64 @"_ZN4core3num21_$LT$impl$u20$u32$GT
   ]
 
 .loopexit56:                                      ; preds = %37, %39, %29, %57, %45, %59, %.lr.ph.split.us, %.lr.ph.split, %7, %7, %6, %.loopexit
-  %.sroa.8.0.insert.insert = phi i64 [ %44, %.loopexit ], [ 1, %6 ], [ 257, %7 ], [ 257, %7 ], [ 257, %.lr.ph.split ], [ 257, %.lr.ph.split.us ], [ 513, %59 ], [ 513, %57 ], [ 257, %45 ], [ 513, %39 ], [ 513, %37 ], [ 257, %29 ]
+  %.sroa.0.0 = phi i64 [ %44, %.loopexit ], [ 1, %6 ], [ 257, %7 ], [ 257, %7 ], [ 257, %.lr.ph.split ], [ 257, %.lr.ph.split.us ], [ 513, %59 ], [ 513, %57 ], [ 257, %45 ], [ 513, %39 ], [ 513, %37 ], [ 257, %29 ]
   ret i64 %.sroa.8.0.insert.insert
 
 7:                                                ; preds = %6
@@ -2544,7 +2544,7 @@ define hidden range(i64 0, -4294967295) i64 @"_ZN4core3num60_$LT$impl$u20$core..
   br label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.llvm.13452247604522872897.exit"
 
 "_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.llvm.13452247604522872897.exit": ; preds = %20, %28, %30, %.lr.ph.split.us.i, %2, %3, %3, %.loopexit.i
-  %.sroa.8.0.insert.insert.i = phi i64 [ %35, %.loopexit.i ], [ 1, %2 ], [ 257, %3 ], [ 257, %3 ], [ 257, %.lr.ph.split.us.i ], [ 257, %20 ], [ 513, %28 ], [ 513, %30 ]
+  %.sroa.0.0.i = phi i64 [ %35, %.loopexit.i ], [ 1, %2 ], [ 257, %3 ], [ 257, %3 ], [ 257, %.lr.ph.split.us.i ], [ 257, %20 ], [ 513, %28 ], [ 513, %30 ]
   ret i64 %.sroa.8.0.insert.insert.i
 }
 
@@ -2640,7 +2640,7 @@ define hidden range(i64 0, -4294967295) i64 @_ZN4core3ops8function5FnMut8call_mu
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h6d08b54dfe7f4588E.llvm.13452247604522872897.exit"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h6d08b54dfe7f4588E.llvm.13452247604522872897.exit": ; preds = %21, %29, %31, %.lr.ph.split.us.i.i.i, %3, %4, %4, %.loopexit.i.i.i
-  %.sroa.8.0.insert.insert.i.i.i = phi i64 [ %36, %.loopexit.i.i.i ], [ 1, %3 ], [ 257, %4 ], [ 257, %4 ], [ 257, %.lr.ph.split.us.i.i.i ], [ 257, %21 ], [ 513, %29 ], [ 513, %31 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %36, %.loopexit.i.i.i ], [ 1, %3 ], [ 257, %4 ], [ 257, %4 ], [ 257, %.lr.ph.split.us.i.i.i ], [ 257, %21 ], [ 513, %29 ], [ 513, %31 ]
   ret i64 %.sroa.8.0.insert.insert.i.i.i
 }
 
@@ -2790,7 +2790,7 @@ define hidden range(i64 0, -4294967295) i64 @"_ZN4core3ops8function5impls80_$LT$
   br label %_ZN4core3ops8function5FnMut8call_mut17h2e73faab25d8966eE.llvm.13452247604522872897.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h2e73faab25d8966eE.llvm.13452247604522872897.exit: ; preds = %21, %29, %31, %.lr.ph.split.us.i.i.i.i, %3, %4, %4, %.loopexit.i.i.i.i
-  %.sroa.8.0.insert.insert.i.i.i.i = phi i64 [ %36, %.loopexit.i.i.i.i ], [ 1, %3 ], [ 257, %4 ], [ 257, %4 ], [ 257, %.lr.ph.split.us.i.i.i.i ], [ 513, %31 ], [ 513, %29 ], [ 257, %21 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ %36, %.loopexit.i.i.i.i ], [ 1, %3 ], [ 257, %4 ], [ 257, %4 ], [ 257, %.lr.ph.split.us.i.i.i.i ], [ 513, %31 ], [ 513, %29 ], [ 257, %21 ]
   ret i64 %.sroa.8.0.insert.insert.i.i.i.i
 }
 
@@ -4965,7 +4965,7 @@ define hidden range(i64 0, -4294967295) i64 @"_ZN4core3str21_$LT$impl$u20$str$GT
   br label %"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17h97726dcafe2d40b6E.llvm.13452247604522872897.exit"
 
 "_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17h97726dcafe2d40b6E.llvm.13452247604522872897.exit": ; preds = %20, %28, %30, %.lr.ph.split.us.i.i, %2, %3, %3, %.loopexit.i.i
-  %.sroa.8.0.insert.insert.i.i = phi i64 [ %35, %.loopexit.i.i ], [ 1, %2 ], [ 257, %3 ], [ 257, %3 ], [ 257, %.lr.ph.split.us.i.i ], [ 513, %30 ], [ 513, %28 ], [ 257, %20 ]
+  %.sroa.0.0.i.i = phi i64 [ %35, %.loopexit.i.i ], [ 1, %2 ], [ 257, %3 ], [ 257, %3 ], [ 257, %.lr.ph.split.us.i.i ], [ 513, %30 ], [ 513, %28 ], [ 257, %20 ]
   ret i64 %.sroa.8.0.insert.insert.i.i
 }
 

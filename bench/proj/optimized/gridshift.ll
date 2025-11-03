@@ -2426,10 +2426,10 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %86
 
-86:                                               ; preds = %.preheader, %155
+86:                                               ; preds = %.preheader, %152
   %.186 = phi ptr [ %.3, %155 ], [ %17, %.preheader ]
   %.082 = phi ptr [ %.183, %155 ], [ %8, %.preheader ]
-  %.055 = phi i32 [ %154, %155 ], [ 10, %.preheader ]
+  %.055 = phi i32 [ %151, %155 ], [ 10, %.preheader ]
   %.sroa.012.1 = phi double [ %.sroa.012.4, %155 ], [ %79, %.preheader ]
   %.sroa.10.1 = phi double [ %.sroa.10.4, %155 ], [ %82, %.preheader ]
   %.sroa.024.0 = phi double [ %.sroa.024.2, %155 ], [ %.sroa.0.0.i, %.preheader ]
@@ -2502,7 +2502,7 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
   %119 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %120 = load i8, ptr %119, align 8, !tbaa !130, !range !78, !noundef !79
   %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %122, label %153
+  br i1 %121, label %122, label %150
 
 122:                                              ; preds = %114
   %123 = getelementptr inbounds nuw i8, ptr %104, i64 88
@@ -2519,18 +2519,18 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
 
 133:                                              ; preds = %122
   %134 = fadd double %.sroa.0.0.copyload, 0x401921FB54442D18
-  br label %153
+  br label %150
 
 135:                                              ; preds = %122
   %136 = getelementptr inbounds nuw i8, ptr %104, i64 72
   %137 = load double, ptr %136, align 8, !tbaa !157
   %138 = fadd double %128, %137
   %139 = fcmp ogt double %.sroa.0.0.copyload, %138
-  br i1 %139, label %140, label %153
+  br i1 %139, label %140, label %150
 
 140:                                              ; preds = %135
   %141 = fadd double %.sroa.0.0.copyload, 0xC01921FB54442D18
-  br label %153
+  br label %150
 
 142:                                              ; preds = %99
   %143 = fadd double %.sroa.012.1, %100
@@ -2545,23 +2545,23 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
   %152 = fcmp ogt double %151, 0x3AF357C299A88EA7
   br label %153
 
-153:                                              ; preds = %114, %133, %135, %140, %142
+150:                                              ; preds = %114, %133, %135, %140, %142
   %.3 = phi ptr [ %.186, %142 ], [ %119, %140 ], [ %119, %135 ], [ %119, %133 ], [ %119, %114 ]
   %.183 = phi ptr [ %.082, %142 ], [ %107, %140 ], [ %107, %135 ], [ %107, %133 ], [ %107, %114 ]
   %.sroa.012.4 = phi double [ %148, %142 ], [ %.sroa.012.1, %140 ], [ %.sroa.012.1, %135 ], [ %.sroa.012.1, %133 ], [ %.sroa.012.1, %114 ]
-  %.sroa.06.2 = phi i1 [ %152, %142 ], [ true, %140 ], [ true, %135 ], [ true, %133 ], [ true, %114 ]
+  %.sroa.7.2 = phi i1 [ %152, %142 ], [ true, %140 ], [ true, %135 ], [ true, %133 ], [ true, %114 ]
   %.sroa.10.4 = phi double [ %149, %142 ], [ %.sroa.10.1, %140 ], [ %.sroa.10.1, %135 ], [ %.sroa.10.1, %133 ], [ %.sroa.10.1, %114 ]
   %.sroa.024.2 = phi double [ %.sroa.024.0, %142 ], [ %141, %140 ], [ %.sroa.0.0.copyload, %135 ], [ %134, %133 ], [ %.sroa.0.0.copyload, %114 ]
   %.sroa.726.2 = phi double [ %.sroa.726.0, %142 ], [ %.sroa.2.0.copyload, %140 ], [ %.sroa.2.0.copyload, %135 ], [ %.sroa.2.0.copyload, %133 ], [ %.sroa.2.0.copyload, %114 ]
   %.2 = phi ptr [ %.0, %142 ], [ %104, %140 ], [ %104, %135 ], [ %104, %133 ], [ %104, %114 ]
-  %154 = add nsw i32 %.055, -1
-  %.not = icmp eq i32 %154, 0
-  br i1 %.not, label %.critedge64, label %155
+  %151 = add nsw i32 %.055, -1
+  %.not = icmp eq i32 %151, 0
+  br i1 %.not, label %.critedge64, label %152
 
-155:                                              ; preds = %153
-  br i1 %.sroa.06.2, label %86, label %.critedge, !llvm.loop !158
+152:                                              ; preds = %150
+  br i1 %.sroa.7.2, label %86, label %.critedge, !llvm.loop !158
 
-.critedge64:                                      ; preds = %153
+.critedge64:                                      ; preds = %150
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.22)
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %2, i32 noundef 2054)
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2571,7 +2571,7 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
   store double 0x7FF0000000000000, ptr %0, align 8, !tbaa !113
   br label %.critedge63
 
-.critedge:                                        ; preds = %155
+.critedge:                                        ; preds = %152
   br i1 %101, label %.critedge.thread, label %158
 
 .critedge.thread:                                 ; preds = %109, %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit, %102, %105, %.critedge

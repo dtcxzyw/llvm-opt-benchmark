@@ -227519,7 +227519,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5910203451303186E.exit.i: ; 
 .noexc28:                                         ; preds = %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.i.i.i.i.i.i"
   %.pr.i.i.i.i.i.i = load i8, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !22446, !noalias !22432
   %.not.i.i.i.i.i.i.i = icmp eq i8 %.pr.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %208, label %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit._ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread_crit_edge.i.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %207, label %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit._ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread_crit_edge.i.i.i.i.i.i"
 
 "_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit._ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread_crit_edge.i.i.i.i.i.i": ; preds = %.noexc28
   %.pre.i.i.i.i.i.i = load i128, ptr %7, align 16, !alias.scope !22446, !noalias !22432
@@ -227531,25 +227531,25 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5910203451303186E.exit.i: ; 
   %207 = xor i64 %.pre5.i.i.i.i.i.i, %extract.t7.i.i.i.i.i.i
   br label %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread.i.i.i.i.i.i"
 
-208:                                              ; preds = %.noexc28
-  %209 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 16, !alias.scope !22446, !noalias !22432, !noundef !6
+207:                                              ; preds = %.noexc28
+  %208 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 16, !alias.scope !22446, !noalias !22432, !noundef !6
   br label %_ZN9hashbrown3map9make_hash17hc8ed4050a9a1c89fE.exit.i.i.i.i.i
 
 "_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit._ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread_crit_edge.i.i.i.i.i.i", %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread"
-  %210 = phi i64 [ %207, %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit._ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %201, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread" ]
-  %211 = phi i64 [ %.pre4.i.i.i.i.i.i, %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit._ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %.val.i.i.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread" ]
+  %209 = phi i64 [ %207, %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit._ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %201, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread" ]
+  %210 = phi i64 [ %.pre4.i.i.i.i.i.i, %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit._ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %.val.i.i.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread" ]
   %.off0.i.i.i.i.i.i = phi i64 [ %extract.t.i.i.i.i.i.i, %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit._ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %extract.t6.i.i.i.i.i.i, %"_ZN112_$LT$polars_arrow..trusted_len..TrustMyLength$LT$I$C$J$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h398088b62436d6d1E.exit.i.thread" ]
   %212 = xor i64 %.off0.i.i.i.i.i.i, %211
   %213 = zext i64 %212 to i128
-  %214 = zext i64 %210 to i128
+  %214 = zext i64 %209 to i128
   %215 = mul nuw i128 %213, %214
   %216 = lshr i128 %215, 64
   %217 = xor i128 %216, %215
   %218 = trunc i128 %217 to i64
   br label %_ZN9hashbrown3map9make_hash17hc8ed4050a9a1c89fE.exit.i.i.i.i.i
 
-_ZN9hashbrown3map9make_hash17hc8ed4050a9a1c89fE.exit.i.i.i.i.i: ; preds = %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread.i.i.i.i.i.i", %208
-  %.sroa.0.0.i.i.i.i.i.i.i = phi i64 [ %218, %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread.i.i.i.i.i.i" ], [ %209, %208 ]
+_ZN9hashbrown3map9make_hash17hc8ed4050a9a1c89fE.exit.i.i.i.i.i: ; preds = %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread.i.i.i.i.i.i", %207
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i64 [ %218, %"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$polars_utils..total_ord..TotalHash$GT$8tot_hash17h5018d3eab275f9d4E.exit.thread.i.i.i.i.i.i" ], [ %208, %208 ]
   %219 = zext i64 %.sroa.0.0.i.i.i.i.i.i.i to i128
   %220 = mul nuw nsw i128 %219, 2611923443488327891
   %221 = lshr i128 %220, 64

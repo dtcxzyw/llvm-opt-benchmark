@@ -831,13 +831,13 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %_ZNK9grpc_core12exp
   %94 = mul i32 %.036128, 10
   %95 = add nuw nsw i64 %.035129, 1
   %exitcond.not = icmp eq i64 %95, %umax
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %96 = mul i32 %94, %91
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %.preheader, %._crit_edge.loopexit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %.preheader, %._crit_edge, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit
   %.0 = phi i32 [ 0, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %91, %.preheader ], [ %96, %._crit_edge.loopexit ]
   %.sroa.095.0 = phi i64 [ 0, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ %76, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %80, %.preheader ], [ %80, %._crit_edge.loopexit ]
   %.038 = phi i32 [ 1, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ 1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ 1000, %.preheader ], [ 1000, %._crit_edge.loopexit ]

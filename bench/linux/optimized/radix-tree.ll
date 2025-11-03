@@ -912,7 +912,7 @@ define internal fastcc zeroext i1 @delete_node(ptr noundef %0, ptr noundef nonnu
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %29 = load i8, ptr %28, align 2
   %30 = icmp eq i8 %29, 1
-  br i1 %30, label %.lr.ph26, label %._crit_edge11.loopexit.loopexit
+  br i1 %30, label %.lr.ph26, label %._crit_edge11
 
 .lr.ph26:                                         ; preds = %.lr.ph10.preheader, %.lr.ph10
   %31 = phi ptr [ %28, %.lr.ph10 ], [ %23, %.lr.ph10.preheader ]
@@ -921,7 +921,7 @@ define internal fastcc zeroext i1 @delete_node(ptr noundef %0, ptr noundef nonnu
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %35 = load volatile ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %._crit_edge11.loopexit.loopexit, label %37
+  br i1 %36, label %._crit_edge11, label %37
 
 37:                                               ; preds = %.lr.ph26
   %38 = load i8, ptr %32, align 8
@@ -932,7 +932,7 @@ define internal fastcc zeroext i1 @delete_node(ptr noundef %0, ptr noundef nonnu
   %41 = load i32, ptr %4, align 4
   %42 = and i32 %41, 4
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %._crit_edge11.loopexit.loopexit
+  br i1 %43, label %44, label %._crit_edge11
 
 44:                                               ; preds = %40, %37
   %45 = ptrtoint ptr %35 to i64
@@ -992,7 +992,7 @@ define internal fastcc zeroext i1 @delete_node(ptr noundef %0, ptr noundef nonnu
   %72 = ptrtoint ptr %71 to i64
   %73 = and i64 %72, 3
   %74 = icmp eq i64 %73, 2
-  br i1 %74, label %.lr.ph10, label %._crit_edge11.loopexit.loopexit
+  br i1 %74, label %.lr.ph10, label %._crit_edge11
 
 .lr.ph:                                           ; preds = %2, %8
   %75 = phi ptr [ %77, %8 ], [ %1, %2 ]
@@ -1045,9 +1045,9 @@ define internal fastcc zeroext i1 @delete_node(ptr noundef %0, ptr noundef nonnu
   tail call void @call_rcu(ptr noundef nonnull %96, ptr noundef nonnull @radix_tree_node_rcu_free) #13
   br i1 %78, label %.loopexit, label %8, !llvm.loop !51
 
-._crit_edge11.loopexit.loopexit:                  ; preds = %40, %.lr.ph26, %.lr.ph10, %70
-  %.lcssa.ph.ph = phi i8 [ 1, %70 ], [ 1, %.lr.ph10 ], [ %33, %.lr.ph26 ], [ %33, %40 ]
-  %100 = or i8 %.lcssa.ph.ph, %.lcssa7
+._crit_edge11:                                    ; preds = %40, %.lr.ph26, %.lr.ph10, %70
+  %.lcssa = phi i8 [ 1, %70 ], [ 1, %.lr.ph10 ], [ %33, %.lr.ph26 ], [ %33, %40 ]
+  %100 = or i8 %.lcssa, %.lcssa7
   br label %._crit_edge11
 
 ._crit_edge11:                                    ; preds = %.lr.ph10.preheader, %._crit_edge11.loopexit.loopexit, %.preheader

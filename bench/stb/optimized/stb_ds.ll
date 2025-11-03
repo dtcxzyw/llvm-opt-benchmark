@@ -318,13 +318,13 @@ define i64 @stbds_hash_string(ptr noundef readonly captures(none) %0, i64 nounde
   %8 = add i64 %5, %7
   %9 = load i8, ptr %6, align 1, !tbaa !27
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %10 = xor i64 %8, %1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+._crit_edge:; preds = %._crit_edge, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %10, %._crit_edge.loopexit ]
   %11 = xor i64 %.0.lcssa, -1
   %12 = shl i64 %.0.lcssa, 18
@@ -720,7 +720,7 @@ define i64 @stbds_hm_find_slot(ptr noundef readonly captures(none) %0, i64 nound
 
 stbds_hash_string.exit:                           ; preds = %14, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi i64 [ 0, %14 ], [ %22, %._crit_edge.loopexit.i ]
-  %23 = xor i64 %.0.lcssa.i, -1
+  %22 = xor i64 %.0.lcssa.i, -1
   %24 = shl i64 %.0.lcssa.i, 18
   %25 = add i64 %24, %23
   %26 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 33)
@@ -1258,7 +1258,7 @@ define ptr @stbds_hmput_key(ptr noundef captures(address, ret: address, provenan
 
 stbds_hash_string.exit:                           ; preds = %58, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi i64 [ 0, %58 ], [ %66, %._crit_edge.loopexit.i ]
-  %67 = xor i64 %.0.lcssa.i, -1
+  %66 = xor i64 %.0.lcssa.i, -1
   %68 = shl i64 %.0.lcssa.i, 18
   %69 = add i64 %68, %67
   %70 = tail call i64 @llvm.fshl.i64(i64 %69, i64 %69, i64 33)

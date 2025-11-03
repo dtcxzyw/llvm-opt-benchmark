@@ -19737,7 +19737,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
   %90 = xor i8 %89, %.048
   br label %.critedge
 
-91:                                               ; preds = %82, %84
+.critedge:                                        ; preds = %82, %84
   %92 = sext i32 %.247 to i64
   %93 = load i64, ptr %58, align 8, !tbaa !72
   %.not55 = icmp slt i64 %93, %92

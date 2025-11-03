@@ -5414,9 +5414,9 @@ verify_structure.exit.i.i:                        ; preds = %.lr.ph.i41.i.i, %36
   store i64 %374, ptr %113, align 8, !tbaa !37
   %375 = add nuw nsw i64 %.08.i.i.i, 1
   %exitcond.not.i46.i.i = icmp eq i64 %375, %369
-  br i1 %exitcond.not.i46.i.i, label %init_len.exit.i.loopexit.i, label %.lr.ph.i45.i.i, !llvm.loop !61
+  br i1 %exitcond.not.i46.i.i, label %init_len.exit.i.i, label %.lr.ph.i45.i.i, !llvm.loop !61
 
-init_len.exit.i.loopexit.i:                       ; preds = %.lr.ph.i45.i.i
+init_len.exit.i.i:                                ; preds = %.lr.ph.i45.i.i
   %376 = mul i64 %374, %335
   br label %init_len.exit.i.i
 

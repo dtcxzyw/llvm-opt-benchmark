@@ -3147,7 +3147,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.sroa.2.0 = phi i16 [ %2, %if.end ], [ 0, %entry ]
+  %retval.sroa.0.0 = phi i16 [ %2, %if.end ], [ 0, %entry ]
   ret i16 %retval.sroa.2.0
 }
 
@@ -8388,7 +8388,7 @@ if.then:                                          ; preds = %land.rhs.i.i.i, %if
   br label %return
 
 return:                                           ; preds = %while.end.i, %if.end20.i, %if.then
-  %retval.sroa.2.0 = phi i64 [ %18, %if.then ], [ 0, %if.end20.i ], [ 0, %while.end.i ]
+  %retval.sroa.0.0 = phi i64 [ %18, %if.then ], [ 0, %if.end20.i ], [ 0, %while.end.i ]
   ret i64 %retval.sroa.2.0
 }
 

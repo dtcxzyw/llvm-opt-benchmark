@@ -1736,7 +1736,7 @@ entry:
   %cmp.i = icmp ult i32 %0, %1
   %call2 = tail call i64 @_ZN8proxygen16QPACKHeaderTable14maybeDuplicateEjb(ptr noundef nonnull align 8 dereferenceable(104) %add.ptr, i32 noundef %relativeIndex, i1 noundef zeroext %cmp.i)
   %tobool = trunc i64 %call2 to i1
-  br i1 %tobool, label %if.then, label %return
+  br i1 %tobool, label %if.then, label %if.end53
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @_ZZN8proxygen12QPACKEncoder14maybeDuplicateEjE8vlocal__, align 8
@@ -1784,7 +1784,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %sub13.i = sub nsw i64 %5, %conv12.i
   store i64 %sub13.i, ptr %maxEncoderStreamBytes_.i, align 8
   %cmp.i8 = icmp sgt i64 %sub13.i, -1
-  br i1 %cmp.i8, label %return, label %if.then21
+  br i1 %cmp.i8, label %if.end53, label %if.then21
 
 if.then21:                                        ; preds = %cleanup.done
   %6 = load ptr, ptr @_ZZN8proxygen12QPACKEncoder14maybeDuplicateEjE8vlocal___0, align 8
@@ -1823,7 +1823,7 @@ lpad38:                                           ; preds = %invoke.cont39, %con
           cleanup
   br label %eh.resume
 
-return:                                           ; preds = %entry, %cleanup.done, %cleanup.action46, %cond.end29, %cond.true25
+if.end53:                                         ; preds = %entry, %cleanup.done, %cleanup.action46, %cond.end29, %cond.true25
   %retval.sroa.3.sroa.2.0 = phi i64 [ 1, %cond.true25 ], [ 1, %cond.end29 ], [ 1, %cleanup.action46 ], [ %call2, %cleanup.done ], [ %call2, %entry ]
   ret i64 %retval.sroa.3.sroa.2.0
 

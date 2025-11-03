@@ -2692,9 +2692,9 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   %369 = mul i64 %368, %.03371076
   %indvars.iv.next1467 = add nuw nsw i64 %indvars.iv1466, 1
   %exitcond1470.not = icmp eq i64 %indvars.iv.next1467, %wide.trip.count1469
-  br i1 %exitcond1470.not, label %._crit_edge1079.loopexit, label %.lr.ph1078, !llvm.loop !49
+  br i1 %exitcond1470.not, label %._crit_edge1079, label %.lr.ph1078, !llvm.loop !49
 
-._crit_edge1079.loopexit:                         ; preds = %.lr.ph1078
+._crit_edge1079:                                  ; preds = %.lr.ph1078
   %370 = mul i64 %369, %.0344.lcssa
   br label %._crit_edge1079
 

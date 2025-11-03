@@ -35201,14 +35201,14 @@ define noundef zeroext i1 @"_ZN15rustfmt_nightly6config5lists109_$LT$impl$u20$ru
   %or.cond = and i1 %6, %.not.i
   br i1 %or.cond, label %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
-7:                                                ; preds = %5
+8:                                                ; preds = %5
   %lhsc = load i8, ptr %3, align 1
-  %8 = icmp eq i8 %lhsc, 44
+  %9 = icmp eq i8 %lhsc, 44
   %9 = or i1 %0, %8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit": ; preds = %7, %5
-  %.0.shrunk = phi i1 [ %0, %5 ], [ %9, %7 ]
+  %.0.i = phi i1 [ %0, %5 ], [ %9, %7 ]
   ret i1 %.0.shrunk
 }
 

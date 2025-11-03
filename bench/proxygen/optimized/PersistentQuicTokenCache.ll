@@ -3733,8 +3733,8 @@ invoke.cont.i:                                    ; preds = %if.then3
 
 cleanup.i:                                        ; preds = %if.then3, %invoke.cont.i
   %version.sroa.3.sroa.0.0 = phi i64 [ %call3.i, %invoke.cont.i ], [ 0, %if.then3 ]
-  %4 = phi i8 [ %.pre.i, %invoke.cont.i ], [ %3, %if.then3 ]
-  %tobool.i.i.i.i = trunc i8 %4 to i1
+  %version.sroa.0.0 = phi i8 [ %.pre.i, %invoke.cont.i ], [ %3, %if.then3 ]
+  %tobool.i.i.i.i = trunc i8 %version.sroa.0.0 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St5mutexE4loadERNS_16CachePersistenceE.exit
 
 if.then.i.i.i.i:                                  ; preds = %cleanup.i
@@ -3748,52 +3748,52 @@ _ZN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %or.cond, label %invoke.cont10, label %monotonic_fail22.i
 
 invoke.cont10:                                    ; preds = %_ZN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St5mutexE4loadERNS_16CachePersistenceE.exit
-  %5 = load ptr, ptr %persistence_, align 8
+  %6 = load ptr, ptr %persistence_, align 8
   %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %6 = load ptr, ptr %vfn, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %version.sroa.3.sroa.0.0) #24
+  %7 = load ptr, ptr %vfn, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %version.sroa.3.sroa.0.0) #24
   br label %monotonic_fail22.i
 
 monotonic_fail22.i:                               ; preds = %_ZN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St5mutexE4loadERNS_16CachePersistenceE.exit, %invoke.cont10, %if.end
-  %7 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 0, i32 1 release monotonic, align 4
-  %8 = extractvalue { i32, i1 } %7, 1
-  br i1 %8, label %cleanup, label %while.cond.i.preheader
+  %8 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 0, i32 1 release monotonic, align 4
+  %9 = extractvalue { i32, i1 } %8, 1
+  br i1 %9, label %cleanup, label %while.cond.i.preheader
 
 while.cond.i.preheader:                           ; preds = %monotonic_fail22.i
-  %9 = extractvalue { i32, i1 } %7, 0
+  %10 = extractvalue { i32, i1 } %8, 0
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %while.cond.i.preheader
-  %before.addr.0.i = phi i32 [ %9, %while.cond.i.preheader ], [ %before.addr.0.i.be, %while.cond.i.backedge ]
+  %before.addr.0.i = phi i32 [ %10, %while.cond.i.preheader ], [ %before.addr.0.i.be, %while.cond.i.backedge ]
   %cmp.i35 = icmp eq i32 %before.addr.0.i, 0
   br i1 %cmp.i35, label %monotonic_fail22.i90.i, label %if.end3.i
 
 monotonic_fail22.i90.i:                           ; preds = %while.cond.i
-  %10 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 0, i32 1 release monotonic, align 4
-  %11 = extractvalue { i32, i1 } %10, 1
-  %12 = extractvalue { i32, i1 } %10, 0
-  br i1 %11, label %cleanup, label %if.end3.i
+  %11 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 0, i32 1 release monotonic, align 4
+  %12 = extractvalue { i32, i1 } %11, 1
+  %13 = extractvalue { i32, i1 } %11, 0
+  br i1 %12, label %cleanup, label %if.end3.i
 
 if.end3.i:                                        ; preds = %monotonic_fail22.i90.i, %while.cond.i
-  %before.addr.1.i = phi i32 [ %12, %monotonic_fail22.i90.i ], [ %before.addr.0.i, %while.cond.i ]
+  %before.addr.1.i = phi i32 [ %13, %monotonic_fail22.i90.i ], [ %before.addr.0.i, %while.cond.i ]
   %cmp4.i = icmp eq i32 %before.addr.1.i, 1
   br i1 %cmp4.i, label %seqcst.i124.i, label %monotonic_fail22.i.i
 
 seqcst.i124.i:                                    ; preds = %if.end3.i
   fence seq_cst
-  %13 = load atomic i32, ptr %persistenceLoadedSemaphore_ monotonic, align 8
-  %cmp8.i = icmp eq i32 %13, 1
+  %14 = load atomic i32, ptr %persistenceLoadedSemaphore_ monotonic, align 8
+  %cmp8.i = icmp eq i32 %14, 1
   br i1 %cmp8.i, label %cleanup, label %while.cond.i.backedge
 
 monotonic_fail22.i.i:                             ; preds = %if.end3.i
-  %14 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 %before.addr.1.i, i32 1 release monotonic, align 4
-  %15 = extractvalue { i32, i1 } %14, 1
-  %16 = extractvalue { i32, i1 } %14, 0
-  br i1 %15, label %if.then32.i, label %while.cond.i.backedge
+  %15 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 %before.addr.1.i, i32 1 release monotonic, align 4
+  %16 = extractvalue { i32, i1 } %15, 1
+  %17 = extractvalue { i32, i1 } %15, 0
+  br i1 %16, label %if.then32.i, label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %monotonic_fail22.i.i, %seqcst.i124.i
-  %before.addr.0.i.be = phi i32 [ %13, %seqcst.i124.i ], [ %16, %monotonic_fail22.i.i ]
+  %before.addr.0.i.be = phi i32 [ %14, %seqcst.i124.i ], [ %17, %monotonic_fail22.i.i ]
   br label %while.cond.i, !llvm.loop !32
 
 if.then32.i:                                      ; preds = %monotonic_fail22.i.i
@@ -3801,10 +3801,10 @@ if.then32.i:                                      ; preds = %monotonic_fail22.i.
           to label %cleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then32.i
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #27
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #27
   unreachable
 
 cleanup:                                          ; preds = %seqcst.i124.i, %monotonic_fail22.i90.i, %if.then32.i, %monotonic_fail22.i, %invoke.cont
@@ -3812,10 +3812,10 @@ cleanup:                                          ; preds = %seqcst.i124.i, %mon
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i.i
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #27
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #27
   unreachable
 }
 

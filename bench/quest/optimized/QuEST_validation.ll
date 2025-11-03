@@ -3993,11 +3993,11 @@ define void @validateQuregAllocation(ptr noundef captures(none) %0, ptr noundef 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !40
-  %.not25 = icmp eq ptr %11, null
+  %12 = icmp eq ptr %11, null
   br label %12
 
 12:                                               ; preds = %9, %6
-  %.not19 = phi i1 [ true, %6 ], [ %.not25, %9 ]
+  %.not19 = phi i1 [ true, %6 ], [ %12, %9 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = load i32, ptr %13, align 4, !tbaa !41
   %15 = icmp sgt i32 %14, 1

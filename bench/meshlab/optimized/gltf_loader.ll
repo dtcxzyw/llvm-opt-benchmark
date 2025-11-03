@@ -123312,9 +123312,9 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %22, %.noexc, %_ZNKS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %33, %.critedge
-  %.sroa.6.0 = phi i32 [ %38, %.critedge ], [ 1024, %33 ], [ 0, %28 ]
+  %.sroa.024.0 = phi i32 [ %38, %.critedge ], [ 1024, %33 ], [ 0, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #54
-  ret i32 %.sroa.6.0
+  ret i32 %.sroa.024.0
 }
 
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0

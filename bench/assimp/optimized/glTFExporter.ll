@@ -18659,24 +18659,24 @@ _ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit:  ; preds = %90, %.critedge2.i, 
   br i1 %or.cond22.i89, label %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95, label %.lr.ph.i90
 
 .lr.ph.i90:                                       ; preds = %115
-  %123 = sext i32 %113 to i64
-  %124 = getelementptr i8, ptr %3, i64 %123
-  %125 = getelementptr i8, ptr %124, i64 -1
+  %125 = sext i32 %113 to i64
+  %126 = getelementptr i8, ptr %3, i64 %125
+  %127 = getelementptr i8, ptr %126, i64 -1
   br label %126
 
-126:                                              ; preds = %.critedge2.i92, %.lr.ph.i90
+131:                                              ; preds = %.critedge2.i92, %.lr.ph.i90
   %.023.i91 = phi i64 [ %108, %.lr.ph.i90 ], [ %127, %.critedge2.i92 ]
   %127 = add i64 %.023.i91, %11
-  %128 = icmp ult i64 %127, %120
-  br i1 %128, label %.critedge2.i92, label %129
+  %134 = icmp ult i64 %127, %120
+  br i1 %134, label %.critedge2.i92, label %129
 
-129:                                              ; preds = %126
+.critedge2.i92:                                   ; preds = %131
   %130 = sub i64 %120, %.023.i91
   %131 = sub nuw i64 %127, %120
   %132 = icmp ugt i64 %130, %131
   br i1 %132, label %.critedge2.i92, label %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95
 
-.critedge2.i92:                                   ; preds = %129, %126
+.critedge2.i92:; preds = %129, %131
   %133 = load i8, ptr %125, align 1
   %134 = add i8 %133, -1
   store i8 %134, ptr %125, align 1

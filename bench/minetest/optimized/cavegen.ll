@@ -2448,7 +2448,7 @@ cond.end:                                         ; preds = %cond.false, %land.l
   %cond-lvalue = phi ptr [ %waternode, %cond.false ], [ %lavanode, %land.lhs.true ]
   %21 = load i32, ptr %cond-lvalue, align 4, !tbaa.struct !101
   %liquidnode.sroa.0.0.extract.trunc = trunc i32 %21 to i16
-  %22 = and i32 %21, -65536
+  %liquidnode.sroa.7.0.extract.shift = and i32 %21, -65536
   br label %if.end36
 
 if.end36:                                         ; preds = %cond.end, %if.then24, %entry

@@ -10374,7 +10374,7 @@ la_cross_call.exit:                               ; preds = %155, %._crit_edge37
   %162 = getelementptr inbounds nuw i8, ptr %.0217397, i64 32
   %163 = zext nneg i32 %59 to i64
   %wide.trip.count434 = zext nneg i32 %61 to i64
-  %invariant.gep490 = getelementptr inbounds nuw i64, ptr %162, i64 %163
+  %invariant.gep488 = getelementptr inbounds nuw i64, ptr %162, i64 %163
   br label %188
 
 164:                                              ; preds = %.lr.ph375, %186
@@ -10429,8 +10429,8 @@ la_cross_call.exit:                               ; preds = %155, %._crit_edge37
 188:                                              ; preds = %.lr.ph377, %205
   %indvars.iv431 = phi i64 [ 0, %.lr.ph377 ], [ %indvars.iv.next432, %205 ]
   %189 = getelementptr inbounds nuw %struct.TCGCallArgumentLoc, ptr %161, i64 %indvars.iv431
-  %gep491 = getelementptr inbounds nuw i64, ptr %invariant.gep490, i64 %indvars.iv431
-  %190 = load i64, ptr %gep491, align 8
+  %gep489 = getelementptr inbounds nuw i64, ptr %invariant.gep488, i64 %indvars.iv431
+  %190 = load i64, ptr %gep489, align 8
   %191 = inttoptr i64 %190 to ptr
   %192 = load i32, ptr %189, align 4
   %trunc249 = trunc i32 %192 to i8
@@ -11040,8 +11040,8 @@ la_func_end.exit313:                              ; preds = %la_reset_pref.exit1
   br label %output_pref.exit
 
 output_pref.exit:                                 ; preds = %472, %455
-  %.0 = phi i32 [ %464, %455 ], [ %476, %472 ]
-  %.0.fr = freeze i32 %.0
+  %476 = phi i32 [ %464, %455 ], [ %476, %472 ]
+  %.0.fr = freeze i32 %476
   %477 = icmp eq i32 %.0.fr, 0
   br i1 %477, label %output_pref.exit.thread, label %478
 
@@ -11049,8 +11049,8 @@ output_pref.exit.thread:                          ; preds = %467, %output_pref.e
   br label %478
 
 478:                                              ; preds = %output_pref.exit, %output_pref.exit.thread
-  %479 = phi i32 [ %463, %output_pref.exit.thread ], [ %.0.fr, %output_pref.exit ]
-  store i32 %479, ptr %.val273, align 4
+  %.0 = phi i32 [ %463, %output_pref.exit.thread ], [ %.0.fr, %output_pref.exit ]
+  store i32 %.0, ptr %.val273, align 4
   %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452, 1
   %480 = icmp samesign ult i64 %indvars.iv.next453, %454
   br i1 %480, label %455, label %.thread, !llvm.loop !77

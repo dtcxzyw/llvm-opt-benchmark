@@ -15893,13 +15893,13 @@ define internal fastcc void @get_visual_weight(ptr noundef nonnull writeonly cap
 ._crit_edge.us:                                   ; preds = %19
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %27 = icmp samesign ult i64 %indvars.iv.next68, %10
-  br i1 %27, label %.lr.ph.us, label %._crit_edge53.loopexit62, !llvm.loop !544
+  br i1 %27, label %.lr.ph.us, label %._crit_edge53, !llvm.loop !544
 
-._crit_edge53.loopexit62:                         ; preds = %._crit_edge.us
+._crit_edge53:                                    ; preds = %._crit_edge.us
   %28 = mul nsw i32 %22, %22
   br label %._crit_edge53
 
-._crit_edge53:                                    ; preds = %.lr.ph52, %._crit_edge53.loopexit62, %11
+._crit_edge53:; preds = %.lr.ph52, %._crit_edge53.loopexit62, %11
   %.036.lcssa = phi i32 [ 0, %11 ], [ %28, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]
   %.034.lcssa = phi i32 [ 0, %11 ], [ %24, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]
   %.033.lcssa = phi i32 [ 0, %11 ], [ %25, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]

@@ -3278,9 +3278,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1339 = phi i32 [ %1334, %1330 ], [ %1148, %1146 ]
   %1340 = add nuw nsw i64 %1147, 1
   %1341 = icmp eq i64 %1340, %918
-  br i1 %1341, label %.loopexit76.loopexit, label %1146, !llvm.loop !185
+  br i1 %1341, label %.loopexit76, label %1146, !llvm.loop !185
 
-.loopexit76.loopexit:                             ; preds = %1337
+.loopexit76:                                      ; preds = %1337
   %1342 = or i32 %1339, %923
   br label %.loopexit76
 

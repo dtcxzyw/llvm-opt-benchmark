@@ -1490,13 +1490,13 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
   %34 = getelementptr i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.loopexit13.loopexit, label %.preheader12, !llvm.loop !30
+  br i1 %36, label %.loopexit13, label %.preheader12, !llvm.loop !30
 
-.loopexit13.loopexit:                             ; preds = %.preheader12
+.loopexit13:                                      ; preds = %.preheader12
   %37 = or i32 %33, %25
   br label %.loopexit13
 
-.loopexit13:                                      ; preds = %.loopexit13.loopexit, %27, %24
+.loopexit13:; preds = %.loopexit13, %27, %24
   %38 = phi i32 [ %25, %24 ], [ %25, %27 ], [ %37, %.loopexit13.loopexit ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %40 = load ptr, ptr %39, align 8

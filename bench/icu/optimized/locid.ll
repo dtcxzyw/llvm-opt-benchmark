@@ -8915,7 +8915,7 @@ _ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread: ; preds = %187
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !114
 
 .loopexit:                                        ; preds = %191, %.thread187, %.critedge, %19, %13, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %13 ], [ false, %19 ], [ %190, %.thread187 ], [ false, %.critedge ], [ false, %191 ]
+  %.not56204 = phi i1 [ false, %6 ], [ false, %13 ], [ false, %19 ], [ %190, %.thread187 ], [ false, %.critedge ], [ false, %191 ]
   ret i1 %.0
 }
 

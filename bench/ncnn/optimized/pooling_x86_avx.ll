@@ -2076,7 +2076,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge76, %.pr
   %wide.trip.count = zext nneg i32 %82 to i64
   br label %90
 
-._crit_edge.loopexit:                             ; preds = %90
+._crit_edge:                                      ; preds = %90
   %85 = fmul fast <8 x float> %97, %46
   br label %._crit_edge
 
@@ -2103,7 +2103,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge76, %.pr
   %97 = fadd fast <8 x float> %96, %.04072
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %90, !llvm.loop !108
+  br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !108
 
 ._crit_edge82:                                    ; preds = %_ZN4ncnn3MatD2Ev.exit, %.noexc45.lr.ph, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -2900,7 +2900,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge76, %.pr
   %wide.trip.count = zext nneg i32 %82 to i64
   br label %90
 
-._crit_edge.loopexit:                             ; preds = %90
+._crit_edge:                                      ; preds = %90
   %85 = fmul fast <4 x float> %97, %46
   br label %._crit_edge
 
@@ -2927,7 +2927,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge76, %.pr
   %97 = fadd fast <4 x float> %96, %.04072
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %90, !llvm.loop !147
+  br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !147
 
 ._crit_edge82:                                    ; preds = %_ZN4ncnn3MatD2Ev.exit, %.noexc45.lr.ph, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)

@@ -8335,7 +8335,7 @@ define range(i32 -461, 2) i32 @wolfSSL_CTX_load_system_CA_certs(ptr noundef %0) 
   %2 = icmp ne ptr %0, null
   br i1 %2, label %.lr.ph.split.i, label %LoadSystemCaCertsNix.exit.thread
 
-3:                                                ; preds = %.lr.ph.split.i
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !220

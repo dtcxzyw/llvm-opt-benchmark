@@ -49,7 +49,7 @@ _ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exi
   %indvars.iv = phi i64 [ 0, %.lr.ph127.preheader ], [ %indvars.iv.next, %._crit_edge119 ]
   %.062125 = phi i32 [ 0, %.lr.ph127.preheader ], [ %.163.lcssa, %._crit_edge119 ]
   %.064124 = phi i32 [ 0, %.lr.ph127.preheader ], [ %.165.lcssa, %._crit_edge119 ]
-  %.066123 = phi i32 [ %9, %.lr.ph127.preheader ], [ %91, %._crit_edge119 ]
+  %.066123 = phi i32 [ %9, %.lr.ph127.preheader ], [ %90, %._crit_edge119 ]
   %indvars138 = trunc i64 %indvars.iv to i32
   %15 = shl nuw i32 1, %indvars138
   %16 = or i32 %15, %.062125
@@ -74,10 +74,10 @@ _ZN5ZXing6ReduceISt4spanIiLm18446744073709551615EEiSt4plusIiEEET0_RKT_S5_T1_.exi
   %31 = and i32 %.062125, %25
   br label %32
 
-32:                                               ; preds = %.lr.ph118, %88
-  %.060116 = phi i32 [ 1, %.lr.ph118 ], [ %90, %88 ]
+32:                                               ; preds = %.lr.ph118, %87
+  %.060116 = phi i32 [ 1, %.lr.ph118 ], [ %89, %88 ]
   %.163115 = phi i32 [ 1, %.lr.ph118 ], [ %31, %88 ]
-  %.165114 = phi i32 [ %.064124, %.lr.ph118 ], [ %89, %88 ]
+  %.165114 = phi i32 [ %.064124, %.lr.ph118 ], [ %88, %88 ]
   %33 = sub nsw i32 %.066123, %.060116
   %34 = add nsw i32 %33, -1
   %35 = sub nsw i32 %34, %27
@@ -179,92 +179,92 @@ _ZN5ZXing4OneD7DataBarL7combinsEii.exit87:        ; preds = %.lr.ph45.i75, %.pre
 
 63:                                               ; preds = %_ZN5ZXing4OneD7DataBarL7combinsEii.exit87, %_ZN5ZXing4OneD7DataBarL7combinsEii.exit
   %.059 = phi i32 [ %62, %_ZN5ZXing4OneD7DataBarL7combinsEii.exit87 ], [ %.229.lcssa.i, %_ZN5ZXing4OneD7DataBarL7combinsEii.exit ]
-  br i1 %24, label %64, label %85
+  br i1 %24, label %64, label %84
 
 64:                                               ; preds = %63
   %65 = sub nsw i32 %33, %27
   %66 = icmp sgt i32 %65, %2
   br i1 %66, label %.lr.ph, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %_ZN5ZXing4OneD7DataBarL7combinsEii.exit106
-  %67 = mul i32 %82, %.neg
+._crit_edge:                                      ; preds = %_ZN5ZXing4OneD7DataBarL7combinsEii.exit106
+  %67 = mul i32 %81, %.neg
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %64
+._crit_edge:; preds = %._crit_edge, %64
   %.058.lcssa = phi i32 [ 0, %64 ], [ %67, %._crit_edge.loopexit ]
   %68 = add i32 %.058.lcssa, %.059
   br label %88
 
 .lr.ph:                                           ; preds = %64, %_ZN5ZXing4OneD7DataBarL7combinsEii.exit106
-  %.0113 = phi i32 [ %83, %_ZN5ZXing4OneD7DataBarL7combinsEii.exit106 ], [ %65, %64 ]
-  %.058112 = phi i32 [ %82, %_ZN5ZXing4OneD7DataBarL7combinsEii.exit106 ], [ 0, %64 ]
-  %69 = xor i32 %.0113, -1
-  %70 = add i32 %33, %69
-  %71 = sub nsw i32 %70, %30
-  %..i88 = tail call i32 @llvm.smax.i32(i32 %71, i32 range(i32 -2147483648, 2147483646) %30)
-  %.37.i89 = tail call i32 @llvm.smin.i32(i32 %71, i32 range(i32 -2147483648, 2147483646) %30)
-  %72 = icmp sgt i32 %70, %..i88
-  br i1 %72, label %.lr.ph.i99, label %.preheader.i90
+  %.0113 = phi i32 [ %82, %_ZN5ZXing4OneD7DataBarL7combinsEii.exit106 ], [ %65, %64 ]
+  %.058112 = phi i32 [ %81, %_ZN5ZXing4OneD7DataBarL7combinsEii.exit106 ], [ 0, %64 ]
+  %68 = xor i32 %.0113, -1
+  %69 = add i32 %33, %68
+  %70 = sub nsw i32 %69, %30
+  %..i88 = tail call i32 @llvm.smax.i32(i32 %70, i32 range(i32 -2147483648, 2147483646) %30)
+  %.37.i89 = tail call i32 @llvm.smin.i32(i32 %70, i32 range(i32 -2147483648, 2147483646) %30)
+  %71 = icmp sgt i32 %69, %..i88
+  br i1 %71, label %.lr.ph.i99, label %.preheader.i90
 
-.preheader.i90:                                   ; preds = %77, %.lr.ph
+.preheader.i90:                                   ; preds = %76, %.lr.ph
   %.027.lcssa.i91 = phi i32 [ 1, %.lr.ph ], [ %.128.i104, %77 ]
   %.026.lcssa.i92 = phi i32 [ 1, %.lr.ph ], [ %.1.i105, %77 ]
   %.not42.i93 = icmp sgt i32 %.026.lcssa.i92, %.37.i89
   br i1 %.not42.i93, label %_ZN5ZXing4OneD7DataBarL7combinsEii.exit106, label %.lr.ph45.i94
 
-.lr.ph.i99:                                       ; preds = %.lr.ph, %77
-  %.040.i100 = phi i32 [ %78, %77 ], [ %70, %.lr.ph ]
+.lr.ph.i99:                                       ; preds = %.lr.ph, %76
+  %.040.i100 = phi i32 [ %77, %77 ], [ %69, %.lr.ph ]
   %.02639.i101 = phi i32 [ %.1.i105, %77 ], [ 1, %.lr.ph ]
   %.02738.i102 = phi i32 [ %.128.i104, %77 ], [ 1, %.lr.ph ]
-  %73 = mul nsw i32 %.02738.i102, %.040.i100
+  %72 = mul nsw i32 %.02738.i102, %.040.i100
   %.not36.i103 = icmp sgt i32 %.02639.i101, %.37.i89
-  br i1 %.not36.i103, label %77, label %74
+  br i1 %.not36.i103, label %76, label %73
 
-74:                                               ; preds = %.lr.ph.i99
-  %75 = sdiv i32 %73, %.02639.i101
-  %76 = add nsw i32 %.02639.i101, 1
-  br label %77
+73:                                               ; preds = %.lr.ph.i99
+  %74 = sdiv i32 %72, %.02639.i101
+  %75 = add nsw i32 %.02639.i101, 1
+  br label %76
 
-77:                                               ; preds = %74, %.lr.ph.i99
-  %.128.i104 = phi i32 [ %75, %74 ], [ %73, %.lr.ph.i99 ]
-  %.1.i105 = phi i32 [ %76, %74 ], [ %.02639.i101, %.lr.ph.i99 ]
-  %78 = add nsw i32 %.040.i100, -1
-  %79 = icmp sgt i32 %78, %..i88
-  br i1 %79, label %.lr.ph.i99, label %.preheader.i90, !llvm.loop !9
+76:                                               ; preds = %73, %.lr.ph.i99
+  %.128.i104 = phi i32 [ %74, %74 ], [ %72, %.lr.ph.i99 ]
+  %.1.i105 = phi i32 [ %75, %74 ], [ %.02639.i101, %.lr.ph.i99 ]
+  %77 = add nsw i32 %.040.i100, -1
+  %78 = icmp sgt i32 %77, %..i88
+  br i1 %78, label %.lr.ph.i99, label %.preheader.i90, !llvm.loop !9
 
 .lr.ph45.i94:                                     ; preds = %.preheader.i90, %.lr.ph45.i94
-  %.244.i95 = phi i32 [ %81, %.lr.ph45.i94 ], [ %.026.lcssa.i92, %.preheader.i90 ]
-  %.22943.i96 = phi i32 [ %80, %.lr.ph45.i94 ], [ %.027.lcssa.i91, %.preheader.i90 ]
-  %80 = sdiv i32 %.22943.i96, %.244.i95
-  %81 = add i32 %.244.i95, 1
+  %.244.i95 = phi i32 [ %80, %.lr.ph45.i94 ], [ %.026.lcssa.i92, %.preheader.i90 ]
+  %.22943.i96 = phi i32 [ %79, %.lr.ph45.i94 ], [ %.027.lcssa.i91, %.preheader.i90 ]
+  %79 = sdiv i32 %.22943.i96, %.244.i95
+  %80 = add i32 %.244.i95, 1
   %exitcond.not.i97 = icmp eq i32 %.244.i95, %.37.i89
   br i1 %exitcond.not.i97, label %_ZN5ZXing4OneD7DataBarL7combinsEii.exit106, label %.lr.ph45.i94, !llvm.loop !10
 
 _ZN5ZXing4OneD7DataBarL7combinsEii.exit106:       ; preds = %.lr.ph45.i94, %.preheader.i90
-  %.229.lcssa.i98 = phi i32 [ %.027.lcssa.i91, %.preheader.i90 ], [ %80, %.lr.ph45.i94 ]
-  %82 = add nsw i32 %.229.lcssa.i98, %.058112
-  %83 = add nsw i32 %.0113, -1
-  %84 = icmp sgt i32 %83, %2
-  br i1 %84, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
+  %.229.lcssa.i98 = phi i32 [ %.027.lcssa.i91, %.preheader.i90 ], [ %79, %.lr.ph45.i94 ]
+  %81 = add nsw i32 %.229.lcssa.i98, %.058112
+  %82 = add nsw i32 %.0113, -1
+  %83 = icmp sgt i32 %82, %2
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-85:                                               ; preds = %63
-  %86 = icmp sgt i32 %33, %2
-  %87 = sext i1 %86 to i32
-  %spec.select = add nsw i32 %.059, %87
-  br label %88
+84:                                               ; preds = %63
+  %85 = icmp sgt i32 %33, %2
+  %86 = sext i1 %85 to i32
+  %spec.select = add nsw i32 %.059, %86
+  br label %87
 
-88:                                               ; preds = %85, %._crit_edge
+87:                                               ; preds = %84, %._crit_edge
   %.1 = phi i32 [ %68, %._crit_edge ], [ %spec.select, %85 ]
-  %89 = add nsw i32 %.1, %.165114
-  %90 = add nuw nsw i32 %.060116, 1
-  %exitcond.not = icmp eq i32 %90, %18
+  %88 = add nsw i32 %.1, %.165114
+  %89 = add nuw nsw i32 %.060116, 1
+  %exitcond.not = icmp eq i32 %89, %18
   br i1 %exitcond.not, label %._crit_edge119, label %32, !llvm.loop !12
 
-._crit_edge119:                                   ; preds = %88, %.lr.ph127
-  %.165.lcssa = phi i32 [ %.064124, %.lr.ph127 ], [ %89, %88 ]
+._crit_edge119:                                   ; preds = %87, %.lr.ph127
+  %.165.lcssa = phi i32 [ %.064124, %.lr.ph127 ], [ %88, %88 ]
   %.163.lcssa = phi i32 [ %16, %.lr.ph127 ], [ %31, %88 ]
   %.060.lcssa = phi i32 [ 1, %.lr.ph127 ], [ %18, %88 ]
-  %91 = sub nsw i32 %.066123, %.060.lcssa
+  %90 = sub nsw i32 %.066123, %.060.lcssa
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond139.not, label %._crit_edge128, label %.lr.ph127, !llvm.loop !13

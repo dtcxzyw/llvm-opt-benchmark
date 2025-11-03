@@ -101,9 +101,9 @@ _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIc
   %15 = add i64 %12, %14
   %16 = getelementptr inbounds nuw i8, ptr %.09.i9, i64 1
   %.not.i11 = icmp eq ptr %16, %11
-  br i1 %.not.i11, label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit, label %.lr.ph.i8, !llvm.loop !11
+  br i1 %.not.i11, label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13, label %.lr.ph.i8, !llvm.loop !11
 
-_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit: ; preds = %.lr.ph.i8
+_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13: ; preds = %.lr.ph.i8
   %17 = xor i64 %15, %.06.lcssa.i
   br label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13
 
@@ -2423,7 +2423,7 @@ _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIc
   %44 = add i64 %41, %43
   %45 = getelementptr inbounds nuw i8, ptr %.09.i9.i.i, i64 1
   %.not.i11.i.i = icmp eq ptr %45, %40
-  br i1 %.not.i11.i.i, label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i, label %.lr.ph.i8.i.i, !llvm.loop !11
+  br i1 %.not.i11.i.i, label %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit, label %.lr.ph.i8.i.i, !llvm.loop !11
 
 _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i: ; preds = %.lr.ph.i8.i.i
   %46 = xor i64 %44, %.06.lcssa.i.i.i
@@ -2685,9 +2685,9 @@ _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIc
   %44 = add i64 %41, %43
   %45 = getelementptr inbounds nuw i8, ptr %.09.i9.i.i, i64 1
   %.not.i11.i.i = icmp eq ptr %45, %40
-  br i1 %.not.i11.i.i, label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i, label %.lr.ph.i8.i.i, !llvm.loop !11
+  br i1 %.not.i11.i.i, label %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit, label %.lr.ph.i8.i.i, !llvm.loop !11
 
-_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i: ; preds = %.lr.ph.i8.i.i
+_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit: ; preds = %.lr.ph.i8.i.i
   %46 = xor i64 %44, %.06.lcssa.i.i.i
   br label %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit
 
@@ -3084,7 +3084,7 @@ _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIc
   %45 = add i64 %42, %44
   %46 = getelementptr inbounds nuw i8, ptr %.09.i9.i.i, i64 1
   %.not.i11.i.i = icmp eq ptr %46, %41
-  br i1 %.not.i11.i.i, label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i, label %.lr.ph.i8.i.i, !llvm.loop !11
+  br i1 %.not.i11.i.i, label %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit, label %.lr.ph.i8.i.i, !llvm.loop !11
 
 _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i: ; preds = %.lr.ph.i8.i.i
   %47 = xor i64 %45, %.06.lcssa.i.i.i

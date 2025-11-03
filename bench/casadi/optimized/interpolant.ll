@@ -5010,15 +5010,15 @@ define noundef i64 @_ZNK6casadi11Interpolant10coeff_sizeEv(ptr noundef nonnull r
   br label %_ZN6casadi11Interpolant10coeff_sizeERKSt6vectorIxSaIxEEx.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %14 = phi i64 [ %17, %.lr.ph.i ], [ %.pre.i, %.lr.ph.preheader.i ]
-  %.011.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0910.i = phi i64 [ %19, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
-  %15 = add nuw nsw i64 %.011.i, 1
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
-  %17 = load i64, ptr %16, align 8, !tbaa !60
-  %18 = sub nsw i64 %17, %14
-  %19 = mul nsw i64 %18, %.0910.i
-  %exitcond.not.i = icmp eq i64 %15, %12
+  %13 = phi i64 [ %16, %.lr.ph.i ], [ %.pre.i, %.lr.ph.preheader.i ]
+  %.011.i = phi i64 [ %14, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.0910.i = phi i64 [ %18, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
+  %14 = add nuw nsw i64 %.011.i, 1
+  %15 = getelementptr inbounds nuw i64, ptr %7, i64 %14
+  %16 = load i64, ptr %15, align 8, !tbaa !60
+  %17 = sub nsw i64 %16, %13
+  %18 = mul nsw i64 %17, %.0910.i
+  %exitcond.not.i = icmp eq i64 %14, %12
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !163
 
 _ZN6casadi11Interpolant10coeff_sizeERKSt6vectorIxSaIxEEx.exit: ; preds = %1, %._crit_edge.loopexit.i
@@ -5043,7 +5043,7 @@ define noundef i64 @_ZN6casadi11Interpolant10coeff_sizeERKSt6vectorIxSaIxEEx(ptr
   %.pre = load i64, ptr %5, align 8, !tbaa !60
   br label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %11 = mul nsw i64 %17, %1
   br label %._crit_edge
 
@@ -5061,7 +5061,7 @@ define noundef i64 @_ZN6casadi11Interpolant10coeff_sizeERKSt6vectorIxSaIxEEx(ptr
   %16 = sub nsw i64 %15, %12
   %17 = mul nsw i64 %16, %.0910
   %exitcond.not = icmp eq i64 %13, %10
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !163
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7567,15 +7567,15 @@ _ZNK6casadi11Interpolant10arg_valuesEx.exit:      ; preds = %20
   br label %_ZNK6casadi11Interpolant10coeff_sizeEv.exit
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %41 = phi i64 [ %44, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
-  %.011.i.i = phi i64 [ %42, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %.0910.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ 1, %.lr.ph.preheader.i.i ]
-  %42 = add nuw nsw i64 %.011.i.i, 1
-  %43 = getelementptr inbounds nuw i64, ptr %34, i64 %42
-  %44 = load i64, ptr %43, align 8, !tbaa !60
-  %45 = sub nsw i64 %44, %41
-  %46 = mul nsw i64 %45, %.0910.i.i
-  %exitcond.not.i.i = icmp eq i64 %42, %39
+  %40 = phi i64 [ %43, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
+  %.011.i.i = phi i64 [ %41, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.0910.i.i = phi i64 [ %45, %.lr.ph.i.i ], [ 1, %.lr.ph.preheader.i.i ]
+  %41 = add nuw nsw i64 %.011.i.i, 1
+  %42 = getelementptr inbounds nuw i64, ptr %34, i64 %41
+  %43 = load i64, ptr %42, align 8, !tbaa !60
+  %44 = sub nsw i64 %43, %40
+  %45 = mul nsw i64 %44, %.0910.i.i
+  %exitcond.not.i.i = icmp eq i64 %41, %39
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !163
 
 _ZNK6casadi11Interpolant10coeff_sizeEv.exit:      ; preds = %28, %._crit_edge.loopexit.i.i

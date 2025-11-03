@@ -3424,7 +3424,7 @@ get_bit.exit102.i:                                ; preds = %get_bit.exit100.i
   br label %get_bit.exit104.i
 
 get_bit.exit104.i:                                ; preds = %362, %get_bit.exit102.i
-  %369 = phi i8 [ %368, %362 ], [ %.0.i99.i, %get_bit.exit102.i ]
+  %368 = phi i8 [ %368, %362 ], [ %.0.i99.i, %get_bit.exit102.i ]
   br i1 %331, label %get_bit.exit106.i, label %370
 
 370:                                              ; preds = %get_bit.exit104.i

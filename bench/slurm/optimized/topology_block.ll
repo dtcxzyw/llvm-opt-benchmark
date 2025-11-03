@@ -1029,14 +1029,14 @@ define dso_local i32 @topology_p_get_fragmentation(ptr noundef %0) local_unnamed
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph41, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %.loopexit
+.._crit_edge_crit_edge:                           ; preds = %.loopexit
   %5 = mul i32 %.3, %17
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %1, %._crit_edge.loopexit
-  %.027.lcssa = phi i32 [ %5, %._crit_edge.loopexit ], [ 0, %1 ]
+._crit_edge:                                      ; preds = %1, %.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %5, %._crit_edge.loopexit ], [ 0, %1 ]
   %6 = load i32, ptr @blocks_nodes_cnt, align 4
-  %7 = add i32 %.027.lcssa, %6
+  %7 = add i32 %.pre-phi, %6
   %8 = load ptr, ptr @blocks_nodes_bitmap, align 8
   %9 = tail call i32 @slurm_bit_overlap(ptr noundef %0, ptr noundef %8) #9
   %10 = sub i32 %7, %9

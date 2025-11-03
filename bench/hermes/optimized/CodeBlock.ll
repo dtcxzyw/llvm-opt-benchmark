@@ -429,7 +429,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %return
 
 return:                                           ; preds = %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit", %lor.lhs.false, %if.else
-  %retval.sroa.3.0 = phi i64 [ %6, %if.else ], [ 0, %lor.lhs.false ], [ 0, %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit" ]
+  %retval.sroa.0.0 = phi i64 [ %6, %if.else ], [ 0, %lor.lhs.false ], [ 0, %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit" ]
   ret i64 %retval.sroa.3.0
 }
 

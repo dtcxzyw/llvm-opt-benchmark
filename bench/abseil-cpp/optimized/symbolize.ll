@@ -594,7 +594,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %50 = tail call ptr @__errno_location() #25
   %51 = load i32, ptr %50, align 4, !tbaa !10
   %52 = icmp eq i32 %51, 4
-  br i1 %52, label %..lr.ph.split.us.i_crit_edge.i45, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, !llvm.loop !12
+  br i1 %52, label %..lr.ph.split.us.i_crit_edge.i45, label %.thread, !llvm.loop !12
 
 ..lr.ph.split.us.i_crit_edge.i45:                 ; preds = %49
   br label %.lr.ph.split.us.i.i36, !llvm.loop !12
@@ -671,7 +671,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %77 = tail call ptr @__errno_location() #25
   %78 = load i32, ptr %77, align 4, !tbaa !10
   %79 = icmp eq i32 %78, 4
-  br i1 %79, label %..lr.ph.split.us.i_crit_edge.i65, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, !llvm.loop !12
+  br i1 %79, label %..lr.ph.split.us.i_crit_edge.i65, label %.thread, !llvm.loop !12
 
 ..lr.ph.split.us.i_crit_edge.i65:                 ; preds = %76
   br label %.lr.ph.split.us.i.i56, !llvm.loop !12
@@ -736,7 +736,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %100 = tail call ptr @__errno_location() #25
   %101 = load i32, ptr %100, align 4, !tbaa !10
   %102 = icmp eq i32 %101, 4
-  br i1 %102, label %.lr.ph.split.us.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, !llvm.loop !12
+  br i1 %102, label %.lr.ph.split.us.i, label %.thread, !llvm.loop !12
 
 .lr.ph.split.us.i:                                ; preds = %99, %97
   %.sroa.37.19 = phi i64 [ 0, %99 ], [ %98, %97 ]
@@ -785,12 +785,12 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread, label %66, !llvm.loop !28
 
-_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split: ; preds = %49, %76, %99
-  %.lcssa188.sink = phi i32 [ %101, %99 ], [ %78, %76 ], [ %51, %49 ]
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %.lcssa188.sink)
+_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split:; preds = %49, %76, %99
+  %.not28142 = phi i32 [ %101, %99 ], [ %78, %76 ], [ %51, %49 ]
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 532, ptr noundef nonnull @.str.5, i32 noundef %.not28142)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread
 
-_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread: ; preds = %45, %113, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, %115, %72, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, %.preheader
+_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread: ; preds = %45, %113, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, %115, %72, %.thread, %.preheader
   %.2 = phi i1 [ false, %.preheader ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split ], [ false, %72 ], [ false, %115 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ true, %113 ], [ false, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread

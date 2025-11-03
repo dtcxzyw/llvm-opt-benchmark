@@ -6428,9 +6428,9 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE8generateImEET_S5_Pmm.exi
   %1253 = mul i64 %.0910.i1390, %.0910.i1390
   %1254 = lshr i32 %.0811.i1389, 1
   %.not13.i1393 = icmp samesign ult i32 %.0811.i1389, 2
-  br i1 %.not13.i1393, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394.loopexit, label %.lr.ph.i1387, !llvm.loop !46
+  br i1 %.not13.i1393, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394, label %.lr.ph.i1387, !llvm.loop !46
 
-_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394.loopexit: ; preds = %.lr.ph.i1387
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394: ; preds = %.lr.ph.i1387
   %1255 = mul i64 %spec.select.i1392, %1248
   br label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394
 
@@ -6933,9 +6933,9 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   %1495 = mul i64 %.0910.i1439, %.0910.i1439
   %1496 = lshr i32 %.0811.i1438, 1
   %.not13.i1442 = icmp samesign ult i32 %.0811.i1438, 2
-  br i1 %.not13.i1442, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443.loopexit, label %.lr.ph.i1436, !llvm.loop !46
+  br i1 %.not13.i1442, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443, label %.lr.ph.i1436, !llvm.loop !46
 
-_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443.loopexit: ; preds = %.lr.ph.i1436
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443: ; preds = %.lr.ph.i1436
   %1497 = mul i64 %spec.select.i1441, %1489
   br label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443
 

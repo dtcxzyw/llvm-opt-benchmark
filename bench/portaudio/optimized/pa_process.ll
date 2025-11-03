@@ -2335,9 +2335,9 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyInput(ptr noundef %0, ptr nounde
   %35 = load i32, ptr %12, align 8, !tbaa !14
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %21, label %._crit_edge.loopexit, !llvm.loop !89
+  br i1 %37, label %21, label %._crit_edge, !llvm.loop !89
 
-._crit_edge.loopexit:                             ; preds = %21
+._crit_edge:                                      ; preds = %21
   %38 = mul i32 %35, %8
   br label %._crit_edge
 
@@ -2347,7 +2347,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyInput(ptr noundef %0, ptr nounde
   %40 = load i32, ptr %14, align 8, !tbaa !26
   %41 = mul i32 %.lcssa, %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %42
   store ptr %43, ptr %1, align 8, !tbaa !63
   br label %.loopexit
 
@@ -2453,19 +2453,19 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyOutput(ptr noundef %0, ptr nound
   %35 = load i32, ptr %12, align 8, !tbaa !15
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %21, label %._crit_edge.loopexit, !llvm.loop !91
+  br i1 %37, label %21, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge.loopexit:                             ; preds = %21
   %38 = mul i32 %35, %8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
+._crit_edge:                                      ; preds = %._crit_edge, %11
   %.lcssa = phi i32 [ 0, %11 ], [ %38, %._crit_edge.loopexit ]
-  %39 = load ptr, ptr %1, align 8, !tbaa !63
+  %38 = load ptr, ptr %1, align 8, !tbaa !63
   %40 = load i32, ptr %14, align 8, !tbaa !37
   %41 = mul i32 %.lcssa, %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %42
   store ptr %43, ptr %1, align 8, !tbaa !63
   br label %.loopexit
 

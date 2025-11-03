@@ -30928,21 +30928,21 @@ cleanup.sink.split:                               ; preds = %invoke.cont16, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end, %invoke.cont16, %invoke.cont6
-  %retval.sroa.3.0 = phi i16 [ 0, %invoke.cont6 ], [ 0, %invoke.cont16 ], [ 0, %if.end ], [ %7, %cleanup.sink.split ]
+  %retval.sroa.0.0 = phi i16 [ 0, %invoke.cont6 ], [ 0, %invoke.cont16 ], [ 0, %if.end ], [ %7, %cleanup.sink.split ]
   %8 = load i8, ptr %_M_owns.i2.i.i.i, align 8
   %tobool.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %_ZN5folly9LockedPtrIKNS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSB_22SynchronizedMutexLevelE2ELNSB_23SynchronizedMutexMethodE0EEEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %cleanup
-  %9 = load ptr, ptr %rlockedAsciiComputedRows, align 8
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %8 = load ptr, ptr %rlockedAsciiComputedRows, align 8
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %_ZN5folly9LockedPtrIKNS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSB_22SynchronizedMutexLevelE2ELNSB_23SynchronizedMutexMethodE0EEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #35
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #35
   unreachable
 
 _ZN5folly9LockedPtrIKNS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSB_22SynchronizedMutexLevelE2ELNSB_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %cleanup, %if.then.i.i

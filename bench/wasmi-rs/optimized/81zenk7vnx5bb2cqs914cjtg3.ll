@@ -193,7 +193,7 @@ define { i32, i32 } @_ZN8wasmi_ir9primitive19ComparatorAndOffset8from_u6417h3191
   %2 = trunc i64 %0 to i32
   %3 = icmp ult i64 %0, 154618822656
   %.sroa.3937.0.i = select i1 %3, i64 %switch.idx.mult.i, i64 513
-  %4 = trunc i64 %.sroa.3937.0.i to i1
+  %5 = trunc i64 %.sroa.3937.0.i to i1
   %.sroa.5.0.extract.shift = lshr i64 %.sroa.3937.0.i, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %.sroa.02.0 = select i1 %4, i32 36, i32 %.sroa.5.0.extract.trunc

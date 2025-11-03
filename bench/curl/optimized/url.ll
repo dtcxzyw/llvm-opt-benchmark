@@ -4932,15 +4932,15 @@ xfer_may_multiplex.exit:                          ; preds = %22, %26
   %36 = or disjoint i8 %35, %.0.i
   br label %37
 
-37:                                               ; preds = %30, %xfer_may_multiplex.exit
+45:                                               ; preds = %30, %xfer_may_multiplex.exit
   %38 = phi i8 [ %.0.i, %xfer_may_multiplex.exit ], [ %36, %30 ]
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 952
-  %40 = load i64, ptr %39, align 8
-  %41 = and i64 %40, 4
-  %.not16 = icmp eq i64 %41, 0
-  br i1 %.not16, label %52, label %42
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 952
+  %48 = load i64, ptr %47, align 8
+  %49 = and i64 %48, 4
+  %.not18 = icmp eq i64 %49, 0
+  br i1 %.not18, label %52, label %42
 
-42:                                               ; preds = %37
+51:                                               ; preds = %45
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   %44 = load i64, ptr %43, align 8, !tbaa !292
   %45 = and i64 %44, 8
@@ -4973,8 +4973,8 @@ xfer_may_multiplex.exit:                          ; preds = %22, %26
   %64 = lshr i8 %63, 4
   %.lobit = and i8 %64, 1
   store i8 %.lobit, ptr %3, align 1, !tbaa !203
-  %65 = lshr i8 %63, 3
-  %.lobit19 = and i8 %65, 1
+  %64 = lshr i8 %63, 3
+  %.lobit19 = and i8 %64, 1
   store i8 %.lobit19, ptr %4, align 1, !tbaa !203
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %61

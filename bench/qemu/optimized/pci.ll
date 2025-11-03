@@ -610,7 +610,7 @@ define dso_local i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef %1, i32 n
   %29 = add i64 %28, %10
   %30 = call i64 @pread64(i32 noundef %26, ptr noundef nonnull %6, i64 noundef %12, i64 noundef %29) #26
   %.not27 = icmp eq i64 %30, %12
-  br i1 %.not27, label %..thread_crit_edge, label %32
+  br i1 %.not27, label %..thread_crit_edge, label %31
 
 ..thread_crit_edge:                               ; preds = %24
   %.pre29 = load i32, ptr %5, align 4
@@ -619,18 +619,18 @@ define dso_local i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef %1, i32 n
   %31 = and i32 %.pre30, %.pre31
   br label %.thread
 
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 2824
-  %34 = load ptr, ptr %33, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.vfio_pci_read_config, ptr noundef %34, i32 noundef %1, i32 noundef %2) #26
-  %35 = tail call ptr @__errno_location() #27
-  %36 = load i32, ptr %35, align 4
-  %37 = sub i32 0, %36
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 2824
+  %33 = load ptr, ptr %32, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.vfio_pci_read_config, ptr noundef %33, i32 noundef %1, i32 noundef %2) #26
+  %34 = tail call ptr @__errno_location() #27
+  %35 = load i32, ptr %34, align 4
+  %36 = sub i32 0, %35
   br label %trace_vfio_pci_read_config.exit
 
 .thread:                                          ; preds = %..thread_crit_edge, %17
-  %38 = phi i32 [ %31, %..thread_crit_edge ], [ 0, %17 ]
-  %39 = phi i32 [ %.pre29, %..thread_crit_edge ], [ %18, %17 ]
+  %.pre-phi = phi i32 [ %31, %..thread_crit_edge ], [ 0, %17 ]
+  %37 = phi i32 [ %.pre29, %..thread_crit_edge ], [ %18, %17 ]
   %40 = and i32 %39, %.025
   %41 = or i32 %38, %40
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 2824
@@ -671,8 +671,8 @@ define dso_local i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef %1, i32 n
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %43, i32 noundef %1, i32 noundef %2, i32 noundef %41) #26
   br label %trace_vfio_pci_read_config.exit
 
-trace_vfio_pci_read_config.exit:                  ; preds = %59, %53, %47, %45, %.thread, %32
-  %.1 = phi i32 [ %37, %32 ], [ %41, %.thread ], [ %41, %45 ], [ %41, %47 ], [ %41, %53 ], [ %41, %59 ]
+trace_vfio_pci_read_config.exit:                  ; preds = %59, %53, %47, %45, %.thread, %31
+  %.1 = phi i32 [ %36, %32 ], [ %41, %.thread ], [ %41, %45 ], [ %41, %47 ], [ %41, %53 ], [ %41, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1

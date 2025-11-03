@@ -5469,7 +5469,7 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   %or.cond.i194 = select i1 %130, i1 true, i1 %133
   br i1 %or.cond.i194, label %.thread, label %134
 
-134:                                              ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit193
+134:; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit193
   %135 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %136 = load i8, ptr %135, align 1
   %137 = trunc i8 %136 to i1

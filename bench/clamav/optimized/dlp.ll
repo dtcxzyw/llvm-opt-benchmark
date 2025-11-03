@@ -847,16 +847,16 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
   %47 = sub i64 %.neg.i, %46
   %48 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02432.us.i7, i64 noundef %47, i32 noundef 1)
   %.not29.us.i11 = icmp eq i32 %48, 0
-  br i1 %.not29.us.i11, label %49, label %contains_ssn.exit12
+  br i1 %.not29.us.i11, label %49, label %contains_ssn.exit12.loopexit
 
 49:                                               ; preds = %45, %38, %.lr.ph.split.us.i6
   %50 = getelementptr inbounds nuw i8, ptr %.02432.us.i7, i64 1
   %51 = icmp ult ptr %50, %5
-  br i1 %51, label %.lr.ph.split.us.i6, label %contains_ssn.exit12
+  br i1 %51, label %.lr.ph.split.us.i6, label %contains_ssn.exit12.loopexit
 
-contains_ssn.exit12:                              ; preds = %45, %49, %2
-  %.023.i14 = phi i32 [ 0, %2 ], [ %.023.i, %49 ], [ 1, %45 ]
-  ret i32 %.023.i14
+contains_ssn.exit12.loopexit:                     ; preds = %45, %49, %2
+  %.023.i10.ph = phi i32 [ 0, %2 ], [ %.023.i, %49 ], [ 1, %45 ]
+  ret i32 %.023.i10.ph
 }
 
 ; Function Attrs: nounwind uwtable

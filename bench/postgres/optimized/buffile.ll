@@ -249,7 +249,7 @@ define dso_local void @BufFileDeleteFileSet(ptr noundef %0, ptr noundef %1, i1 n
   br i1 %12, label %.lr.ph, label %.critedge
 
 ._crit_edge:                                      ; preds = %3
-  br i1 %2, label %.critedge, label %13
+  br i1 %2, label %16, label %13
 
 13:                                               ; preds = %._crit_edge
   %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -257,7 +257,7 @@ define dso_local void @BufFileDeleteFileSet(ptr noundef %0, ptr noundef %1, i1 n
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__func__.BufFileDeleteFileSet) #9
   unreachable
 
-.critedge:                                        ; preds = %10, %._crit_edge
+16:                                               ; preds = %10, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

@@ -12657,14 +12657,14 @@ define dso_local noundef range(i32 -22, 1) i32 @cgroup_parse_float(ptr noundef r
   %48 = add i32 %47, -1
   %49 = mul i64 %46, 10
   %50 = icmp eq i32 %48, 0
-  br i1 %50, label %.loopexit.loopexit, label %.preheader, !llvm.loop !314
+  br i1 %50, label %.loopexit, label %.preheader, !llvm.loop !314
 
-.loopexit.loopexit:                               ; preds = %.preheader
+.loopexit:                                        ; preds = %.preheader
   %51 = mul i64 %49, %44
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit18
-  %52 = phi i64 [ %41, %.loopexit18 ], [ %45, %.loopexit.loopexit ]
+56:                                               ; preds = %56, %.loopexit18
+  %57 = phi i64 [ %41, %.loopexit18 ], [ %45, %.loopexit.loopexit ]
   %53 = phi i64 [ %42, %.loopexit18 ], [ %51, %.loopexit.loopexit ]
   %54 = add i64 %53, %52
   store i64 %54, ptr %2, align 8

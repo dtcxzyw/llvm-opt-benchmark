@@ -2389,7 +2389,7 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %2
 16:                                               ; preds = %_ZN6icu_7715MeasureUnitImplC2Ev.exit
   %17 = load i32, ptr %1, align 4, !tbaa !13
   %18 = icmp slt i32 %17, 1
-  br i1 %18, label %21, label %29
+  br i1 %18, label %21, label %30
 
 19:                                               ; preds = %_ZN6icu_7715MeasureUnitImplC2Ev.exit
   %20 = landingpad { ptr, i32 }
@@ -2402,7 +2402,7 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !28
   switch i32 %23, label %28 [
-    i32 0, label %29
+    i32 0, label %30
     i32 1, label %24
   ]
 
@@ -2415,57 +2415,57 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %2
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
   br label %29
 
-28:                                               ; preds = %21
+29:                                               ; preds = %21
   store i32 1, ptr %1, align 4, !tbaa !13
-  br label %29
+  br label %30
 
-29:                                               ; preds = %21, %16, %28, %24
+30:                                               ; preds = %21, %16, %29, %24
   %.sroa.8.0 = phi i32 [ %.sroa.8.0.copyload, %24 ], [ 1, %28 ], [ 1, %16 ], [ 1, %21 ]
-  %.sroa.08.sroa.5.0 = phi i64 [ %.sroa.08.0.copyload, %24 ], [ 133143986175, %28 ], [ 133143986175, %16 ], [ 133143986175, %21 ]
+  %.sroa.08.sroa.0.0 = phi i64 [ %.sroa.08.0.copyload, %24 ], [ 133143986175, %28 ], [ 133143986175, %16 ], [ 133143986175, %21 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #18
-  %30 = load i32, ptr %4, align 8, !tbaa !28
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %31 = load i32, ptr %4, align 8, !tbaa !28
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %44, %29
-  %32 = load i8, ptr %8, align 4, !tbaa !45
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %_ZN6icu_7715MeasureUnitImplD2Ev.exit, label %33
+._crit_edge.i.i:                                  ; preds = %45, %30
+  %33 = load i8, ptr %8, align 4, !tbaa !45
+  %.not.i.i.i.i = icmp eq i8 %33, 0
+  br i1 %.not.i.i.i.i, label %_ZN6icu_7715MeasureUnitImplD2Ev.exit, label %34
 
-33:                                               ; preds = %._crit_edge.i.i
-  %34 = load ptr, ptr %5, align 8, !tbaa !33
-  invoke void @uprv_free_77(ptr noundef %34)
-          to label %_ZN6icu_7715MeasureUnitImplD2Ev.exit unwind label %35
+34:                                               ; preds = %._crit_edge.i.i
+  %35 = load ptr, ptr %5, align 8, !tbaa !33
+  invoke void @uprv_free_77(ptr noundef %35)
+          to label %_ZN6icu_7715MeasureUnitImplD2Ev.exit unwind label %36
 
-35:                                               ; preds = %33
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %34
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #20
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #20
   unreachable
 
-.lr.ph.i.i:                                       ; preds = %29, %44
-  %38 = phi i32 [ %45, %44 ], [ %30, %29 ]
+.lr.ph.i.i:                                       ; preds = %30, %45
+  %39 = phi i32 [ %46, %44 ], [ %31, %29 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %44 ], [ 0, %29 ]
-  %39 = load ptr, ptr %5, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i.i
-  %41 = load ptr, ptr %40, align 8, !tbaa !34
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %44, label %43
+  %40 = load ptr, ptr %5, align 8, !tbaa !33
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i.i
+  %42 = load ptr, ptr %41, align 8, !tbaa !34
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %45, label %44
 
-43:                                               ; preds = %.lr.ph.i.i
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %41) #18
+44:                                               ; preds = %.lr.ph.i.i
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %42) #18
   %.pre.i.i = load i32, ptr %4, align 8, !tbaa !28
-  br label %44
+  br label %45
 
-44:                                               ; preds = %43, %.lr.ph.i.i
-  %45 = phi i32 [ %38, %.lr.ph.i.i ], [ %.pre.i.i, %43 ]
+45:                                               ; preds = %44, %.lr.ph.i.i
+  %46 = phi i32 [ %39, %.lr.ph.i.i ], [ %.pre.i.i, %43 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next.i.i, %46
-  br i1 %47, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !46
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next.i.i, %47
+  br i1 %48, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !46
 
-_ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %33
+_ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.08.sroa.5.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.8.0, 1

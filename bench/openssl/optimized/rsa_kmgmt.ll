@@ -512,8 +512,8 @@ define internal range(i32 0, 2) i32 @rsa_match(ptr noundef %0, ptr noundef %1, i
   %24 = tail call ptr @RSA_get0_d(ptr noundef %1) #6
   %25 = icmp ne ptr %23, null
   %26 = icmp ne ptr %24, null
-  %or.cond3.not62.not66 = select i1 %25, i1 %26, i1 false
-  %brmerge.not63 = select i1 %or.cond3.not62.not66, i1 %9, i1 false
+  %or.cond3.not63 = select i1 %25, i1 %26, i1 false
+  %brmerge.not63 = select i1 %or.cond3.not63, i1 %9, i1 false
   br i1 %brmerge.not63, label %27, label %30
 
 27:                                               ; preds = %22
@@ -522,7 +522,7 @@ define internal range(i32 0, 2) i32 @rsa_match(ptr noundef %0, ptr noundef %1, i
   br label %30
 
 30:                                               ; preds = %20, %.thread, %27, %.thread49, %22, %5, %3
-  %.0.shrunk = phi i1 [ false, %3 ], [ %9, %5 ], [ false, %20 ], [ false, %.thread ], [ %29, %27 ], [ false, %22 ], [ %19, %.thread49 ]
+  %.232 = phi i1 [ false, %3 ], [ %9, %5 ], [ false, %20 ], [ false, %.thread ], [ %29, %27 ], [ false, %22 ], [ %19, %.thread49 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

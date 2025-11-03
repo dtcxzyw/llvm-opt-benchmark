@@ -2887,7 +2887,7 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(44) %16)
-          to label %22 unwind label %50
+          to label %22 unwind label %49
 
 22:                                               ; preds = %17
   %23 = xor i1 %21, true
@@ -2911,7 +2911,7 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
 
 34:                                               ; preds = %24
   %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(44) %16)
-          to label %36 unwind label %50
+          to label %36 unwind label %49
 
 36:                                               ; preds = %34
   br i1 %35, label %.thread, label %37
@@ -2927,7 +2927,7 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
 
 40:                                               ; preds = %24
   %41 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(44) %16)
-          to label %42 unwind label %50
+          to label %42 unwind label %49
 
 42:                                               ; preds = %40
   %43 = xor i1 %41, true
@@ -2950,17 +2950,17 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %10, %5
-  %.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %10 ], [ %49, %.loopexit.loopexit ]
+  %.sroa.023.0 = phi i64 [ 0, %5 ], [ 0, %10 ], [ %49, %.loopexit.loopexit ]
   %.sroa.3.0 = phi i8 [ 0, %5 ], [ 0, %10 ], [ %.sroa.3.2, %.loopexit.loopexit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.2.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert
 
-50:                                               ; preds = %40, %34, %17
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %40, %34, %17
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  tail call void @__clang_call_terminate(ptr %52) #21
+  %51 = extractvalue { ptr, i32 } %50, 0
+  tail call void @__clang_call_terminate(ptr %51) #21
   unreachable
 }
 
@@ -3161,7 +3161,7 @@ define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %7, %2
-  %.sroa.2.0 = phi i64 [ 0, %2 ], [ 0, %7 ], [ %29, %.loopexit.loopexit ]
+  %.sroa.013.0 = phi i64 [ 0, %2 ], [ 0, %7 ], [ %29, %.loopexit.loopexit ]
   %.sroa.3.0 = phi i8 [ 0, %2 ], [ 0, %7 ], [ %.sroa.3.2, %.loopexit.loopexit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.2.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1

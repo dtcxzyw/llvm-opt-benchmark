@@ -41288,13 +41288,13 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   br i1 %.not.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_St6vectorINS0_7SortKeyESaISB_EEEEEEEEERKS3_SH_RKT_.exit
 
 .preheader.i.i.i.i.i.i:                           ; preds = %3
-  %25 = icmp eq ptr %14, %15
-  br i1 %25, label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_St6vectorINS0_7SortKeyESaISB_EEEEEEEEERKS3_SH_RKT_.exit, label %.lr.ph.i.i.i.i.i.i
+  %24 = icmp eq ptr %14, %15
+  br i1 %24, label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_St6vectorINS0_7SortKeyESaISB_EEEEEEEEERKS3_SH_RKT_.exit, label %.lr.ph.i.i.i.i.i.i
 
-26:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %27 = add nuw i64 %.01012.i.i.i.i.i.i, 1
-  %28 = load ptr, ptr %13, align 8, !tbaa !62
-  %29 = load ptr, ptr %11, align 8, !tbaa !59
+25:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %26 = add nuw i64 %.01012.i.i.i.i.i.i, 1
+  %27 = load ptr, ptr %13, align 8, !tbaa !62
+  %28 = load ptr, ptr %11, align 8, !tbaa !59
   %30 = ptrtoint ptr %28 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
@@ -41302,8 +41302,8 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   %.not15.i.i.i.i.i.i = icmp ult i64 %27, %33
   br i1 %.not15.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaIS9_EEEEEEvRKT_m.exit.loopexit.i.i.i.i, !llvm.loop !817
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i.i, %26
-  %34 = phi ptr [ %29, %26 ], [ %15, %.preheader.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:; preds = %.preheader.i.i.i.i.i.i, %26
+  %.01012.i.i.i.i.i.i = phi ptr [ %29, %26 ], [ %15, %.preheader.i.i.i.i.i.i ]
   %.01012.i.i.i.i.i.i = phi i64 [ %27, %26 ], [ 0, %.preheader.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw %"class.arrow::compute::SortKey", ptr %34, i64 %.01012.i.i.i.i.i.i
   %36 = load ptr, ptr %12, align 8, !tbaa !59
@@ -41311,7 +41311,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   %38 = tail call noundef zeroext i1 @_ZNK5arrow7compute7SortKey6EqualsERKS1_(ptr noundef nonnull align 8 dereferenceable(44) %35, ptr noundef nonnull align 8 dereferenceable(44) %37)
   br i1 %38, label %26, label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaIS9_EEEEEEvRKT_m.exit.loopexit.i.i.i.i
 
-_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaIS9_EEEEEEvRKT_m.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %26
+_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaIS9_EEEEEEvRKT_m.exit.loopexit.i.i.i.i:         ; preds = %.lr.ph.i.i.i.i.i.i, %25
   %39 = and i1 %8, %38
   br label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_St6vectorINS0_7SortKeyESaISB_EEEEEEEEERKS3_SH_RKT_.exit
 

@@ -1402,7 +1402,7 @@ switch.lookup:                                    ; preds = %14
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %20
 
-20:                                               ; preds = %switch.lookup, %10
+20:; preds = %switch.lookup, %10
   %.sroa.5.0 = phi i64 [ 4294967297, %10 ], [ %switch.load, %switch.lookup ]
   ret i64 %.sroa.5.0
 }

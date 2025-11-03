@@ -7602,7 +7602,7 @@ define hidden i64 @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder15tr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !range !163, !noundef !8
   %8 = trunc nuw i32 %7 to i1
-  br i1 %8, label %9, label %31
+  br i1 %8, label %9, label %33
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -7644,16 +7644,16 @@ _ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8da
   %.not11 = icmp eq i64 %30, 806
   br i1 %.not11, label %.sink.split, label %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit
 
-_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit: ; preds = %28
+29:                                               ; preds = %28
   store i64 %29, ptr %19, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8dacE.exit, %24, %28, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit
+29:; preds = %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8dacE.exit, %24, %28, %29
   %.sroa.7.sroa.0.0.ph = phi i64 [ %29, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit ], [ 806, %28 ], [ 806, %24 ], [ 806, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8dacE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %31
+  br label %33
 
-31:                                               ; preds = %.sink.split, %4
+33:                                               ; preds = %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit, %4
   %.sroa.7.sroa.0.0 = phi i64 [ 806, %4 ], [ %.sroa.7.sroa.0.0.ph, %.sink.split ]
   ret i64 %.sroa.7.sroa.0.0
 }

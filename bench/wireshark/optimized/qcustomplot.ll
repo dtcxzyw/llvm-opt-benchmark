@@ -68096,7 +68096,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit3:             ; preds = %_ZNK8QPointerI7QCPA
 
 _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %13, %17, %1, %7, %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit, %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit2, %_ZNK8QPointerI7QCPAxisE4dataEv.exit3
   %.sroa.7.0 = phi i64 [ %38, %_ZNK8QPointerI7QCPAxisE4dataEv.exit3 ], [ -1, %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit2 ], [ -1, %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit ], [ -1, %7 ], [ -1, %1 ], [ -1, %17 ], [ -1, %13 ]
-  %.sroa.3.0 = phi i64 [ %37, %_ZNK8QPointerI7QCPAxisE4dataEv.exit3 ], [ 0, %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit2 ], [ 0, %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit ], [ 0, %7 ], [ 0, %1 ], [ 0, %17 ], [ 0, %13 ]
+  %.sroa.4.0 = phi i64 [ %37, %_ZNK8QPointerI7QCPAxisE4dataEv.exit3 ], [ 0, %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit2 ], [ 0, %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit ], [ 0, %7 ], [ 0, %1 ], [ 0, %17 ], [ 0, %13 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.3.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -225181,7 +225181,7 @@ _ZNK8QPointerI19QCPPolarAxisAngularE4dataEv.exit: ; preds = %_ZNK8QPointerI19QCP
 
 _ZNK8QPointerI19QCPPolarAxisAngularEcvPS0_Ev.exit.thread: ; preds = %1, %5, %_ZNK8QPointerI19QCPPolarAxisAngularEcvPS0_Ev.exit, %_ZNK8QPointerI19QCPPolarAxisAngularE4dataEv.exit
   %.sroa.7.0 = phi i64 [ %.sroa.2.0.copyload.i, %_ZNK8QPointerI19QCPPolarAxisAngularE4dataEv.exit ], [ -1, %_ZNK8QPointerI19QCPPolarAxisAngularEcvPS0_Ev.exit ], [ -1, %5 ], [ -1, %1 ]
-  %.sroa.3.0 = phi i64 [ %.sroa.0.0.copyload.i, %_ZNK8QPointerI19QCPPolarAxisAngularE4dataEv.exit ], [ 0, %_ZNK8QPointerI19QCPPolarAxisAngularEcvPS0_Ev.exit ], [ 0, %5 ], [ 0, %1 ]
+  %.sroa.4.0 = phi i64 [ %.sroa.0.0.copyload.i, %_ZNK8QPointerI19QCPPolarAxisAngularE4dataEv.exit ], [ 0, %_ZNK8QPointerI19QCPPolarAxisAngularEcvPS0_Ev.exit ], [ 0, %5 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.3.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -229032,8 +229032,8 @@ _ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit:    ; preds = %56, %70, %74
   %brmerge72 = or i1 %47, %.not71
   %124 = and i8 %.058141, %46
   %brmerge76.not.not = icmp eq i8 %124, 0
-  %or.cond = and i1 %brmerge72, %brmerge76.not.not
-  br i1 %or.cond, label %127, label %.sink.split
+  %or.cond167 = and i1 %brmerge72, %brmerge76.not.not
+  br i1 %or.cond167, label %127, label %.sink.split
 
 .sink.split:                                      ; preds = %122
   %125 = getelementptr i8, ptr %.sroa.089.0139, i64 -16
@@ -229062,14 +229062,14 @@ _ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit:    ; preds = %56, %70, %74
   %.not169 = xor i1 %47, true
   %.not = and i1 %131, %.not169
   %brmerge168 = or i1 %.not, %133
-  br i1 %brmerge168, label %.thread.sink.split, label %.thread
+  br i1 %brmerge168, label %.thread.sink.split, label %136
 
-.thread.sink.split:                               ; preds = %._crit_edge
+.thread.sink.split:; preds = %._crit_edge
   %134 = load i64, ptr %10, align 8
   call void @_ZN9QtPrivate12QPodArrayOpsI12QCPGraphDataE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %1, i64 noundef %134, ptr noundef align 8 dereferenceable(16) %.sroa.089.0139)
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %.thread.sink.split, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit
+136:                                              ; preds = %._crit_edge, %.thread.sink.split, %_ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit
   ret void
 }
 

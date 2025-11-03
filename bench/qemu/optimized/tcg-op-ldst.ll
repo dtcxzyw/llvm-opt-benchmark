@@ -269,7 +269,7 @@ tcg_canonicalize_memop.exit:                      ; preds = %memop_alignment_bit
   br label %44
 
 44:                                               ; preds = %39, %37, %tcg_canonicalize_memop.exit
-  %.not28 = phi i1 [ true, %37 ], [ false, %39 ], [ true, %tcg_canonicalize_memop.exit ]
+  %.027 = phi i1 [ true, %37 ], [ false, %39 ], [ true, %tcg_canonicalize_memop.exit ]
   %.026 = phi i32 [ %35, %37 ], [ %43, %39 ], [ %35, %tcg_canonicalize_memop.exit ]
   %45 = load ptr, ptr %5, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 232
@@ -327,31 +327,31 @@ plugin_maybe_preserve_addr.exit:                  ; preds = %.plugin_maybe_prese
   br label %plugin_gen_mem_callbacks_i32.exit
 
 plugin_gen_mem_callbacks_i32.exit:                ; preds = %plugin_maybe_preserve_addr.exit, %72
-  br i1 %.not28, label %81, label %74
+  br i1 %.027, label %83, label %74
 
-74:                                               ; preds = %plugin_gen_mem_callbacks_i32.exit
-  %75 = and i32 %.3.i, 7
-  switch i32 %75, label %80 [
-    i32 1, label %76
-    i32 2, label %79
+76:                                               ; preds = %plugin_gen_mem_callbacks_i32.exit
+  %77 = and i32 %.3.i, 7
+  switch i32 %77, label %80 [
+    i32 1, label %78
+    i32 2, label %81
   ]
 
-76:                                               ; preds = %74
-  %77 = and i32 %.3.i, 8
-  %.not29 = icmp eq i32 %77, 0
-  %78 = select i1 %.not29, i32 3, i32 5
-  tail call void @tcg_gen_bswap16_i32(ptr noundef %0, ptr noundef %0, i32 noundef %78) #6
-  br label %81
+78:                                               ; preds = %76
+  %79 = and i32 %.3.i, 8
+  %.not29 = icmp eq i32 %79, 0
+  %80 = select i1 %.not29, i32 3, i32 5
+  tail call void @tcg_gen_bswap16_i32(ptr noundef %0, ptr noundef %0, i32 noundef %80) #6
+  br label %83
 
-79:                                               ; preds = %74
+81:                                               ; preds = %76
   tail call void @tcg_gen_bswap32_i32(ptr noundef %0, ptr noundef %0) #6
-  br label %81
+  br label %83
 
-80:                                               ; preds = %74
+82:                                               ; preds = %76
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 271, ptr noundef nonnull @__func__.tcg_gen_qemu_ld_i32_int, ptr noundef null) #7
   unreachable
 
-81:                                               ; preds = %76, %79, %plugin_gen_mem_callbacks_i32.exit
+83:                                               ; preds = %78, %81, %plugin_gen_mem_callbacks_i32.exit
   ret void
 }
 
@@ -621,7 +621,7 @@ tcg_canonicalize_memop.exit:                      ; preds = %memop_alignment_bit
 
 45:                                               ; preds = %39, %37, %tcg_canonicalize_memop.exit
   %.032 = phi i32 [ %35, %37 ], [ %44, %39 ], [ %35, %tcg_canonicalize_memop.exit ]
-  %.not36 = phi i1 [ true, %37 ], [ false, %39 ], [ true, %tcg_canonicalize_memop.exit ]
+  %.0 = phi i1 [ true, %37 ], [ false, %39 ], [ true, %tcg_canonicalize_memop.exit ]
   %46 = load ptr, ptr %5, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 232
   %48 = load ptr, ptr %47, align 8
@@ -674,9 +674,9 @@ plugin_maybe_preserve_addr.exit:                  ; preds = %45, %59, %60
   br label %plugin_gen_mem_callbacks_i64.exit
 
 plugin_gen_mem_callbacks_i64.exit:                ; preds = %plugin_maybe_preserve_addr.exit, %74
-  br i1 %.not36, label %84, label %76
+  br i1 %.0, label %84, label %76
 
-76:                                               ; preds = %plugin_gen_mem_callbacks_i64.exit
+76:; preds = %plugin_gen_mem_callbacks_i64.exit
   %77 = and i32 %.3.i, 8
   %.not37 = icmp eq i32 %77, 0
   %78 = select i1 %.not37, i32 3, i32 5
@@ -687,23 +687,23 @@ plugin_gen_mem_callbacks_i64.exit:                ; preds = %plugin_maybe_preser
     i32 3, label %82
   ]
 
-80:                                               ; preds = %76
-  tail call void @tcg_gen_bswap16_i64(ptr noundef %0, ptr noundef %0, i32 noundef %78) #6
-  br label %84
+82:                                               ; preds = %78
+  tail call void @tcg_gen_bswap16_i64(ptr noundef %0, ptr noundef %0, i32 noundef %80) #6
+  br label %86
 
-81:                                               ; preds = %76
-  tail call void @tcg_gen_bswap32_i64(ptr noundef %0, ptr noundef %0, i32 noundef %78) #6
-  br label %84
+83:                                               ; preds = %78
+  tail call void @tcg_gen_bswap32_i64(ptr noundef %0, ptr noundef %0, i32 noundef %80) #6
+  br label %86
 
-82:                                               ; preds = %76
+84:                                               ; preds = %78
   tail call void @tcg_gen_bswap64_i64(ptr noundef %0, ptr noundef %0) #6
-  br label %84
+  br label %86
 
-83:                                               ; preds = %76
+85:                                               ; preds = %78
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 397, ptr noundef nonnull @__func__.tcg_gen_qemu_ld_i64_int, ptr noundef null) #7
   unreachable
 
-84:                                               ; preds = %80, %81, %82, %plugin_gen_mem_callbacks_i64.exit
+86:                                               ; preds = %82, %83, %84, %plugin_gen_mem_callbacks_i64.exit
   ret void
 }
 

@@ -144,9 +144,9 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
   %10 = call double @llvm.fmuladd.f64(double %9, double %9, double %sumu2.028)
   %inc = add nuw i64 %j.027, 1
   %exitcond.not = icmp eq i64 %inc, %i.033
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body13, !llvm.loop !26
+  br i1 %exitcond.not, label %for.end, label %for.body13, !llvm.loop !26
 
-for.end.loopexit:                                 ; preds = %for.body13
+for.end:                                          ; preds = %for.body13
   %11 = fmul double %add, %add
   br label %for.end
 
@@ -169,28 +169,28 @@ invoke.cont29:                                    ; preds = %for.end
   store double %call26, ptr %call30, align 8, !tbaa !24
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %cur.sroa.0.032) #17
   %inc33 = add nuw i64 %i.033, 1
-  %12 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !14
-  %cmp = icmp ult i64 %inc33, %12
+  %11 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !14
+  %cmp = icmp ult i64 %inc33, %11
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !29
 
 lpad28:                                           ; preds = %for.end
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %u, align 8, !tbaa !21
-  %tobool.not.i.i.i17 = icmp eq ptr %14, null
+  %13 = load ptr, ptr %u, align 8, !tbaa !21
+  %tobool.not.i.i.i17 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i17, label %ehcleanup40, label %if.then.i.i.i18
 
 if.then.i.i.i18:                                  ; preds = %lpad28
   %_M_end_of_storage.i.i19 = getelementptr inbounds nuw i8, ptr %u, i64 16
-  %15 = load ptr, ptr %_M_end_of_storage.i.i19, align 8, !tbaa !23
-  %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_end_of_storage.i.i19, align 8, !tbaa !23
+  %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
-  call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %sub.ptr.sub.i.i22) #18
+  call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %sub.ptr.sub.i.i22) #18
   br label %ehcleanup40
 
 ehcleanup40:                                      ; preds = %if.then.i.i.i18, %lpad28, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %6, %lpad ], [ %13, %lpad28 ], [ %13, %if.then.i.i.i18 ]
+  %.pn.pn = phi { ptr, i32 } [ %6, %lpad ], [ %12, %lpad28 ], [ %12, %if.then.i.i.i18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %u)
   call void @_ZN8QuantLib10TimeSeriesIdSt3mapINS_4DateEdSt4lessIS2_ESaISt4pairIKS2_dEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.result) #19
   resume { ptr, i32 } %.pn.pn

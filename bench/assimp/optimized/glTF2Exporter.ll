@@ -47191,7 +47191,7 @@ _ZN9rapidjson8internal19CountDecimalDigit32Ej.exit: ; preds = %6, %20, %22, %24,
   br i1 %or.cond.i, label %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit, label %87, !llvm.loop !494
 
 _ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit:  ; preds = %90, %.critedge2.i, %74
-  br label %137, !llvm.loop !495
+  br label %139, !llvm.loop !495
 
 .critedge87:                                      ; preds = %.critedge, %107
   %.175 = phi i32 [ %109, %107 ], [ 0, %.critedge ]
@@ -47243,37 +47243,37 @@ _ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit:  ; preds = %90, %.critedge2.i, 
   br i1 %or.cond22.i89, label %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95, label %.lr.ph.i90
 
 .lr.ph.i90:                                       ; preds = %115
-  %123 = sext i32 %113 to i64
-  %124 = getelementptr i8, ptr %3, i64 %123
-  %125 = getelementptr i8, ptr %124, i64 -1
-  br label %126
+  %125 = sext i32 %113 to i64
+  %126 = getelementptr i8, ptr %3, i64 %125
+  %127 = getelementptr i8, ptr %126, i64 -1
+  br label %128
 
-126:                                              ; preds = %.critedge2.i92, %.lr.ph.i90
-  %.023.i91 = phi i64 [ %108, %.lr.ph.i90 ], [ %127, %.critedge2.i92 ]
-  %127 = add i64 %.023.i91, %11
-  %128 = icmp ult i64 %127, %120
-  br i1 %128, label %.critedge2.i92, label %129
+128:                                              ; preds = %.critedge2.i92, %.lr.ph.i90
+  %.023.i91 = phi i64 [ %108, %.lr.ph.i90 ], [ %129, %.critedge2.i92 ]
+  %129 = add i64 %.023.i91, %11
+  %130 = icmp ult i64 %129, %120
+  br i1 %130, label %.critedge2.i92, label %131
 
-129:                                              ; preds = %126
-  %130 = sub i64 %120, %.023.i91
-  %131 = sub nuw i64 %127, %120
-  %132 = icmp ugt i64 %130, %131
-  br i1 %132, label %.critedge2.i92, label %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95
+131:                                              ; preds = %128
+  %132 = sub i64 %120, %.023.i91
+  %133 = sub nuw i64 %129, %120
+  %134 = icmp ugt i64 %132, %133
+  br i1 %134, label %.critedge2.i92, label %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95
 
-.critedge2.i92:                                   ; preds = %129, %126
-  %133 = load i8, ptr %125, align 1
-  %134 = add i8 %133, -1
-  store i8 %134, ptr %125, align 1
-  %135 = icmp uge i64 %127, %120
-  %136 = sub i64 %99, %127
-  %.not.i93 = icmp ult i64 %136, %11
-  %or.cond.i94 = or i1 %135, %.not.i93
-  br i1 %or.cond.i94, label %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95, label %126, !llvm.loop !494
+.critedge2.i92:                                   ; preds = %131, %128
+  %135 = load i8, ptr %127, align 1
+  %136 = add i8 %135, -1
+  store i8 %136, ptr %127, align 1
+  %137 = icmp uge i64 %129, %120
+  %138 = sub i64 %99, %129
+  %.not.i93 = icmp ult i64 %138, %11
+  %or.cond.i94 = or i1 %137, %.not.i93
+  br i1 %or.cond.i94, label %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95, label %128, !llvm.loop !494
 
-_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95: ; preds = %129, %.critedge2.i92, %110, %115
-  br label %137, !llvm.loop !496
+_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95: ; preds = %131, %.critedge2.i92, %110, %115
+  br label %139, !llvm.loop !496
 
-137:                                              ; preds = %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95, %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit
+139:                                              ; preds = %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit95, %_ZN9rapidjson8internal10GrisuRoundEPcimmmm.exit
   ret void
 }
 

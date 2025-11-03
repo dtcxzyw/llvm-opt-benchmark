@@ -39189,7 +39189,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %21, %.thread,
   %.sroa.758.0 = phi i32 [ %.sroa.765.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
   %.sroa.859.0 = phi i64 [ %.sroa.866.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
   %.sroa.960.0 = phi i64 [ %.sroa.967.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
-  %.sroa.055.sroa.5.0 = phi i64 [ %.sroa.061.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ 3, %.noexc38 ], [ 3, %72 ]
+  %.sroa.055.sroa.0.0 = phi i64 [ %.sroa.061.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h3018705fadd8a8beE.exit.thread.i" ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6filter17h6a9a67e95646d520E.exit" ], [ 3, %.noexc38 ], [ 3, %72 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 %.sroa.0.0, ptr %76, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 73
@@ -39656,7 +39656,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %21, %.thread,
   %.sroa.758.0 = phi i32 [ %.sroa.765.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
   %.sroa.859.0 = phi i64 [ %.sroa.866.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
   %.sroa.960.0 = phi i64 [ %.sroa.967.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ undef, %.noexc38 ], [ undef, %72 ]
-  %.sroa.055.sroa.5.0 = phi i64 [ %.sroa.061.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ 3, %.noexc38 ], [ 3, %72 ]
+  %.sroa.055.sroa.0.0 = phi i64 [ %.sroa.061.0.copyload, %"_ZN7hir_def6per_ns5PerNs17filter_visibility28_$u7b$$u7b$closure$u7d$$u7d$17h58b1929ac9e4b098E.exit.thread.i" ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6filter17he07fa41cd37c6864E.exit" ], [ 3, %.noexc38 ], [ 3, %72 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 %.sroa.0.0, ptr %76, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 73

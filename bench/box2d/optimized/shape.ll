@@ -3782,7 +3782,7 @@ define i64 @b2Shape_GetParentChain(i64 %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %12, %1, %15
-  %.sroa.5.1 = phi i64 [ %27, %15 ], [ 0, %1 ], [ 0, %12 ]
+  %.sroa.09.1 = phi i64 [ %27, %15 ], [ 0, %1 ], [ 0, %12 ]
   ret i64 %.sroa.5.1
 }
 

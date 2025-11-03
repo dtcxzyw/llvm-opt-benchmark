@@ -350,12 +350,12 @@ define dso_local noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(
   %.sroa.0.4.vec.extract.i69 = extractelement <2 x float> %0, i64 1
   br i1 %25, label %.lr.ph, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %26 = fmul float %.sroa.0.0.vec.extract.i68, %49
   %27 = fmul float %.sroa.0.4.vec.extract.i69, %49
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %8, %._crit_edge.loopexit
+._crit_edge:; preds = %8, %._crit_edge
   %.sroa.0.4.vec.extract.i.pre-phi = phi float [ %27, %._crit_edge.loopexit ], [ %.sroa.0.4.vec.extract.i69, %8 ]
   %.sroa.0.0.vec.extract.i.pre-phi = phi float [ %26, %._crit_edge.loopexit ], [ %.sroa.0.0.vec.extract.i68, %8 ]
   %.059.lcssa = phi float [ %50, %._crit_edge.loopexit ], [ 1.000000e+00, %8 ]
@@ -395,7 +395,7 @@ define dso_local noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(
   %50 = fmul float %6, %.05977
   %51 = add nuw nsw i32 %.06076, 1
   %exitcond.not = icmp eq i32 %51, %24
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(errnomem: write) uwtable
@@ -432,12 +432,12 @@ define dso_local noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3If
   %.sroa.0.4.vec.extract.i79 = extractelement <2 x float> %0, i64 1
   br i1 %25, label %.lr.ph, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %26 = fmul float %.sroa.0.0.vec.extract.i78, %55
   %27 = fmul float %.sroa.0.4.vec.extract.i79, %55
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %8, %._crit_edge.loopexit
+._crit_edge:; preds = %8, %._crit_edge
   %.sroa.0.4.vec.extract.i.pre-phi = phi float [ %27, %._crit_edge.loopexit ], [ %.sroa.0.4.vec.extract.i79, %8 ]
   %.sroa.0.0.vec.extract.i.pre-phi = phi float [ %26, %._crit_edge.loopexit ], [ %.sroa.0.0.vec.extract.i78, %8 ]
   %.068.lcssa = phi float [ %56, %._crit_edge.loopexit ], [ 1.000000e+00, %8 ]
@@ -483,7 +483,7 @@ define dso_local noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3If
   %56 = fmul float %6, %.06887
   %57 = add nuw nsw i32 %.07086, 1
   %exitcond.not = icmp eq i32 %57, %24
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge97:                                    ; preds = %.lr.ph96, %._crit_edge
   %.1.lcssa = phi float [ %46, %._crit_edge ], [ %59, %.lr.ph96 ]

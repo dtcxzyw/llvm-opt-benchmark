@@ -300,7 +300,7 @@ _ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit: ; preds = %6, %3
   %18 = or disjoint i64 %17, 1024
   br label %19
 
-19:                                               ; preds = %6, %1, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit, %11
+19:; preds = %6, %1, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit, %11
   %.sroa.0.2 = phi i64 [ %18, %11 ], [ 1025, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 1025, %6 ], [ 769, %1 ]
   ret i64 %.sroa.0.2
 }

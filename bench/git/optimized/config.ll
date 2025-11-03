@@ -8805,11 +8805,11 @@ define internal noundef i32 @store_aux(ptr noundef %0, ptr noundef %1, ptr readn
 
 17:                                               ; preds = %12
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1) #30
-  %.not18.i = icmp eq i32 %18, 0
-  %19 = zext i1 %.not18.i to i32
+  %.not18.i.not = icmp eq i32 %18, 0
+  %19 = zext i1 %.not18.i.not to i32
   br label %matches.exit
 
-20:                                               ; preds = %12
+20: ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !137
   %magicptr.i = ptrtoint ptr %22 to i64
@@ -8818,22 +8818,22 @@ define internal noundef i32 @store_aux(ptr noundef %0, ptr noundef %1, ptr readn
     i64 1, label %matches.exit.thread
   ]
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !136
-  br i1 %16, label %26, label %matches.exit
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %24 = load i32, ptr %23, align 8, !tbaa !136
+  br i1 %16, label %25, label %matches.exit
 
-26:                                               ; preds = %23
-  %27 = tail call i32 @regexec(ptr noundef nonnull %22, ptr noundef nonnull %1, i64 noundef 0, ptr noundef null, i32 noundef 0) #31
-  %.not17.i = icmp eq i32 %27, 0
-  %28 = zext i1 %.not17.i to i32
+25:                                               ; preds = %22
+  %26 = tail call i32 @regexec(ptr noundef nonnull %22, ptr noundef nonnull %1, i64 noundef 0, ptr noundef null, i32 noundef 0) #31
+  %.not17.i = icmp eq i32 %26, 0
+  %27 = zext i1 %.not17.i to i32
   %29 = xor i32 %25, %28
   br label %matches.exit
 
-matches.exit:                                     ; preds = %17, %23, %26
-  %.0.i = phi i32 [ %19, %17 ], [ %25, %23 ], [ %29, %26 ]
-  %.not51 = icmp eq i32 %.0.i, 0
-  br i1 %.not51, label %matches.exit.thread, label %matches.exit.thread64
+matches.exit:                                     ; preds = %17, %22, %25
+  %28 = phi i32 [ %19, %17 ], [ %25, %23 ], [ %29, %26 ]
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %matches.exit.thread, label %matches.exit.thread64
 
 matches.exit.thread64:                            ; preds = %20, %matches.exit
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -8964,11 +8964,11 @@ _.exit:                                           ; preds = %37, %39
 
 100:                                              ; preds = %95
   %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %1) #30
-  %.not18.i60 = icmp eq i32 %101, 0
-  %102 = zext i1 %.not18.i60 to i32
+  %.not18.i60.not = icmp eq i32 %101, 0
+  %102 = zext i1 %.not18.i60.not to i32
   br label %matches.exit61
 
-103:                                              ; preds = %95
+103: ; preds = %95
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %105 = load ptr, ptr %104, align 8, !tbaa !137
   %magicptr.i58 = ptrtoint ptr %105 to i64
@@ -8977,22 +8977,22 @@ _.exit:                                           ; preds = %37, %39
     i64 1, label %matches.exit.thread
   ]
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %108 = load i32, ptr %107, align 8, !tbaa !136
-  br i1 %99, label %109, label %matches.exit61
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %107 = load i32, ptr %106, align 8, !tbaa !136
+  br i1 %99, label %108, label %matches.exit61
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @regexec(ptr noundef nonnull %105, ptr noundef nonnull %1, i64 noundef 0, ptr noundef null, i32 noundef 0) #31
-  %.not17.i59 = icmp eq i32 %110, 0
-  %111 = zext i1 %.not17.i59 to i32
+108:                                              ; preds = %105
+  %109 = tail call i32 @regexec(ptr noundef nonnull %105, ptr noundef nonnull %1, i64 noundef 0, ptr noundef null, i32 noundef 0) #31
+  %.not17.i59 = icmp eq i32 %109, 0
+  %110 = zext i1 %.not17.i59 to i32
   %112 = xor i32 %108, %111
   br label %matches.exit61
 
-matches.exit61:                                   ; preds = %100, %106, %109
-  %.0.i56 = phi i32 [ %102, %100 ], [ %108, %106 ], [ %112, %109 ]
-  %.not50 = icmp eq i32 %.0.i56, 0
-  br i1 %.not50, label %matches.exit.thread, label %matches.exit61.matches.exit61.thread69_crit_edge
+matches.exit61:                                   ; preds = %100, %105, %108
+  %111 = phi i32 [ %102, %100 ], [ %108, %106 ], [ %112, %109 ]
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %matches.exit.thread, label %matches.exit61.matches.exit61.thread69_crit_edge
 
 matches.exit61.matches.exit61.thread69_crit_edge: ; preds = %matches.exit61
   %.pre78 = load i8, ptr %5, align 8

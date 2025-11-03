@@ -34,7 +34,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
 16:                                               ; preds = %11, %2
   %17 = fmul double %0, %1
   %18 = fdiv double %17, %17
-  br label %161
+  br label %160
 
 19:                                               ; preds = %11
   %.not = icmp samesign ugt i32 %6, %7
@@ -44,7 +44,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %21 = icmp samesign ult i32 %6, %7
   %22 = icmp ult i32 %.sroa.04.0.extract.trunc, %.sroa.03.0.extract.trunc
   %or.cond183 = or i1 %22, %21
-  br i1 %or.cond183, label %161, label %23
+  br i1 %or.cond183, label %160, label %23
 
 23:                                               ; preds = %20
   %24 = icmp eq i32 %.sroa.04.0.extract.trunc, %.sroa.03.0.extract.trunc
@@ -54,7 +54,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %26 = lshr i64 %3, 63
   %27 = getelementptr inbounds nuw double, ptr @Zero, i64 %26
   %28 = load double, ptr %27, align 8
-  br label %161
+  br label %160
 
 29:                                               ; preds = %23, %19
   %30 = icmp samesign ult i32 %6, 1048576
@@ -225,7 +225,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %110 = lshr i64 %3, 63
   %111 = getelementptr inbounds nuw double, ptr @Zero, i64 %110
   %112 = load double, ptr %111, align 8
-  br label %161
+  br label %160
 
 113:                                              ; preds = %106
   %114 = tail call i32 @llvm.fshl.i32(i32 %spec.select, i32 %100, i32 1)
@@ -262,7 +262,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %126 = lshr i64 %3, 63
   %127 = getelementptr inbounds nuw double, ptr @Zero, i64 %126
   %128 = load double, ptr %127, align 8
-  br label %161
+  br label %160
 
 .lr.ph213:                                        ; preds = %.preheader, %.lr.ph213
   %.4212 = phi i32 [ %130, %.lr.ph213 ], [ %.3, %.preheader ]
@@ -289,12 +289,12 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %139 = or i32 %138, %5
   br label %160
 
-140:                                              ; preds = %._crit_edge214
+140:; preds = %._crit_edge214
   %141 = sub nuw nsw i32 -1022, %.3159.lcssa
   %142 = icmp samesign ugt i32 %.3159.lcssa, -1043
   br i1 %142, label %143, label %150
 
-143:                                              ; preds = %140
+143:; preds = %140
   %144 = lshr i32 %.4.lcssa, %141
   %145 = add nsw i32 %.3159.lcssa, 1054
   %146 = shl i32 %.4170.lcssa, %145
@@ -303,23 +303,23 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %149 = or disjoint i32 %148, %5
   br label %160
 
-150:                                              ; preds = %140
+150:; preds = %140
   %151 = icmp samesign ugt i32 %.3159.lcssa, -1054
   br i1 %151, label %152, label %157
 
-152:                                              ; preds = %150
+152:; preds = %150
   %153 = add nsw i32 %.3159.lcssa, 1054
   %154 = shl i32 %.4170.lcssa, %153
   %155 = lshr i32 %.4.lcssa, %141
   %156 = or i32 %154, %155
   br label %160
 
-157:                                              ; preds = %150
+157:; preds = %150
   %158 = sub nuw nsw i32 -1054, %.3159.lcssa
   %159 = lshr i32 %.4170.lcssa, %158
   br label %160
 
-160:                                              ; preds = %152, %157, %143, %134
+160: ; preds = %152, %157, %143, %134
   %.5171.sink = phi i32 [ %139, %134 ], [ %149, %143 ], [ %5, %152 ], [ %5, %157 ]
   %.5.sink = phi i32 [ %.4.lcssa, %134 ], [ %147, %143 ], [ %156, %152 ], [ %159, %157 ]
   %.sroa.0.4.insert.ext = zext i32 %.5171.sink to i64
@@ -327,9 +327,9 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %.sroa.0.0.insert.ext = zext i32 %.5.sink to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
   %.0148 = bitcast i64 %.sroa.0.0.insert.insert to double
-  br label %161
+  br label %160
 
-161:                                              ; preds = %20, %160, %125, %109, %25, %16
+160:                                              ; preds = %20, %160, %125, %109, %25, %16
   %.0 = phi double [ %18, %16 ], [ %28, %25 ], [ %112, %109 ], [ %128, %125 ], [ %.0148, %160 ], [ %0, %20 ]
   ret double %.0
 }

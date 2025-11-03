@@ -913,7 +913,7 @@ define void @_ZN12grep_printer5color13UserColorSpec13to_color_spec17h0d6b3777a42
   switch i8 %4, label %default.unreachable [
     i8 0, label %_ZN12grep_printer5color9SpecValue10merge_into17h1295fde2aeb3836aE.exit
     i8 1, label %5
-    i8 2, label %8
+    i8 2, label %9
     i8 3, label %switch.lookup
   ]
 
@@ -925,34 +925,34 @@ default.unreachable:                              ; preds = %2
   %7 = load i32, ptr %6, align 1, !alias.scope !178, !noalias !181
   br label %_ZN12grep_printer5color9SpecValue10merge_into17h1295fde2aeb3836aE.exit
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %10 = load i32, ptr %9, align 1, !alias.scope !178, !noalias !181
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %11 = load i32, ptr %10, align 1, !alias.scope !178, !noalias !181
   br label %_ZN12grep_printer5color9SpecValue10merge_into17h1295fde2aeb3836aE.exit
 
 switch.lookup:                                    ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %12 = load i8, ptr %11, align 1, !range !183, !alias.scope !178, !noalias !181, !noundef !5
-  %13 = shl nuw nsw i8 %12, 3
-  %switch.shiftamt = zext nneg i8 %13 to i48
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %13 = load i8, ptr %12, align 1, !range !183, !alias.scope !178, !noalias !181, !noundef !5
+  %14 = shl nuw nsw i8 %13, 3
+  %switch.shiftamt = zext nneg i8 %14 to i48
   %switch.downshift = lshr i48 65536, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
-  %14 = shl nuw nsw i8 %12, 3
-  %switch.shiftamt7 = zext nneg i8 %14 to i48
+  %15 = shl nuw nsw i8 %13, 3
+  %switch.shiftamt7 = zext nneg i8 %15 to i48
   %switch.downshift8 = lshr i48 4294967296, %switch.shiftamt7
   %switch.masked9 = trunc i48 %switch.downshift8 to i8
-  %15 = shl nuw nsw i8 %12, 3
-  %switch.shiftamt11 = zext nneg i8 %15 to i48
+  %16 = shl nuw nsw i8 %13, 3
+  %switch.shiftamt11 = zext nneg i8 %16 to i48
   %switch.downshift12 = lshr i48 1, %switch.shiftamt11
   %switch.masked13 = trunc nuw nsw i48 %switch.downshift12 to i8
   br label %_ZN12grep_printer5color9SpecValue10merge_into17h1295fde2aeb3836aE.exit
 
-_ZN12grep_printer5color9SpecValue10merge_into17h1295fde2aeb3836aE.exit: ; preds = %switch.lookup, %2, %5, %8
+_ZN12grep_printer5color9SpecValue10merge_into17h1295fde2aeb3836aE.exit: ; preds = %switch.lookup, %2, %5, %9
   %.sroa.7.0 = phi i8 [ 0, %5 ], [ 0, %8 ], [ %4, %2 ], [ %switch.masked, %switch.lookup ]
   %.sroa.10.0 = phi i8 [ 0, %5 ], [ 0, %8 ], [ %4, %2 ], [ %switch.masked9, %switch.lookup ]
   %.sroa.18.sroa.6.sroa.0.0 = phi i32 [ %7, %5 ], [ 11, %8 ], [ 11, %2 ], [ 11, %switch.lookup ]
-  %.sroa.21.0 = phi i32 [ 11, %5 ], [ %10, %8 ], [ 11, %2 ], [ 11, %switch.lookup ]
-  %.sroa.0.0 = phi i8 [ 0, %5 ], [ 0, %8 ], [ %4, %2 ], [ %switch.masked13, %switch.lookup ]
+  %.sroa.18.sroa.0.0 = phi i32 [ 11, %5 ], [ %11, %8 ], [ 11, %2 ], [ 11, %switch.lookup ]
+  %.sroa.21.0 = phi i8 [ 0, %5 ], [ 0, %8 ], [ %4, %2 ], [ %switch.masked13, %switch.lookup ]
   store i8 %.sroa.0.0, ptr %0, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 1

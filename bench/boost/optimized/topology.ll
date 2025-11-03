@@ -22846,25 +22846,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   br label %.critedge28
 
 .critedge28:                                      ; preds = %45, %50, %.critedge
-  %.sroa.6.3 = phi i32 [ %55, %.critedge ], [ 1024, %50 ], [ 0, %45 ]
+  %.sroa.037.1 = phi i32 [ %55, %.critedge ], [ 1024, %50 ], [ 0, %45 ]
   %56 = load ptr, ptr %5, align 8, !tbaa !10
   %57 = icmp eq ptr %56, %7
   br i1 %57, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.critedge28
-  %58 = load i64, ptr %7, align 8, !tbaa !12
-  %59 = add i64 %58, 1
-  call void @_ZdlPvm(ptr noundef %56, i64 noundef %59) #34
+  %60 = load i64, ptr %7, align 8, !tbaa !12
+  %61 = add i64 %60, 1
+  call void @_ZdlPvm(ptr noundef %56, i64 noundef %61) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.critedge28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.sroa.6.3
+  ret i32 %.sroa.037.1
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30: ; preds = %41
-  %60 = load i64, ptr %7, align 8, !tbaa !12
-  %61 = add i64 %60, 1
-  call void @_ZdlPvm(ptr noundef %43, i64 noundef %61) #34
+  %62 = load i64, ptr %7, align 8, !tbaa !12
+  %63 = add i64 %62, 1
+  call void @_ZdlPvm(ptr noundef %43, i64 noundef %63) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30

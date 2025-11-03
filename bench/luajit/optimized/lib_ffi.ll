@@ -1621,13 +1621,13 @@ ffi_clib_index.exit:                              ; preds = %20
   %70 = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %69
   %71 = load i32, ptr %70, align 8, !tbaa !52
   %72 = icmp slt i32 %71, -1879048192
-  br i1 %72, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %72, label %.lr.ph, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %67
+._crit_edge:                                      ; preds = %67
   %73 = or i32 %71, %.127
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+._crit_edge:; preds = %._crit_edge, %.preheader
   %.lcssa34 = phi ptr [ %55, %.preheader ], [ %70, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %56, %.preheader ], [ %73, %._crit_edge.loopexit ]
   %74 = and i32 %.lcssa, 33554432

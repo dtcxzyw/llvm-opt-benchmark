@@ -4891,22 +4891,22 @@ define dso_local range(i32 0, 2) i32 @raxCompare(ptr noundef readonly captures(n
   br label %12
 
 12:                                               ; preds = %11, %7
-  %.not40.not = phi i1 [ true, %11 ], [ false, %7 ]
-  %.not44 = icmp eq i8 %5, 62
-  br i1 %.not44, label %18, label %13
+  %.not41.not = phi i1 [ true, %11 ], [ false, %7 ]
+  %13 = icmp eq i8 %5, 62
+  br i1 %13, label %18, label %13
 
-13:                                               ; preds = %12
-  %14 = icmp eq i8 %5, 60
-  br i1 %14, label %18, label %15
+14:                                               ; preds = %12
+  %15 = icmp eq i8 %5, 60
+  br i1 %15, label %19, label %16
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !15
-  %.not = icmp eq i8 %17, 61
-  br i1 %.not, label %18, label %41
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %18 = load i8, ptr %17, align 1, !tbaa !15
+  %.not = icmp eq i8 %18, 61
+  br i1 %.not, label %19, label %41
 
-18:                                               ; preds = %13, %12, %15
-  %or.cond = phi i1 [ true, %15 ], [ false, %12 ], [ false, %13 ]
+19:                                               ; preds = %14, %12, %16
+  %20 = phi i1 [ true, %15 ], [ false, %12 ], [ false, %13 ]
   %.not41 = phi i1 [ true, %15 ], [ true, %12 ], [ false, %13 ]
   %.033 = phi i32 [ 0, %15 ], [ 0, %12 ], [ 1, %13 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4914,12 +4914,12 @@ define dso_local range(i32 0, 2) i32 @raxCompare(ptr noundef readonly captures(n
   %21 = icmp ult i64 %3, %20
   %. = tail call i64 @llvm.umin.i64(i64 %3, i64 %20)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !38
+  %23 = load ptr, ptr %22, align 8, !tbaa !40
   %24 = tail call i32 @memcmp(ptr noundef %23, ptr noundef %2, i64 noundef %.) #30
   %25 = icmp eq i32 %24, 0
   br i1 %or.cond, label %26, label %30
 
-26:                                               ; preds = %18
+26:; preds = %18
   br i1 %25, label %27, label %41
 
 27:                                               ; preds = %26
@@ -4927,35 +4927,35 @@ define dso_local range(i32 0, 2) i32 @raxCompare(ptr noundef readonly captures(n
   %29 = zext i1 %28 to i32
   br label %41
 
-30:                                               ; preds = %18
+30:                                               ; preds = %19
   br i1 %25, label %31, label %38
 
 31:                                               ; preds = %30
   %32 = icmp eq i64 %3, %20
-  %or.cond43 = and i1 %.not40.not, %32
-  br i1 %or.cond43, label %41, label %33
+  %or.cond44 = and i1 %.not41.not, %32
+  br i1 %or.cond44, label %41, label %33
 
 33:                                               ; preds = %31
-  br i1 %.not41, label %37, label %34
+  br i1 %.not41, label %36, label %34
 
 34:                                               ; preds = %33
   %35 = icmp ult i64 %20, %3
   %36 = zext i1 %35 to i32
   br label %41
 
-37:                                               ; preds = %33
-  %narrow = and i1 %.not44, %21
+36:                                               ; preds = %33
+  %narrow = and i1 %13, %21
   %spec.select = zext i1 %narrow to i32
   br label %41
 
-38:                                               ; preds = %30
+40:                                               ; preds = %30
   %39 = icmp sgt i32 %24, 0
   %40 = zext i1 %.not44 to i32
   %spec.select45 = select i1 %39, i32 %40, i32 %.033
   br label %41
 
-41:                                               ; preds = %38, %37, %31, %34, %27, %26, %15
-  %.0 = phi i32 [ 0, %15 ], [ %36, %34 ], [ 0, %26 ], [ %29, %27 ], [ 1, %31 ], [ %spec.select, %37 ], [ %spec.select45, %38 ]
+41:                                               ; preds = %38, %36, %31, %34, %27, %26, %16
+  %.0.shrunk = phi i32 [ 0, %15 ], [ %36, %34 ], [ 0, %26 ], [ %29, %27 ], [ 1, %31 ], [ %spec.select, %37 ], [ %spec.select45, %38 ]
   ret i32 %.0
 }
 

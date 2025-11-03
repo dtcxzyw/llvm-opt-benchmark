@@ -13926,10 +13926,10 @@ _action_find_elements.exit:                       ; preds = %131, %150, %_action
 _shortcut_is_speed.exit135:                       ; preds = %183, %186, %189, %193, %196
   br i1 %.lcssa, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %201, %_shortcut_is_speed.exit135
+_shortcut_is_speed.exit135:                       ; preds = %201, %_shortcut_is_speed.exit135
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %235
+.preheader:                                       ; preds = %_shortcut_is_speed.exit135, %235
   %.182 = phi ptr [ %237, %235 ], [ %.081.lcssa, %.preheader.preheader ]
   %205 = load i32, ptr %.182, align 8, !tbaa !94
   %206 = icmp eq i32 %205, 4
